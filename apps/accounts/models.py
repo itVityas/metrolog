@@ -10,9 +10,9 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name='Username',
         help_text='Имя пользователя'
         )
-    is_admin = models.BooleanField(
+    is_staff = models.BooleanField(
         default=False,
-        verbose_name='Is admin',
+        verbose_name='Is staff',
         help_text='Является администратором'
         )
     created_at = models.DateTimeField(
