@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang='en'>
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Metrolog">
+  <title>Metrolog</title>
+  <link href="{%static 'css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{%static 'css/my.css'%}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="col-sm-2">
+        {% block navbar %}
+            <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark"> 
+                <div class="container-fluid"> 
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <a class="navbar-brand" href="#">Паспорт</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Справки</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown10">
+                                <li><a class="dropdown-item" href="#">1</a></li>
+                                <li><a class="dropdown-item" href="#">2</a></li>
+                                <li><a class="dropdown-item" href="#">3</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Справочники</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown10">
+                                <li><a class="dropdown-item" href="#">ГРУППЫ СИ</a></li>
+                                <li><a class="dropdown-item" href="#">МЕСТО ЗАКРЕПЛЕНИЯ</a></li>
+                                <li><a class="dropdown-item" href="#">СТАТУС ПРИБОРА</a></li>
+                                <li><a class="dropdown-item" href="#">ВИД ИЗМЕРЕНИЯ</a></li>
+                                <li><a class="dropdown-item" href="#">ХАРАКТЕР РЕМОНТА</a></li>
+                                <li><a class="dropdown-item" href="#">ДРАГМЕТАЛЛЫ</a></li>
+                                <li><a class="dropdown-item" href="#">ДАННЫЕ ПО ТИПАМ СИ</a></li>
+                                <li><a class="dropdown-item" href="#">ЕДИНИЦЫ ИЗМЕРЕНИЯ</a></li>
+                                <li><a class="dropdown-item" href="#">ПОДРАЗДЕЛЕНИЯ ПОВЕРИТЕЛИ</a></li>
+                                <li><a class="dropdown-item" href="#">ПОВЕРИТЕЛИ ОТДЕЛА</a></li>
+                                <li><a class="dropdown-item" href="#">ПРЕДЕЛЫ ИЗМЕРЕНИЯ</a></li>
+                                <li><a class="dropdown-item" href="#">ТАРИФЫ ПО РАЗРЯДАМ</a></li>
+                                <li><a class="dropdown-item" href="#">КАТЕГОРИЯ РЕМОНТА</a></li>
+                                <li><a class="dropdown-item" href="#">ОТКАЗ ПРИБОРА</a></li>
+                                <li><a class="dropdown-item" href="#">РЕМОНТНИКИ ОТДЕЛА</a></li>
+                                <li><a class="dropdown-item" href="#">ПРИЗНАК ПОВЕРКИ</a></li>
+                                <li><a class="dropdown-item" href="#">ПЕРЕЧЕНЬ ЦЕХОВ ДЛЯ КАЧЕСТВА</a></li>
+                                <li><a class="dropdown-item" href="#">ПЕРЕЧЕНЬ КОМПЛЕКТОВ</a></li>
+                            </ul>
+                        </li>
+                        <a class="navbar-brand" href="#">Администрирование</a>
+                        <form method="POST", action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button type="submit">Выход</button>
+                        </form>
+                    </ul>
+                </div>
+            </nav>
+        {% endblock %}
+    </div>
+    <div class="p-1"> 
+        {% block content %}{% endblock %}
+    </div>
+
+    {%block footer %}
+    {% endblock %}
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+
+</html>

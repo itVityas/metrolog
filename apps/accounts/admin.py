@@ -13,7 +13,9 @@ class CustomUserAdmin(UserAdmin):
     list_filter = ("username", "is_staff", "is_active",)
     fieldsets = (
         (None, {"fields": ("username", "password")}),
-        ("Permissions", {"fields": ("is_staff", "is_active", "groups", "user_permissions")}),
+        ("Permissions", {
+            "fields": ("is_staff", "is_active", "groups", "user_permissions")
+            }),
     )
     add_fieldsets = (
         (None, {
@@ -21,8 +23,7 @@ class CustomUserAdmin(UserAdmin):
             "fields": (
                 "username", "password1", "password2", "is_staff",
                 "is_active", "groups", "user_permissions"
-            )}
-        ),
+            )}),
     )
     search_fields = ("username",)
     ordering = ("username",)
