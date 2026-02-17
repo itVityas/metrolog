@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.accounts',
 ]
 
 MIDDLEWARE = [
@@ -163,3 +164,5 @@ LOGGING = {
         'level': 'DEBUG',
     },
 }
+
+AUTH_USER_MODEL = "accounts.User"
