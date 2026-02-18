@@ -1,0 +1,39 @@
+{% extends base_generic.html %}
+
+{% block  content %}
+    <div class='container-fluid'>
+    <div class='row'>
+        <div class='col-6'>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered w-auto">
+                    <thead>
+                        <th>code</th>
+                        <th>rank</th>
+                        <th>fio</th>
+                        <th>is_active</th>
+                    </thead>
+                    <tbody>
+                        {% for verification_person in verification_person_list %}
+                            <tr>
+                                <td>{{verification_person.code}}</td>
+                                <td>{{verification_person.rank}}</td>
+                                <td>{{verification_person.fio}}</td>
+                                <td>{{verification_person.is_active}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class='col-6'>
+            <form method="POST">
+            {% csrf_token %}
+                <button action="{% url 'index' %}">Добавить</button>
+                <button action="{% url 'index' %}">Изменить</button>
+                <button action="{% url 'index' %}">Удалить</button>
+            </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

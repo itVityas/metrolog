@@ -1,0 +1,55 @@
+{% extends base_generic.html %}
+
+{% block  content %}
+    <div class='container-fluid'>
+    <div class='row'>
+        <div class='col-6'>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered w-auto">
+                    <thead>
+                        <th>type</th>
+                        <th>code</th>
+                        <th>accurancy</th>
+                        <th>cost</th>
+                        <th>min_limit</th>
+                        <th>max_limit</th>
+                        <th>min_measurement</th>
+                        <th>max_measurement</th>
+                        <th>standart_verification</th>
+                        <th>standart_repair</th>
+                        <th>rank_verification</th>
+                        <th>rank_repair</th>
+                    </thead>
+                    <tbody>
+                        {% for moc_type in moc_type_list %}
+                            <tr>
+                                <td>{{moc_type.type}}</td>
+                                <td>{{moc_type.code}}</td>
+                                <td>{{moc_type.accurancy}}</td>
+                                <td>{{moc_type.cost}}</td>
+                                <td>{{moc_type.min_limit}}</td>
+                                <td>{{moc_type.max_limit}}</td>
+                                <td>{{moc_type.min_measurement}}</td>
+                                <td>{{moc_type.max_measurement}}</td>
+                                <td>{{moc_type.standart_verification}}</td>
+                                <td>{{moc_type.standart_repair}}</td>
+                                <td>{{moc_type.rank_verification}}</td>
+                                <td>{{moc_type.rank_repair}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class='col-6'>
+            <form method="POST">
+            {% csrf_token %}
+                <button action="{% url 'index' %}">Добавить</button>
+                <button action="{% url 'index' %}">Изменить</button>
+                <button action="{% url 'index' %}">Удалить</button>
+            </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

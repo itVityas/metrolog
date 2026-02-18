@@ -1,0 +1,39 @@
+{% extends base_generic.html %}
+
+{% block  content %}
+    <div class='container-fluid'>
+    <div class='row'>
+        <div class='col-6'>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered w-auto">
+                    <thead>
+                        <th>code</th>
+                        <th>sign</th>
+                        <th>name</th>
+                        <th>is_active</th>
+                    </thead>
+                    <tbody>
+                        {% for repair_department in repair_department_list %}
+                            <tr>
+                                <td>{{ repair_department.code }}</td>
+                                <td>{{ repair_department.sign }}</td>
+                                <td>{{ repair_department.name }}</td>
+                                <td>{{ repair_department.is_active }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class='col-6'>
+            <form method="POST">
+            {% csrf_token %}
+                <button action="{% url 'index' %}">Добавить</button>
+                <button action="{% url 'index' %}">Изменить</button>
+                <button action="{% url 'index' %}">Удалить</button>
+            </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

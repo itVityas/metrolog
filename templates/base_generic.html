@@ -12,10 +12,10 @@
 </head>
 
 <body>
-    <div class="col-sm-2">
+    <div class="">
         {% block navbar %}
-            <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark"> 
-                <div class="container-fluid"> 
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+                <div class="container"> 
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <a class="navbar-brand" href="#">Паспорт</a>
                         <li class="nav-item dropdown">
@@ -29,7 +29,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Справочники</a>
                             <ul class="dropdown-menu" aria-labelledby="dropdown10">
-                                <li><a class="dropdown-item" href="#">ГРУППЫ СИ</a></li>
+                                <li><a class="dropdown-item" href="{% url 'moc_group' %}">ГРУППЫ СИ</a></li>
                                 <li><a class="dropdown-item" href="#">МЕСТО ЗАКРЕПЛЕНИЯ</a></li>
                                 <li><a class="dropdown-item" href="#">СТАТУС ПРИБОРА</a></li>
                                 <li><a class="dropdown-item" href="#">ВИД ИЗМЕРЕНИЯ</a></li>
