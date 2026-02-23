@@ -11,15 +11,15 @@
   <link type="text/css" href="{% static 'css/sign-in.css' %}" rel="stylesheet">
 </head>
 
-<body class="text-center">
-    <main class="form-signin w-100 m-auto">
-        <form method="POST" action="{% url 'login' %}">
+<body class="text-center" style="background-color:#dddddd;">
+    <main class="form-signin w-100 m-auto" style="background-color:#cccccc;">
+        <form method="POST" class="form-row align-items-center" action="{% url 'login' %}">
             {% csrf_token %}
               <h1 class="h3 mb-3 fw-normal">Пожалуйста залогиньтесь</h1>
       
-              {{form.as_table}}
+              {{form.as_p}}
 
-              <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button>
+              <button class="w-50 btn btn-lg btn-dark" type="submit">Войти</button>
               <h1 class="h6 mb-6 fw-normal">{{ message }}</h1>
           </form>
     </main>

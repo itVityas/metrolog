@@ -11,13 +11,13 @@
   <link href="{%static 'css/my.css'%}" rel="stylesheet">
 </head>
 
-<body>
+<body style="background-color:#dddddd;">
     <div class="">
         {% block navbar %}
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
-                <div class="container"> 
+                <div class="container-fluid"> 
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <a class="navbar-brand" href="#">Паспорт</a>
+                        <li class="nav-item"><a class="nav-link" href="#">Паспорт</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Справки</a>
                             <ul class="dropdown-menu" aria-labelledby="dropdown10">
@@ -49,18 +49,49 @@
                                 <li><a class="dropdown-item" href="#">ПЕРЕЧЕНЬ КОМПЛЕКТОВ</a></li>
                             </ul>
                         </li>
-                        <a class="navbar-brand" href="#">Администрирование</a>
-                        <form method="POST", action="{% url 'logout' %}">
+                        <li class="nav-item"><a class="nav-link" href="#">Администрирование</a></li>
+                        <li class="nav-item"><form method="POST", action="{% url 'logout' %}">
                             {% csrf_token %}
-                            <button type="submit">Выход</button>
-                        </form>
+                            <button class="nav-link" type="submit">Выход</button>
+                        </form></li>
                     </ul>
                 </div>
             </nav>
         {% endblock %}
     </div>
-    <div class="p-1"> 
+    <div class="p-2"> 
         {% block content %}{% endblock %}
+        {% block paginator %}
+            {% if is_paginated %}
+            <nav>
+                <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{ request.path }}?page={{page_obj.previous_page_number }}" tabindex="-1">Предыдущая</a>
+                            </li>
+                        {% endif %}
+
+                        {% for page_number in page_obj.paginator.page_range %}
+                            <li class="page-item {% if page_number == page_obj.number %}active dark{% endif %}">
+                                <a
+                                    href="{{ request.path }}?page={{ page_number }}"
+                                    class="page-link "
+                                >
+                                    {{page_number}}
+                                </a>
+                            </li>
+                        {% endfor %}
+
+                        {% if page_obj.has_next%}
+                            <li class="page-item">
+                                <a class="page-link" href="{{ request.path }}?page={{page_obj.next_page_number }}">Следующая</a>
+                            </li>
+                        {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
+        {% endblock %}
+
     </div>
 
     {%block footer %}

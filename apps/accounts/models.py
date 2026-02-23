@@ -7,23 +7,23 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(
         max_length=150,
         unique=True,
-        verbose_name='Username',
+        verbose_name='Имя пользователя',
         help_text='Имя пользователя'
         )
     is_staff = models.BooleanField(
         default=False,
-        verbose_name='Is staff',
+        verbose_name='Администратор',
         help_text='Является администратором'
         )
     created_at = models.DateTimeField(
         auto_now_add=True,
         editable=False,
-        verbose_name='User created',
+        verbose_name='Дата создания',
         help_text='Дата, время создания пользователя'
         )
     updated_at = models.DateTimeField(
         auto_now=True,
-        verbose_name='User last updated',
+        verbose_name='Дата обновления',
         help_text='Дата, время последнего изменения пользователя'
         )
     is_active = models.BooleanField(

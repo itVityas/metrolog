@@ -3,3 +3,16 @@
   -moz-column-count: 4; /* для Firefox */
   column-count: 4;
 }
+.pagination .page-link {
+    color: black;
+}
+.pagination .page-item.active .page-link {
+    background-color: #212529;
+    border-color: #212529;
+    color: white;
+}
+.pagination .page-item:hover:not(.active) .page-link {
+    background-color: #ddd;
+    border-color: #212529;
+    color: black;
+}

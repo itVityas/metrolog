@@ -1,40 +1,16 @@
 from django.urls import reverse_lazy
-from django.views import View
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import MocGroup
 from .forms import MocGroupForm
-from django.http import HttpResponse, HttpResponseRedirect
-from django.template.loader import render_to_string
-
-
-class MocGroupGetView(LoginRequiredMixin, View):
-
-    def get(self, request, *args, **kwargs):
-        moc_group_id = kwargs.get('pk')
-        if not moc_group_id:
-            new_form = MocGroupForm()
-            context = {'form': new_form}
-            html = render_to_string(
-                'handbooks/forms/moc_group_form.html',
-                context,
-                request=request)
-            return HttpResponse(html)
-        else:
-            moc_group = MocGroup.objects.get(id=moc_group_id)
-            new_form = MocGroupForm(instance=moc_group)
-            context = {'form': new_form}
-            html = render_to_string(
-                'handbooks/forms/moc_group_form.html',
-                context,
-                request=request)
-            return HttpResponse(html)
+from django.http import HttpResponseRedirect
 
 
 class MocGroupListView(LoginRequiredMixin, ListView):
     model = MocGroup
     template_name = 'handbooks/tables/moc_group_table.html'
     form = MocGroupForm
+    paginate_by = 15
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

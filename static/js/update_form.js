@@ -21,19 +21,6 @@ function fill_modal_window(e) {
 
     form.action = "" + id + "/update/";
     modal.show();
-
-    /*fetch(form.action, {
-        method: 'get',
-    })
-    .then(response => response.text())
-    .then(data => {
-        container.innerHTML = data;
-        const modal = new bootstrap.Modal(document.getElementById("modal_window"));
-        modal.show();
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });*/
 };
 
 function flush_modal_window(e) {
