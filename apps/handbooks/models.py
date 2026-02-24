@@ -44,7 +44,7 @@ class Department(models.Model):
         max_length=100
     )
     is_active = models.BooleanField(
-        verbose_name='Активна',
+        verbose_name='Активно',
         null=False,
         blank=False,
         default=False
@@ -300,7 +300,7 @@ class MocLimit(models.Model):
     Пределы измерения
     """
     type = models.CharField(
-        verbose_name='Код',
+        verbose_name='Тип',
         null=False,
         blank=False,
         max_length=50
@@ -366,13 +366,13 @@ class RepairDepartment(models.Model):
         blank=False
     )
     name = models.CharField(
-        verbose_name='Название',
+        verbose_name='Имя',
         null=False,
         blank=False,
         max_length=100
     )
     is_active = models.BooleanField(
-        verbose_name='Активно',
+        verbose_name='Активен',
         null=False,
         blank=False
     )
