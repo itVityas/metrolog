@@ -20,7 +20,7 @@ function fill_modal_window(e) {
         if (index === cells.length - 2) {
             break;
         }
-        [...form.elements][index].value = cell.textContent;
+        [...form.elements][index+1].value = cell.textContent;
     }
 
     const id = cells[0].textContent;
@@ -35,6 +35,9 @@ function flush_modal_window(e) {
     for (const [index, elem] of [...form.elements].entries()) {
         if (index === [...form.elements].length - 1) {
             break;
+        }
+        if (index === 0) {
+            continue;
         }
         elem.value = null;
     }
