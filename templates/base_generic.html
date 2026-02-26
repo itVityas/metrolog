@@ -30,23 +30,20 @@
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Справочники</a>
                             <ul class="dropdown-menu" aria-labelledby="dropdown10">
                                 <li><a class="dropdown-item" href="{% url 'moc_group' %}">ГРУППЫ СИ</a></li>
-                                <li><a class="dropdown-item" href="#">МЕСТО ЗАКРЕПЛЕНИЯ</a></li>
-                                <li><a class="dropdown-item" href="#">СТАТУС ПРИБОРА</a></li>
+                                <li><a class="dropdown-item" href="{% url 'department' %}">МЕСТО ЗАКРЕПЛЕНИЯ</a></li>
+                                <li><a class="dropdown-item" href="{% url 'device_status' %}">СТАТУС ПРИБОРА</a></li>
                                 <li><a class="dropdown-item" href="{% url 'change_type' %}">ВИД ИЗМЕРЕНИЯ</a></li>
-                                <li><a class="dropdown-item" href="#">ХАРАКТЕР РЕМОНТА</a></li>
-                                <li><a class="dropdown-item" href="#">ДРАГМЕТАЛЛЫ</a></li>
-                                <li><a class="dropdown-item" href="#">ДАННЫЕ ПО ТИПАМ СИ</a></li>
-                                <li><a class="dropdown-item" href="#">ЕДИНИЦЫ ИЗМЕРЕНИЯ</a></li>
-                                <li><a class="dropdown-item" href="#">ПОДРАЗДЕЛЕНИЯ ПОВЕРИТЕЛИ</a></li>
-                                <li><a class="dropdown-item" href="#">ПОВЕРИТЕЛИ ОТДЕЛА</a></li>
-                                <li><a class="dropdown-item" href="#">ПРЕДЕЛЫ ИЗМЕРЕНИЯ</a></li>
-                                <li><a class="dropdown-item" href="#">ТАРИФЫ ПО РАЗРЯДАМ</a></li>
-                                <li><a class="dropdown-item" href="#">КАТЕГОРИЯ РЕМОНТА</a></li>
-                                <li><a class="dropdown-item" href="#">ОТКАЗ ПРИБОРА</a></li>
-                                <li><a class="dropdown-item" href="#">РЕМОНТНИКИ ОТДЕЛА</a></li>
-                                <li><a class="dropdown-item" href="#">ПРИЗНАК ПОВЕРКИ</a></li>
-                                <li><a class="dropdown-item" href="#">ПЕРЕЧЕНЬ ЦЕХОВ ДЛЯ КАЧЕСТВА</a></li>
-                                <li><a class="dropdown-item" href="#">ПЕРЕЧЕНЬ КОМПЛЕКТОВ</a></li>
+                                <li><a class="dropdown-item" href="{% url 'repair' %}">ХАРАКТЕР РЕМОНТА</a></li>
+                                <li><a class="dropdown-item" href="{% url 'precious_metals' %}">ДРАГМЕТАЛЛЫ</a></li>
+                                <li><a class="dropdown-item" href="{% url 'moc_type' %}">ДАННЫЕ ПО ТИПАМ СИ</a></li>
+                                <li><a class="dropdown-item" href="{% url 'units_measurement' %}">ЕДИНИЦЫ ИЗМЕРЕНИЯ</a></li>
+                                <li><a class="dropdown-item" href="{% url 'verification_department' %}">ПОДРАЗДЕЛЕНИЯ ПОВЕРИТЕЛИ</a></li>
+                                <li><a class="dropdown-item" href="{% url 'verification_person' %}">ПОВЕРИТЕЛИ ОТДЕЛА</a></li>
+                                <li><a class="dropdown-item" href="{% url 'moc_limit' %}">ПРЕДЕЛЫ ИЗМЕРЕНИЯ</a></li>
+                                <li><a class="dropdown-item" href="{% url 'repair_code' %}">КАТЕГОРИЯ РЕМОНТА</a></li>
+                                <li><a class="dropdown-item" href="{% url 'instrument_failure' %}">ОТКАЗ ПРИБОРА</a></li>
+                                <li><a class="dropdown-item" href="{% url 'repair_department' %}">РЕМОНТНИКИ ОТДЕЛА</a></li>
+                                <li><a class="dropdown-item" href="{% url 'verification_sign' %}">ПРИЗНАК ПОВЕРКИ</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="#">Администрирование</a></li>

@@ -53,7 +53,7 @@ class Department(models.Model):
 
 class Repair(models.Model):
     """
-    Статус ремонта
+    Характер ремонта
     """
     name = models.CharField(
         verbose_name='Название',
@@ -85,7 +85,7 @@ class VerificationDepartment(models.Model):
         blank=False
     )
     sign = models.IntegerField(
-        verbose_name='Знак',
+        verbose_name='Признак',
         null=False,
         blank=False
     )
@@ -361,7 +361,7 @@ class RepairDepartment(models.Model):
         blank=False
     )
     sign = models.IntegerField(
-        verbose_name='Знак',
+        verbose_name='Признак',
         null=False,
         blank=False
     )

@@ -50,25 +50,7 @@
                 </div>
             </div>
 
-            <div id="modal_window_delete" class="modal fade" aria-hidden='true' tabindex='-1'>
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content form_content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Точно хотите удалить?</h5>
-                            <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="modal_form_del" action="" method="post">
-                                {% csrf_token %}
-                                <button class="btn btn-dark" type="submit">Удалить</button>
-                                <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Отмена</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           {% include 'delete_confirmation_modal.html' %}
         </div>
     </div>
     </div>

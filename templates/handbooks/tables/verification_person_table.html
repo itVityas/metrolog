@@ -1,38 +1,60 @@
-{% extends base_generic.html %}
+{% extends 'base_generic.html' %}
 
 {% block  content %}
     <div class='container-fluid'>
-    <div class='row'>
-        <div class='col-6'>
+    <div class='col'>
+        <div class=''>
+            <h5>Поверители отдела</h5>
             <div class="table-responsive">
-                <table class="table table-striped table-bordered w-auto">
+                <table class="table table-striped table-bordered border border-dark w-100">
                     <thead>
-                        <th>code</th>
-                        <th>rank</th>
-                        <th>fio</th>
-                        <th>is_active</th>
+                        <th>{{verbose_names.id}}</th>
+                        <th>{{verbose_names.code}}</th>
+                        <th>{{verbose_names.rank}}</th>
+                        <th>{{verbose_names.fio}}</th>
+                        <th>{{verbose_names.is_active}}</th>
+                        <th colspan="2"><button id='btn-show-modal' class='btn btn-dark w-100' type='button' onclick="flush_modal_window(this)">Добавить</button></th>
                     </thead>
                     <tbody>
-                        {% for verification_person in verification_person_list %}
+                        {% for verification_person in object_list %}
                             <tr>
+                                <td>{{verification_person.id}}</td>
                                 <td>{{verification_person.code}}</td>
                                 <td>{{verification_person.rank}}</td>
                                 <td>{{verification_person.fio}}</td>
                                 <td>{{verification_person.is_active}}</td>
+                                <td><button type="button" class="btn btn-dark w-100" onclick="fill_modal_window(this)" id="submitButton"> Изменить </button></td>
+                                <td><button type="button" class="btn btn-dark w-100" onclick="show_delete_modal(this)">Удалить</button></td>
                             </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
+        <div id='form_container'>
+            
+            <div id="modal_window_add" class="modal fade" aria-hidden='true' tabindex='-1'>
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content form_content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Поверители отдела</h5>
+                            <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                        <form id="modal_form" action="{%url 'moc_group_add'%}" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button class="btn btn-dark" type="submit">Сохранить</button>
+                            <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Отмена</button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div class='col-6'>
-            <form method="POST">
-            {% csrf_token %}
-                <button action="{% url 'index' %}">Добавить</button>
-                <button action="{% url 'index' %}">Изменить</button>
-                <button action="{% url 'index' %}">Удалить</button>
-            </form>
+            {% include 'delete_confirmation_modal.html' %}
         </div>
     </div>
     </div>
