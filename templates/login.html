@@ -16,9 +16,9 @@
         <form method="POST" class="form-row align-items-center" action="{% url 'login' %}">
             {% csrf_token %}
               <h1 class="h3 mb-3 fw-normal">Пожалуйста залогиньтесь</h1>
-      
-              {{form.as_p}}
-
+                <div style="width: fit-content;" class="d-flex flex-column align-items-end">
+                    {{form.as_p}}
+                </div>
               <button class="w-50 btn btn-lg btn-dark" type="submit">Войти</button>
               <h1 class="h6 mb-6 fw-normal">{{ message }}</h1>
           </form>

@@ -22,7 +22,7 @@
                                 <td>{{department.workshop}}</td>
                                 <td>{{department.brigade}}</td>
                                 <td>{{department.name}}</td>
-                                <td>{{department.is_active}}</td>
+                                <td>{{department.is_active|yesno:"Да,Нет"}}</td>
                                 <td><button type="button" class="btn btn-dark w-100" onclick="fill_modal_window(this)" id="submitButton"> Изменить </button></td>
                                 <td><button type="button" class="btn btn-dark w-100" onclick="show_delete_modal(this)">Удалить</button></td>
                             </tr>

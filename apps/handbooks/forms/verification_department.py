@@ -15,9 +15,9 @@ class VerificationDepartmentForm(forms.ModelForm):
         required=True
     )
     sign = forms.IntegerField(
-        label='Знак',
+        label='Признак',
         widget=forms.NumberInput(attrs={
-            'placeholder': 'Знак',
+            'placeholder': 'Признак',
             'class': 'form-control'
         }),
         initial=0,
@@ -34,12 +34,11 @@ class VerificationDepartmentForm(forms.ModelForm):
     )
     is_active = forms.BooleanField(
         label='Активно',
-        widget=forms.NumberInput(attrs={
+        widget=forms.CheckboxInput(attrs={
             'placeholder': 'Активно',
-            'class': 'form-control'
         }),
         initial=False,
-        required=True
+        required=False
     )
 
     class Meta:

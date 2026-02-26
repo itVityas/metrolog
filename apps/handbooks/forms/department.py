@@ -34,12 +34,11 @@ class DepartmentForm(forms.ModelForm):
     )
     is_active = forms.BooleanField(
         label='Активно',
-        widget=forms.NumberInput(attrs={
+        widget=forms.CheckboxInput(attrs={
             'placeholder': 'Активно',
-            'class': 'form-control'
         }),
         initial=False,
-        required=True
+        required=False
     )
 
     class Meta:

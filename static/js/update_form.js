@@ -53,16 +53,16 @@ function flush_modal_window(e) {
 
 function show_delete_modal(e){
     const modal_delete = new bootstrap.Modal(document.getElementById("modal_window_delete"));
-    const form_delete = document.getElementById("modal_form_del");
-    //const delete_button = document.getElementById("delete_button");
+    //const form_delete = document.getElementById("modal_form_del");
+    const delete_button = document.getElementById("delete_button");
 
     const row = e.parentElement.parentElement;
     const cells = row.children;
 
     const id = cells[0].textContent;
 
-    form_delete.action = "" + id + "/delete/";
-    //delete_button.data = id;
+    //form_delete.action = "" + id + "/delete/";
+    delete_button.data = id;
     modal_delete.show();
 }
 
@@ -74,7 +74,13 @@ function makedelete(e){
             'X-CSRFToken': csrfToken
         },
     }).then(response => {
-        window.location.href = response.url;
+        response.text().then(text =>{
+            console.log(text)
+            document.open()
+            document.write(text)
+            document.close()
+            //location.reload()
+        })
     })
     .catch(error => console.error('Error fetching data:', error));
 }

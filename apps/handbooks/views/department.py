@@ -51,7 +51,9 @@ class DepartmentDeleteView(LoginRequiredMixin, DeleteView):
     form_class = DepartmentForm
     success_url = reverse_lazy('department')
 
-    def post(self, request, *args, **kwargs):
+    def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         self.object.delete()
-        return HttpResponseRedirect(self.get_success_url())
+        response = HttpResponseRedirect(self.get_success_url())
+        response.status_code = 303
+        return response

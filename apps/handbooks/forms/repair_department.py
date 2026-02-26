@@ -15,9 +15,9 @@ class RepairDepartmentForm(forms.ModelForm):
         required=True
     )
     sign = forms.IntegerField(
-        label='Знак',
+        label='Признак',
         widget=forms.NumberInput(attrs={
-            'placeholder': 'Знак',
+            'placeholder': 'Признак',
             'class': 'form-control'
         }),
         initial=0,
@@ -34,12 +34,11 @@ class RepairDepartmentForm(forms.ModelForm):
     )
     is_active = forms.BooleanField(
         label='Активен',
-        widget=forms.NumberInput(attrs={
-            'placeholder': 'Активен',
-            'class': 'form-control'
+        widget=forms.CheckboxInput(attrs={
+            'placeholder': 'Активно',
         }),
         initial=False,
-        required=True
+        required=False
     )
 
     class Meta:

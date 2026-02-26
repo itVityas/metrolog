@@ -8,11 +8,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="modal_form_del" action="" method="post">
-                    {% csrf_token %}
-                    <button class="btn btn-dark" type="submit">Удалить</button>
+                    
+                    <button class="btn btn-dark" type="submit" id="delete_button" onclick="makedelete(this)" data="">{% csrf_token %}Удалить</button>
                     <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Отмена</button>
-                </form>
             </div>
         </div>
     </div>

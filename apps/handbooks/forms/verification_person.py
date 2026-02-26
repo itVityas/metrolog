@@ -34,12 +34,11 @@ class VerificationPersonForm(forms.ModelForm):
     )
     is_active = forms.BooleanField(
         label='Активен',
-        widget=forms.NumberInput(attrs={
-            'placeholder': 'Активен',
-            'class': 'form-control'
+        widget=forms.CheckboxInput(attrs={
+            'placeholder': 'Активно',
         }),
         initial=False,
-        required=True
+        required=False
     )
 
     class Meta:
