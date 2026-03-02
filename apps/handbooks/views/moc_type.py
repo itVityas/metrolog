@@ -33,6 +33,14 @@ class MocTypeAddView(LoginRequiredMixin, CreateView):
     form_class = MocTypeForm
     success_url = reverse_lazy('moc_type')
 
+    def post(self, request, *args, **kwargs):
+        print("Request!!!!" + str(request.body))
+        return super().post(request, *args, **kwargs)
+
+    def form_invalid(self, form):
+        print("FORM INVALID!!!")
+        return super().form_invalid(form)
+
 
 class MocTypeUpdateView(LoginRequiredMixin, UpdateView):
     """

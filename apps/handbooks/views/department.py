@@ -33,6 +33,10 @@ class DepartmentAddView(LoginRequiredMixin, CreateView):
     form_class = DepartmentForm
     success_url = reverse_lazy('department')
 
+    def post(self, request, *args, **kwargs):
+        print(request.body)
+        return super().post(request, *args, **kwargs)
+
 
 class DepartmentUpdateView(LoginRequiredMixin, UpdateView):
     """

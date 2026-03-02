@@ -1,4 +1,5 @@
 
+
 function fill_modal_window(e) {
     const modal = new bootstrap.Modal(document.getElementById("modal_window_add"));
     const form = document.getElementById("modal_form");
@@ -20,7 +21,20 @@ function fill_modal_window(e) {
         if (index === cells.length - 2) {
             break;
         }
-        [...form.elements][index+1].value = cell.textContent;
+        if (index === 0) {
+            continue;
+        }
+        switch ([...form.elements][index].type){
+            case "checkbox":
+                [...form.elements][index].checked = (cell.textContent === "Да") ? true : false;
+                break;
+            case "number":
+                [...form.elements][index].value = (cell.textContent.includes(',')) ? parseFloat(cell.textContent.replace(',','.')) : parseInt(cell.textContent);
+                break;
+            default:
+                [...form.elements][index].value = cell.textContent;
+        }
+
     }
 
     const id = cells[0].textContent;
@@ -32,11 +46,16 @@ function flush_modal_window(e) {
     const modal = new bootstrap.Modal(document.getElementById("modal_window_add"));
     const form = document.getElementById("modal_form");
 
-    for (const [index, elem] of [...form.elements].entries()) {
+    form.reset();
+    /*for (const [index, elem] of [...form.elements].entries()) {
         if (index === [...form.elements].length - 1) {
             break;
         }
         if (index === 0) {
+            continue;
+        }
+        if([...form.elements][index].type === "checkbox"){
+            [...form.elements][index].checked = false;
             continue;
         }
         elem.value = null;

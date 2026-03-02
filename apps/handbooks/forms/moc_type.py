@@ -12,7 +12,8 @@ class MocTypeForm(forms.ModelForm):
             'class': 'form-control'
         }),
         initial='',
-        required=True
+        required=True,
+        max_length=50
     )
     code = forms.IntegerField(
         label='Код',
@@ -74,7 +75,8 @@ class MocTypeForm(forms.ModelForm):
             'class': 'form-control'
         }),
         initial='',
-        required=True
+        required=True,
+        max_length=5
     )
     max_measurement = forms.CharField(
         label='Макс. измерение',
@@ -83,7 +85,8 @@ class MocTypeForm(forms.ModelForm):
             'class': 'form-control'
         }),
         initial='',
-        required=True
+        required=True,
+        max_length=5
     )
     standart_verification = forms.DecimalField(
         label='Стандарт поверки',
