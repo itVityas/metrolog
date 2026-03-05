@@ -5,19 +5,19 @@ from ..models import RepairDepartment
 class RepairDepartmentForm(forms.ModelForm):
     id = forms.CharField(widget=forms.HiddenInput(),
                          initial='', required=False)
-    code = forms.IntegerField(
+    code = forms.CharField(
         label='Код',
-        widget=forms.NumberInput(attrs={
+        widget=forms.TextInput(attrs={
             'placeholder': 'Код',
             'class': 'form-control'
         }),
-        initial=0,
+        initial='',
         required=True
     )
     sign = forms.IntegerField(
-        label='Признак',
+        label='Разряд',
         widget=forms.NumberInput(attrs={
-            'placeholder': 'Признак',
+            'placeholder': 'Разряд',
             'class': 'form-control'
         }),
         initial=0,

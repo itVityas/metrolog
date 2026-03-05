@@ -1,0 +1,65 @@
+[
+{
+    "model": "handbooks.devicestatus",
+    "pk": 1,
+    "fields": {
+        "name": "В эксплуатации"
+    }
+},
+{
+    "model": "handbooks.devicestatus",
+    "pk": 2,
+    "fields": {
+        "name": "На хранении"
+    }
+},
+{
+    "model": "handbooks.devicestatus",
+    "pk": 3,
+    "fields": {
+        "name": "В прокате"
+    }
+},
+{
+    "model": "handbooks.devicestatus",
+    "pk": 4,
+    "fields": {
+        "name": "В ремонте"
+    }
+},
+{
+    "model": "handbooks.devicestatus",
+    "pk": 5,
+    "fields": {
+        "name": "В ремонте вр."
+    }
+},
+{
+    "model": "handbooks.devicestatus",
+    "pk": 6,
+    "fields": {
+        "name": "В  Госповерке"
+    }
+},
+{
+    "model": "handbooks.devicestatus",
+    "pk": 7,
+    "fields": {
+        "name": "Долгоср-й рем."
+    }
+},
+{
+    "model": "handbooks.devicestatus",
+    "pk": 8,
+    "fields": {
+        "name": "Индикаторы"
+    }
+},
+{
+    "model": "handbooks.devicestatus",
+    "pk": 9,
+    "fields": {
+        "name": "хранение, годен"
+    }
+}
+]

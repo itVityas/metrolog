@@ -1,0 +1,26 @@
+[
+{
+    "model": "handbooks.verificationsign",
+    "pk": 1,
+    "fields": {
+        "code": "1",
+        "name": "ПЕРВИЧНАЯ ПОВЕРКА"
+    }
+},
+{
+    "model": "handbooks.verificationsign",
+    "pk": 2,
+    "fields": {
+        "code": "2",
+        "name": "ИТОГОВАЯ ПОВЕРКА"
+    }
+},
+{
+    "model": "handbooks.verificationsign",
+    "pk": 3,
+    "fields": {
+        "code": "3",
+        "name": "ГОСУДАРСТВЕННАЯ ПОВ."
+    }
+}
+]

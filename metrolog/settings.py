@@ -176,4 +176,4 @@ LOGGING = {
 AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = reverse_lazy('login')
 LOGIN_REDIRECT_URL = reverse_lazy('index')
-DEFAULT_PAGE_SIZE = 15
+DEFAULT_PAGE_SIZE = 10

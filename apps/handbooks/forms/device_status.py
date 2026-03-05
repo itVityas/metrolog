@@ -6,9 +6,9 @@ class DeviceStatusForm(forms.ModelForm):
     id = forms.CharField(widget=forms.HiddenInput(),
                          initial='', required=False)
     name = forms.CharField(
-        label='Название',
+        label='Наименование',
         widget=forms.TextInput(attrs={
-            'placeholder': 'Название',
+            'placeholder': 'Наименование',
             'class': 'form-control'
         }),
         initial='',

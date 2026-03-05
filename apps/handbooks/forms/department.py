@@ -6,18 +6,18 @@ class DepartmentForm(forms.ModelForm):
     id = forms.CharField(widget=forms.HiddenInput(),
                          initial='', required=False)
     workshop = forms.IntegerField(
-        label='workshop',
+        label='Цех',
         widget=forms.NumberInput(attrs={
-            'placeholder': 'workshop',
+            'placeholder': 'Цех',
             'class': 'form-control'
         }),
         initial=0,
         required=True
     )
     brigade = forms.IntegerField(
-        label='brigade',
+        label='Бригада',
         widget=forms.NumberInput(attrs={
-            'placeholder': 'brigade',
+            'placeholder': 'Бригада',
             'class': 'form-control'
         }),
         initial=0,

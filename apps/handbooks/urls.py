@@ -16,6 +16,9 @@ urlpatterns = [
      path('moc_group/<int:pk>/delete/',
           views.MocGroupDeleteView.as_view(),
           name='moc_group_delete'),
+     path('moc_group/migrate',
+          views.MocGroupMigrateView.as_view(),
+          name='moc_group_migrate'),
 
      # url paths for ChangeType
      path('change_type/',
@@ -30,6 +33,9 @@ urlpatterns = [
      path('change_type/<int:pk>/delete/',
           views.ChangeTypeDeleteView.as_view(),
           name='change_type_delete'),
+     path('change_type/migrate',
+          views.ChangeTypeMigrateView.as_view(),
+          name='change_type_migrate'),
 
      # url paths for Department
      path('department/',
@@ -44,6 +50,9 @@ urlpatterns = [
      path('department/<int:pk>/delete/',
           views.DepartmentDeleteView.as_view(),
           name='department_delete'),
+     path('department/migrate',
+          views.DepartmentMigrateView.as_view(),
+          name='department_migrate'),
 
      # url paths for Repair
      path('repair/',
@@ -58,6 +67,9 @@ urlpatterns = [
      path('repair/<int:pk>/delete/',
           views.RepairDeleteView.as_view(),
           name='repair_delete'),
+     path('repair/migrate',
+          views.RepairMigrateView.as_view(),
+          name='repair_migrate'),
 
      # url paths for PreciousMetals
      path('precious_metals/',
@@ -72,6 +84,9 @@ urlpatterns = [
      path('precious_metals/<int:pk>/delete/',
           views.PreciousMetalsDeleteView.as_view(),
           name='precious_metals_delete'),
+     path('precious_metals/migrate',
+          views.PreciousMetalsMigrateView.as_view(),
+          name='precious_metals_migrate'),
 
      # url paths for VerificationDepartment
      path('verification_department/',
@@ -86,6 +101,9 @@ urlpatterns = [
      path('verification_department/<int:pk>/delete/',
           views.VerificationDepartmentDeleteView.as_view(),
           name='verification_department_delete'),
+     path('verification_department/migrate',
+          views.VerificationDepartmentMigrateView.as_view(),
+          name='verification_department_migrate'),
 
      # url paths for VerificationPerson
      path('verification_person/',
@@ -100,6 +118,9 @@ urlpatterns = [
      path('verification_person/<int:pk>/delete/',
           views.VerificationPersonDeleteView.as_view(),
           name='verification_person_delete'),
+     path('verification_person/migrate',
+          views.VerificationPersonMigrateView.as_view(),
+          name='verification_person_migrate'),
 
      # url paths for RepairCode
      path('repair_code/',
@@ -114,6 +135,9 @@ urlpatterns = [
      path('repair_code/<int:pk>/delete/',
           views.RepairCodeDeleteView.as_view(),
           name='repair_code_delete'),
+     path('repair_code/migrate',
+          views.RepairCodeMigrateView.as_view(),
+          name='repair_code_migrate'),
 
      # url paths for InstrumentFailure
      path('instrument_failure/',
@@ -128,6 +152,9 @@ urlpatterns = [
      path('instrument_failure/<int:pk>/delete/',
           views.InstrumentFailureDeleteView.as_view(),
           name='instrument_failure_delete'),
+     path('instrument_failure/migrate',
+          views.InstrumentFailureMigrateView.as_view(),
+          name='instrument_failure_migrate'),
 
      # url paths for DeviceStatus
      path('device_status/',
@@ -142,6 +169,9 @@ urlpatterns = [
      path('device_status/<int:pk>/delete/',
           views.DeviceStatusDeleteView.as_view(),
           name='device_status_delete'),
+     path('device_status/migrate',
+          views.DeviceStatusMigrateView.as_view(),
+          name='device_status_migrate'),
 
      # url paths for MocType
      path('moc_type/',
@@ -156,6 +186,9 @@ urlpatterns = [
      path('moc_type/<int:pk>/delete/',
           views.MocTypeDeleteView.as_view(),
           name='moc_type_delete'),
+     path('moc_type/migrate',
+          views.MocTypeMigrateView.as_view(),
+          name='moc_type_migrate'),
 
      # url paths for UnitsMeasurement
      path('units_measurement/',
@@ -170,6 +203,9 @@ urlpatterns = [
      path('units_measurement/<int:pk>/delete/',
           views.UnitsMeasurementDeleteView.as_view(),
           name='units_measurement_delete'),
+     path('units_measurement/migrate',
+          views.UnitsMeasurementMigrateView.as_view(),
+          name='units_measurement_migrate'),
 
      # url paths for MocLimit
      path('moc_limit/',
@@ -184,10 +220,13 @@ urlpatterns = [
      path('moc_limit/<int:pk>/delete/',
           views.MocLimitDeleteView.as_view(),
           name='moc_limit_delete'),
+     path('moc_limit/migrate',
+          views.MocLimitMigrateView.as_view(),
+          name='moc_limit_migrate'),
 
      # url paths for VerificationSign
      path('verification_sign/',
-          views.ChangeTypeListView.as_view(),
+          views.VerificationSignListView.as_view(),
           name='verification_sign'),
      path('verification_sign/add/',
           views.VerificationSignAddView.as_view(),
@@ -195,9 +234,12 @@ urlpatterns = [
      path('verification_sign/<int:pk>/update/',
           views.VerificationSignUpdateView.as_view(),
           name='verification_sign_update'),
-     path('verification_signchange_type/<int:pk>/delete/',
+     path('verification_sign/<int:pk>/delete/',
           views.VerificationSignDeleteView.as_view(),
           name='verification_sign_delete'),
+     path('verification_sign/migrate',
+          views.VerificationSignMigrateView.as_view(),
+          name='verification_sign_migrate'),
 
      # url paths for RepairDepartment
      path('repair_department/',
@@ -212,4 +254,7 @@ urlpatterns = [
      path('repair_department/<int:pk>/delete/',
           views.RepairDepartmentDeleteView.as_view(),
           name='repair_department_delete'),
+     path('repair_department/migrate',
+          views.RepairDepartmentMigrateView.as_view(),
+          name='repair_department_migrate'),
 ]

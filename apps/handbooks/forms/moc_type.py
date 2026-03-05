@@ -6,9 +6,9 @@ class MocTypeForm(forms.ModelForm):
     id = forms.CharField(widget=forms.HiddenInput(),
                          initial='', required=False)
     type = forms.CharField(
-        label='Тип',
+        label='Тип СИ',
         widget=forms.TextInput(attrs={
-            'placeholder': 'Тип',
+            'placeholder': 'Тип СИ',
             'class': 'form-control'
         }),
         initial='',
@@ -31,14 +31,14 @@ class MocTypeForm(forms.ModelForm):
             'class': 'form-control'
         }),
         max_digits=10,
-        decimal_places=10,
+        decimal_places=5,
         initial=0,
         required=True
     )
     cost = forms.DecimalField(
-        label='Цена',
+        label='Стоимость госповерки',
         widget=forms.NumberInput(attrs={
-            'placeholder': 'Цена',
+            'placeholder': 'Стоимость госповерки',
             'class': 'form-control'
         }),
         max_digits=9,
@@ -47,9 +47,9 @@ class MocTypeForm(forms.ModelForm):
         required=True
     )
     min_limit = forms.DecimalField(
-        label='Мин. лимит',
+        label='Мин. предел измерения',
         widget=forms.NumberInput(attrs={
-            'placeholder': 'Мин. лимит',
+            'placeholder': 'Мин. предел измерения',
             'class': 'form-control'
         }),
         max_digits=10,
@@ -58,9 +58,9 @@ class MocTypeForm(forms.ModelForm):
         required=True
     )
     max_limit = forms.DecimalField(
-        label='Макс. лимит',
+        label='Макс. предел измерения',
         widget=forms.NumberInput(attrs={
-            'placeholder': 'Макс. лимит',
+            'placeholder': 'Макс. предел измерения',
             'class': 'form-control'
         }),
         max_digits=10,
@@ -69,9 +69,9 @@ class MocTypeForm(forms.ModelForm):
         required=True
     )
     min_measurement = forms.CharField(
-        label='Мин. измерение',
+        label='Единица изм. мин. предела',
         widget=forms.TextInput(attrs={
-            'placeholder': 'Мин. измерение',
+            'placeholder': 'Единица изм. мин. предела',
             'class': 'form-control'
         }),
         initial='',
@@ -79,9 +79,9 @@ class MocTypeForm(forms.ModelForm):
         max_length=5
     )
     max_measurement = forms.CharField(
-        label='Макс. измерение',
+        label='Единица изм. макс. предела',
         widget=forms.TextInput(attrs={
-            'placeholder': 'Макс. измерение',
+            'placeholder': 'Единица изм. макс. предела',
             'class': 'form-control'
         }),
         initial='',
@@ -89,9 +89,9 @@ class MocTypeForm(forms.ModelForm):
         max_length=5
     )
     standart_verification = forms.DecimalField(
-        label='Стандарт поверки',
+        label='Норма поверки',
         widget=forms.NumberInput(attrs={
-            'placeholder': 'Стандарт поверки',
+            'placeholder': 'Норма поверки',
             'class': 'form-control'
         }),
         max_digits=2,
@@ -100,9 +100,9 @@ class MocTypeForm(forms.ModelForm):
         required=True
     )
     standart_repair = forms.DecimalField(
-        label='Стандартный ремонт',
+        label='Норма ремонта',
         widget=forms.NumberInput(attrs={
-            'placeholder': 'Стандартный ремонт',
+            'placeholder': 'Норма ремонта',
             'class': 'form-control'
         }),
         max_digits=2,
@@ -111,18 +111,18 @@ class MocTypeForm(forms.ModelForm):
         required=True
     )
     rank_verification = forms.IntegerField(
-        label='Разряд поверки',
+        label='Разряд поверителя',
         widget=forms.NumberInput(attrs={
-            'placeholder': 'Разряд поверки',
+            'placeholder': 'Разряд поверителя',
             'class': 'form-control'
         }),
         initial=0,
         required=True
     )
     rank_repair = forms.IntegerField(
-        label='Разряд ремонта',
+        label='Разряд ремонтника',
         widget=forms.NumberInput(attrs={
-            'placeholder': 'Разряд ремонта',
+            'placeholder': 'Разряд ремонтника',
             'class': 'form-control'
         }),
         initial=0,

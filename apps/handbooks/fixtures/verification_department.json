@@ -1,0 +1,72 @@
+[
+{
+    "model": "handbooks.verificationdepartment",
+    "pk": 1,
+    "fields": {
+        "code": 0,
+        "sign": 2,
+        "name": "ОАО \"Витязь\"",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.verificationdepartment",
+    "pk": 2,
+    "fields": {
+        "code": 220053,
+        "sign": 2,
+        "name": "МИНСКИЙ ЦСМ",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.verificationdepartment",
+    "pk": 3,
+    "fields": {
+        "code": 223610,
+        "sign": 2,
+        "name": "СЛУЦКИЙ ЦСМ",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.verificationdepartment",
+    "pk": 4,
+    "fields": {
+        "code": 730,
+        "sign": 1,
+        "name": "РУП \"Витебский ЦСМС\"",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.verificationdepartment",
+    "pk": 5,
+    "fields": {
+        "code": 210038,
+        "sign": 2,
+        "name": "МЕДТЕХНИКА",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.verificationdepartment",
+    "pk": 6,
+    "fields": {
+        "code": 210605,
+        "sign": 2,
+        "name": "МОСКВА",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.verificationdepartment",
+    "pk": 7,
+    "fields": {
+        "code": 555555,
+        "sign": 2,
+        "name": "Могилевский ЦСМ",
+        "is_active": true
+    }
+}
+]

@@ -1,0 +1,690 @@
+[
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 1,
+    "fields": {
+        "code": "29",
+        "name": "ГГц"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 2,
+    "fields": {
+        "code": "5",
+        "name": "кВ"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 3,
+    "fields": {
+        "code": "62",
+        "name": "мг/л"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 4,
+    "fields": {
+        "code": "90",
+        "name": "мА"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 5,
+    "fields": {
+        "code": "4",
+        "name": "В"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 6,
+    "fields": {
+        "code": "6",
+        "name": "мВ"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 7,
+    "fields": {
+        "code": "7",
+        "name": "мкВ"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 8,
+    "fields": {
+        "code": "8",
+        "name": "Ом"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 9,
+    "fields": {
+        "code": "9",
+        "name": "кОм"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 10,
+    "fields": {
+        "code": "10",
+        "name": "МОм"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 11,
+    "fields": {
+        "code": "11",
+        "name": "Вт"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 12,
+    "fields": {
+        "code": "12",
+        "name": "кВт"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 13,
+    "fields": {
+        "code": "13",
+        "name": "МВт"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 14,
+    "fields": {
+        "code": "14",
+        "name": "ВА"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 15,
+    "fields": {
+        "code": "15",
+        "name": "Вб"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 16,
+    "fields": {
+        "code": "16",
+        "name": "мкВб"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 17,
+    "fields": {
+        "code": "17",
+        "name": "лкс"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 18,
+    "fields": {
+        "code": "18",
+        "name": "раз"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 19,
+    "fields": {
+        "code": "19",
+        "name": "Ф"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 20,
+    "fields": {
+        "code": "20",
+        "name": "мкФ"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 21,
+    "fields": {
+        "code": "21",
+        "name": "пФ"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 22,
+    "fields": {
+        "code": "22",
+        "name": "рФ"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 23,
+    "fields": {
+        "code": "23",
+        "name": "Г"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 24,
+    "fields": {
+        "code": "24",
+        "name": "мГ"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 25,
+    "fields": {
+        "code": "25",
+        "name": "мкГ"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 26,
+    "fields": {
+        "code": "26",
+        "name": "Гц"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 27,
+    "fields": {
+        "code": "27",
+        "name": "кГц"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 28,
+    "fields": {
+        "code": "28",
+        "name": "МГц"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 29,
+    "fields": {
+        "code": "30",
+        "name": "c"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 30,
+    "fields": {
+        "code": "31",
+        "name": "мс"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 31,
+    "fields": {
+        "code": "32",
+        "name": "мкс"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 32,
+    "fields": {
+        "code": "33",
+        "name": "пс"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 33,
+    "fields": {
+        "code": "34",
+        "name": "дБ"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 34,
+    "fields": {
+        "code": "35",
+        "name": "м"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 35,
+    "fields": {
+        "code": "36",
+        "name": "км/с"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 36,
+    "fields": {
+        "code": "37",
+        "name": "В/м"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 37,
+    "fields": {
+        "code": "38",
+        "name": "%"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 38,
+    "fields": {
+        "code": "39",
+        "name": "км"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 39,
+    "fields": {
+        "code": "40",
+        "name": "мВт"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 40,
+    "fields": {
+        "code": "41",
+        "name": "рВт"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 41,
+    "fields": {
+        "code": "42",
+        "name": "Тл"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 42,
+    "fields": {
+        "code": "43",
+        "name": "ГОм"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 43,
+    "fields": {
+        "code": "44",
+        "name": "мкОм"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 44,
+    "fields": {
+        "code": "45",
+        "name": "мТл"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 45,
+    "fields": {
+        "code": "46",
+        "name": "град"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 46,
+    "fields": {
+        "code": "47",
+        "name": "давл"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 47,
+    "fields": {
+        "code": "48",
+        "name": "МРа"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 48,
+    "fields": {
+        "code": "49",
+        "name": "кРа"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 49,
+    "fields": {
+        "code": "57",
+        "name": "м.вд"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 50,
+    "fields": {
+        "code": "50",
+        "name": "нм/ч"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 51,
+    "fields": {
+        "code": "51",
+        "name": "м/ч"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 52,
+    "fields": {
+        "code": "52",
+        "name": "т/ч"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 53,
+    "fields": {
+        "code": "53",
+        "name": "ph"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 54,
+    "fields": {
+        "code": "54",
+        "name": "hd"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 55,
+    "fields": {
+        "code": "56",
+        "name": "нм"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 56,
+    "fields": {
+        "code": "58",
+        "name": "мр/ч"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 57,
+    "fields": {
+        "code": "55",
+        "name": "м.рт"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 58,
+    "fields": {
+        "code": "59",
+        "name": "л/ми"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 59,
+    "fields": {
+        "code": "60",
+        "name": "р/ч"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 60,
+    "fields": {
+        "code": "61",
+        "name": "мкПА"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 61,
+    "fields": {
+        "code": "91",
+        "name": "мм"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 62,
+    "fields": {
+        "code": "92",
+        "name": "мкм"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 63,
+    "fields": {
+        "code": "93",
+        "name": "угл."
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 64,
+    "fields": {
+        "code": "95",
+        "name": "мг"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 65,
+    "fields": {
+        "code": "96",
+        "name": "г"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 66,
+    "fields": {
+        "code": "97",
+        "name": "кг"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 67,
+    "fields": {
+        "code": "98",
+        "name": "Н"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 68,
+    "fields": {
+        "code": "99",
+        "name": "кН"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 69,
+    "fields": {
+        "code": "100",
+        "name": "гс"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 70,
+    "fields": {
+        "code": "101",
+        "name": "кгс"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 71,
+    "fields": {
+        "code": "105",
+        "name": "Н.м"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 72,
+    "fields": {
+        "code": "106",
+        "name": "Дж"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 73,
+    "fields": {
+        "code": "107",
+        "name": "усл."
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 74,
+    "fields": {
+        "code": "112",
+        "name": "ед.т"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 75,
+    "fields": {
+        "code": "113",
+        "name": "dB"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 76,
+    "fields": {
+        "code": "114",
+        "name": "с"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 77,
+    "fields": {
+        "code": "115",
+        "name": "мину"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 78,
+    "fields": {
+        "code": "116",
+        "name": "м/с*"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 79,
+    "fields": {
+        "code": "117",
+        "name": "мВ/м"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 80,
+    "fields": {
+        "code": "118",
+        "name": "1/се"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 81,
+    "fields": {
+        "code": "119",
+        "name": "1/ми"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 82,
+    "fields": {
+        "code": "120",
+        "name": "об/м"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 83,
+    "fields": {
+        "code": "121",
+        "name": "м**3"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 84,
+    "fields": {
+        "code": "122",
+        "name": "дм**"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 85,
+    "fields": {
+        "code": "125",
+        "name": "мм/м"
+    }
+},
+{
+    "model": "handbooks.unitsmeasurement",
+    "pk": 86,
+    "fields": {
+        "code": "126",
+        "name": "Ra"
+    }
+}
+]

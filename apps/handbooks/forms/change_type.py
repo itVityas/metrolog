@@ -6,18 +6,18 @@ class ChangeTypeForm(forms.ModelForm):
     id = forms.CharField(widget=forms.HiddenInput(),
                          initial='', required=False)
     code = forms.CharField(
-        label='Код',
+        label='Код вида измерения',
         widget=forms.TextInput(attrs={
-            'placeholder': 'Код',
+            'placeholder': 'Код вида измерения',
             'class': 'form-control'
         }),
         initial='',
         required=True
     )
     name = forms.CharField(
-        label='Название',
+        label='Наименование',
         widget=forms.TextInput(attrs={
-            'placeholder': 'Название',
+            'placeholder': 'Наименование',
             'class': 'form-control'
         }),
         initial='',

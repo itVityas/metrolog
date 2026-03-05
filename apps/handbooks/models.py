@@ -3,23 +3,28 @@ from django.db import models
 
 class MocGroup(models.Model):
     """
-    Группы СИ
+    Наименование группы средств измерения
+    (Группы СИ)
     """
-    type = models.IntegerField(
-        verbose_name='Тип',
-        null=False,
-        blank=False
+    type = models.CharField(
+        verbose_name='Вид измерения',
+        null=True,
+        blank=True,
+        max_length=4,
+        default=''
     )
     group = models.IntegerField(
-        verbose_name='Группа',
-        null=False,
-        blank=False
+        verbose_name='Группа СИ(код)',
+        null=True,
+        blank=True,
+        default=0
     )
     name = models.CharField(
-        verbose_name='Название',
-        null=False,
-        blank=False,
-        max_length=100
+        verbose_name='Наименование группы СИ',
+        null=True,
+        blank=True,
+        max_length=100,
+        default=''
     )
 
 
@@ -28,14 +33,14 @@ class Department(models.Model):
     Место закрепления
     """
     workshop = models.IntegerField(
-        verbose_name='workshop',
+        verbose_name='Цех',
         null=False,
         blank=False
     )
     brigade = models.IntegerField(
-        verbose_name='brigade',
-        null=False,
-        blank=False
+        verbose_name='Бригада',
+        null=True,
+        blank=True
     )
     name = models.CharField(
         verbose_name='Название',
@@ -106,10 +111,11 @@ class VerificationPerson(models.Model):
     """
     Поверители отдела
     """
-    code = models.IntegerField(
+    code = models.CharField(
         verbose_name='Код',
         null=False,
-        blank=False
+        blank=False,
+        max_length=10
     )
     rank = models.IntegerField(
         verbose_name='Разряд',
@@ -171,7 +177,7 @@ class DeviceStatus(models.Model):
     Статус прибора
     """
     name = models.CharField(
-        verbose_name='Название',
+        verbose_name='Наименование',
         null=False,
         blank=False,
         max_length=50
@@ -183,13 +189,13 @@ class ChangeType(models.Model):
     Вид измерения
     """
     code = models.CharField(
-        verbose_name='Код',
+        verbose_name='Код вида измерения',
         null=False,
         blank=False,
         max_length=10
     )
     name = models.CharField(
-        verbose_name='Название',
+        verbose_name='Наименование',
         null=False,
         blank=False,
         max_length=100
@@ -201,79 +207,79 @@ class MocType(models.Model):
     Данные по типам СИ
     """
     type = models.CharField(
-        verbose_name='Тип',
-        null=False,
-        blank=False,
+        verbose_name='Тип СИ',
+        null=True,
+        blank=True,
         max_length=50
     )
     code = models.IntegerField(
         verbose_name='Код',
-        null=False,
-        blank=False
+        null=True,
+        blank=True
     )
     accurancy = models.DecimalField(
         verbose_name='Точность',
-        null=False,
-        blank=False,
+        null=True,
+        blank=True,
         max_digits=10,
-        decimal_places=10
+        decimal_places=5
     )
     cost = models.DecimalField(
-        verbose_name='Цена',
-        null=False,
-        blank=False,
+        verbose_name='Стоимость госповерки',
+        null=True,
+        blank=True,
         max_digits=9,
         decimal_places=2
     )
     min_limit = models.DecimalField(
-        verbose_name='Мин. лимит',
-        null=False,
-        blank=False,
+        verbose_name='Мин. предел измерения',
+        null=True,
+        blank=True,
         max_digits=10,
         decimal_places=5
     )
     max_limit = models.DecimalField(
-        verbose_name='Макс. лимит',
-        null=False,
-        blank=False,
-        max_digits=10,
+        verbose_name='Макс. предел измерения',
+        null=True,
+        blank=True,
+        max_digits=12,
         decimal_places=5
     )
     min_measurement = models.CharField(
-        verbose_name='Мин. измерение',
-        null=False,
-        blank=False,
+        verbose_name='Единица изм. мин. предела',
+        null=True,
+        blank=True,
         max_length=5
     )
     max_measurement = models.CharField(
-        verbose_name='Макс. измерение',
-        null=False,
-        blank=False,
+        verbose_name='Единица изм. макс. предела',
+        null=True,
+        blank=True,
         max_length=5
     )
     standart_verification = models.DecimalField(
-        verbose_name='Стандарт поверки',
-        null=False,
-        blank=False,
-        max_digits=2,
+        verbose_name='Норма поверки',
+        null=True,
+        blank=True,
+        max_digits=3,
         decimal_places=1
     )
     standart_repair = models.DecimalField(
-        verbose_name='Стандартный ремонт',
-        null=False,
-        blank=False,
-        max_digits=2,
+        verbose_name='Норма ремонта',
+        null=True,
+        blank=True,
+        max_digits=3,
         decimal_places=1
     )
     rank_verification = models.IntegerField(
-        verbose_name='Разряд поверки',
-        null=False,
-        blank=False
+        verbose_name='Разряд поверителя',
+        null=True,
+        blank=True
     )
     rank_repair = models.IntegerField(
-        verbose_name='Разряд ремонта',
-        null=False,
-        blank=False
+        verbose_name='Разряд ремонтника',
+        null=True,
+        blank=True
     )
 
 
@@ -306,27 +312,27 @@ class MocLimit(models.Model):
         max_length=50
     )
     min_limit = models.DecimalField(
-        verbose_name='Мин. лимит',
+        verbose_name='Мин. предел измерения',
         null=False,
         blank=False,
         max_digits=10,
         decimal_places=5
     )
     max_limit = models.DecimalField(
-        verbose_name='Макс. лимит',
+        verbose_name='Макс. предел измерения',
         null=False,
         blank=False,
         max_digits=10,
         decimal_places=5
     )
     min_measurement = models.CharField(
-        verbose_name='Мин. измерение',
+        verbose_name='Единица изм. мин. предела',
         null=False,
         blank=False,
         max_length=5
     )
     max_measurement = models.CharField(
-        verbose_name='Макс. измерение',
+        verbose_name='Единица изм. макс. предела',
         null=False,
         blank=False,
         max_length=5
@@ -355,13 +361,14 @@ class RepairDepartment(models.Model):
     """
     Ремонтники отдела
     """
-    code = models.IntegerField(
+    code = models.CharField(
         verbose_name='Код',
         null=False,
-        blank=False
+        blank=False,
+        max_length=10
     )
     sign = models.IntegerField(
-        verbose_name='Признак',
+        verbose_name='Разряд',
         null=False,
         blank=False
     )

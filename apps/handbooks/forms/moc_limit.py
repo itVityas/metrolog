@@ -15,9 +15,9 @@ class MocLimitForm(forms.ModelForm):
         required=True
     )
     min_limit = forms.DecimalField(
-        label='Мин. лимит',
+        label='Мин. предел измерения',
         widget=forms.NumberInput(attrs={
-            'placeholder': 'Мин. лимит',
+            'placeholder': 'Мин. предел измерения',
             'class': 'form-control'
         }),
         max_digits=10,
@@ -26,9 +26,9 @@ class MocLimitForm(forms.ModelForm):
         required=True
     )
     max_limit = forms.DecimalField(
-        label='Макс. лимит',
+        label='Макс. предел измерения',
         widget=forms.NumberInput(attrs={
-            'placeholder': 'Макс. лимит',
+            'placeholder': 'Макс. предел измерения',
             'class': 'form-control'
         }),
         max_digits=10,
@@ -37,18 +37,18 @@ class MocLimitForm(forms.ModelForm):
         required=True
     )
     min_measurement = forms.CharField(
-        label='Мин. измерение',
+        label='Единица изм. мин. предела',
         widget=forms.TextInput(attrs={
-            'placeholder': 'Мин. измерение',
+            'placeholder': 'Единица изм. мин. предела',
             'class': 'form-control'
         }),
         initial='',
         required=True
     )
     max_measurement = forms.CharField(
-        label='Макс. измерение',
+        label='Единица изм. макс. предела',
         widget=forms.TextInput(attrs={
-            'placeholder': 'Макс. измерение',
+            'placeholder': 'Единица изм. макс. предела',
             'class': 'form-control'
         }),
         initial='',

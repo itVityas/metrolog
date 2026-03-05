@@ -5,7 +5,7 @@ from ..models import VerificationPerson
 class VerificationPersonForm(forms.ModelForm):
     id = forms.CharField(widget=forms.HiddenInput(),
                          initial='', required=False)
-    code = forms.IntegerField(
+    code = forms.CharField(
         label='Код',
         widget=forms.NumberInput(attrs={
             'placeholder': 'Код',
@@ -16,11 +16,11 @@ class VerificationPersonForm(forms.ModelForm):
     )
     rank = forms.IntegerField(
         label='Разряд',
-        widget=forms.NumberInput(attrs={
+        widget=forms.TextInput(attrs={
             'placeholder': 'Разряд',
             'class': 'form-control'
         }),
-        initial=0,
+        initial='',
         required=True
     )
     fio = forms.CharField(

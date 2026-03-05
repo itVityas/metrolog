@@ -5,14 +5,14 @@ from ..models import MocGroup
 class MocGroupForm(forms.ModelForm):
     id = forms.CharField(widget=forms.HiddenInput(),
                          initial='', required=False)
-    type = forms.IntegerField(
+    type = forms.CharField(
         label='Тип',
-        widget=forms.NumberInput(attrs={
+        widget=forms.TextInput(attrs={
             'placeholder': 'Тип',
             'class': 'form-control'
         }),
-        initial=0,
-        required=True
+        initial='',
+        required=False
     )
     group = forms.IntegerField(
         label='Группа',
@@ -21,7 +21,7 @@ class MocGroupForm(forms.ModelForm):
             'class': 'form-control'
         }),
         initial=0,
-        required=True
+        required=False
     )
     name = forms.CharField(
         label='Название',
@@ -30,7 +30,7 @@ class MocGroupForm(forms.ModelForm):
             'class': 'form-control'
         }),
         initial='',
-        required=True
+        required=False
     )
 
     class Meta:

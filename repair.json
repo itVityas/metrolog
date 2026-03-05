@@ -1,0 +1,345 @@
+[
+{
+    "model": "handbooks.repair",
+    "pk": 1,
+    "fields": {
+        "name": "Ремонт  корпуса"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 2,
+    "fields": {
+        "name": "Ремонт кабелей и разъемов"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 3,
+    "fields": {
+        "name": "Замена диодов"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 4,
+    "fields": {
+        "name": "Замена транзисторов"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 5,
+    "fields": {
+        "name": "Замена микросхем"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 6,
+    "fields": {
+        "name": "Замена ЭЛТ"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 7,
+    "fields": {
+        "name": "Ремонт механических переключателей"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 8,
+    "fields": {
+        "name": "Замена микросборки"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 9,
+    "fields": {
+        "name": "Замена конденсаторов"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 10,
+    "fields": {
+        "name": "Замена резисторов"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 11,
+    "fields": {
+        "name": "Замена электролита"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 12,
+    "fields": {
+        "name": "Замена реле"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 13,
+    "fields": {
+        "name": "Регулировка"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 14,
+    "fields": {
+        "name": "Замена разъёмов,клемм"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 15,
+    "fields": {
+        "name": "Восстановление плат"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 16,
+    "fields": {
+        "name": "Ремонт монтажа"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 17,
+    "fields": {
+        "name": "Ремонт механики"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 18,
+    "fields": {
+        "name": "Полное восстановление прибора"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 19,
+    "fields": {
+        "name": "Замена комплектующих"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 20,
+    "fields": {
+        "name": "Замена трансформатора"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 21,
+    "fields": {
+        "name": "Слесарные работы"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 22,
+    "fields": {
+        "name": "Замена шнура питания"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 23,
+    "fields": {
+        "name": "Замена растяжек"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 24,
+    "fields": {
+        "name": "Профилактический ремонт"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 25,
+    "fields": {
+        "name": "Балансировка изм.мех-ма"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 26,
+    "fields": {
+        "name": "Ремонт изм.мех-ма"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 27,
+    "fields": {
+        "name": "Замена предохранителей"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 28,
+    "fields": {
+        "name": "Замена электродвигателя"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 29,
+    "fields": {
+        "name": "Ремонт линии задержки"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 30,
+    "fields": {
+        "name": "Замена лампы"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 31,
+    "fields": {
+        "name": "Техническое обслуживание"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 32,
+    "fields": {
+        "name": "Ремонт пробника"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 33,
+    "fields": {
+        "name": "Сделать надписи"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 34,
+    "fields": {
+        "name": "Замена потенциометра"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 35,
+    "fields": {
+        "name": "Ремонт аттенюатора"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 36,
+    "fields": {
+        "name": "Замена оптрона"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 37,
+    "fields": {
+        "name": "Замена геркона"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 38,
+    "fields": {
+        "name": "Ремонт термостата"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 39,
+    "fields": {
+        "name": "Замена термистора"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 40,
+    "fields": {
+        "name": "Замена преобразователя"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 41,
+    "fields": {
+        "name": "Замена блока"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 42,
+    "fields": {
+        "name": "Замена вентилятора"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 43,
+    "fields": {
+        "name": "Ремонт вентилятора"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 44,
+    "fields": {
+        "name": "Долгоср.рем., списание"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 45,
+    "fields": {
+        "name": "Вывод в резерв"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 46,
+    "fields": {
+        "name": "Замена диода КД102В"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 47,
+    "fields": {
+        "name": "Проверен на соответствие ТХ"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 48,
+    "fields": {
+        "name": "нет бареттера"
+    }
+},
+{
+    "model": "handbooks.repair",
+    "pk": 49,
+    "fields": {
+        "name": "Ремонт платы питания"
+    }
+}
+]

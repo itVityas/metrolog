@@ -1,0 +1,932 @@
+[
+{
+    "model": "handbooks.department",
+    "pk": 1,
+    "fields": {
+        "workshop": 20,
+        "brigade": 0,
+        "name": "Тех.центр центр центр",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 2,
+    "fields": {
+        "workshop": 110,
+        "brigade": 0,
+        "name": "Отд.110",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 3,
+    "fields": {
+        "workshop": 120,
+        "brigade": 0,
+        "name": "Служба 120",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 4,
+    "fields": {
+        "workshop": 141,
+        "brigade": 0,
+        "name": "Отдел 141",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 5,
+    "fields": {
+        "workshop": 136,
+        "brigade": 0,
+        "name": "Отд.136",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 6,
+    "fields": {
+        "workshop": 151,
+        "brigade": 0,
+        "name": "Сл.151",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 7,
+    "fields": {
+        "workshop": 1521,
+        "brigade": 0,
+        "name": "Бюро1521",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 8,
+    "fields": {
+        "workshop": 1522,
+        "brigade": 0,
+        "name": "Уч-к 1522",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 9,
+    "fields": {
+        "workshop": 1525,
+        "brigade": 0,
+        "name": "Склад",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 10,
+    "fields": {
+        "workshop": 170,
+        "brigade": 0,
+        "name": "Служба 170",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 11,
+    "fields": {
+        "workshop": 180,
+        "brigade": 0,
+        "name": "Отд.180",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 12,
+    "fields": {
+        "workshop": 710,
+        "brigade": 0,
+        "name": "Отд.710",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 13,
+    "fields": {
+        "workshop": 390,
+        "brigade": 0,
+        "name": "Сл.390",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 14,
+    "fields": {
+        "workshop": 540,
+        "brigade": 0,
+        "name": "Отд.540",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 15,
+    "fields": {
+        "workshop": 184,
+        "brigade": 0,
+        "name": "987 (184)",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 16,
+    "fields": {
+        "workshop": 160,
+        "brigade": 0,
+        "name": "Цех 160",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 17,
+    "fields": {
+        "workshop": 988,
+        "brigade": 0,
+        "name": "Цех 988",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 18,
+    "fields": {
+        "workshop": 145,
+        "brigade": 0,
+        "name": "Цех 145",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 19,
+    "fields": {
+        "workshop": 987,
+        "brigade": 0,
+        "name": "Цех 987",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 20,
+    "fields": {
+        "workshop": 146,
+        "brigade": 0,
+        "name": "Цех 146",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 21,
+    "fields": {
+        "workshop": 993,
+        "brigade": 0,
+        "name": "Цех 993",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 22,
+    "fields": {
+        "workshop": 331,
+        "brigade": 0,
+        "name": "Общежитие1",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 23,
+    "fields": {
+        "workshop": 1523,
+        "brigade": 0,
+        "name": "Бюро 1523",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 24,
+    "fields": {
+        "workshop": 1524,
+        "brigade": 0,
+        "name": "Уч.1524",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 25,
+    "fields": {
+        "workshop": 303,
+        "brigade": 0,
+        "name": "Спорткомп.",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 26,
+    "fields": {
+        "workshop": 801,
+        "brigade": 0,
+        "name": "Отд 801",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 27,
+    "fields": {
+        "workshop": 145,
+        "brigade": 1,
+        "name": "Лаб 145/1",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 28,
+    "fields": {
+        "workshop": 996,
+        "brigade": 0,
+        "name": "Цех 996",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 29,
+    "fields": {
+        "workshop": 995,
+        "brigade": 0,
+        "name": "Цех 995",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 30,
+    "fields": {
+        "workshop": 750,
+        "brigade": 0,
+        "name": "Отд.750",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 31,
+    "fields": {
+        "workshop": 610,
+        "brigade": 0,
+        "name": "Отд.610",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 32,
+    "fields": {
+        "workshop": 314,
+        "brigade": 0,
+        "name": "Озд.лагерь",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 33,
+    "fields": {
+        "workshop": 103,
+        "brigade": 0,
+        "name": "Музей",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 34,
+    "fields": {
+        "workshop": 920,
+        "brigade": 0,
+        "name": "Цех 920",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 35,
+    "fields": {
+        "workshop": 921,
+        "brigade": 0,
+        "name": "Цех 921",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 36,
+    "fields": {
+        "workshop": 950,
+        "brigade": 0,
+        "name": "Пр-во  950",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 37,
+    "fields": {
+        "workshop": 961,
+        "brigade": 0,
+        "name": "Цех 961",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 38,
+    "fields": {
+        "workshop": 962,
+        "brigade": 0,
+        "name": "Цех 962",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 39,
+    "fields": {
+        "workshop": 41,
+        "brigade": 0,
+        "name": "Цех 041",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 40,
+    "fields": {
+        "workshop": 145,
+        "brigade": 3,
+        "name": "Теплопункт",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 41,
+    "fields": {
+        "workshop": 145,
+        "brigade": 2,
+        "name": "Энергокорп",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 42,
+    "fields": {
+        "workshop": 143,
+        "brigade": 0,
+        "name": "Отдел 143",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 43,
+    "fields": {
+        "workshop": 806,
+        "brigade": 0,
+        "name": "Отд.806",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 44,
+    "fields": {
+        "workshop": 144,
+        "brigade": 0,
+        "name": "Уч.связи",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 45,
+    "fields": {
+        "workshop": 700,
+        "brigade": 0,
+        "name": "Отд.700",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 46,
+    "fields": {
+        "workshop": 805,
+        "brigade": null,
+        "name": "Отд.805",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 47,
+    "fields": {
+        "workshop": 1520,
+        "brigade": 0,
+        "name": "1520",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 48,
+    "fields": {
+        "workshop": 7,
+        "brigade": 0,
+        "name": "\"Исп.центр центр\"",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 49,
+    "fields": {
+        "workshop": 1451,
+        "brigade": 0,
+        "name": "Цех145/1",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 50,
+    "fields": {
+        "workshop": 1452,
+        "brigade": null,
+        "name": "Цех 145/2",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 51,
+    "fields": {
+        "workshop": 1453,
+        "brigade": null,
+        "name": "Цех145/3",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 52,
+    "fields": {
+        "workshop": 1454,
+        "brigade": null,
+        "name": "Цех 145/4",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 53,
+    "fields": {
+        "workshop": 1455,
+        "brigade": null,
+        "name": "Цех 145/5",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 54,
+    "fields": {
+        "workshop": 1456,
+        "brigade": null,
+        "name": "Цех 145/6",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 55,
+    "fields": {
+        "workshop": 1457,
+        "brigade": null,
+        "name": "Цех 145/7",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 56,
+    "fields": {
+        "workshop": 1458,
+        "brigade": null,
+        "name": "Цех145/8",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 57,
+    "fields": {
+        "workshop": 1459,
+        "brigade": null,
+        "name": "Цех145/9",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 58,
+    "fields": {
+        "workshop": 1450,
+        "brigade": null,
+        "name": "Цех145/10",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 59,
+    "fields": {
+        "workshop": 605,
+        "brigade": null,
+        "name": "Отд. 605",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 60,
+    "fields": {
+        "workshop": 370,
+        "brigade": null,
+        "name": "ТПК \"Витяз",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 61,
+    "fields": {
+        "workshop": 253,
+        "brigade": 0,
+        "name": "ТД \"Витязь",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 62,
+    "fields": {
+        "workshop": 251,
+        "brigade": 0,
+        "name": "Отдел 251",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 63,
+    "fields": {
+        "workshop": 3,
+        "brigade": 0,
+        "name": "Аналитич.центр",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 64,
+    "fields": {
+        "workshop": 107,
+        "brigade": null,
+        "name": "Отд.107",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 65,
+    "fields": {
+        "workshop": 1752,
+        "brigade": 0,
+        "name": "О.700/1752",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 66,
+    "fields": {
+        "workshop": 553,
+        "brigade": 0,
+        "name": "Цех 553",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 67,
+    "fields": {
+        "workshop": 403,
+        "brigade": 0,
+        "name": "Отд.403",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 68,
+    "fields": {
+        "workshop": 5400,
+        "brigade": 0,
+        "name": "663 (ЦИС)",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 69,
+    "fields": {
+        "workshop": 334,
+        "brigade": 0,
+        "name": "Общежитие4",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 70,
+    "fields": {
+        "workshop": 366,
+        "brigade": 0,
+        "name": "Медпункт",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 71,
+    "fields": {
+        "workshop": 994,
+        "brigade": 0,
+        "name": "Отд910/994",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 72,
+    "fields": {
+        "workshop": 332,
+        "brigade": 0,
+        "name": "Общежитие2",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 73,
+    "fields": {
+        "workshop": 3704,
+        "brigade": 0,
+        "name": "Буфет общ4",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 74,
+    "fields": {
+        "workshop": 3701,
+        "brigade": 0,
+        "name": "Буфет ц146",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 75,
+    "fields": {
+        "workshop": 3705,
+        "brigade": 0,
+        "name": "Буфет АКБ",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 76,
+    "fields": {
+        "workshop": 3706,
+        "brigade": 0,
+        "name": "Буфет 154",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 77,
+    "fields": {
+        "workshop": 3707,
+        "brigade": 0,
+        "name": "Буфет 176",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 78,
+    "fields": {
+        "workshop": 380,
+        "brigade": 0,
+        "name": "Кафе-бар",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 79,
+    "fields": {
+        "workshop": 1751,
+        "brigade": 0,
+        "name": "О.700/1751",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 80,
+    "fields": {
+        "workshop": 8,
+        "brigade": 0,
+        "name": "Пож.часть",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 81,
+    "fields": {
+        "workshop": 256,
+        "brigade": 0,
+        "name": "Ст.диагн.",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 82,
+    "fields": {
+        "workshop": 310,
+        "brigade": 1,
+        "name": "ОТД. ПО АРЕНДЕ",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 83,
+    "fields": {
+        "workshop": 201,
+        "brigade": 0,
+        "name": "ТТЦ \"Витязь\"",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 84,
+    "fields": {
+        "workshop": 40,
+        "brigade": 0,
+        "name": "40(БСТО)",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 85,
+    "fields": {
+        "workshop": 255,
+        "brigade": null,
+        "name": "Уч-к 255",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 86,
+    "fields": {
+        "workshop": 312,
+        "brigade": null,
+        "name": "Уч-к 312",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 87,
+    "fields": {
+        "workshop": 888,
+        "brigade": null,
+        "name": "Администрация",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 88,
+    "fields": {
+        "workshop": 335,
+        "brigade": 0,
+        "name": "Общежитие 5",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 89,
+    "fields": {
+        "workshop": 147,
+        "brigade": 0,
+        "name": "Цех 147",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 90,
+    "fields": {
+        "workshop": 9931,
+        "brigade": 0,
+        "name": "993 (цветное литье)",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 91,
+    "fields": {
+        "workshop": 960,
+        "brigade": 0,
+        "name": "Пр-во 960",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 92,
+    "fields": {
+        "workshop": 257,
+        "brigade": null,
+        "name": "Уч-к транспортно-складского об",
+        "is_active": true
+    }
+},
+{
+    "model": "handbooks.department",
+    "pk": 93,
+    "fields": {
+        "workshop": 1,
+        "brigade": null,
+        "name": "Канцелярия",
+        "is_active": true
+    }
+}
+]
