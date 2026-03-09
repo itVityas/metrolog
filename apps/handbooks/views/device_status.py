@@ -17,6 +17,11 @@ class DeviceStatusListView(LoginRequiredMixin, ListView):
     template_name = 'handbooks/tables/device_status_table.html'
     form = DeviceStatusForm
     paginate_by = settings.DEFAULT_PAGE_SIZE
+    ordering = 'id'
+
+    def get_ordering(self):
+        ordering = self.request.GET.get('ordering', 'id')
+        return ordering
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -32,6 +37,7 @@ class DeviceStatusListView(LoginRequiredMixin, ListView):
                 verbose_names[field.name] = field.verbose_name
         context['verbose_names'] = verbose_names
         context['form'] = DeviceStatusForm
+        context['ordering'] = self.get_ordering()
         return context
 
 

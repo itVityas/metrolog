@@ -11,8 +11,8 @@
             <div class="table-responsive">
                 <table class="table table-striped table-bordered border border-dark w-100">
                     <thead>
-                        <th>{{verbose_names.id}}</th>
-                        <th>{{verbose_names.name}}</th>
+                        <th><a class='nav-link' href="{%url 'precious_metal'%}?ordering=id">{{verbose_names.id}}</a></th>
+                        <th><a class='nav-link' href="{%url 'precious_metal'%}?ordering=name">{{verbose_names.name}}</a></th>
                         <th colspan="2"><button id='btn-show-modal' class='btn btn-dark w-100' type='button' onclick="flush_modal_window(this)">Добавить</button></th>
                     </thead>
                     <tbody>

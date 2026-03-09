@@ -11,12 +11,12 @@
             <div class="table-responsive">
                 <table class="table table-striped table-bordered border border-dark w-100">
                     <thead>
-                        <th>{{verbose_names.id}}</th>
-                        <th>{{verbose_names.type}}</th>
-                        <th>{{verbose_names.min_limit}}</th>
-                        <th>{{verbose_names.max_limit}}</th>
-                        <th>{{verbose_names.min_measurement}}</th>
-                        <th>{{verbose_names.max_measurement}}</th>
+                        <th><a class='nav-link' href="{%url 'moc_limit'%}?ordering=id">{{verbose_names.id}}</a></th>
+                        <th><a class='nav-link' href="{%url 'moc_limit'%}?ordering=type">{{verbose_names.type}}</a></th>
+                        <th><a class='nav-link' href="{%url 'moc_limit'%}?ordering=min_limit">{{verbose_names.min_limit}}</a></th>
+                        <th><a class='nav-link' href="{%url 'moc_limit'%}?ordering=max_limit">{{verbose_names.max_limit}}</a></th>
+                        <th><a class='nav-link' href="{%url 'moc_limit'%}?ordering=min_measurement">{{verbose_names.min_measurement}}</a></th>
+                        <th><a class='nav-link' href="{%url 'moc_limit'%}?ordering=max_measurement">{{verbose_names.max_measurement}}</a></th>
                         <th colspan="2"><button id='btn-show-modal' class='btn btn-dark w-100' type='button' onclick="flush_modal_window(this)">Добавить</button></th>
                     </thead>
                     <tbody>
