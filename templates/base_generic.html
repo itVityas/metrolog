@@ -75,9 +75,15 @@
 
                         {% for page_number in paginator_range %}
                             <li class="page-item {% if page_number == page_obj.number %}active dark{% endif %}">
+                            {% if page_number == paginator.ELLIPSIS %}
+                                <a href="#" class="page-link " >
+                                    {{page_number}}
+                                </a>
+                            {% else %}
                                 <a href="{{ request.path }}?ordering={{ordering}}&page={{ page_number }}" class="page-link " >
                                     {{page_number}}
                                 </a>
+                            {% endif %}
                             </li>
                         {% endfor %}
 
