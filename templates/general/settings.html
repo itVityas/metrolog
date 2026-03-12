@@ -1,0 +1,18 @@
+{% extends 'base_generic.html' %}
+
+{% block  content %}
+    <div class='container-fluid'>
+    <div class='col'>
+        <div class=''>
+            <h5>Вид измерения</h5>
+            <div id='form_container'>
+                <form id="modal_form" action="{%url 'settings' user.usersettings.id %}" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-dark" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

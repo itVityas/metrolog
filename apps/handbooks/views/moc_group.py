@@ -23,8 +23,14 @@ class MocGroupListView(LoginRequiredMixin, ListView):
         ordering = self.request.GET.get('ordering', 'id')
         return ordering
 
+    def get_paginate_by(self, queryset):
+        user_settings = self.request.user.usersettings
+        pagination_size = user_settings.pagination_size
+        return pagination_size if pagination_size else self.paginate_by
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
         # paginaton, deal wih too many pages
         page = context['page_obj']
         context['paginator_range'] = page.paginator.get_elided_page_range(

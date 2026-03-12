@@ -4,9 +4,10 @@ from apps.accounts.views import IndexView
 from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    path('', RedirectView.as_view(pattern_name='index', permanent=False)),
+    path('', RedirectView.as_view(pattern_name='index', permanent=True)),
     path('index/', IndexView.as_view(), name='index'),
     path('admin/', admin.site.urls),
     path('accounts/', include('apps.accounts.urls')),
     path('handbooks/', include('apps.handbooks.urls')),
+    path('general/', include('apps.general.urls')),
 ]
