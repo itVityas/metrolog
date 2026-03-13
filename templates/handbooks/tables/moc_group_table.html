@@ -5,14 +5,24 @@
     <div class='col'>
         <div class=''>
             <h5>Группы СИ</h5>
-            <button id='btn-show-modal' class='btn btn-dark' type='button' onclick="flush_modal_window(this)">Добавить</button>
+            <div>
+                <button id='btn-show-modal' class='btn btn-dark' type='button' onclick="flush_modal_window(this)">Добавить</button>
 
-            {% if 'no_page' in request.GET %}
-                <a href="{{ request.path }}?ordering={{ordering}}" class="page-link"> Показать постранично </a><br>
-            {% else %}
-                <a href="{{ request.path }}?ordering={{ordering}}&no_page" class="page-link"> Показать все </a><br>
-            {% endif %}
-
+                {% if 'no_page' in request.GET %}
+                    <a href="{{ request.path }}?ordering={{ordering}}" class="page-link d-inline"> Показать постранично </a>
+                {% else %}
+                    <a href="{{ request.path }}?ordering={{ordering}}&no_page" class="page-link d-inline"> Показать все </a>
+                {% endif %}
+                
+                <div class="d-inline">
+                    <!-- Search Form -->
+                    <form action="" method="get">
+                        <input type="text" name="q" placeholder="Поиск" value="{{ request.GET.q|default_if_none:"" }}">
+                        <button type="submit">Искать</button>
+                    </form>
+                </div>
+                <br>
+            </div>
             {% if user.is_staff %}
                 <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal_window_migrate" type="button">Скопировать старую БД</button>
             {% endif %}

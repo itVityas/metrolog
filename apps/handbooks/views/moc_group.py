@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.views import View
 from dbfread import DBF
 from django.conf import settings
+from django.db.models import Q
 
 
 class MocGroupListView(LoginRequiredMixin, ListView):
@@ -48,6 +49,20 @@ class MocGroupListView(LoginRequiredMixin, ListView):
         context['form'] = MocGroupForm
         context['ordering'] = self.get_ordering()
         return context
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        query = self.request.GET.get('q')
+
+        if query:
+            # Filter the queryset
+            queryset = queryset.filter(
+                Q(id__icontains=query) |
+                Q(type__icontains=query) |
+                Q(group__icontains=query) |
+                Q(name__icontains=query)
+            ).distinct()
+        return queryset
 
 
 class MocGroupAddView(LoginRequiredMixin, CreateView):
