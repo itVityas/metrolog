@@ -24,6 +24,8 @@ class MocGroupListView(LoginRequiredMixin, ListView):
         return ordering
 
     def get_paginate_by(self, queryset):
+        if 'no_page' in self.request.GET:
+            return None
         user_settings = self.request.user.usersettings
         pagination_size = user_settings.pagination_size
         return pagination_size if pagination_size else self.paginate_by
@@ -33,9 +35,10 @@ class MocGroupListView(LoginRequiredMixin, ListView):
 
         # paginaton, deal wih too many pages
         page = context['page_obj']
-        context['paginator_range'] = page.paginator.get_elided_page_range(
-            page.number, on_each_side=2, on_ends=1
-        )
+        if page:
+            context['paginator_range'] = page.paginator.get_elided_page_range(
+                page.number, on_each_side=2, on_ends=1
+            )
         # verbose names in template
         verbose_names = {}
         for field in self.model._meta.get_fields():

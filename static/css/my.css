@@ -16,3 +16,18 @@
     border-color: #212529;
     color: black;
 }
+.table-container {
+    max-height: 700px;
+    overflow-y: auto;
+    display: block;
+    width: 100%;
+}
+.table-container table {
+    width: 100%;
+}
+/* Make the header sticky */
+.table-container thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f2f2f2;
+}

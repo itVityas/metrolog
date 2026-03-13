@@ -16,7 +16,7 @@
         {% block navbar %}
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
                 <div class="container-fluid"> 
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0 w-100">
                         <li class="nav-item"><a class="nav-link" href="#">Паспорт</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Справки</a>
@@ -53,7 +53,7 @@
                                 <li><a class="dropdown-item" href="{% url 'settings' user.usersettings.id %}">Настройки</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><form method="POST", action="{% url 'logout' %}">
+                        <li class="nav-item float-end"><form method="POST", action="{% url 'logout' %}">
                             {% csrf_token %}
                             <button class="nav-link" type="submit">Выход</button>
                         </form></li>
