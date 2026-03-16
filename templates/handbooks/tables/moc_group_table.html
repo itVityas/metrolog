@@ -14,13 +14,10 @@
                     <a href="{{ request.path }}?ordering={{ordering}}&no_page" class="page-link d-inline"> Показать все </a>
                 {% endif %}
                 
-                <div class="d-inline">
-                    <!-- Search Form -->
-                    <form action="" method="get">
+                    <form action="" method="get" class="d-inline">
                         <input type="text" name="q" placeholder="Поиск" value="{{ request.GET.q|default_if_none:"" }}">
                         <button type="submit">Искать</button>
                     </form>
-                </div>
                 <br>
             </div>
             {% if user.is_staff %}

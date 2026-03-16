@@ -53,7 +53,7 @@
                                 <li><a class="dropdown-item" href="{% url 'settings' user.usersettings.id %}">Настройки</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item float-end"><form method="POST", action="{% url 'logout' %}">
+                        <li class="nav-item ms-auto"><form method="POST", action="{% url 'logout' %}">
                             {% csrf_token %}
                             <button class="nav-link" type="submit">Выход</button>
                         </form></li>

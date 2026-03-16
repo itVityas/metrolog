@@ -5,7 +5,7 @@ import json
 from django.http import HttpRequest
 
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('logger_main')
 
 
 class LogsMiddleware:
@@ -44,6 +44,8 @@ class LogsMiddleware:
             'request': log_request,
             'response': log_response,
             'work_time': log_work_time}
-        logger.info(json.dumps(answer_log))
+
+        if response.status_code >= 400:
+            logger.warning(json.dumps(answer_log))
 
         return response
