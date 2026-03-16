@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.views import View
 from dbfread import DBF
 from django.conf import settings
+from django.db.models import Q
 
 
 class VerificationSignListView(LoginRequiredMixin, ListView):
@@ -23,13 +24,21 @@ class VerificationSignListView(LoginRequiredMixin, ListView):
         ordering = self.request.GET.get('ordering', 'id')
         return ordering
 
+    def get_paginate_by(self, queryset):
+        if 'no_page' in self.request.GET:
+            return None
+        user_settings = self.request.user.usersettings
+        pagination_size = user_settings.pagination_size
+        return pagination_size if pagination_size else self.paginate_by
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # paginaton, deal wih too many pages
         page = context['page_obj']
-        context['paginator_range'] = page.paginator.get_elided_page_range(
-            page.number, on_each_side=2, on_ends=1
-        )
+        if page:
+            context['paginator_range'] = page.paginator.get_elided_page_range(
+                page.number, on_each_side=2, on_ends=1
+            )
         # verbose names in template
         verbose_names = {}
         for field in self.model._meta.get_fields():
@@ -37,8 +46,20 @@ class VerificationSignListView(LoginRequiredMixin, ListView):
                 verbose_names[field.name] = field.verbose_name
         context['verbose_names'] = verbose_names
         context['form'] = VerificationSignForm
-        context['ordering'] = self.get_ordering()
         return context
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        query = self.request.GET.get('q')
+
+        if query:
+            # Filter the queryset
+            queryset = queryset.filter(
+                Q(id__icontains=query) |
+                Q(code__icontains=query) |
+                Q(name__icontains=query)
+            ).distinct()
+        return queryset
 
 
 class VerificationSignAddView(LoginRequiredMixin, CreateView):

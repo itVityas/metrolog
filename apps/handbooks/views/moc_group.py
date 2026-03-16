@@ -33,7 +33,6 @@ class MocGroupListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
         # paginaton, deal wih too many pages
         page = context['page_obj']
         if page:
@@ -47,7 +46,6 @@ class MocGroupListView(LoginRequiredMixin, ListView):
                 verbose_names[field.name] = field.verbose_name
         context['verbose_names'] = verbose_names
         context['form'] = MocGroupForm
-        context['ordering'] = self.get_ordering()
         return context
 
     def get_queryset(self):
