@@ -1,30 +1,47 @@
 {% extends 'base_generic.html' %}
-
+{% load static %}
 {% block  content %}
     <div class='container-fluid'>
     <div class='col'>
         <div class=''>
             <h5>Данные по типам СИ</h5>
+            <div>
+                <button id='btn-show-modal' class='btn btn-dark' type='button' onclick="flush_modal_window(this)">Добавить</button>
+
+                {% if 'no_page' in request.GET %}
+                    <a href="{% querystring no_page=None %}" class="page-link d-inline"> Показать постранично </a>
+                {% else %}
+                    <a href="{% querystring page=1 %}&no_page" class="page-link d-inline"> Показать все </a>
+                {% endif %}
+                
+                    <form action="" method="get" class="d-inline">
+                        <input type="text" name="q" placeholder="Поиск" value="{{ request.GET.q|default_if_none:"" }}">
+                        <button type="submit" class="btn btn-primary-outline">
+                            <img src="{% static 'img/search.svg' %}" alt="Искать" width="32" height="32" />
+                        </button>
+                    </form>
+                <br>
+            </div>
             {% if user.is_staff %}
                 <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal_window_migrate" type="button">Скопировать старую БД</button>
             {% endif %}
-            <div class="table-responsive">
+            <div class="table-container">
                 <table class="table table-striped table-bordered border border-dark w-100">
                     <thead>
-                        <th><a class='nav-link' href="{%url 'moc_type'%}?ordering=id">{{verbose_names.id}}</a></th>
-                        <th><a class='nav-link' href="{%url 'moc_type'%}?ordering=type">{{verbose_names.type}}</a></th>
-                        <th><a class='nav-link' href="{%url 'moc_type'%}?ordering=code">{{verbose_names.code}}</a></th>
-                        <th><a class='nav-link' href="{%url 'moc_type'%}?ordering=accurancy">{{verbose_names.accurancy}}</a></th>
-                        <th><a class='nav-link' href="{%url 'moc_type'%}?ordering=cost">{{verbose_names.cost}}</a></th>
-                        <th><a class='nav-link' href="{%url 'moc_type'%}?ordering=min_limit">{{verbose_names.min_limit}}</a></th>
-                        <th><a class='nav-link' href="{%url 'moc_type'%}?ordering=max_limit">{{verbose_names.max_limit}}</a></th>
-                        <th><a class='nav-link' href="{%url 'moc_type'%}?ordering=min_measurement">{{verbose_names.min_measurement}}</a></th>
-                        <th><a class='nav-link' href="{%url 'moc_type'%}?ordering=max_measurement">{{verbose_names.max_measurement}}</a></th>
-                        <th><a class='nav-link' href="{%url 'moc_type'%}?ordering=standart_verification">{{verbose_names.standart_verification}}</a></th>
-                        <th><a class='nav-link' href="{%url 'moc_type'%}?ordering=standart_repair">{{verbose_names.standart_repair}}</a></th>
-                        <th><a class='nav-link' href="{%url 'moc_type'%}?ordering=rank_verification">{{verbose_names.rank_verification}}</a></th>
-                        <th><a class='nav-link' href="{%url 'moc_type'%}?ordering=rank_repair">{{verbose_names.rank_repair}}</a></th>
-                        <th colspan="2"><button id='btn-show-modal' class='btn btn-dark w-100' type='button' onclick="flush_modal_window(this)">Добавить</button></th>
+                        <th><a class='nav-link' href="{% querystring ordering='id' %}">{{verbose_names.id}}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='type' %}">{{verbose_names.type}}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='code' %}">{{verbose_names.code}}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='accurancy' %}">{{verbose_names.accurancy}}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='cost' %}">{{verbose_names.cost}}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='min_limit' %}">{{verbose_names.min_limit}}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='max_limit' %}">{{verbose_names.max_limit}}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='min_measurement' %}">{{verbose_names.min_measurement}}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='max_measurement' %}">{{verbose_names.max_measurement}}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='standart_verification' %}">{{verbose_names.standart_verification}}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='standart_repair' %}">{{verbose_names.standart_repair}}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='rank_verification' %}">{{verbose_names.rank_verification}}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='rank_repair' %}">{{verbose_names.rank_repair}}</a></th>
+                        <th colspan="2"></th>
                     </thead>
                     <tbody>
                         {% for moc_type in object_list %}
@@ -42,8 +59,12 @@
                                 <td>{{moc_type.standart_repair}}</td>
                                 <td>{{moc_type.rank_verification}}</td>
                                 <td>{{moc_type.rank_repair}}</td>
-                                <td><button type="button" class="btn btn-dark w-100" onclick="fill_modal_window(this)" id="submitButton"> Изменить </button></td>
-                                <td><button type="button" class="btn btn-dark w-100" onclick="show_delete_modal(this)">Удалить</button></td>
+                                <td><button type="button" class="btn btn-primary-outline" onclick="fill_modal_window(this)" id="submitButton">
+                                    <img src="{% static 'img/pencil-square.svg' %}" fill="currentColor" alt="Изменить" width="32" height="32" />
+                                </button></td>
+                                <td><button type="button" class="btn btn-primary-outline" onclick="show_delete_modal(this)">
+                                    <img src="{% static 'img/trash-fill.svg' %}" alt="Удалить" width="32" height="32" />
+                                </button></td>
                             </tr>
                         {% endfor %}
                     </tbody>

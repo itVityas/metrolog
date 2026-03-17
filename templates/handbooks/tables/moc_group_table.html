@@ -16,7 +16,9 @@
                 
                     <form action="" method="get" class="d-inline">
                         <input type="text" name="q" placeholder="Поиск" value="{{ request.GET.q|default_if_none:"" }}">
-                        <button type="submit">Искать</button>
+                        <button type="submit" class="btn btn-primary-outline">
+                            <img src="{% static 'img/search.svg' %}" alt="Искать" width="32" height="32" />
+                        </button>
                     </form>
                 <br>
             </div>
