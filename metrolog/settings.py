@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'apps.accounts',
     'apps.handbooks',
     'apps.general',
+    'apps.passport',
 ]
 
 MIDDLEWARE = [
