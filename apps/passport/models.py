@@ -109,6 +109,11 @@ class MocMetals(models.Model):
         decimal_places=5
     )
 
+    moc_list = models.ForeignKey(
+        MocList,
+        on_delete=models.CASCADE,
+        related_name='moc_metals')
+
 
 class VerificationInfo(models.Model):
     """
@@ -163,6 +168,11 @@ class VerificationInfo(models.Model):
 
     verification_sign = models.ForeignKey(
         hmodels.VerificationSign,
+        on_delete=models.CASCADE,
+        related_name='verification_info')
+
+    moc_list = models.ForeignKey(
+        MocList,
         on_delete=models.CASCADE,
         related_name='verification_info')
 
@@ -228,6 +238,11 @@ class RepairInfo(models.Model):
         on_delete=models.CASCADE,
         related_name='repair_info')
 
+    moc_list = models.ForeignKey(
+        MocList,
+        on_delete=models.CASCADE,
+        related_name='repair_info')
+
 
 class DeviceLocation(models.Model):
     """
@@ -252,6 +267,11 @@ class DeviceLocation(models.Model):
         blank=True,
     )
 
+    moc_list = models.ForeignKey(
+        MocList,
+        on_delete=models.CASCADE,
+        related_name='device_location')
+
 
 class DeviceStatusDate(models.Model):
     """
@@ -275,6 +295,11 @@ class DeviceStatusDate(models.Model):
         null=True,
         blank=True,
     )
+
+    moc_list = models.ForeignKey(
+        MocList,
+        on_delete=models.CASCADE,
+        related_name='device_status_date')
 
 
 class DeviceStation(models.Model):
@@ -305,3 +330,8 @@ class DeviceStation(models.Model):
         max_length=50,
         default=''
     )
+
+    moc_list = models.OneToOneField(
+        MocList,
+        on_delete=models.CASCADE,
+        related_name='device_station')

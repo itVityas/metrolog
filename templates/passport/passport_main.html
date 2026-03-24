@@ -1,0 +1,109 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class='container-fluid'>
+    <div class='col'>
+        <div class=''>
+            <h5>Паспортные данные СИ</h5>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <p><strong>Наименование прибора</strong></p>
+                        <p>{{object.moc_group.name}}</p>
+                    </div>
+                    <div class="col-sm">
+                        <p><strong>Тип</strong></p>
+                        <p>{{object.moc_type.type}}</p>
+                    </div>
+                    <div class="col-sm">
+                        <p><strong>Заводской номер</strong></p>
+                        <p>{{object.factory_number}}</p>
+                    </div>
+                    <div class="col-sm">
+                        <p><strong>Инвентарный номер</strong></p>
+                        <p>{{object.inv_number}}</p>
+                    </div>
+                    <div class="col-sm">
+                        <p><strong>Место закрепления</strong></p>
+                        <div class="col-sm">
+                            <p><strong>Цех</strong></p>
+                            <p>{{department.workshop}}</p>
+                        </div>
+                        <div class="col-sm">
+                            <p><strong>Бригада</strong></p>
+                            <p>{{department.brigade}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <p><strong>Поверка</strong></p>
+                        <p>{{object.verification_type}}</p>
+                    </div>
+                    <div class="col-sm">
+                        <p><strong>Период поверки</strong></p>
+                        <p>{{object.verification_period}}</p>
+                    </div>
+                    <div class="col-sm">
+                        <p><strong>Поверочное подразделение</strong></p>
+                        <p>{{object.verification_department.name}}</p>
+                    </div>
+                    <div class="col-sm">
+                        <p><strong>Вид измерения</strong></p>
+                        <p>{{object.change_type.name}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <p><strong>Учёт СИ по бухгалтерии</strong></p>
+                        <p>{{object.sign_o_m}}</p>
+                    </div>
+                    <div class="col-sm">
+                        <p><strong>Категория СИ</strong></p>
+                        <p>{{object.sign_o_r}}</p>
+                    </div>
+                    <div class="col-sm">
+                        <p><strong>Инвентарный № оборудования</strong></p>
+                        <p>{{object.device_station.station_inv_number}}</p>
+                    </div>
+                    <div class="col-sm">
+                        <p><strong>Наименование</strong></p>
+                        <p>{{object.device_station.station_name}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div>
+                    <p>Поверка</p>
+                    <div id='verification' class="table-container">
+                        <table class="table table-striped table-bordered border border-dark w-100">
+                            <thead>
+                                <th>Дата поступл.</th>
+                                <th>Дата поверки</th>
+                                <th>Дата выдачи в цех</th>
+                                <th>Резул.</th>
+                                <th>Поверитель</th>
+                                <th>Признак пов.</th>
+                                <th>№ Док.</th>
+                            </thead>
+                            <tbody>
+                                {% for verification in object.verifications %}
+                                    <tr>
+                                        <td>{{verification.entry_date}}</td>
+                                        <td>{{verification.verification_date}}</td>
+                                        <td>{{verification.workshop_issue_date}}</td>
+                                        <td>{{verification.verification_result}}</td>
+                                        <td>{{verification.verification_person.fio}}</td>
+                                        <td>{{verification.verification_sign.name}}</td>
+                                        <td>{{verification.verification_document_num}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                <div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
