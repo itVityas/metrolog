@@ -1,108 +1,185 @@
 {% extends 'base_generic.html' %}
-
+{% load static %}
 {% block content %}
 <div class='container-fluid'>
     <div class='col'>
         <div class=''>
             <h5>Паспортные данные СИ</h5>
+            {% for object in object_list %}
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
-                        <p><strong>Наименование прибора</strong></p>
-                        <p>{{object.moc_group.name}}</p>
+                        <p><strong>Наименование прибора</strong><br>{{object.moc_group.name}}</p>
                     </div>
                     <div class="col-sm">
-                        <p><strong>Тип</strong></p>
-                        <p>{{object.moc_type.type}}</p>
+                        <p><strong>Тип</strong><br>{{object.moc_type.type}}</p>
                     </div>
                     <div class="col-sm">
-                        <p><strong>Заводской номер</strong></p>
-                        <p>{{object.factory_number}}</p>
+                        <p><strong>Заводской номер</strong><br>{{object.factory_number}}</p>
                     </div>
                     <div class="col-sm">
-                        <p><strong>Инвентарный номер</strong></p>
-                        <p>{{object.inv_number}}</p>
+                        <p><strong>Инвентарный номер</strong><br>{{object.inv_number}}</p>
                     </div>
                     <div class="col-sm">
                         <p><strong>Место закрепления</strong></p>
                         <div class="col-sm">
-                            <p><strong>Цех</strong></p>
-                            <p>{{department.workshop}}</p>
-                        </div>
-                        <div class="col-sm">
-                            <p><strong>Бригада</strong></p>
-                            <p>{{department.brigade}}</p>
+                            <p><strong>Цех:</strong> {{object.device_location.last.department.workshop}}
+                            <strong>Бригада:</strong> {{object.device_location.last.department.brigade}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm">
-                        <p><strong>Поверка</strong></p>
-                        <p>{{object.verification_type}}</p>
+                        <p><strong>Поверка</strong><br>{{object.verification_type}}</p>
                     </div>
                     <div class="col-sm">
-                        <p><strong>Период поверки</strong></p>
-                        <p>{{object.verification_period}}</p>
+                        <p><strong>Период поверки</strong><br>{{object.verification_period}}</p>
                     </div>
                     <div class="col-sm">
-                        <p><strong>Поверочное подразделение</strong></p>
-                        <p>{{object.verification_department.name}}</p>
+                        <p><strong>Поверочное подразделение</strong><br>{{object.verification_department.name}}</p>
                     </div>
                     <div class="col-sm">
-                        <p><strong>Вид измерения</strong></p>
-                        <p>{{object.change_type.name}}</p>
+                        <p><strong>Вид измерения</strong><br>{{object.change_type.name}}</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm">
-                        <p><strong>Учёт СИ по бухгалтерии</strong></p>
-                        <p>{{object.sign_o_m}}</p>
+                        <p><strong>Учёт СИ по бухгалтерии</strong><br>{{object.sign_o_m}}</p>
                     </div>
                     <div class="col-sm">
-                        <p><strong>Категория СИ</strong></p>
-                        <p>{{object.sign_o_r}}</p>
+                        <p><strong>Категория СИ</strong><br>{{object.sign_o_r}}</p>
                     </div>
                     <div class="col-sm">
-                        <p><strong>Инвентарный № оборудования</strong></p>
-                        <p>{{object.device_station.station_inv_number}}</p>
+                        <p><strong>Инвентарный № оборудования</strong><br>{{object.device_station.station_inv_number}}</p>
                     </div>
                     <div class="col-sm">
-                        <p><strong>Наименование</strong></p>
-                        <p>{{object.device_station.station_name}}</p>
+                        <p><strong>Наименование</strong><br>{{object.device_station.station_name}}</p>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div>
-                    <p>Поверка</p>
-                    <div id='verification' class="table-container">
-                        <table class="table table-striped table-bordered border border-dark w-100">
-                            <thead>
-                                <th>Дата поступл.</th>
-                                <th>Дата поверки</th>
-                                <th>Дата выдачи в цех</th>
-                                <th>Резул.</th>
-                                <th>Поверитель</th>
-                                <th>Признак пов.</th>
-                                <th>№ Док.</th>
-                            </thead>
-                            <tbody>
-                                {% for verification in object.verifications %}
-                                    <tr>
-                                        <td>{{verification.entry_date}}</td>
-                                        <td>{{verification.verification_date}}</td>
-                                        <td>{{verification.workshop_issue_date}}</td>
-                                        <td>{{verification.verification_result}}</td>
-                                        <td>{{verification.verification_person.fio}}</td>
-                                        <td>{{verification.verification_sign.name}}</td>
-                                        <td>{{verification.verification_document_num}}</td>
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                    <div id='buttons_container'>
+                        <button type="button" class="btn btn-light" onclick="show_table(this, 'verification')">Поверка</button>
+                        <button type="button" class="btn btn-primary-outline" onclick="show_table(this, 'repair')">Ремонт</button>
+                        <button type="button" class="btn btn-primary-outline" onclick="show_table(this, 'location')">Место закрепления</button>
+                        <button type="button" class="btn btn-primary-outline" onclick="show_table(this, 'status')">Статус</button>
+                        <button type="button" class="btn btn-primary-outline" onclick="show_table(this, 'metall')">Драгметаллы</button>
                     </div>
-                <div>
+                    <div id='table_container'>
+                        <div id='verification' class="table-container">
+                            <table class="table table-striped table-bordered border border-dark w-100">
+                                <thead>
+                                    <th>Дата поступл.</th>
+                                    <th>Дата поверки</th>
+                                    <th>Дата выдачи в цех</th>
+                                    <th>Резул.</th>
+                                    <th>Поверитель</th>
+                                    <th>Признак пов.</th>
+                                    <th>№ Док.</th>
+                                </thead>
+                                <tbody>
+                                    {% for verification in object.verification_info.all %}
+                                        <tr>
+                                            <td>{{verification.entry_date}}</td>
+                                            <td>{{verification.verification_date}}</td>
+                                            <td>{{verification.workshop_issue_date}}</td>
+                                            <td>{{verification.verification_result}}</td>
+                                            <td>{{verification.verification_person.fio}}</td>
+                                            <td>{{verification.verification_sign.name}}</td>
+                                            <td>{{verification.verification_document_num}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id='repair' class="table-container d-none">
+                            <table class="table table-striped table-bordered border border-dark w-100">
+                                <thead>
+                                    <th>Дата поступл.</th>
+                                    <th>Дата выд. в рем.</th>
+                                    <th>Дата ремонта</th>
+                                    <th>Вид ремонта</th>
+                                    <th>Хар-р ремонта</th>
+                                    <th>Кат. ремонта</th>
+                                    <th>Причина отказа</th>
+                                    <th>Ремонтник</th>
+                                </thead>
+                                <tbody>
+                                    {% for repair in object.repair_info.all %}
+                                        <tr>
+                                            <td>{{repair.entry_date}}</td>
+                                            <td>{{repair.entry_repair_date}}</td>
+                                            <td>{{repair.repair_date}}</td>
+                                            <td>{{repair.repair_type}}</td>
+                                            <td>{{repair.repair.name}}</td>
+                                            <td>{{repair.repair_code.name}}</td>
+                                            <td>{{repair.verification_sign.name}}</td>
+                                            <td>{{repair.repair_department.name}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id='location' class="table-container d-none">
+                            <table class="table table-striped table-bordered border border-dark w-100">
+                                <thead>
+                                    <th>Цех</th>
+                                    <th>Бригада</th>
+                                    <th>Дата</th>
+                                </thead>
+                                <tbody>
+                                    {% for location in object.device_location.all %}
+                                        <tr>
+                                            <td>{{location.department.workshop}}</td>
+                                            <td>{{location.department.brigade}}</td>
+                                            <td>{{location.entry_date}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id='status' class="table-container d-none">
+                            <table class="table table-striped table-bordered border border-dark w-100">
+                                <thead>
+                                    <th>Статус</th>
+                                    <th>Дата присвоения</th>
+                                </thead>
+                                <tbody>
+                                    {% for status in object.device_status_date.all %}
+                                        <tr>
+                                            <td>{{status.device_status.name}}</td>
+                                            <td>{{status.status_date}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id='metall' class="table-container d-none">
+                            <table class="table table-striped table-bordered border border-dark w-100">
+                                <thead>
+                                    <th>Драгметалл</th>
+                                    <th>Содержание</th>
+                                </thead>
+                                <tbody>
+                                    {% for metall in object.moc_metals.all %}
+                                        <tr>
+                                            <td>{{metall.precious_metals.name}}</td>
+                                            <td>{{metall.metal_amount}}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 </div>

@@ -6,17 +6,7 @@ function fill_modal_window(e) {
 
     const row = e.parentElement.parentElement;
     const cells = row.children;
-/*
-    const id = cells[0].textContent;
-    const type = cells[1].textContent;
-    const group = cells[2].textContent;
-    const name = cells[3].textContent;
-    
-    form.elements['id'].value = id;
-    form.elements['type'].value = type;
-    form.elements['group'].value = group;
-    form.elements['name'].value = name;
-*/
+
     for(const [index, cell] of [...cells].entries()){
         if (index === cells.length - 2) {
             break;
@@ -47,32 +37,12 @@ function flush_modal_window(e) {
     const form = document.getElementById("modal_form");
 
     form.reset();
-    /*for (const [index, elem] of [...form.elements].entries()) {
-        if (index === [...form.elements].length - 1) {
-            break;
-        }
-        if (index === 0) {
-            continue;
-        }
-        if([...form.elements][index].type === "checkbox"){
-            [...form.elements][index].checked = false;
-            continue;
-        }
-        elem.value = null;
-    }
-    /*
-    form.elements['id'].value = null;
-    form.elements['type'].value = null;
-    form.elements['group'].value = null;
-    form.elements['name'].value = null;
-*/
     form.action = "add/";
     modal.show();
 }
 
 function show_delete_modal(e){
     const modal_delete = new bootstrap.Modal(document.getElementById("modal_window_delete"));
-    //const form_delete = document.getElementById("modal_form_del");
     const delete_button = document.getElementById("delete_button");
 
     const row = e.parentElement.parentElement;
@@ -80,7 +50,6 @@ function show_delete_modal(e){
 
     const id = cells[0].textContent;
 
-    //form_delete.action = "" + id + "/delete/";
     delete_button.data = id;
     modal_delete.show();
 }
@@ -98,8 +67,28 @@ function makedelete(e){
             document.open()
             document.write(text)
             document.close()
-            //location.reload()
         })
     })
     .catch(error => console.error('Error fetching data:', error));
+}
+
+
+function show_table(e, id_show){
+    const tables = document.getElementById("table_container").children;
+    const buttons = document.getElementById("buttons_container").children;
+
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('btn-light');
+        buttons[i].classList.add('btn-primary-outline');
+    }
+    e.classList.remove('btn-primary-outline');
+    e.classList.add('btn-light');
+
+    for (var i = 0; i < tables.length; i++) {
+        if(tables[i].id === id_show){
+            tables[i].classList.remove('d-none');
+        }else{
+            tables[i].classList.add('d-none');
+        }
+    }
 }
