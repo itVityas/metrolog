@@ -21,15 +21,4 @@ class PassportDetailView(LoginRequiredMixin, ListView):
             'verification_info',
             'repair_info',
             'device_status_date',
-            'moc_metals').all() 
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        # verbose names in template
-        verbose_names = {}
-        for field in models.MocList._meta.get_fields():
-            if hasattr(field, 'verbose_name'):
-                verbose_names[field.name] = field.verbose_name
-        context['verbose_names'] = verbose_names
-        return context
+            'moc_metals').all()
