@@ -6,65 +6,47 @@
         <div class=''>
             <h5>Паспортные данные СИ</h5>
             {% for object in object_list %}
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm">
-                        <p><strong>Наименование прибора</strong><br>{{object.moc_group.name}}</p>
-                    </div>
-                    <div class="col-sm">
-                        <p><strong>Тип</strong><br>{{object.moc_type.type}}</p>
-                    </div>
-                    <div class="col-sm">
-                        <p><strong>Заводской номер</strong><br>{{object.factory_number}}</p>
-                    </div>
-                    <div class="col-sm">
-                        <p><strong>Инвентарный номер</strong><br>{{object.inv_number}}</p>
-                    </div>
-                    <div class="col-sm">
-                        <p><strong>Место закрепления</strong></p>
-                        <div class="col-sm">
-                            <p><strong>Цех:</strong> {{object.device_location.last.department.workshop}}
-                            <strong>Бригада:</strong> {{object.device_location.last.department.brigade}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm">
-                        <p><strong>Поверка</strong><br>{{object.verification_type}}</p>
-                    </div>
-                    <div class="col-sm">
-                        <p><strong>Период поверки</strong><br>{{object.verification_period}}</p>
-                    </div>
-                    <div class="col-sm">
-                        <p><strong>Поверочное подразделение</strong><br>{{object.verification_department.name}}</p>
-                    </div>
-                    <div class="col-sm">
-                        <p><strong>Вид измерения</strong><br>{{object.change_type.name}}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm">
-                        <p><strong>Учёт СИ по бухгалтерии</strong><br>{{object.sign_o_m}}</p>
-                    </div>
-                    <div class="col-sm">
-                        <p><strong>Категория СИ</strong><br>{{object.sign_o_r}}</p>
-                    </div>
-                    <div class="col-sm">
-                        <p><strong>Инвентарный № оборудования</strong><br>{{object.device_station.station_inv_number}}</p>
-                    </div>
-                    <div class="col-sm">
-                        <p><strong>Наименование</strong><br>{{object.device_station.station_name}}</p>
-                    </div>
-                </div>
-            </div>
+            <div id='main_container' value={{object.id}} class="container">
+                <table class="table table-bordered border border-dark w-100">
+                    <tbody>
+                            <tr>
+                                <td><strong>Наименование прибора</strong><p id='moc_group_name' value={{object.moc_group.id}}>{{object.moc_group.name}}</p></td>
+                                <td><strong>Тип</strong><p id='moc_type_type' value={{object.moc_type.id}}>{{object.moc_type.type}}</p></td>
+                                <td><strong>Заводской номер</strong><p id='factory_number'>{{object.factory_number}}</p></td>
+                                <td><strong>Инвентарный номер</strong><p id='inv_number'>{{object.inv_number}}</p></td>
+                                <td><strong>Место закрепления</strong>
+                                <p><strong>Цех:</strong> <span id='department_workshop'>{{object.device_location.last.department.workshop}}</span>
+                                    <strong>Бригада:</strong> <span id='department_brigade'>{{object.device_location.last.department.brigade}}</span></p></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Поверка</strong><p id='verification_type'>{{object.verification_type}}</p></td>
+                                <td><strong>Период поверки</strong><p id='verification_period'>{{object.verification_period}}</p></td>
+                                <td><strong>Поверочное подразделение</strong><p id='verification_department_name' value={{object.verification_department.id}}>{{object.verification_department.name}}</p></td>
+                                <td colspan="2"><strong>Вид измерения</strong><p id='change_type_name' value={{object.change_type.id}}>{{object.change_type.name}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Учёт СИ по бухгалтерии</strong><p id='sign_o_m'>{{object.sign_o_m}}</p></td>
+                                <td><strong>Категория СИ</strong><p id='sign_o_r'>{{object.sign_o_r}}</p></td>
+                                <td><strong>Инвентарный № оборудования</strong><p id='device_station_station_inv_number'>{{object.device_station.station_inv_number}}</p></td>
+                                <td colspan="2"><strong>Наименование</strong><p id='device_station_station_name'>{{object.device_station.station_name}}</p></td>
+                            </tr>
+                    </tbody>
+                </table>
             <div class="container">
                 <div>
-                    <div id='buttons_container'>
-                        <button type="button" class="btn btn-light" onclick="show_table(this, 'verification')">Поверка</button>
-                        <button type="button" class="btn btn-primary-outline" onclick="show_table(this, 'repair')">Ремонт</button>
-                        <button type="button" class="btn btn-primary-outline" onclick="show_table(this, 'location')">Место закрепления</button>
-                        <button type="button" class="btn btn-primary-outline" onclick="show_table(this, 'status')">Статус</button>
-                        <button type="button" class="btn btn-primary-outline" onclick="show_table(this, 'metall')">Драгметаллы</button>
+                    <div id='buttons_container' class='d-flex justify-content-between'>
+                        <div class="">
+                            <button type="button" class="btn btn-light" onclick="show_table(this, 'verification')">Поверка</button>
+                            <button type="button" class="btn btn-primary-outline" onclick="show_table(this, 'repair')">Ремонт</button>
+                            <button type="button" class="btn btn-primary-outline" onclick="show_table(this, 'location')">Место закрепления</button>
+                            <button type="button" class="btn btn-primary-outline" onclick="show_table(this, 'status')">Статус</button>
+                            <button type="button" class="btn btn-primary-outline" onclick="show_table(this, 'metall')">Драгметаллы</button>
+                        </div>
+                        <div class="">
+                            <button type="button" class="btn btn-light" onclick="flush_modal_window(this)">Добавить запись</button>
+                            <button type="button" class="btn btn-light" onclick="fill_modal_moc_list(this)">Изменить запись</button>
+                            <button type="button" class="btn btn-light" onclick="show_delete_moc_list(this)">Удалить запись</button>
+                        </div>
                     </div>
                     <div id='table_container'>
                         <div id='verification' class="table-container">
@@ -180,6 +162,28 @@
                 </div>
             </div>
             {% endfor %}
+            <div id="modal_window_add" class="modal fade" aria-hidden='true' tabindex='-1'>
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content form_content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">MODAL TITLE</h5>
+                            <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                        <form id="modal_form" action="" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button class="btn btn-dark" type="submit">Сохранить</button>
+                            <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Отмена</button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include 'passport/passport_delete_confirmation_modal.html' %}
+            </div>
         </div>
     </div>
 </div>

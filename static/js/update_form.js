@@ -75,7 +75,7 @@ function makedelete(e){
 
 function show_table(e, id_show){
     const tables = document.getElementById("table_container").children;
-    const buttons = document.getElementById("buttons_container").children;
+    const buttons = document.getElementById("buttons_container").children[0].children;
 
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove('btn-light');
@@ -92,3 +92,62 @@ function show_table(e, id_show){
         }
     }
 }
+
+function fill_modal_moc_list(e) {
+    const modal = new bootstrap.Modal(document.getElementById("modal_window_add"));
+    const form = document.getElementById("modal_form");
+
+    const moc_group_name = document.getElementById("moc_group_name").getAttribute('value');
+    const moc_type_type = document.getElementById("moc_type_type").getAttribute('value');
+    const factory_number = document.getElementById("factory_number").textContent;
+    const inv_number = document.getElementById("inv_number").textContent;
+    const verification_type = document.getElementById("verification_type").textContent;
+    const verification_period = document.getElementById("verification_period").textContent;
+    const verification_department_name = document.getElementById("verification_department_name").getAttribute('value');
+    const change_type_name = document.getElementById("change_type_name").getAttribute('value');
+    const sign_o_m = document.getElementById("sign_o_m").textContent;
+    const sign_o_r = document.getElementById("sign_o_r").textContent;
+
+    form.elements['moc_group'].value = moc_group_name
+    form.elements['moc_type'].value = moc_type_type
+    form.elements['factory_number'].value = factory_number
+    form.elements['inv_number'].value = inv_number
+    form.elements['verification_type'].value = verification_type
+    form.elements['verification_period'].value = verification_period
+    form.elements['verification_department'].value = verification_department_name
+    form.elements['change_type'].value = change_type_name
+    form.elements['sign_o_m'].value = sign_o_m
+    form.elements['sign_o_r'].value = sign_o_r
+
+    const id = document.getElementById("main_container").getAttribute('value');
+    console.log(id)
+    form.action = "" + id + "/update/";
+    modal.show();
+};
+
+function show_delete_moc_list(e){
+    const modal_delete = new bootstrap.Modal(document.getElementById("modal_window_delete"));
+    const delete_button = document.getElementById("delete_button");
+
+    const id = document.getElementById("main_container").getAttribute('value');
+    console.log(id)
+    delete_button.data = id;
+    modal_delete.show();
+}
+
+function delete_moc_list(e){
+    const csrfToken = e.children[0].value;
+    fetch("" + e.data + "/delete/", {
+        method: "DELETE",
+        redirect: 'follow',
+        headers: {
+            'X-CSRFToken': csrfToken
+        },
+    }).then(response => {
+        if (response.redirected) {
+            window.location.href = response.url;
+        }
+    })
+    .catch(error => console.error('Error fetching data:', error));
+}
+
