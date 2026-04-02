@@ -42,14 +42,9 @@
                             <button type="button" class="btn btn-primary-outline" onclick="show_table(this, 'status')">Статус</button>
                             <button type="button" class="btn btn-primary-outline" onclick="show_table(this, 'metall')">Драгметаллы</button>
                         </div>
-                        <div class="">
-                            <button type="button" class="btn btn-light" onclick="flush_modal_window(this)">Добавить запись</button>
-                            <button type="button" class="btn btn-light" onclick="fill_modal_moc_list(this)">Изменить запись</button>
-                            <button type="button" class="btn btn-light" onclick="show_delete_moc_list(this)">Удалить запись</button>
-                        </div>
                     </div>
                     <div id='table_container'>
-                        <div id='verification' class="table-container">
+                        <div id='verification' class="table-container-little">
                             <table class="table table-striped table-bordered border border-dark w-100">
                                 <thead>
                                     <th>Дата поступл.</th>
@@ -85,7 +80,7 @@
                             </table>
                         </div>
 
-                        <div id='repair' class="table-container d-none">
+                        <div id='repair' class="table-container-little d-none">
                             <table class="table table-striped table-bordered border border-dark w-100">
                                 <thead>
                                     <th>Дата поступл.</th>
@@ -123,7 +118,7 @@
                             </table>
                         </div>
 
-                        <div id='location' class="table-container d-none">
+                        <div id='location' class="table-container-little d-none">
                             <table class="table table-striped table-bordered border border-dark w-100">
                                 <thead>
                                     <th>Цех</th>
@@ -151,7 +146,7 @@
                             </table>
                         </div>
 
-                        <div id='status' class="table-container d-none">
+                        <div id='status' class="table-container-little d-none">
                             <table class="table table-striped table-bordered border border-dark w-100">
                                 <thead>
                                     <th>Статус</th>
@@ -177,7 +172,7 @@
                             </table>
                         </div>
 
-                        <div id='metall' class="table-container d-none">
+                        <div id='metall' class="table-container-little d-none">
                             <table class="table table-striped table-bordered border border-dark w-100">
                                 <thead>
                                     <th>Драгметалл</th>
@@ -202,7 +197,19 @@
                                 </tbody>
                             </table>
                         </div>
-
+                    </div>
+                </div>
+                <div>
+                    <div class="">
+                        <form action="" method="get" class="d-inline">
+                            <input type="text" name="q" placeholder="Поиск" value="{{ request.GET.q|default_if_none:"" }}">
+                            <button type="submit" class="btn btn-primary-outline">
+                                <img src="{% static 'img/search.svg' %}" alt="Искать" width="32" height="32" />
+                            </button>
+                        </form>
+                        <button type="button" class="btn btn-light" onclick="flush_modal_window(this)">Добавить запись</button>
+                        <button type="button" class="btn btn-light" onclick="fill_modal_moc_list(this)">Изменить запись</button>
+                        <button type="button" class="btn btn-light" onclick="show_delete_moc_list(this)">Удалить запись</button>
                     </div>
                 </div>
             </div>

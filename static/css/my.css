@@ -36,3 +36,18 @@
    white-space: nowrap;
    width: 1%;
 }
+.table-container-little {
+    max-height: 400px;
+    overflow-y: auto;
+    display: block;
+    width: 100%;
+}
+.table-container-little table {
+    width: 100%;
+}
+/* Make the header sticky */
+.table-container-little thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f2f2f2;
+}

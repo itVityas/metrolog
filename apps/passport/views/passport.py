@@ -4,6 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .. import models
 from .. import forms
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 
 
 class PassportDetailView(LoginRequiredMixin, ListView):
@@ -15,12 +16,21 @@ class PassportDetailView(LoginRequiredMixin, ListView):
     paginate_by = 1
 
     def get_queryset(self):
-        return models.MocList.objects.prefetch_related(
+        queryset = models.MocList.objects.prefetch_related(
             'device_location',
             'verification_info',
             'repair_info',
             'device_status_date',
             'moc_metals').all().order_by('id')
+        query = self.request.GET.get('q')
+
+        if query:
+            # Filter the queryset
+            queryset = queryset.filter(
+                Q(moc_group__name__icontains=query) |
+                Q(moc_type__type__icontains=query)
+            ).distinct()
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
