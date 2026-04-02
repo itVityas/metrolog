@@ -59,17 +59,26 @@
                                     <th>Поверитель</th>
                                     <th>Признак пов.</th>
                                     <th>№ Док.</th>
+                                    <th colspan="2">
+                                        <button id='btn-show-modal' class='btn btn-dark' type='button' onclick="flush_modal_window_table(this, 'verification')">Добавить</button>
+                                    </th>
                                 </thead>
                                 <tbody>
                                     {% for verification in object.verification_info.all %}
-                                        <tr>
-                                            <td>{{verification.entry_date}}</td>
-                                            <td>{{verification.verification_date}}</td>
-                                            <td>{{verification.workshop_issue_date}}</td>
-                                            <td>{{verification.verification_result}}</td>
-                                            <td>{{verification.verification_person.fio}}</td>
-                                            <td>{{verification.verification_sign.name}}</td>
-                                            <td>{{verification.verification_document_num}}</td>
+                                        <tr value={{verification.id}}>
+                                            <td id='entry_date'>{{verification.entry_date|date:"Y-m-d"}}</td>
+                                            <td id='verification_date'>{{verification.verification_date|date:"Y-m-d"}}</td>
+                                            <td id='workshop_issue_date'>{{verification.workshop_issue_date|date:"Y-m-d"}}</td>
+                                            <td id='verification_result'>{{verification.verification_result}}</td>
+                                            <td id='verification_person'>{{verification.verification_person.fio}}</td>
+                                            <td id='verification_sign'>{{verification.verification_sign.name}}</td>
+                                            <td id='verification_document_num'>{{verification.verification_document_num}}</td>
+                                            <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="fill_modal_window_table(this, 'verification')" id="submitButton">
+                                                <img src="{% static 'img/pencil-square.svg' %}" fill="currentColor" alt="Изменить" width="24" height="24" />
+                                            </button></td>
+                                            <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="show_delete_table(this, 'verification', {{verification.id}})">
+                                                <img src="{% static 'img/trash-fill.svg' %}" alt="Удалить" width="24" height="24" />
+                                            </button></td>
                                         </tr>
                                     {% endfor %}
                                 </tbody>
@@ -87,18 +96,27 @@
                                     <th>Кат. ремонта</th>
                                     <th>Причина отказа</th>
                                     <th>Ремонтник</th>
+                                    <th colspan="2">
+                                        <button id='btn-show-modal' class='btn btn-dark' type='button' onclick="flush_modal_window_table(this, 'repair')">Добавить</button>
+                                    </th>
                                 </thead>
                                 <tbody>
                                     {% for repair in object.repair_info.all %}
-                                        <tr>
-                                            <td>{{repair.entry_date}}</td>
-                                            <td>{{repair.entry_repair_date}}</td>
-                                            <td>{{repair.repair_date}}</td>
-                                            <td>{{repair.repair_type}}</td>
-                                            <td>{{repair.repair.name}}</td>
-                                            <td>{{repair.repair_code.name}}</td>
-                                            <td>{{repair.verification_sign.name}}</td>
-                                            <td>{{repair.repair_department.name}}</td>
+                                        <tr value={{repair.id}}>
+                                            <td id='entry_date'>{{repair.entry_date|date:"Y-m-d"}}</td>
+                                            <td id='entry_repair_date'>{{repair.entry_repair_date|date:"Y-m-d"}}</td>
+                                            <td id='repair_date'>{{repair.repair_date|date:"Y-m-d"}}</td>
+                                            <td id='repair_type'>{{repair.repair_type}}</td>
+                                            <td id='repair'>{{repair.repair.name}}</td>
+                                            <td id='repair_code'>{{repair.repair_code.name}}</td>
+                                            <td id='verification_sign'>{{repair.verification_sign.name}}</td>
+                                            <td id='repair_department'>{{repair.repair_department.name}}</td>
+                                            <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="fill_modal_window_table(this, 'repair')" id="submitButton">
+                                                <img src="{% static 'img/pencil-square.svg' %}" fill="currentColor" alt="Изменить" width="24" height="24" />
+                                            </button></td>
+                                            <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="show_delete_table(this, 'repair', {{repair.id}})">
+                                                <img src="{% static 'img/trash-fill.svg' %}" alt="Удалить" width="24" height="24" />
+                                            </button></td>
                                         </tr>
                                     {% endfor %}
                                 </tbody>
@@ -111,13 +129,22 @@
                                     <th>Цех</th>
                                     <th>Бригада</th>
                                     <th>Дата</th>
+                                    <th colspan="2">
+                                        <button id='btn-show-modal' class='btn btn-dark' type='button' onclick="flush_modal_window_table(this, 'location')">Добавить</button>
+                                    </th>
                                 </thead>
                                 <tbody>
                                     {% for location in object.device_location.all %}
-                                        <tr>
-                                            <td>{{location.department.workshop}}</td>
-                                            <td>{{location.department.brigade}}</td>
-                                            <td>{{location.entry_date}}</td>
+                                        <tr value={{location.id}}>
+                                            <td id='department'>{{location.department.workshop}}</td>
+                                            <td id=''>{{location.department.brigade}}</td>
+                                            <td id='entry_date'>{{location.entry_date|date:"Y-m-d"}}</td>
+                                            <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="fill_modal_window_table(this, 'location')" id="submitButton">
+                                                <img src="{% static 'img/pencil-square.svg' %}" fill="currentColor" alt="Изменить" width="24" height="24" />
+                                            </button></td>
+                                            <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="show_delete_table(this, 'location', {{location.id}})">
+                                                <img src="{% static 'img/trash-fill.svg' %}" alt="Удалить" width="24" height="24" />
+                                            </button></td>
                                         </tr>
                                     {% endfor %}
                                 </tbody>
@@ -129,12 +156,21 @@
                                 <thead>
                                     <th>Статус</th>
                                     <th>Дата присвоения</th>
+                                    <th colspan="2">
+                                        <button id='btn-show-modal' class='btn btn-dark' type='button' onclick="flush_modal_window_table(this, 'status')">Добавить</button>
+                                    </th>
                                 </thead>
                                 <tbody>
                                     {% for status in object.device_status_date.all %}
-                                        <tr>
-                                            <td>{{status.device_status.name}}</td>
-                                            <td>{{status.status_date}}</td>
+                                        <tr value={{status.id}}>
+                                            <td id='device_status'>{{status.device_status.name}}</td>
+                                            <td id='status_date'>{{status.status_date|date:"Y-m-d"}}</td>
+                                            <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="fill_modal_window_table(this, 'status')" id="submitButton">
+                                                <img src="{% static 'img/pencil-square.svg' %}" fill="currentColor" alt="Изменить" width="24" height="24" />
+                                            </button></td>
+                                            <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="show_delete_table(this, 'status', {{status.id}})">
+                                                <img src="{% static 'img/trash-fill.svg' %}" alt="Удалить" width="24" height="24" />
+                                            </button></td>
                                         </tr>
                                     {% endfor %}
                                 </tbody>
@@ -146,12 +182,21 @@
                                 <thead>
                                     <th>Драгметалл</th>
                                     <th>Содержание</th>
+                                    <th colspan="2">
+                                        <button id='btn-show-modal' class='btn btn-dark' type='button' onclick="flush_modal_window_table(this, 'metall')">Добавить</button>
+                                    </th>
                                 </thead>
                                 <tbody>
                                     {% for metall in object.moc_metals.all %}
-                                        <tr>
-                                            <td>{{metall.precious_metals.name}}</td>
-                                            <td>{{metall.metal_amount}}</td>
+                                        <tr value={{metall.id}}>
+                                            <td id='precious_metals'>{{metall.precious_metals.name}}</td>
+                                            <td id='metal_amount'>{{metall.metal_amount}}</td>
+                                            <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="fill_modal_window_table(this, 'metall')" id="submitButton">
+                                                <img src="{% static 'img/pencil-square.svg' %}" fill="currentColor" alt="Изменить" width="24" height="24" />
+                                            </button></td>
+                                            <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="show_delete_table(this, 'metall', {{metall.id}})">
+                                                <img src="{% static 'img/trash-fill.svg' %}" alt="Удалить" width="24" height="24" />
+                                            </button></td>
                                         </tr>
                                     {% endfor %}
                                 </tbody>
@@ -166,7 +211,7 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content form_content">
                         <div class="modal-header">
-                            <h5 class="modal-title">MODAL TITLE</h5>
+                            <h5 class="modal-title">ПАССПОРТНЫЕ ДАННЫЕ СИ</h5>
                             <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
@@ -182,7 +227,30 @@
                     </div>
                 </div>
             </div>
+            <div id="modal_window_add_table" class="modal fade" aria-hidden='true' tabindex='-1'>
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content form_content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">ПАССПОРТНЫЕ ДАННЫЕ СИ</h5>
+                            <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="modal_form_collection">
+                        {% for key, tform in table_forms.items %}
+                        <form id="modal_form_table_{{key}}" class="d-none" action="" method="post">
+                            {% csrf_token %}
+                                {{ tform.as_p }}
+                            <button class="btn btn-dark" type="submit">Сохранить</button>
+                            <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Отмена</button>
+                        </form>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
             {% include 'passport/passport_delete_confirmation_modal.html' %}
+            {% include 'passport/table_delete_confirmation_modal.html' %}
             </div>
         </div>
     </div>

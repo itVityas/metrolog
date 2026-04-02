@@ -1,8 +1,8 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from . import models
-from . import forms
+from .. import models
+from .. import forms
 from django.http import HttpResponseRedirect
 
 
@@ -24,7 +24,12 @@ class PassportDetailView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["form"] = forms.MocListForm
+        context['form'] = forms.MocListForm
+        context['table_forms'] = {'verification': forms.VerificationInfoForm,
+                                  'repair': forms.RepairInfoForm,
+                                  'location': forms.DeviceLocationForm,
+                                  'status': forms.DeviceStatusDateForm,
+                                  'metall': forms.MocMetalsForm}
         return context
 
 

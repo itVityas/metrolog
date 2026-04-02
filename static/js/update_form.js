@@ -133,7 +133,7 @@ function show_delete_moc_list(e){
     console.log(id)
     delete_button.data = id;
     modal_delete.show();
-}
+};
 
 function delete_moc_list(e){
     const csrfToken = e.children[0].value;
@@ -149,5 +149,106 @@ function delete_moc_list(e){
         }
     })
     .catch(error => console.error('Error fetching data:', error));
+};
+
+function flush_modal_window_table(e, name) {
+    const modal = new bootstrap.Modal(document.getElementById("modal_window_add_table"));
+    const form = document.getElementById("modal_form_table_"+name);
+    const form_collection = document.getElementById("modal_form_collection").children;
+
+    open_form_table(form, form_collection);
+    form.reset();
+    setInitial(form);
+    form.action = name+"/add/";
+    modal.show();
+};
+
+function open_form_table(form, form_collection){
+    for (var i = 0; i < form_collection.length; i++) {
+        form_collection[i].classList.add('d-none');
+    }
+    form.classList.remove('d-none');
+};
+
+function setInitial(form){
+    // get form elements
+    form_inv_number = form.querySelector('#id_inv_number');
+    form_moc_list = form.querySelector('#id_moc_list');
+
+    // get values from page
+    inv_number = document.getElementById('inv_number').innerText;
+    moc_list = document.getElementById('main_container').getAttribute('value');
+    
+    // set form elements values
+    form_inv_number.value = inv_number;
+    form_moc_list.value = moc_list;
+
+    form_inv_number.readOnly = true;
 }
 
+function fill_modal_window_table(e, name) {
+    const modal = new bootstrap.Modal(document.getElementById("modal_window_add_table"));
+    const form = document.getElementById("modal_form_table_"+name);
+    const form_collection = document.getElementById("modal_form_collection").children;
+    
+    const row = e.parentElement.parentElement;
+    const cells = row.children;
+
+    for(const [index, cell] of [...cells].entries()){
+        if (index === cells.length - 2) {
+            break;
+        }
+        form_element = form.querySelector('#id_'+cell.id);
+        if(form_element != null){
+            console.log(form_element.type)
+            switch (form_element.type){
+            case "checkbox":
+                form_element.checked = (cell.textContent === "Да") ? true : false;
+                break;
+            case "number":
+                form_element.value = (cell.textContent.includes(',')) ? parseFloat(cell.textContent.replace(',','.')) : parseInt(cell.textContent);
+                break;
+            case "select-one":
+                 for (var i = 0; i < form_element.children.length; i++) {
+                    console.log(form_element.children[i].innerText)
+                    if(form_element.children[i].innerText === cell.textContent){
+                        form_element.value = form_element.children[i].getAttribute('value');
+                    }
+                }
+                break;
+            default:
+                form_element.value = cell.textContent;
+            }
+        }
+        
+    }
+    setInitial(form);
+    open_form_table(form, form_collection);
+    const id = cells[0].parentElement.getAttribute('value');
+    form.action = "" + name + "/" + id + "/update/";
+    modal.show();
+};
+
+function show_delete_table(e, name, id){
+    const modal_delete = new bootstrap.Modal(document.getElementById("modal_window_delete_table"));
+    const delete_button = document.getElementById("delete_button_table");
+
+    delete_button.data = `${name}/${id}`;
+    modal_delete.show();
+};
+
+function delete_table(e){
+    const csrfToken = e.children[0].value;
+    fetch("" + e.data + "/delete/", {
+        method: "DELETE",
+        redirect: 'follow',
+        headers: {
+            'X-CSRFToken': csrfToken
+        },
+    }).then(response => {
+        if (response.redirected) {
+            window.location.href = response.url;
+        }
+    })
+    .catch(error => console.error('Error fetching data:', error));
+};
