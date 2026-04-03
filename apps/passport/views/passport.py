@@ -8,6 +8,7 @@ from django.views.generic import (ListView,
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .. import models
 from .. import forms
+from ...handbooks import models as hmodels
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.conf import settings
@@ -36,7 +37,8 @@ class PassportListView(LoginRequiredMixin, ListView):
             # Filter the queryset
             queryset = queryset.filter(
                 Q(moc_group__name__icontains=query) |
-                Q(moc_type__type__icontains=query)
+                Q(moc_type__type__icontains=query) |
+                Q(inv_number__icontains=query)
             ).distinct()
         return queryset
 
@@ -107,3 +109,209 @@ class MocListDeleteView(LoginRequiredMixin, DeleteView):
         response = HttpResponseRedirect(self.get_success_url())
         response.status_code = 303
         return response
+
+
+class PassportMigrateView(LoginRequiredMixin, View):
+    success_url = reverse_lazy('passport')
+
+    def post(self, request, *args, **kwargs):
+        self.copy_device_station()
+        return HttpResponseRedirect(self.success_url)
+
+    def copy_moc_list(self):
+        table = DBF('dbf/maa/maa01.DBF')
+
+        data_list = []
+        for record in table:
+            new_dict = {}
+            try:
+                new_dict['moc_type'] = hmodels.MocType.objects.get(
+                    type=record.get('TIP_SI')
+                    )
+                new_dict['factory_number'] = record.get('ZAV_N')
+                new_dict['inv_number'] = record.get('INV_N')
+                new_dict['change_type'] = hmodels.ChangeType.objects.get(
+                    code=record.get('VID_IZ')
+                    )
+                new_dict['moc_group'] = hmodels.MocGroup.objects.filter(
+                        group=record.get('GR_SI')).first()
+                new_dict['verification_type'] = record.get('VID_POV')
+                new_dict['sign_o_r'] = record.get('PR_O_R')
+                new_dict['sign_o_m'] = record.get('PR_O_M')
+                new_dict['verification_period'] = record.get('PER_POV')
+                new_dict['verification_department'] = hmodels.VerificationDepartment.objects.get(
+                    code=record.get('POV_POD')
+                    )
+                data_list.append(new_dict)
+            except Exception as e:
+                error_type = type(e).__name__
+                print(f"{error_type}: {e}")
+                print(record)
+                break
+
+        obj_list = [models.MocList(**data_dict) for data_dict in data_list]
+        models.MocList.objects.bulk_create(obj_list)
+
+    def copy_moc_metals(self):
+        table = DBF('dbf/maa/maa02.DBF')
+
+        data_list = []
+        for record in table:
+            new_dict = {}
+            try:
+                new_dict['precious_metals'] = hmodels.PreciousMetals.objects.get(
+                    id=record.get('KM')
+                    )
+                new_dict['inv_number'] = record.get('INV_N')
+                new_dict['metal_amount'] = record.get('MET')
+                new_dict['moc_list'] = models.MocList.objects.get(
+                    inv_number=record.get('INV_N')
+                    )
+                data_list.append(new_dict)
+            except (models.MocList.DoesNotExist,
+                    hmodels.PreciousMetals.DoesNotExist):
+                continue
+            except Exception as e:
+                error_type = type(e).__name__
+                print(f"{error_type}: {e}")
+                print(record)
+                break
+
+        obj_list = [models.MocMetals(**data_dict) for data_dict in data_list]
+        models.MocMetals.objects.bulk_create(obj_list)
+
+    def copy_verification_info(self):
+        table = DBF('dbf/maa/maa05.DBF')
+
+        data_list = []
+        for record in table:
+            new_dict = {}
+            try:
+                new_dict['inv_number'] = record.get('INV_N')
+                new_dict['entry_date'] = record.get('DAT_POST')
+                new_dict['verification_date'] = record.get('DAT_POV')
+                new_dict['workshop_issue_date'] = record.get('DAT_VID_V_')
+                new_dict['verification_result'] = record.get('REZ')
+                new_dict['verification_person'] = hmodels.VerificationPerson.objects.filter(code=record.get('KOD_POV')).first()
+                new_dict['verification_sign'] = hmodels.VerificationSign.objects.filter(code=record.get('PR_POV')).first()
+                new_dict['verification_document_num'] = record.get('NUMDOC')
+                new_dict['moc_list'] = models.MocList.objects.get(
+                    inv_number=record.get('INV_N')
+                    )
+                data_list.append(new_dict)
+            except (models.MocList.DoesNotExist):
+                continue
+            except Exception as e:
+                error_type = type(e).__name__
+                print(f"{error_type}: {e}")
+                print(record)
+                break
+
+        obj_list = [models.VerificationInfo(**data_dict) for data_dict in data_list]
+        models.VerificationInfo.objects.bulk_create(obj_list)
+
+    def copy_repair_info(self):
+        table = DBF('dbf/maa/maa06.DBF')
+
+        data_list = []
+        for record in table:
+            new_dict = {}
+            try:
+                new_dict['inv_number'] = record.get('INV_N')
+                new_dict['entry_date'] = record.get('DAT_POST')
+                new_dict['entry_repair_date'] = record.get('DAT_VID_V_')
+                new_dict['repair_date'] = record.get('DAT_REM')
+                new_dict['repair_type'] = record.get('VID_REM')
+                new_dict['repair'] = hmodels.Repair.objects.filter(id=record.get('HAR_REM')).first()
+                new_dict['repair_code'] = hmodels.RepairCode.objects.filter(code=record.get('KAT_REM')).first()
+                new_dict['repair_department'] = hmodels.RepairDepartment.objects.filter(code=record.get('KOD_REM')).first()
+                new_dict['instrument_failure'] = hmodels.InstrumentFailure.objects.filter(code=record.get('PRICH_OTK')).first()
+                new_dict['moc_list'] = models.MocList.objects.get(
+                    inv_number=record.get('INV_N')
+                    )
+                data_list.append(new_dict)
+            except (models.MocList.DoesNotExist):
+                continue
+            except Exception as e:
+                error_type = type(e).__name__
+                print(f"{error_type}: {e}")
+                print(record)
+                break
+
+        obj_list = [models.RepairInfo(**data_dict) for data_dict in data_list]
+        models.RepairInfo.objects.bulk_create(obj_list)
+
+    def copy_device_location(self):
+        table = DBF('dbf/maa/maa07.DBF')
+
+        data_list = []
+        for record in table:
+            new_dict = {}
+            try:
+                new_dict['inv_number'] = record.get('INV_N')
+                new_dict['entry_date'] = record.get('DATV')
+                new_dict['department'] = hmodels.Department.objects.filter(workshop=record.get('CEX'), brigade=record.get('BR')).first()
+                new_dict['moc_list'] = models.MocList.objects.get(
+                    inv_number=record.get('INV_N')
+                    )
+                data_list.append(new_dict)
+            except (models.MocList.DoesNotExist):
+                continue
+            except Exception as e:
+                error_type = type(e).__name__
+                print(f"{error_type}: {e}")
+                print(record)
+                break
+
+        obj_list = [models.DeviceLocation(**data_dict) for data_dict in data_list]
+        models.DeviceLocation.objects.bulk_create(obj_list)
+
+    def copy_device_status(self):
+        table = DBF('dbf/maa/maa08.DBF')
+
+        data_list = []
+        for record in table:
+            new_dict = {}
+            try:
+                new_dict['inv_number'] = record.get('INV_N')
+                new_dict['status_date'] = record.get('DAT_STAT')
+                new_dict['device_status'] = hmodels.DeviceStatus.objects.filter(id=record.get('KOD_STAT')).first()
+                new_dict['moc_list'] = models.MocList.objects.get(
+                    inv_number=record.get('INV_N')
+                    )
+                data_list.append(new_dict)
+            except (models.MocList.DoesNotExist):
+                continue
+            except Exception as e:
+                error_type = type(e).__name__
+                print(f"{error_type}: {e}")
+                print(record)
+                break
+
+        obj_list = [models.DeviceStatusDate(**data_dict) for data_dict in data_list]
+        models.DeviceStatusDate.objects.bulk_create(obj_list)
+
+    def copy_device_station(self):
+        table = DBF('dbf/maa/maa09.DBF')
+
+        data_list = []
+        for record in table:
+            new_dict = {}
+            try:
+                new_dict['inv_number'] = record.get('INVN')
+                new_dict['station_inv_number'] = record.get('INVN_ST')
+                new_dict['station_name'] = record.get('NAME_ST')
+                new_dict['moc_list'] = models.MocList.objects.get(
+                    inv_number=record.get('INVN')
+                    )
+                data_list.append(new_dict)
+            except (models.MocList.DoesNotExist):
+                continue
+            except Exception as e:
+                error_type = type(e).__name__
+                print(f"{error_type}: {e}")
+                print(record)
+                break
+
+        obj_list = [models.DeviceStation(**data_dict) for data_dict in data_list]
+        models.DeviceStation.objects.bulk_create(obj_list)

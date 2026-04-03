@@ -146,7 +146,7 @@ class RepairInfoForm(forms.ModelForm):
         def label_from_instance(self, obj):
             return "%s" % obj.name
 
-    class VerificationSignChoiceField(ModelChoiceField):
+    class InstrumentFailureChoiceField(ModelChoiceField):
         def label_from_instance(self, obj):
             return "%s" % obj.name
 
@@ -200,8 +200,8 @@ class RepairInfoForm(forms.ModelForm):
         label='Ремонтник',
     )
 
-    verification_sign = VerificationSignChoiceField(
-        hmodels.VerificationSign.objects.all(),
+    instrument_failure = InstrumentFailureChoiceField(
+        hmodels.InstrumentFailure.objects.all(),
         label='Причина отказа',
     )
 

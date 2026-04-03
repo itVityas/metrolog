@@ -52,6 +52,7 @@ class MocList(models.Model):
     class SignOM(models.TextChoices):
         DEFAULT = 'О', _('Основной')
         LOWVALUABLE = 'М', _('Малоценный')
+        BUILTIN = 'В', _('Встроенный')
 
     sign_o_m = models.CharField(
         verbose_name='Признак',
@@ -164,12 +165,16 @@ class VerificationInfo(models.Model):
     verification_person = models.ForeignKey(
         hmodels.VerificationPerson,
         on_delete=models.CASCADE,
-        related_name='verification_info')
+        related_name='verification_info',
+        null=True,
+        blank=True,)
 
     verification_sign = models.ForeignKey(
         hmodels.VerificationSign,
         on_delete=models.CASCADE,
-        related_name='verification_info')
+        related_name='verification_info',
+        null=True,
+        blank=True,)
 
     moc_list = models.ForeignKey(
         MocList,
@@ -221,22 +226,30 @@ class RepairInfo(models.Model):
     repair = models.ForeignKey(
         hmodels.Repair,
         on_delete=models.CASCADE,
-        related_name='repair_info')
+        related_name='repair_info',
+        null=True,
+        blank=True,)
 
     repair_code = models.ForeignKey(
         hmodels.RepairCode,
         on_delete=models.CASCADE,
-        related_name='repair_info')
+        related_name='repair_info',
+        null=True,
+        blank=True,)
 
     repair_department = models.ForeignKey(
         hmodels.RepairDepartment,
         on_delete=models.CASCADE,
-        related_name='repair_info')
+        related_name='repair_info',
+        null=True,
+        blank=True,)
 
-    verification_sign = models.ForeignKey(
-        hmodels.VerificationSign,
+    instrument_failure = models.ForeignKey(
+        hmodels.InstrumentFailure,
         on_delete=models.CASCADE,
-        related_name='repair_info')
+        related_name='repair_info',
+        null=True,
+        blank=True,)
 
     moc_list = models.ForeignKey(
         MocList,
@@ -259,7 +272,9 @@ class DeviceLocation(models.Model):
     department = models.ForeignKey(
         hmodels.Department,
         on_delete=models.CASCADE,
-        related_name='device_location')
+        related_name='device_location',
+        null=True,
+        blank=True,)
 
     entry_date = models.DateField(
         verbose_name='Дата',
@@ -288,7 +303,9 @@ class DeviceStatusDate(models.Model):
     device_status = models.ForeignKey(
         hmodels.DeviceStatus,
         on_delete=models.CASCADE,
-        related_name='device_status_date')
+        related_name='device_status_date',
+        null=True,
+        blank=True,)
 
     status_date = models.DateField(
         verbose_name='Дата статуса',

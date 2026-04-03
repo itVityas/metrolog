@@ -21,6 +21,10 @@ urlpatterns = [
           views.MocListDeleteView.as_view(),
           name='passport_delete'),
 
+     path('passport/migrate/',
+          views.PassportMigrateView.as_view(),
+          name='passport_migrate'),
+
      # VerificationInfo routes
      path('passport/verification/add/',
           views.VerificationInfoCreateView.as_view(),

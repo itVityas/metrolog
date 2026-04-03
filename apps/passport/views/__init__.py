@@ -2,7 +2,8 @@ from .passport import (PassportListView,
                        MocListDetailView,
                        MocListCreateView,
                        MocListUpdateView,
-                       MocListDeleteView)
+                       MocListDeleteView,
+                       PassportMigrateView)
 from .verification_info import (VerificationInfoCreateView,
                                 VerificationInfoDeleteView,
                                 VerificationInfoUpdateView)
