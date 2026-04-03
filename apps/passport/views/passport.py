@@ -1,19 +1,27 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import (ListView,
+                                  DetailView,
+                                  CreateView,
+                                  UpdateView,
+                                  DeleteView,
+                                  View)
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .. import models
 from .. import forms
 from django.http import HttpResponseRedirect
 from django.db.models import Q
+from django.conf import settings
+from dbfread import DBF
 
 
-class PassportDetailView(LoginRequiredMixin, ListView):
+class PassportListView(LoginRequiredMixin, ListView):
     """
-        Passport Detail View
+        Passport List View
     """
-    template_name = 'passport/passport_main.html'
+    template_name = 'passport/moc_list.html'
     model = models.MocList
-    paginate_by = 1
+    paginate_by = settings.DEFAULT_PAGE_SIZE
+    ordering = 'id'
 
     def get_queryset(self):
         queryset = models.MocList.objects.prefetch_related(
@@ -30,6 +38,30 @@ class PassportDetailView(LoginRequiredMixin, ListView):
                 Q(moc_group__name__icontains=query) |
                 Q(moc_type__type__icontains=query)
             ).distinct()
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = forms.MocListForm
+        return context
+
+
+class MocListDetailView(LoginRequiredMixin, DetailView):
+    """
+        DetailView for MocList
+    """
+    template_name = 'passport/passport_main.html'
+    model = models.MocList
+    form_class = forms.MocListForm
+    success_url = reverse_lazy('passport')
+
+    def get_queryset(self):
+        queryset = models.MocList.objects.prefetch_related(
+            'device_location',
+            'verification_info',
+            'repair_info',
+            'device_status_date',
+            'moc_metals').all()
         return queryset
 
     def get_context_data(self, **kwargs):

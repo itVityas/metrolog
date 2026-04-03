@@ -5,8 +5,8 @@
     <div class='col'>
         <div class=''>
             <h5>Паспортные данные СИ</h5>
-            {% for object in object_list %}
-            <div id='main_container' value={{object.id}} class="container">
+            
+            <div id='main_container' value={{object.id}} class="">
                 <table class="table table-bordered border border-dark w-100">
                     <tbody>
                             <tr>
@@ -32,7 +32,7 @@
                             </tr>
                     </tbody>
                 </table>
-            <div class="container">
+            <div class="">
                 <div>
                     <div id='buttons_container' class='d-flex justify-content-between'>
                         <div class="">
@@ -201,19 +201,12 @@
                 </div>
                 <div>
                     <div class="">
-                        <form action="" method="get" class="d-inline">
-                            <input type="text" name="q" placeholder="Поиск" value="{{ request.GET.q|default_if_none:"" }}">
-                            <button type="submit" class="btn btn-primary-outline">
-                                <img src="{% static 'img/search.svg' %}" alt="Искать" width="32" height="32" />
-                            </button>
-                        </form>
-                        <button type="button" class="btn btn-light" onclick="flush_modal_window(this)">Добавить запись</button>
                         <button type="button" class="btn btn-light" onclick="fill_modal_moc_list(this)">Изменить запись</button>
                         <button type="button" class="btn btn-light" onclick="show_delete_moc_list(this)">Удалить запись</button>
                     </div>
                 </div>
             </div>
-            {% endfor %}
+
             <div id="modal_window_add" class="modal fade" aria-hidden='true' tabindex='-1'>
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content form_content">
@@ -256,6 +249,7 @@
                     </div>
                 </div>
             </div>
+            
             {% include 'passport/passport_delete_confirmation_modal.html' %}
             {% include 'passport/table_delete_confirmation_modal.html' %}
             </div>

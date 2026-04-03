@@ -5,8 +5,12 @@ from . import views
 urlpatterns = [
      # passport main routes
      path('passport/',
-          views.PassportDetailView.as_view(),
+          views.PassportListView.as_view(),
           name='passport'),
+
+     path('passport/<int:pk>/',
+          views.MocListDetailView.as_view(),
+          name='passport_detail'),
      path('passport/add/',
           views.MocListCreateView.as_view(),
           name='passport_add'),

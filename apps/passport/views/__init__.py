@@ -1,4 +1,5 @@
-from .passport import (PassportDetailView,
+from .passport import (PassportListView,
+                       MocListDetailView,
                        MocListCreateView,
                        MocListUpdateView,
                        MocListDeleteView)
