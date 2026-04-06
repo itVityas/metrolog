@@ -24,6 +24,13 @@ class PassportListView(LoginRequiredMixin, ListView):
     paginate_by = settings.DEFAULT_PAGE_SIZE
     ordering = 'id'
 
+    def get_paginate_by(self, queryset):
+        if 'no_page' in self.request.GET:
+            return None
+        user_settings = self.request.user.usersettings
+        pagination_size = user_settings.pagination_size
+        return pagination_size if pagination_size else self.paginate_by
+
     def get_queryset(self):
         queryset = models.MocList.objects.prefetch_related(
             'device_location',
@@ -44,6 +51,12 @@ class PassportListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        # paginaton, deal wih too many pages
+        page = context['page_obj']
+        if page:
+            context['paginator_range'] = page.paginator.get_elided_page_range(
+                page.number, on_each_side=2, on_ends=1
+            )
         context['form'] = forms.MocListForm
         return context
 

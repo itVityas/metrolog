@@ -16,9 +16,15 @@
                             <img src="{% static 'img/search.svg' %}" alt="Искать" width="32" height="32" />
                         </button>
                     </form>
-                    <button type="button" class="btn btn-light" onclick="flush_modal_window(this)">Добавить запись</button>
+                    <button type="button" class="btn btn-dark" onclick="flush_modal_window(this)">Добавить запись</button>
+                    {% if 'no_page' in request.GET %}
+                    <a href="{% querystring no_page=None %}" class="page-link d-inline"> Показать постранично </a>
+                    {% else %}
+                    <a href="{% querystring page=1 %}&no_page" class="page-link d-inline"> Показать все </a>
+                    {% endif %}
                 </div>
             </div>
+            
             <div class="table-container">
                 <table class="table table-striped table-bordered border border-dark w-100">
                     <tbody>
