@@ -37,11 +37,11 @@
                             <tr>
                                 <td>{{precious_metal.id}}</td>
                                 <td>{{precious_metal.name}}</td>
-                                <td><button type="button" class="btn btn-primary-outline" onclick="fill_modal_window(this)" id="submitButton">
-                                    <img src="{% static 'img/pencil-square.svg' %}" fill="currentColor" alt="Изменить" width="32" height="32" />
+                                <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="fill_modal_window(this)" id="submitButton">
+                                    <img src="{% static 'img/pencil-square.svg' %}" fill="currentColor" alt="Изменить" width="24" height="24" />
                                 </button></td>
-                                <td><button type="button" class="btn btn-primary-outline" onclick="show_delete_modal(this)">
-                                    <img src="{% static 'img/trash-fill.svg' %}" alt="Удалить" width="32" height="32" />
+                                <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="show_delete_modal(this)">
+                                    <img src="{% static 'img/trash-fill.svg' %}" alt="Удалить" width="24" height="24" />
                                 </button></td>
                             </tr>
                         {% endfor %}
