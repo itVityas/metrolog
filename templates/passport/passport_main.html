@@ -203,7 +203,9 @@
                     <div class="">
                         <button type="button" class="btn btn-dark" onclick="fill_modal_moc_list(this)">Изменить запись</button>
                         <button type="button" class="btn btn-dark" onclick="show_delete_moc_list(this)">Удалить запись</button>
-                        <button type="button" class="btn btn-dark" onclick="print_to_html('main_container')">Печать</button>
+                        <form action="{% url 'passport_print' pk=object.id %}" method="get" class="d-inline">
+                            <button type="submit" class="btn btn-dark">Печать</button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,54 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div id='print_container'>
+    <table class="table table-bordered border border-dark w-100 text-center">
+        <thead>
+            <th colspan='2' class="border-0">ОАО "ВИТЯЗЬ"</th>
+            <th colspan='3' class="border-0">ПАСПОРТ</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan='2'>Место закрепления</td>
+                <td colspan='2'>Наименование прибора</td>
+                <td>Периодичность поверки</td>
+            </tr>
+            <tr>
+                <td colspan='2'><strong>{{object.device_location.last.department.workshop}} - {{object.device_location.last.department.brigade}}</strong></td>
+                <td colspan='2'><strong>{{object.moc_group.name}}</strong></td>
+                <td><strong>{{object.verification_period}}</strong></td>
+            </tr>
+            <tr>
+                <td colspan='2'>Тип</td>
+                <td>Заводской №</td>
+                <td>Инвентарный №</td>
+                <td>Вид поверки</td>
+            </tr>
+            <tr>
+                <td colspan='2'><strong>{{object.moc_type.type}}</strong></td>
+                <td><strong>{{object.factory_number}}</strong></td>
+                <td><strong>{{object.inv_number}}</strong></td>
+                <td><strong>{{object.verification_type}}</strong></td>
+            </tr>
+            <tr>
+                <td colspan='2'>Даты</td>
+                <td colspan='2' rowspan='2'>Результаты поверки</td>
+                <td rowspan='2'>Характер ремонта</td>
+            </tr>
+            <tr>
+                <td>Поверок</td>
+                <td>Ремонтов</td>
+            </tr>
+            {% for verification, repair in data_list %}
+                <tr>
+                    <td><strong>{{verification.verification_date|date:"Y-m-d"}}</strong></td>
+                    <td><strong>{{repair.repair_date|date:"Y-m-d"}}</strong></td>
+                    <td colspan='2'><strong>{{verification.verification_result}}</strong></td>
+                    <td><strong>{{repair.repair.name}}</strong></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

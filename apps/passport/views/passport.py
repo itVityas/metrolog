@@ -13,6 +13,7 @@ from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.conf import settings
 from dbfread import DBF
+from itertools import zip_longest
 
 
 class PassportListView(LoginRequiredMixin, ListView):
@@ -87,6 +88,33 @@ class MocListDetailView(LoginRequiredMixin, DetailView):
                                   'location': forms.DeviceLocationForm,
                                   'status': forms.DeviceStatusDateForm,
                                   'metall': forms.MocMetalsForm}
+        return context
+
+
+class PassportPrintView(LoginRequiredMixin, DetailView):
+    """
+        DetailView for printing Passport
+    """
+    template_name = 'passport/passport_print.html'
+    model = models.MocList
+    form_class = forms.MocListForm
+    success_url = reverse_lazy('passport')
+
+    def get_queryset(self):
+        queryset = models.MocList.objects.prefetch_related(
+            'device_location',
+            'verification_info',
+            'repair_info',
+            'device_status_date',
+            'moc_metals').all()
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        verification_list = self.get_object().verification_info.all()
+        repair_list = self.get_object().repair_info.all()
+        data_list = zip_longest(verification_list, repair_list)
+        context['data_list'] = data_list
         return context
 
 

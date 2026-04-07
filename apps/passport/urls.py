@@ -25,6 +25,10 @@ urlpatterns = [
           views.PassportMigrateView.as_view(),
           name='passport_migrate'),
 
+     path('passport/<int:pk>/print/',
+          views.PassportPrintView.as_view(),
+          name='passport_print'),
+
      # VerificationInfo routes
      path('passport/verification/add/',
           views.VerificationInfoCreateView.as_view(),
