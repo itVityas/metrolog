@@ -1,0 +1,2226 @@
+[
+{
+    "model": "passport.repairinfo",
+    "pk": 1,
+    "fields": {
+        "inv_number": "002570",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 1
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 2,
+    "fields": {
+        "inv_number": "0064",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 4
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 3,
+    "fields": {
+        "inv_number": " 0171",
+        "entry_date": "2016-02-17",
+        "entry_repair_date": "2016-02-17",
+        "repair_date": "2016-02-17",
+        "repair_type": "4",
+        "repair": 10,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 144,
+        "moc_list": 5
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 4,
+    "fields": {
+        "inv_number": "0386",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 7
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 5,
+    "fields": {
+        "inv_number": "0448",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 9
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 6,
+    "fields": {
+        "inv_number": "066458",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 10
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 7,
+    "fields": {
+        "inv_number": "066625",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 11
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 8,
+    "fields": {
+        "inv_number": "0692",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 12
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 9,
+    "fields": {
+        "inv_number": "07018",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "2000-01-18",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 13
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 10,
+    "fields": {
+        "inv_number": "0711",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "1997-06-05",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 14
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 11,
+    "fields": {
+        "inv_number": "0732",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 15
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 12,
+    "fields": {
+        "inv_number": "91450728",
+        "entry_date": "2010-02-02",
+        "entry_repair_date": "2010-02-02",
+        "repair_date": "2010-02-08",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 144,
+        "moc_list": 16
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 13,
+    "fields": {
+        "inv_number": "91450729",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 17
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 14,
+    "fields": {
+        "inv_number": "0767",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 19
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 15,
+    "fields": {
+        "inv_number": "078743",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 20
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 16,
+    "fields": {
+        "inv_number": "08018",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "2000-11-23",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 21
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 17,
+    "fields": {
+        "inv_number": "081302",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 22
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 18,
+    "fields": {
+        "inv_number": "083189",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "1997-06-12",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 23
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 19,
+    "fields": {
+        "inv_number": "083730",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 24
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 20,
+    "fields": {
+        "inv_number": "0870",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 25
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 21,
+    "fields": {
+        "inv_number": "094009",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 26
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 22,
+    "fields": {
+        "inv_number": "095116",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 27
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 23,
+    "fields": {
+        "inv_number": "100356",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 28
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 24,
+    "fields": {
+        "inv_number": "1009",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 29
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 25,
+    "fields": {
+        "inv_number": " 101",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 30
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 26,
+    "fields": {
+        "inv_number": "1011",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 31
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 27,
+    "fields": {
+        "inv_number": " 1019",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 32
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 28,
+    "fields": {
+        "inv_number": "1022",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 33
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 29,
+    "fields": {
+        "inv_number": "1026",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 34
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 30,
+    "fields": {
+        "inv_number": "1031",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 35
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 31,
+    "fields": {
+        "inv_number": "1036",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "1996-06-26",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 36
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 32,
+    "fields": {
+        "inv_number": " 1041",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 8
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 33,
+    "fields": {
+        "inv_number": "1047",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 38
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 34,
+    "fields": {
+        "inv_number": "1054",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "1997-12-03",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 39
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 35,
+    "fields": {
+        "inv_number": "11117",
+        "entry_date": "2002-04-03",
+        "entry_repair_date": "2002-04-03",
+        "repair_date": "2002-04-03",
+        "repair_type": "4",
+        "repair": 17,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 131,
+        "moc_list": 40
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 36,
+    "fields": {
+        "inv_number": "111987",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 41
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 37,
+    "fields": {
+        "inv_number": "1143",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 42
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 38,
+    "fields": {
+        "inv_number": " 1155",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 43
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 39,
+    "fields": {
+        "inv_number": " 1173",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 44
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 40,
+    "fields": {
+        "inv_number": "1176",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "4",
+        "repair": null,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 45
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 41,
+    "fields": {
+        "inv_number": "1193",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 47
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 42,
+    "fields": {
+        "inv_number": "1257",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 48
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 43,
+    "fields": {
+        "inv_number": "1282",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 49
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 44,
+    "fields": {
+        "inv_number": " 1302",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 50
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 45,
+    "fields": {
+        "inv_number": "1470",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 51
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 46,
+    "fields": {
+        "inv_number": " 155301",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "1997-12-10",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 52
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 47,
+    "fields": {
+        "inv_number": "155301Г",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "2000-01-18",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 53
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 48,
+    "fields": {
+        "inv_number": "155301У",
+        "entry_date": "2001-11-02",
+        "entry_repair_date": "2001-12-03",
+        "repair_date": "2001-12-11",
+        "repair_type": "4",
+        "repair": 13,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 3,
+        "moc_list": 54
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 49,
+    "fields": {
+        "inv_number": " 155302",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "1997-09-02",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 55
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 50,
+    "fields": {
+        "inv_number": "155302Г",
+        "entry_date": "2002-09-06",
+        "entry_repair_date": "2002-09-24",
+        "repair_date": "2002-09-25",
+        "repair_type": "4",
+        "repair": 9,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 3,
+        "moc_list": 56
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 51,
+    "fields": {
+        "inv_number": "155302У",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "2000-03-21",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 57
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 52,
+    "fields": {
+        "inv_number": " 155303",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "2001-02-15",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 58
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 53,
+    "fields": {
+        "inv_number": "155303У",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "2000-01-20",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 60
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 54,
+    "fields": {
+        "inv_number": " 155304",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "2001-02-16",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 61
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 55,
+    "fields": {
+        "inv_number": "155304Г",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "1997-11-25",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 62
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 56,
+    "fields": {
+        "inv_number": "155304У",
+        "entry_date": "2004-12-10",
+        "entry_repair_date": "2004-12-27",
+        "repair_date": "2004-12-28",
+        "repair_type": "4",
+        "repair": 30,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 125,
+        "moc_list": 63
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 57,
+    "fields": {
+        "inv_number": "1739",
+        "entry_date": "2016-02-17",
+        "entry_repair_date": "2016-02-17",
+        "repair_date": "2016-02-17",
+        "repair_type": "4",
+        "repair": 10,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 144,
+        "moc_list": 64
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 58,
+    "fields": {
+        "inv_number": " 2226",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 66
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 59,
+    "fields": {
+        "inv_number": "24117",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "2000-11-08",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 68
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 60,
+    "fields": {
+        "inv_number": "25117",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "2000-01-25",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 69
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 61,
+    "fields": {
+        "inv_number": "256830",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 70
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 62,
+    "fields": {
+        "inv_number": "26117",
+        "entry_date": "2001-08-15",
+        "entry_repair_date": "2001-08-16",
+        "repair_date": "2001-08-20",
+        "repair_type": "4",
+        "repair": 13,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 15,
+        "moc_list": 71
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 63,
+    "fields": {
+        "inv_number": "26117П",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "1997-11-06",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 72
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 64,
+    "fields": {
+        "inv_number": " 269",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 73
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 65,
+    "fields": {
+        "inv_number": " 29",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 75
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 66,
+    "fields": {
+        "inv_number": "293",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 76
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 67,
+    "fields": {
+        "inv_number": " 307",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 77
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 68,
+    "fields": {
+        "inv_number": " 371",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 79
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 69,
+    "fields": {
+        "inv_number": "453994",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 82
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 70,
+    "fields": {
+        "inv_number": "498",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 83
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 71,
+    "fields": {
+        "inv_number": "5018",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "1997-11-18",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 84
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 72,
+    "fields": {
+        "inv_number": "513000",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 85
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 73,
+    "fields": {
+        "inv_number": "556",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 86
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 74,
+    "fields": {
+        "inv_number": " 592",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 87
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 75,
+    "fields": {
+        "inv_number": "6750",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 88
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 76,
+    "fields": {
+        "inv_number": "М77450062",
+        "entry_date": null,
+        "entry_repair_date": null,
+        "repair_date": "1996-07-23",
+        "repair_type": "0",
+        "repair": null,
+        "repair_code": null,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 92
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 77,
+    "fields": {
+        "inv_number": "155301Г",
+        "entry_date": "2002-04-04",
+        "entry_repair_date": "2002-05-06",
+        "repair_date": null,
+        "repair_type": "4",
+        "repair": 30,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 44,
+        "moc_list": 53
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 78,
+    "fields": {
+        "inv_number": " 155301",
+        "entry_date": "2001-04-04",
+        "entry_repair_date": "2001-04-12",
+        "repair_date": "2001-04-12",
+        "repair_type": "7",
+        "repair": null,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 52
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 79,
+    "fields": {
+        "inv_number": "07018",
+        "entry_date": "2001-04-06",
+        "entry_repair_date": "2001-04-13",
+        "repair_date": "2001-04-13",
+        "repair_type": "4",
+        "repair": null,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 13
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 80,
+    "fields": {
+        "inv_number": "155304Г",
+        "entry_date": "2001-04-16",
+        "entry_repair_date": "2001-04-18",
+        "repair_date": "2001-04-18",
+        "repair_type": "4",
+        "repair": null,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 62
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 81,
+    "fields": {
+        "inv_number": " 155302",
+        "entry_date": "2001-08-16",
+        "entry_repair_date": "2001-08-23",
+        "repair_date": "2001-08-23",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 29,
+        "moc_list": 55
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 82,
+    "fields": {
+        "inv_number": " 155303",
+        "entry_date": "2001-09-21",
+        "entry_repair_date": "2001-09-24",
+        "repair_date": "2001-09-26",
+        "repair_type": "4",
+        "repair": null,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 48,
+        "moc_list": 58
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 83,
+    "fields": {
+        "inv_number": "08018",
+        "entry_date": "2001-11-29",
+        "entry_repair_date": "2002-01-18",
+        "repair_date": "2002-01-24",
+        "repair_type": "4",
+        "repair": 13,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 12,
+        "moc_list": 21
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 84,
+    "fields": {
+        "inv_number": "5018",
+        "entry_date": "2002-03-19",
+        "entry_repair_date": "2002-03-29",
+        "repair_date": "2002-04-01",
+        "repair_type": "4",
+        "repair": 13,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 117,
+        "moc_list": 84
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 85,
+    "fields": {
+        "inv_number": "11117",
+        "entry_date": "2002-04-11",
+        "entry_repair_date": "2002-09-25",
+        "repair_date": "2002-09-26",
+        "repair_type": "4",
+        "repair": 9,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 11,
+        "moc_list": 40
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 86,
+    "fields": {
+        "inv_number": "5018",
+        "entry_date": "2002-04-11",
+        "entry_repair_date": "2002-09-25",
+        "repair_date": "2002-09-27",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 12,
+        "moc_list": 84
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 87,
+    "fields": {
+        "inv_number": "155302У",
+        "entry_date": "2002-04-17",
+        "entry_repair_date": "2002-05-16",
+        "repair_date": "2002-05-23",
+        "repair_type": "4",
+        "repair": 9,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 24,
+        "moc_list": 57
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 88,
+    "fields": {
+        "inv_number": "155304Г",
+        "entry_date": "2002-04-18",
+        "entry_repair_date": "2002-05-06",
+        "repair_date": "2002-05-07",
+        "repair_type": "4",
+        "repair": 13,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 132,
+        "moc_list": 62
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 89,
+    "fields": {
+        "inv_number": "25117",
+        "entry_date": "2002-04-26",
+        "entry_repair_date": "2002-10-10",
+        "repair_date": "2002-10-18",
+        "repair_type": "4",
+        "repair": 25,
+        "repair_code": 3,
+        "repair_department": null,
+        "instrument_failure": 12,
+        "moc_list": 69
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 90,
+    "fields": {
+        "inv_number": "07018",
+        "entry_date": "2002-05-06",
+        "entry_repair_date": "2002-10-01",
+        "repair_date": "2002-10-10",
+        "repair_type": "4",
+        "repair": 18,
+        "repair_code": 3,
+        "repair_department": null,
+        "instrument_failure": 132,
+        "moc_list": 13
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 91,
+    "fields": {
+        "inv_number": " 155301",
+        "entry_date": "2002-05-22",
+        "entry_repair_date": "2002-06-19",
+        "repair_date": "2002-07-08",
+        "repair_type": "4",
+        "repair": 30,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 22,
+        "moc_list": 52
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 92,
+    "fields": {
+        "inv_number": " 155303",
+        "entry_date": "2002-09-26",
+        "entry_repair_date": "2002-10-02",
+        "repair_date": "2002-10-17",
+        "repair_type": "4",
+        "repair": 18,
+        "repair_code": 3,
+        "repair_department": null,
+        "instrument_failure": 12,
+        "moc_list": 58
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 93,
+    "fields": {
+        "inv_number": " 155302",
+        "entry_date": "2002-09-25",
+        "entry_repair_date": "2002-09-25",
+        "repair_date": "2002-10-09",
+        "repair_type": "4",
+        "repair": 18,
+        "repair_code": 3,
+        "repair_department": null,
+        "instrument_failure": 12,
+        "moc_list": 55
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 94,
+    "fields": {
+        "inv_number": "24117",
+        "entry_date": "2002-12-02",
+        "entry_repair_date": "2003-04-02",
+        "repair_date": "2003-04-07",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 3,
+        "moc_list": 68
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 95,
+    "fields": {
+        "inv_number": " 155301",
+        "entry_date": "2003-03-19",
+        "entry_repair_date": "2003-03-20",
+        "repair_date": "2003-03-24",
+        "repair_type": "4",
+        "repair": 13,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 19,
+        "moc_list": 52
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 96,
+    "fields": {
+        "inv_number": "155301У",
+        "entry_date": "2003-02-05",
+        "entry_repair_date": "2003-04-04",
+        "repair_date": "2003-04-11",
+        "repair_type": "4",
+        "repair": 12,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 12,
+        "moc_list": 54
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 97,
+    "fields": {
+        "inv_number": "0711",
+        "entry_date": "2003-04-23",
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "4",
+        "repair": null,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 120,
+        "moc_list": 14
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 98,
+    "fields": {
+        "inv_number": "М77450062",
+        "entry_date": "2003-10-02",
+        "entry_repair_date": "2003-10-08",
+        "repair_date": "2003-10-09",
+        "repair_type": "4",
+        "repair": 9,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 7,
+        "moc_list": 92
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 99,
+    "fields": {
+        "inv_number": "0870",
+        "entry_date": "2003-10-24",
+        "entry_repair_date": "2003-10-29",
+        "repair_date": "2003-10-29",
+        "repair_type": "4",
+        "repair": 3,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 120,
+        "moc_list": 25
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 100,
+    "fields": {
+        "inv_number": "155302Г",
+        "entry_date": "2004-09-16",
+        "entry_repair_date": "2004-12-07",
+        "repair_date": "2004-12-08",
+        "repair_type": "4",
+        "repair": 9,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 44,
+        "moc_list": 56
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 101,
+    "fields": {
+        "inv_number": "М77450062",
+        "entry_date": "2004-10-19",
+        "entry_repair_date": "2004-10-20",
+        "repair_date": "2004-10-20",
+        "repair_type": "4",
+        "repair": 10,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 37,
+        "moc_list": 92
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 102,
+    "fields": {
+        "inv_number": " 155303",
+        "entry_date": "2004-11-15",
+        "entry_repair_date": "2004-12-01",
+        "repair_date": "2004-12-06",
+        "repair_type": "4",
+        "repair": 9,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 44,
+        "moc_list": 58
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 103,
+    "fields": {
+        "inv_number": "155302У",
+        "entry_date": "2004-12-10",
+        "entry_repair_date": "2004-12-27",
+        "repair_date": "2004-12-27",
+        "repair_type": "4",
+        "repair": 30,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 12,
+        "moc_list": 57
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 104,
+    "fields": {
+        "inv_number": "02075",
+        "entry_date": "2004-12-20",
+        "entry_repair_date": "2004-12-20",
+        "repair_date": "2004-12-20",
+        "repair_type": "4",
+        "repair": 17,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 144,
+        "moc_list": 6
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 105,
+    "fields": {
+        "inv_number": "083189",
+        "entry_date": "2005-03-30",
+        "entry_repair_date": "2005-05-12",
+        "repair_date": "2005-05-17",
+        "repair_type": "4",
+        "repair": 9,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 102,
+        "moc_list": 23
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 106,
+    "fields": {
+        "inv_number": " 155302",
+        "entry_date": "2005-07-14",
+        "entry_repair_date": "2005-08-01",
+        "repair_date": "2005-08-03",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 47,
+        "moc_list": 55
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 107,
+    "fields": {
+        "inv_number": "155302У",
+        "entry_date": "2005-07-27",
+        "entry_repair_date": "2005-08-25",
+        "repair_date": "2005-08-29",
+        "repair_type": "4",
+        "repair": 30,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 24,
+        "moc_list": 57
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 108,
+    "fields": {
+        "inv_number": " 155301",
+        "entry_date": "2005-07-27",
+        "entry_repair_date": "2005-07-27",
+        "repair_date": "2005-08-02",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 33,
+        "moc_list": 52
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 109,
+    "fields": {
+        "inv_number": "155302У",
+        "entry_date": "2006-04-13",
+        "entry_repair_date": "2006-06-28",
+        "repair_date": "2006-06-30",
+        "repair_type": "4",
+        "repair": 9,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 33,
+        "moc_list": 57
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 110,
+    "fields": {
+        "inv_number": "155302Г",
+        "entry_date": "2006-04-13",
+        "entry_repair_date": "2006-06-22",
+        "repair_date": "2006-06-26",
+        "repair_type": "4",
+        "repair": 30,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 104,
+        "moc_list": 56
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 111,
+    "fields": {
+        "inv_number": " 155303",
+        "entry_date": "2006-10-26",
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "4",
+        "repair": null,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 12,
+        "moc_list": 58
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 112,
+    "fields": {
+        "inv_number": "083189",
+        "entry_date": "2007-06-27",
+        "entry_repair_date": "2007-09-13",
+        "repair_date": "2007-09-13",
+        "repair_type": "4",
+        "repair": 17,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 28,
+        "moc_list": 23
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 113,
+    "fields": {
+        "inv_number": "083189",
+        "entry_date": "2008-12-08",
+        "entry_repair_date": "2008-12-08",
+        "repair_date": "2008-12-29",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 172,
+        "moc_list": 23
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 114,
+    "fields": {
+        "inv_number": "155302Г",
+        "entry_date": "2009-04-14",
+        "entry_repair_date": "2009-07-30",
+        "repair_date": "2009-07-31",
+        "repair_type": "4",
+        "repair": 30,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 28,
+        "moc_list": 56
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 115,
+    "fields": {
+        "inv_number": "0870",
+        "entry_date": "2009-04-08",
+        "entry_repair_date": "2009-04-08",
+        "repair_date": "2009-04-08",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 144,
+        "moc_list": 25
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 116,
+    "fields": {
+        "inv_number": "02075",
+        "entry_date": "2010-02-10",
+        "entry_repair_date": "2010-02-10",
+        "repair_date": "2010-02-10",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 144,
+        "moc_list": 6
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 117,
+    "fields": {
+        "inv_number": " 155301",
+        "entry_date": "2020-03-15",
+        "entry_repair_date": "2010-03-16",
+        "repair_date": "2010-03-18",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 12,
+        "moc_list": 52
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 118,
+    "fields": {
+        "inv_number": "155304У",
+        "entry_date": "2010-06-14",
+        "entry_repair_date": "2010-06-28",
+        "repair_date": "2010-06-30",
+        "repair_type": "4",
+        "repair": 3,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 12,
+        "moc_list": 63
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 119,
+    "fields": {
+        "inv_number": "155304Г",
+        "entry_date": "2010-07-14",
+        "entry_repair_date": "2010-08-12",
+        "repair_date": "2010-08-13",
+        "repair_type": "4",
+        "repair": 13,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 12,
+        "moc_list": 62
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 120,
+    "fields": {
+        "inv_number": "155303У",
+        "entry_date": "2010-07-14",
+        "entry_repair_date": "2010-10-28",
+        "repair_date": "2010-10-29",
+        "repair_type": "4",
+        "repair": 30,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 12,
+        "moc_list": 60
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 121,
+    "fields": {
+        "inv_number": "155302Г",
+        "entry_date": "2010-08-11",
+        "entry_repair_date": "2010-08-12",
+        "repair_date": "2010-08-13",
+        "repair_type": "4",
+        "repair": 13,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 12,
+        "moc_list": 56
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 122,
+    "fields": {
+        "inv_number": " 155304",
+        "entry_date": "2010-11-11",
+        "entry_repair_date": "2011-01-10",
+        "repair_date": null,
+        "repair_type": "4",
+        "repair": null,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 12,
+        "moc_list": 61
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 123,
+    "fields": {
+        "inv_number": "083189",
+        "entry_date": "2011-01-05",
+        "entry_repair_date": "2011-01-05",
+        "repair_date": "2011-01-05",
+        "repair_type": "4",
+        "repair": 17,
+        "repair_code": 1,
+        "repair_department": 2,
+        "instrument_failure": 7,
+        "moc_list": 23
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 124,
+    "fields": {
+        "inv_number": "083189",
+        "entry_date": "2011-01-06",
+        "entry_repair_date": "2011-01-06",
+        "repair_date": "2011-01-06",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 36,
+        "moc_list": 23
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 125,
+    "fields": {
+        "inv_number": "083189",
+        "entry_date": "2012-01-17",
+        "entry_repair_date": "2012-01-26",
+        "repair_date": "2012-01-30",
+        "repair_type": "4",
+        "repair": 9,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 12,
+        "moc_list": 23
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 126,
+    "fields": {
+        "inv_number": "155302У",
+        "entry_date": "2012-05-11",
+        "entry_repair_date": "2012-07-12",
+        "repair_date": "2012-07-16",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 12,
+        "moc_list": 57
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 127,
+    "fields": {
+        "inv_number": "155302Г",
+        "entry_date": "2012-07-10",
+        "entry_repair_date": "2012-07-12",
+        "repair_date": "2012-07-13",
+        "repair_type": "4",
+        "repair": 10,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 12,
+        "moc_list": 56
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 128,
+    "fields": {
+        "inv_number": "155304Г",
+        "entry_date": "2012-07-12",
+        "entry_repair_date": "2012-07-12",
+        "repair_date": "2012-07-16",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 12,
+        "moc_list": 62
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 129,
+    "fields": {
+        "inv_number": "155304Г",
+        "entry_date": "2012-09-17",
+        "entry_repair_date": "2012-09-17",
+        "repair_date": "2012-09-21",
+        "repair_type": "4",
+        "repair": 9,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 12,
+        "moc_list": 62
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 130,
+    "fields": {
+        "inv_number": "02075",
+        "entry_date": "2013-02-12",
+        "entry_repair_date": "2013-02-12",
+        "repair_date": "2013-02-13",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 12,
+        "moc_list": 6
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 131,
+    "fields": {
+        "inv_number": "М77450062",
+        "entry_date": "2013-05-21",
+        "entry_repair_date": "2013-05-21",
+        "repair_date": "2013-05-21",
+        "repair_type": "4",
+        "repair": 17,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 7,
+        "moc_list": 92
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 132,
+    "fields": {
+        "inv_number": "155302У",
+        "entry_date": "2013-07-18",
+        "entry_repair_date": "2013-07-18",
+        "repair_date": "2013-07-19",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 12,
+        "moc_list": 57
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 133,
+    "fields": {
+        "inv_number": "083189",
+        "entry_date": "2014-02-05",
+        "entry_repair_date": "2014-02-05",
+        "repair_date": "2014-02-12",
+        "repair_type": "4",
+        "repair": 4,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 144,
+        "moc_list": 23
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 134,
+    "fields": {
+        "inv_number": "083189",
+        "entry_date": "2015-03-02",
+        "entry_repair_date": "2015-03-02",
+        "repair_date": "2015-03-02",
+        "repair_type": "4",
+        "repair": 2,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 109,
+        "moc_list": 23
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 135,
+    "fields": {
+        "inv_number": "М77450062",
+        "entry_date": "2015-02-24",
+        "entry_repair_date": "2015-03-10",
+        "repair_date": "2015-03-10",
+        "repair_type": "4",
+        "repair": 10,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 39,
+        "moc_list": 92
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 136,
+    "fields": {
+        "inv_number": "583572",
+        "entry_date": "2018-05-25",
+        "entry_repair_date": "2018-05-25",
+        "repair_date": "2018-05-25",
+        "repair_type": "4",
+        "repair": 26,
+        "repair_code": 2,
+        "repair_department": 3,
+        "instrument_failure": 144,
+        "moc_list": 81
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 137,
+    "fields": {
+        "inv_number": "155303У",
+        "entry_date": "2019-12-18",
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "4",
+        "repair": null,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": 83,
+        "moc_list": 60
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 138,
+    "fields": {
+        "inv_number": "25117",
+        "entry_date": "2020-12-09",
+        "entry_repair_date": "2020-12-09",
+        "repair_date": "2020-12-15",
+        "repair_type": "4",
+        "repair": 9,
+        "repair_code": 2,
+        "repair_department": 2,
+        "instrument_failure": 183,
+        "moc_list": 69
+    }
+},
+{
+    "model": "passport.repairinfo",
+    "pk": 139,
+    "fields": {
+        "inv_number": "1045939",
+        "entry_date": "2022-06-01",
+        "entry_repair_date": null,
+        "repair_date": null,
+        "repair_type": "4",
+        "repair": null,
+        "repair_code": 2,
+        "repair_department": null,
+        "instrument_failure": null,
+        "moc_list": 59
+    }
+}
+]

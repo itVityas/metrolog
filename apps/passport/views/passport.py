@@ -156,6 +156,12 @@ class PassportMigrateView(LoginRequiredMixin, View):
     success_url = reverse_lazy('passport')
 
     def post(self, request, *args, **kwargs):
+        self.copy_moc_list()
+        self.copy_moc_metals()
+        self.copy_verification_info()
+        self.copy_repair_info()
+        self.copy_device_location()
+        self.copy_device_status()
         self.copy_device_station()
         return HttpResponseRedirect(self.success_url)
 

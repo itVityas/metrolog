@@ -1,0 +1,212 @@
+[
+{
+    "model": "passport.devicestation",
+    "pk": 1,
+    "fields": {
+        "inv_number": "0386",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 7
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 2,
+    "fields": {
+        "inv_number": "0448",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 9
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 3,
+    "fields": {
+        "inv_number": "0692",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 12
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 4,
+    "fields": {
+        "inv_number": "0711",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 14
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 5,
+    "fields": {
+        "inv_number": "0732",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 15
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 6,
+    "fields": {
+        "inv_number": "0767",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 19
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 7,
+    "fields": {
+        "inv_number": "0870",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 25
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 8,
+    "fields": {
+        "inv_number": "1470",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 51
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 9,
+    "fields": {
+        "inv_number": "1739",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 64
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 10,
+    "fields": {
+        "inv_number": "293",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 76
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 11,
+    "fields": {
+        "inv_number": "23523",
+        "station_inv_number": "",
+        "station_name": "Р-РУ",
+        "moc_list": 78
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 12,
+    "fields": {
+        "inv_number": "057600",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 80
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 13,
+    "fields": {
+        "inv_number": "100356",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 28
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 14,
+    "fields": {
+        "inv_number": "083189",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 23
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 15,
+    "fields": {
+        "inv_number": "0104",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 89
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 16,
+    "fields": {
+        "inv_number": "406297",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 90
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 17,
+    "fields": {
+        "inv_number": "038663",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 91
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 18,
+    "fields": {
+        "inv_number": "520253",
+        "station_inv_number": "",
+        "station_name": "",
+        "moc_list": 3
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 19,
+    "fields": {
+        "inv_number": "881364",
+        "station_inv_number": "Ячейка 13",
+        "station_name": "РУ№3",
+        "moc_list": 2
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 20,
+    "fields": {
+        "inv_number": "1045939",
+        "station_inv_number": "отопление",
+        "station_name": "4пл  5 кор",
+        "moc_list": 59
+    }
+},
+{
+    "model": "passport.devicestation",
+    "pk": 21,
+    "fields": {
+        "inv_number": "33356",
+        "station_inv_number": "ГРП",
+        "station_name": "Коммерц",
+        "moc_list": 67
+    }
+}
+]

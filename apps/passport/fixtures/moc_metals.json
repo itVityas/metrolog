@@ -1,0 +1,42 @@
+[
+{
+    "model": "passport.mocmetals",
+    "pk": 1,
+    "fields": {
+        "inv_number": "6750",
+        "precious_metals": 3,
+        "metal_amount": "0.00860",
+        "moc_list": 88
+    }
+},
+{
+    "model": "passport.mocmetals",
+    "pk": 2,
+    "fields": {
+        "inv_number": "М77450062",
+        "precious_metals": 2,
+        "metal_amount": "0.01919",
+        "moc_list": 92
+    }
+},
+{
+    "model": "passport.mocmetals",
+    "pk": 3,
+    "fields": {
+        "inv_number": "М77450062",
+        "precious_metals": 3,
+        "metal_amount": "3.78711",
+        "moc_list": 92
+    }
+},
+{
+    "model": "passport.mocmetals",
+    "pk": 4,
+    "fields": {
+        "inv_number": "М77450062",
+        "precious_metals": 4,
+        "metal_amount": "0.00450",
+        "moc_list": 92
+    }
+}
+]

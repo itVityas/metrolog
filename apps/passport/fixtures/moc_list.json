@@ -1,0 +1,1474 @@
+[
+{
+    "model": "passport.moclist",
+    "pk": 1,
+    "fields": {
+        "moc_type": 660,
+        "factory_number": "002570",
+        "inv_number": "002570",
+        "change_type": 1,
+        "moc_group": 28,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 2,
+    "fields": {
+        "moc_type": 1607,
+        "factory_number": "РУ10кв №3",
+        "inv_number": "881364",
+        "change_type": 21,
+        "moc_group": 6,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 3,
+    "fields": {
+        "moc_type": 866,
+        "factory_number": "520253",
+        "inv_number": "520253",
+        "change_type": 6,
+        "moc_group": 1,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 4,
+    "fields": {
+        "moc_type": 415,
+        "factory_number": "0064",
+        "inv_number": "0064",
+        "change_type": 1,
+        "moc_group": 25,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 5,
+    "fields": {
+        "moc_type": 413,
+        "factory_number": " 0171",
+        "inv_number": " 0171",
+        "change_type": 1,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 6,
+    "fields": {
+        "moc_type": 367,
+        "factory_number": "02075",
+        "inv_number": "02075",
+        "change_type": 2,
+        "moc_group": 63,
+        "sign_o_r": "Р",
+        "sign_o_m": "О",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 7,
+    "fields": {
+        "moc_type": 415,
+        "factory_number": "0386",
+        "inv_number": "0386",
+        "change_type": 1,
+        "moc_group": 25,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 8,
+    "fields": {
+        "moc_type": 707,
+        "factory_number": "Комплект25",
+        "inv_number": " 1041",
+        "change_type": 1,
+        "moc_group": 148,
+        "sign_o_r": "О",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 9,
+    "fields": {
+        "moc_type": 413,
+        "factory_number": "0448",
+        "inv_number": "0448",
+        "change_type": 1,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 10,
+    "fields": {
+        "moc_type": 691,
+        "factory_number": "066458",
+        "inv_number": "066458",
+        "change_type": 1,
+        "moc_group": 139,
+        "sign_o_r": "О",
+        "sign_o_m": "М",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 11,
+    "fields": {
+        "moc_type": 691,
+        "factory_number": "066625",
+        "inv_number": "066625",
+        "change_type": 1,
+        "moc_group": 139,
+        "sign_o_r": "О",
+        "sign_o_m": "М",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 12,
+    "fields": {
+        "moc_type": 415,
+        "factory_number": "0692",
+        "inv_number": "0692",
+        "change_type": 1,
+        "moc_group": 25,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 13,
+    "fields": {
+        "moc_type": 771,
+        "factory_number": "",
+        "inv_number": "07018",
+        "change_type": 2,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 14,
+    "fields": {
+        "moc_type": 413,
+        "factory_number": "0711",
+        "inv_number": "0711",
+        "change_type": 1,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 15,
+    "fields": {
+        "moc_type": 415,
+        "factory_number": "0732",
+        "inv_number": "0732",
+        "change_type": 1,
+        "moc_group": 25,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 16,
+    "fields": {
+        "moc_type": 365,
+        "factory_number": "07328",
+        "inv_number": "91450728",
+        "change_type": 2,
+        "moc_group": 63,
+        "sign_o_r": "Р",
+        "sign_o_m": "О",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 17,
+    "fields": {
+        "moc_type": 365,
+        "factory_number": "07338",
+        "inv_number": "91450729",
+        "change_type": 2,
+        "moc_group": 63,
+        "sign_o_r": "Р",
+        "sign_o_m": "О",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 18,
+    "fields": {
+        "moc_type": 2845,
+        "factory_number": "1413555",
+        "inv_number": "1413555",
+        "change_type": 5,
+        "moc_group": 72,
+        "sign_o_r": "О",
+        "sign_o_m": "В",
+        "verification_period": 24,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 19,
+    "fields": {
+        "moc_type": 413,
+        "factory_number": "0767",
+        "inv_number": "0767",
+        "change_type": 1,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 20,
+    "fields": {
+        "moc_type": 692,
+        "factory_number": "078743",
+        "inv_number": "078743",
+        "change_type": 1,
+        "moc_group": 139,
+        "sign_o_r": "Р",
+        "sign_o_m": "М",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 21,
+    "fields": {
+        "moc_type": 313,
+        "factory_number": "",
+        "inv_number": "08018",
+        "change_type": 2,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 22,
+    "fields": {
+        "moc_type": 692,
+        "factory_number": "081302",
+        "inv_number": "081302",
+        "change_type": 1,
+        "moc_group": 139,
+        "sign_o_r": "О",
+        "sign_o_m": "М",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 23,
+    "fields": {
+        "moc_type": 217,
+        "factory_number": "083189",
+        "inv_number": "083189",
+        "change_type": 2,
+        "moc_group": 10,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 24,
+    "fields": {
+        "moc_type": 2874,
+        "factory_number": "083730",
+        "inv_number": "083730",
+        "change_type": 1,
+        "moc_group": 139,
+        "sign_o_r": "О",
+        "sign_o_m": "М",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 25,
+    "fields": {
+        "moc_type": 415,
+        "factory_number": "0870",
+        "inv_number": "0870",
+        "change_type": 1,
+        "moc_group": 25,
+        "sign_o_r": "О",
+        "sign_o_m": "В",
+        "verification_period": 6,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 26,
+    "fields": {
+        "moc_type": 691,
+        "factory_number": "094009",
+        "inv_number": "094009",
+        "change_type": 1,
+        "moc_group": 139,
+        "sign_o_r": "О",
+        "sign_o_m": "М",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 27,
+    "fields": {
+        "moc_type": 691,
+        "factory_number": "095116",
+        "inv_number": "095116",
+        "change_type": 1,
+        "moc_group": 139,
+        "sign_o_r": "Р",
+        "sign_o_m": "М",
+        "verification_period": 36,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 28,
+    "fields": {
+        "moc_type": 2871,
+        "factory_number": "100356",
+        "inv_number": "100356",
+        "change_type": 1,
+        "moc_group": 139,
+        "sign_o_r": "О",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 29,
+    "fields": {
+        "moc_type": 707,
+        "factory_number": "1009",
+        "inv_number": "1009",
+        "change_type": 1,
+        "moc_group": 148,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 30,
+    "fields": {
+        "moc_type": 708,
+        "factory_number": "Комплект17",
+        "inv_number": " 101",
+        "change_type": 1,
+        "moc_group": 149,
+        "sign_o_r": "О",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 31,
+    "fields": {
+        "moc_type": 707,
+        "factory_number": "1011",
+        "inv_number": "1011",
+        "change_type": 1,
+        "moc_group": 148,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 32,
+    "fields": {
+        "moc_type": 707,
+        "factory_number": " 1019",
+        "inv_number": " 1019",
+        "change_type": 1,
+        "moc_group": 148,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 33,
+    "fields": {
+        "moc_type": 707,
+        "factory_number": "1022",
+        "inv_number": "1022",
+        "change_type": 1,
+        "moc_group": 148,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 34,
+    "fields": {
+        "moc_type": 707,
+        "factory_number": "1026",
+        "inv_number": "1026",
+        "change_type": 1,
+        "moc_group": 148,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 35,
+    "fields": {
+        "moc_type": 707,
+        "factory_number": "1031",
+        "inv_number": "1031",
+        "change_type": 1,
+        "moc_group": 148,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 36,
+    "fields": {
+        "moc_type": 707,
+        "factory_number": "1036",
+        "inv_number": "1036",
+        "change_type": 1,
+        "moc_group": 148,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 37,
+    "fields": {
+        "moc_type": 398,
+        "factory_number": "06551",
+        "inv_number": "М83450776",
+        "change_type": 1,
+        "moc_group": 25,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 38,
+    "fields": {
+        "moc_type": 707,
+        "factory_number": "1047",
+        "inv_number": "1047",
+        "change_type": 1,
+        "moc_group": 148,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 39,
+    "fields": {
+        "moc_type": 707,
+        "factory_number": "1054",
+        "inv_number": "1054",
+        "change_type": 1,
+        "moc_group": 148,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 40,
+    "fields": {
+        "moc_type": 772,
+        "factory_number": "11117",
+        "inv_number": "11117",
+        "change_type": 3,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 41,
+    "fields": {
+        "moc_type": 691,
+        "factory_number": "111987",
+        "inv_number": "111987",
+        "change_type": 1,
+        "moc_group": 139,
+        "sign_o_r": "О",
+        "sign_o_m": "М",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 42,
+    "fields": {
+        "moc_type": 681,
+        "factory_number": "1143",
+        "inv_number": "1143",
+        "change_type": 3,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 43,
+    "fields": {
+        "moc_type": 708,
+        "factory_number": " 1155",
+        "inv_number": " 1155",
+        "change_type": 1,
+        "moc_group": 149,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 44,
+    "fields": {
+        "moc_type": 681,
+        "factory_number": " 1173",
+        "inv_number": " 1173",
+        "change_type": 3,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 45,
+    "fields": {
+        "moc_type": 681,
+        "factory_number": "1176",
+        "inv_number": "1176",
+        "change_type": 3,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 46,
+    "fields": {
+        "moc_type": 2886,
+        "factory_number": "4837",
+        "inv_number": "4837",
+        "change_type": 7,
+        "moc_group": 8,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 47,
+    "fields": {
+        "moc_type": 681,
+        "factory_number": "1193",
+        "inv_number": "1193",
+        "change_type": 3,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 48,
+    "fields": {
+        "moc_type": 708,
+        "factory_number": "1257",
+        "inv_number": "1257",
+        "change_type": 1,
+        "moc_group": 149,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 49,
+    "fields": {
+        "moc_type": 708,
+        "factory_number": "1282",
+        "inv_number": "1282",
+        "change_type": 1,
+        "moc_group": 149,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 50,
+    "fields": {
+        "moc_type": 682,
+        "factory_number": " 1302",
+        "inv_number": " 1302",
+        "change_type": 3,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 51,
+    "fields": {
+        "moc_type": 415,
+        "factory_number": "1470",
+        "inv_number": "1470",
+        "change_type": 1,
+        "moc_group": 25,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 52,
+    "fields": {
+        "moc_type": 309,
+        "factory_number": " 155301",
+        "inv_number": " 155301",
+        "change_type": 2,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 53,
+    "fields": {
+        "moc_type": 982,
+        "factory_number": "155301Г",
+        "inv_number": "155301Г",
+        "change_type": 3,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 54,
+    "fields": {
+        "moc_type": 312,
+        "factory_number": "155301",
+        "inv_number": "155301У",
+        "change_type": 2,
+        "moc_group": 6,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 55,
+    "fields": {
+        "moc_type": 309,
+        "factory_number": "",
+        "inv_number": " 155302",
+        "change_type": 2,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 56,
+    "fields": {
+        "moc_type": 982,
+        "factory_number": "155302",
+        "inv_number": "155302Г",
+        "change_type": 2,
+        "moc_group": 27,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 57,
+    "fields": {
+        "moc_type": 312,
+        "factory_number": "155302",
+        "inv_number": "155302У",
+        "change_type": 2,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 58,
+    "fields": {
+        "moc_type": 982,
+        "factory_number": " 155303",
+        "inv_number": " 155303",
+        "change_type": 2,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 59,
+    "fields": {
+        "moc_type": 2817,
+        "factory_number": "1045939",
+        "inv_number": "1045939",
+        "change_type": 8,
+        "moc_group": 10,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 24,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 60,
+    "fields": {
+        "moc_type": 312,
+        "factory_number": "155303",
+        "inv_number": "155303У",
+        "change_type": 2,
+        "moc_group": 6,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 61,
+    "fields": {
+        "moc_type": 982,
+        "factory_number": " 155304",
+        "inv_number": " 155304",
+        "change_type": 2,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 62,
+    "fields": {
+        "moc_type": 982,
+        "factory_number": "155304",
+        "inv_number": "155304Г",
+        "change_type": 3,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 63,
+    "fields": {
+        "moc_type": 312,
+        "factory_number": "155304",
+        "inv_number": "155304У",
+        "change_type": 2,
+        "moc_group": 6,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 64,
+    "fields": {
+        "moc_type": 413,
+        "factory_number": "1739",
+        "inv_number": "1739",
+        "change_type": 1,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 65,
+    "fields": {
+        "moc_type": 252,
+        "factory_number": "4051",
+        "inv_number": " М86450699",
+        "change_type": 3,
+        "moc_group": 8,
+        "sign_o_r": "Р",
+        "sign_o_m": "М",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 66,
+    "fields": {
+        "moc_type": 729,
+        "factory_number": " 2226",
+        "inv_number": " 2226",
+        "change_type": 2,
+        "moc_group": 60,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 67,
+    "fields": {
+        "moc_type": 2950,
+        "factory_number": "33356",
+        "inv_number": "33356",
+        "change_type": 8,
+        "moc_group": 23,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 68,
+    "fields": {
+        "moc_type": 314,
+        "factory_number": "24117",
+        "inv_number": "24117",
+        "change_type": 2,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 69,
+    "fields": {
+        "moc_type": 771,
+        "factory_number": "25117",
+        "inv_number": "25117",
+        "change_type": 2,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 70,
+    "fields": {
+        "moc_type": 691,
+        "factory_number": "256830",
+        "inv_number": "256830",
+        "change_type": 1,
+        "moc_group": 139,
+        "sign_o_r": "Р",
+        "sign_o_m": "М",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 71,
+    "fields": {
+        "moc_type": 773,
+        "factory_number": "26117",
+        "inv_number": "26117",
+        "change_type": 2,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 72,
+    "fields": {
+        "moc_type": 312,
+        "factory_number": "26117",
+        "inv_number": "26117П",
+        "change_type": 2,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 73,
+    "fields": {
+        "moc_type": 708,
+        "factory_number": " 269",
+        "inv_number": " 269",
+        "change_type": 1,
+        "moc_group": 149,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 74,
+    "fields": {
+        "moc_type": 323,
+        "factory_number": "9107008",
+        "inv_number": "9107008",
+        "change_type": 3,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "М",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 75,
+    "fields": {
+        "moc_type": 708,
+        "factory_number": " 29",
+        "inv_number": " 29",
+        "change_type": 1,
+        "moc_group": 149,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 76,
+    "fields": {
+        "moc_type": 680,
+        "factory_number": "293",
+        "inv_number": "293",
+        "change_type": 3,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 77,
+    "fields": {
+        "moc_type": 683,
+        "factory_number": " 307",
+        "inv_number": " 307",
+        "change_type": 3,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 78,
+    "fields": {
+        "moc_type": 2823,
+        "factory_number": "23523",
+        "inv_number": "23523",
+        "change_type": 6,
+        "moc_group": 22,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 79,
+    "fields": {
+        "moc_type": 708,
+        "factory_number": " 371",
+        "inv_number": " 371",
+        "change_type": 1,
+        "moc_group": 149,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 80,
+    "fields": {
+        "moc_type": 666,
+        "factory_number": "057600",
+        "inv_number": "057600",
+        "change_type": 1,
+        "moc_group": 139,
+        "sign_o_r": "О",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 81,
+    "fields": {
+        "moc_type": 861,
+        "factory_number": "583572",
+        "inv_number": "583572",
+        "change_type": 6,
+        "moc_group": 25,
+        "sign_o_r": "Р",
+        "sign_o_m": "М",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 82,
+    "fields": {
+        "moc_type": 692,
+        "factory_number": "453994",
+        "inv_number": "453994",
+        "change_type": 1,
+        "moc_group": 139,
+        "sign_o_r": "Р",
+        "sign_o_m": "М",
+        "verification_period": 36,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 83,
+    "fields": {
+        "moc_type": 708,
+        "factory_number": "498",
+        "inv_number": "498",
+        "change_type": 1,
+        "moc_group": 149,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 84,
+    "fields": {
+        "moc_type": 314,
+        "factory_number": "",
+        "inv_number": "5018",
+        "change_type": 2,
+        "moc_group": 18,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 85,
+    "fields": {
+        "moc_type": 691,
+        "factory_number": "513000",
+        "inv_number": "513000",
+        "change_type": 1,
+        "moc_group": 139,
+        "sign_o_r": "Р",
+        "sign_o_m": "М",
+        "verification_period": 36,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 86,
+    "fields": {
+        "moc_type": 708,
+        "factory_number": "556",
+        "inv_number": "556",
+        "change_type": 1,
+        "moc_group": 149,
+        "sign_o_r": "О",
+        "sign_o_m": "В",
+        "verification_period": 24,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 87,
+    "fields": {
+        "moc_type": 708,
+        "factory_number": " 592",
+        "inv_number": " 592",
+        "change_type": 1,
+        "moc_group": 149,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 36,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 88,
+    "fields": {
+        "moc_type": 714,
+        "factory_number": "6750",
+        "inv_number": "6750",
+        "change_type": 1,
+        "moc_group": 27,
+        "sign_o_r": "Р",
+        "sign_o_m": "М",
+        "verification_period": 12,
+        "verification_department": 2,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 89,
+    "fields": {
+        "moc_type": 1688,
+        "factory_number": "0104",
+        "inv_number": "0104",
+        "change_type": 6,
+        "moc_group": 25,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 90,
+    "fields": {
+        "moc_type": 861,
+        "factory_number": "406297",
+        "inv_number": "406297",
+        "change_type": 6,
+        "moc_group": 25,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 91,
+    "fields": {
+        "moc_type": 861,
+        "factory_number": "038663",
+        "inv_number": "038663",
+        "change_type": 6,
+        "moc_group": 25,
+        "sign_o_r": "Р",
+        "sign_o_m": "В",
+        "verification_period": 12,
+        "verification_department": 4,
+        "verification_type": "Г"
+    }
+},
+{
+    "model": "passport.moclist",
+    "pk": 92,
+    "fields": {
+        "moc_type": 94,
+        "factory_number": "2836",
+        "inv_number": "М77450062",
+        "change_type": 2,
+        "moc_group": 136,
+        "sign_o_r": "Р",
+        "sign_o_m": "М",
+        "verification_period": 12,
+        "verification_department": 1,
+        "verification_type": "В"
+    }
+}
+]
