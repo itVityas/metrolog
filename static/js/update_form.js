@@ -252,3 +252,10 @@ function delete_table(e){
     })
     .catch(error => console.error('Error fetching data:', error));
 };
+
+function show_modal_in_generic(e, name){
+    const modal = new bootstrap.Modal(document.getElementById(name + '_modal'));
+    console.log(name)
+    console.log(modal)
+    modal.show();
+};

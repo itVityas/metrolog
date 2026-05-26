@@ -21,14 +21,34 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Справки</a>
                             <ul class="dropdown-menu" aria-labelledby="dropdown10">
-                                <li><a class="dropdown-item" href="#">1</a></li>
-                                <li><a class="dropdown-item" href="#">2</a></li>
-                                <li><a class="dropdown-item" href="#">3</a></li>
+                                <li class="dropdown-submenu dropend nav-item">
+                                    <a class="dropdown-toggle nav-link text-dark" id="dropdown11" href="#" data-bs-toggle="dropdown" aria-expanded="false">Поверочные работы</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown11">
+                                        <li><a class="dropdown-item" href="{% url 'moc_verification_types' %}">Кол-во СИ по видам поверки</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'moc_in_storage' %}">Сведения о СИ на хран.</a></li>
+                                        <li><a class="dropdown-item" onclick="show_modal_in_generic(this, 'moc_in_use')">Сведения о наличии типа СИ</a></li>
+                                        <li><a class="dropdown-item" onclick="show_modal_in_generic(this, 'memorandum')">Служ. зап. (кроме встр.)</a></li>
+                                        <li><a class="dropdown-item" onclick="show_modal_in_generic(this, 'memorandum_builtin')">Служ. зап. для встроен.</a></li>
+                                        <li><a class="dropdown-item" onclick="show_modal_in_generic(this, 'prescription')">Предп. кроме встроен.</a></li>
+                                        <li><a class="dropdown-item" onclick="show_modal_in_generic(this, 'prescription_builtin')">Предп. для встроен.</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'statement' %}">Вед. (кроме встр.)</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'statement_builtin' %}">Вед. для встр. СИ</a></li>
+                                        <li><a class="dropdown-item" href="#">Журнал поверки</a></li>
+                                        <li><a class="dropdown-item" href="#">Квитанц. на получ. СИ</a></li>
+                                        <li><a class="dropdown-item" href="#">Накопит. нар. прибора</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'moc_presence' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_presence')">Наличие СИ в подразд.</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'moc_presence_builtin' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_presence_builtin')">Наличие СИ в подразд. встр.</a></li>
+                                        <li><a class="dropdown-item" href="#">Ведом выполн. работ по пов. для цеха</a></li>
+                                        <li><a class="dropdown-item" href="#">Отчёт по накопит. нарядам за месяц</a></li>
+                                        <li><a class="dropdown-item" href="#">Перечень СИ, пер. в индик., по под.</a></li>
+                                        <li><a class="dropdown-item" href="#">Перечень СИ, устан. на об. и пер. в инд.</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Справочники</a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdown10">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown12" data-bs-toggle="dropdown" aria-expanded="false">Справочники</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown12">
                                 <li><a class="dropdown-item" href="{% url 'moc_group' %}">ГРУППЫ СИ</a></li>
                                 <li><a class="dropdown-item" href="{% url 'department' %}">МЕСТО ЗАКРЕПЛЕНИЯ</a></li>
                                 <li><a class="dropdown-item" href="{% url 'device_status' %}">СТАТУС ПРИБОРА</a></li>
@@ -47,8 +67,8 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">Администрирование</a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdown10">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown13" data-bs-toggle="dropdown" aria-expanded="false">Администрирование</a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown13">
                                 <li><a class="dropdown-item" href="{% url 'password_change' %}">Сменить пароль</a></li>
                                 <li><a class="dropdown-item" href="{% url 'settings' user.usersettings.id %}">Настройки</a></li>
                             </ul>
@@ -97,15 +117,21 @@
             </nav>
             {% endif %}
         {% endblock %}
-
+        <div id='dynamic_modal'></div>
+        {% include 'references/modals/moc_in_use_modal.html' %}
+        {% include 'references/modals/memorandum_modal.html' %}
+        {% include 'references/modals/memorandum_builtin_modal.html' %}
+        {% include 'references/modals/prescription_modal.html' %}
+        {% include 'references/modals/prescription_builtin_modal.html' %}
+        
     </div>
 
     {%block footer %}
     {% endblock %}
-
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/update_form.js' %}"></script>
     <script src="{% static 'js/printing.js' %}"></script>
+    <script src="{% static 'js/htmx.min.js' %}"></script>
 </body>
 
 </html>

@@ -1,0 +1,36 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div class='position-relative' id='print_container'>
+    <h1 class='text-center'>С В Е Д Е Н И Я</h1>
+    <h5 class='text-center'>о наличии СИ в подразделении {{department}} {% now "d.m.Y" %}</h5>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <th>Наименование средств измерения</th>
+                <th>Место установки</th>
+                <th>Заводской номер</th>
+                <th>Вид поверки</th>
+                <th>Р/О</th>
+                <th>Дата последней поверки</th>
+                <th>Статус СИ</th>
+                <th>Учет по бухг.</th>
+            </thead>
+            <tbody>
+                {% for query in queryset %}
+                <tr class='border-0'>
+                    <td class='border-0'>{{query.moc_group.name}} {{query.moc_type.type}}</td>
+                    <td class='border-0'>{{query.device_station.last.station_inv_number}}</td>
+                    <td class='border-0'>{{query.factory_number}}</td>
+                    <td class='border-0'>{{query.verification_type}}</td>
+                    <td class='border-0'>{{query.sign_o_r}}</td>
+                    <td class='border-0'>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
+                    <td class='border-0'>{{query.device_status_date.last.device_status.name}}</td>
+                    <td class='border-0'>{{query.sign_o_m}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endblock %}

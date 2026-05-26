@@ -194,7 +194,6 @@ class PassportMigrateView(LoginRequiredMixin, View):
                 error_type = type(e).__name__
                 print(f"{error_type}: {e}")
                 print(record)
-                break
 
         obj_list = [models.MocList(**data_dict) for data_dict in data_list]
         models.MocList.objects.bulk_create(obj_list)
@@ -211,9 +210,9 @@ class PassportMigrateView(LoginRequiredMixin, View):
                     )
                 new_dict['inv_number'] = record.get('INV_N')
                 new_dict['metal_amount'] = record.get('MET')
-                new_dict['moc_list'] = models.MocList.objects.get(
+                new_dict['moc_list'] = models.MocList.objects.filter(
                     inv_number=record.get('INV_N')
-                    )
+                    ).first()
                 data_list.append(new_dict)
             except (models.MocList.DoesNotExist,
                     hmodels.PreciousMetals.DoesNotExist):
@@ -242,9 +241,9 @@ class PassportMigrateView(LoginRequiredMixin, View):
                 new_dict['verification_person'] = hmodels.VerificationPerson.objects.filter(code=record.get('KOD_POV')).first()
                 new_dict['verification_sign'] = hmodels.VerificationSign.objects.filter(code=record.get('PR_POV')).first()
                 new_dict['verification_document_num'] = record.get('NUMDOC')
-                new_dict['moc_list'] = models.MocList.objects.get(
+                new_dict['moc_list'] = models.MocList.objects.filter(
                     inv_number=record.get('INV_N')
-                    )
+                    ).first()
                 data_list.append(new_dict)
             except (models.MocList.DoesNotExist):
                 continue
@@ -273,9 +272,9 @@ class PassportMigrateView(LoginRequiredMixin, View):
                 new_dict['repair_code'] = hmodels.RepairCode.objects.filter(code=record.get('KAT_REM')).first()
                 new_dict['repair_department'] = hmodels.RepairDepartment.objects.filter(code=record.get('KOD_REM')).first()
                 new_dict['instrument_failure'] = hmodels.InstrumentFailure.objects.filter(code=record.get('PRICH_OTK')).first()
-                new_dict['moc_list'] = models.MocList.objects.get(
+                new_dict['moc_list'] = models.MocList.objects.filter(
                     inv_number=record.get('INV_N')
-                    )
+                    ).first()
                 data_list.append(new_dict)
             except (models.MocList.DoesNotExist):
                 continue
@@ -298,9 +297,9 @@ class PassportMigrateView(LoginRequiredMixin, View):
                 new_dict['inv_number'] = record.get('INV_N')
                 new_dict['entry_date'] = record.get('DATV')
                 new_dict['department'] = hmodels.Department.objects.filter(workshop=record.get('CEX'), brigade=record.get('BR')).first()
-                new_dict['moc_list'] = models.MocList.objects.get(
+                new_dict['moc_list'] = models.MocList.objects.filter(
                     inv_number=record.get('INV_N')
-                    )
+                    ).first()
                 data_list.append(new_dict)
             except (models.MocList.DoesNotExist):
                 continue
@@ -323,9 +322,9 @@ class PassportMigrateView(LoginRequiredMixin, View):
                 new_dict['inv_number'] = record.get('INV_N')
                 new_dict['status_date'] = record.get('DAT_STAT')
                 new_dict['device_status'] = hmodels.DeviceStatus.objects.filter(id=record.get('KOD_STAT')).first()
-                new_dict['moc_list'] = models.MocList.objects.get(
+                new_dict['moc_list'] = models.MocList.objects.filter(
                     inv_number=record.get('INV_N')
-                    )
+                    ).first()
                 data_list.append(new_dict)
             except (models.MocList.DoesNotExist):
                 continue
@@ -348,9 +347,9 @@ class PassportMigrateView(LoginRequiredMixin, View):
                 new_dict['inv_number'] = record.get('INVN')
                 new_dict['station_inv_number'] = record.get('INVN_ST')
                 new_dict['station_name'] = record.get('NAME_ST')
-                new_dict['moc_list'] = models.MocList.objects.get(
+                new_dict['moc_list'] = models.MocList.objects.filter(
                     inv_number=record.get('INVN')
-                    )
+                    ).first()
                 data_list.append(new_dict)
             except (models.MocList.DoesNotExist):
                 continue

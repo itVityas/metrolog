@@ -1,0 +1,33 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div id='print_container'>
+    <h1 class='text-center'>СПРАВКА</h1>
+    <h5>о количестве СИ по видам поверки по состоянию на {% now "Y-m-d" %}</h5>
+    {% for query in queryset %}
+        <br>
+        <p>Вид измерения: {{query.change_type__name}}</p>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <tbody>
+                <tr>
+                    <td colspan='2'>Государственная поверка</td>
+                    <td>Ведомственная поверка</td>
+                    <td rowspan='2'>Общее количество СИ</td>
+                </tr>
+                <tr>
+                    <td>Образцовые</td>
+                    <td>Рабочие</td>
+                    <td>Рабочие</td>
+                </tr>
+                <tr>
+                    <td>{{query.count_g_o}}</td>
+                    <td>{{query.count_g_r}}</td>
+                    <td>{{query.count_v_r}}</td>
+                    <td>{{query.total}}</td>
+                </tr>
+            </tbody>
+        </table>
+    {% endfor %}
+</div>
+{% endblock %}

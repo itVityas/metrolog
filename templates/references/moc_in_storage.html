@@ -1,0 +1,37 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div id='print_container'>
+    <h1 class='text-center'>С В Е Д Е Н И Я</h1>
+    <h5 class='text-center'>о СИ, находящихся на хранении на {% now "Y-m-d" %}</h5>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <th>Наименование средств измерения</th>
+                <th>Заводской номер</th>
+                <th>Инвентарный номер</th>
+                <th>Место закрепления</th>
+                <th>Дата последней поверки</th>
+                <th>Вид поверки</th>
+                <th>Примечание</th>
+            </thead>
+            <tbody>
+                {% for query in queryset %}
+                {% ifchanged query.change_type.name %}
+                    <tr><td colspan=7>{{ query.change_type.name }}</td></tr>
+                {% endifchanged %}
+                <tr>
+                    <td>{{query.moc_group.name}}</td>
+                    <td>{{query.factory_number}}</td>
+                    <td>{{query.inv_number}}</td>
+                    <td>{{query.device_location.last.department.name}}</td>
+                    <td>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
+                    <td>{{query.verification_type}}</td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endblock %}

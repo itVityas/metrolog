@@ -1,0 +1,32 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div id='print_container'>
+    <h1 class='text-center'>С В Е Д Е Н И Я</h1>
+    <h5 class='text-center'>о наличии типа СИ {{request.GET.moc_name}}</h5>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <th>Инвентарный номер</th>
+                <th>Заводской номер</th>
+                <th>Место закрепления</th>
+                <th>Дата поверки</th>
+                <th>Вид поверки</th>
+                <th>Статус прибора</th>
+            </thead>
+            <tbody>
+                {% for query in queryset %}
+                <tr>
+                    <td>{{query.inv_number}}</td>
+                    <td>{{query.factory_number}}</td>
+                    <td>{{query.device_location.last.department.name}}</td>
+                    <td>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
+                    <td>{{query.verification_type}}</td>
+                    <td>{{query.device_status_date.device_status.name}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endblock %}

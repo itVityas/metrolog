@@ -11,4 +11,5 @@ urlpatterns = [
     path('handbooks/', include('apps.handbooks.urls')),
     path('general/', include('apps.general.urls')),
     path('passport/', include('apps.passport.urls')),
+    path('references/', include('apps.references.urls')),
 ]
