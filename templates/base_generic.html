@@ -33,15 +33,15 @@
                                         <li><a class="dropdown-item" onclick="show_modal_in_generic(this, 'prescription_builtin')">Предп. для встроен.</a></li>
                                         <li><a class="dropdown-item" href="{% url 'statement' %}">Вед. (кроме встр.)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'statement_builtin' %}">Вед. для встр. СИ</a></li>
-                                        <li><a class="dropdown-item" href="#">Журнал поверки</a></li>
-                                        <li><a class="dropdown-item" href="#">Квитанц. на получ. СИ</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'verification_log' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'verification_log')">Журнал поверки</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'receipt' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'receipt')">Квитанц. на получ. СИ</a></li>
                                         <li><a class="dropdown-item" href="#">Накопит. нар. прибора</a></li>
                                         <li><a class="dropdown-item" hx-get="{% url 'moc_presence' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_presence')">Наличие СИ в подразд.</a></li>
                                         <li><a class="dropdown-item" hx-get="{% url 'moc_presence_builtin' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_presence_builtin')">Наличие СИ в подразд. встр.</a></li>
-                                        <li><a class="dropdown-item" href="#">Ведом выполн. работ по пов. для цеха</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'completed_works' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'completed_works')">Ведом выполн. работ по пов. для цеха</a></li>
                                         <li><a class="dropdown-item" href="#">Отчёт по накопит. нарядам за месяц</a></li>
-                                        <li><a class="dropdown-item" href="#">Перечень СИ, пер. в индик., по под.</a></li>
-                                        <li><a class="dropdown-item" href="#">Перечень СИ, устан. на об. и пер. в инд.</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'moc_indicators' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_indicators')">Перечень СИ, пер. в индик., по под.</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'moc_indicators_installed' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_indicators_installed')">Перечень СИ, устан. на об. и пер. в инд.</a></li>
                                     </ul>
                                 </li>
                             </ul>

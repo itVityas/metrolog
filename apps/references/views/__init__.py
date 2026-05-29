@@ -9,3 +9,8 @@ from .statement import StatementView
 from .statement_builtin import StatementBuiltinView
 from .moc_presence import MocPresenceView
 from .moc_presence_builtin import MocPresenceBuiltinView
+from .verification_log import VerificationLogView
+from .receipt import ReceiptView
+from .moc_indicators import MocIndicatorsView
+from .moc_indicators_installed import MocIndicatorsInstalledView
+from .completed_works import CompletedWorksView

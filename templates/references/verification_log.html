@@ -1,0 +1,70 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div class='position-relative' id='print_container'>
+    <div class='d-flex'> 
+    <div class='d-inline-block ms-auto text-center'>
+        <h1>УТВЕРЖДАЮ</h1>
+        <h3>Главный метролог</h3>
+        <br>
+        <hr>
+        <p>подпись</p>
+    </div>
+    </div>
+        <h1 class='text-center'>ПЛАН - ГРАФИК</h1>
+        <h5 class='text-center'>поверки средств измерений на {{start_date|date:"F"}} {{start_date|date:"Y"}}</h5>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <tr>
+                    <th rowspan='2'>Тип СИ</th>
+                    <th rowspan='2'>Инвентарный номер</th>
+                    <th rowspan='2'>Вид поверки</th>
+                    <th rowspan='2'>Дата последней поверки</th>
+                    <th colspan='2'>Принято</th>
+                    <th colspan='2'>Итоговое предъявление</th>
+                    <th rowspan='2'>Трудоемкость, н/ч</th>
+                </tr>
+                <tr>
+                    <th>Дата</th>
+                    <th>Подпись диспет.</th>
+                    <th>Дата</th>
+                    <th>Ф.И.О. поверителя</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for query in queryset %}
+                {% ifchanged query.device_location.last.department.name %}
+
+                    <tr class='border-0'><td colspan=9 class='border-0 text-end'>Итого по подразделению :  <span class='fw-bold'></span> н/ч</td></tr>
+
+                    <tr class='border-0'><td colspan=9 class='border-0'><span>{{ query.device_location.last.department.name }}</span></td></tr>
+                {% endifchanged %}
+                <tr>
+                    <td>{{query.moc_type.type}}</td>
+                    <td>{{query.inv_number}}</td>
+                    <td>{{query.verification_type}}</td>
+                    <td>{{query.last_verification_date|date:"d.m.Y"}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{query.moc_type.standart_verification}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endblock %}

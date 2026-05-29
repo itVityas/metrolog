@@ -1,0 +1,62 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div class='position-relative' id='print_container'>
+    <h1 class='text-start'>ОАО "ВИТЯЗЬ"</h1>
+    <h1 class='text-start'>Отдел главного метролога</h1>
+    <h1 class='text-center'>Ведомость</h1>
+    <h5 class='text-center'>выполненых работ по поверке СИ</h5>
+    <h5 class='text-center'>подразделению {{department}} за {{ start_date|date:"F" }} {{ start_date|date:"Y" }}г.</h5>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <th>Наименование<br>Тип СИ</th>
+                <th>Кол. СИ</th>
+                <th>Разр. работ</th>
+                <th>Трудоем. на ед.</th>
+                <th>Основная з/п (руб.)</th>
+                <th>Примечание</th>
+            </thead>
+            <tbody>
+                {% for query in queryset %}
+                <tr class='border-0'>
+                    <td class='border-0'>{{query.moc_list__moc_group__name}}<br>{{query.moc_list__moc_type__type}}</td>
+                    <td class='border-0'>{{query.moc_count}}</td>
+                    <td class='border-0'>{{query.moc_list__moc_type__rank_verification}}</td>
+                    <td class='border-0'>{{query.moc_list__moc_type__standart_verification}}</td>
+                    <td class='border-0'></td>
+                    <td class='border-0'></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <table class="table w-75 text-left w-auto">
+            <thead class='border-0'>
+                <th class='border-0'>Всего по ведомости:</th>
+            </thead>
+            <tbody>
+                <tr class='border-0'>
+                    <td class='border-0'>Трудоёмкость</td>
+                    <td class='border-0'>{{sum_queryset.standart_sum}}</td>
+                </tr>
+                <tr class='border-0'>
+                    <td class='border-0'>Количество СИ</td>
+                    <td class='border-0'>{{sum_queryset.moc_count_sum}}</td>
+                </tr>
+                <tr class='border-0'>
+                    <td class='border-0'>Основная зарплата</td>
+                    <td class='border-0'></td>
+                </tr>
+                <tr class='border-0'>
+                    <td class='border-0'>Основная зарплата с премиальными</td>
+                    <td class='border-0'></td>
+                </tr>
+                <tr class='border-0'>
+                    <td class='border-0'>Стоимость госповерки</td>
+                    <td class='border-0'>{{sum_queryset.cost_sum}}</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div class='position-relative' id='print_container'>
+    <h1 class='text-center'>ПЕРЕЧЕНЬ СИ</h1>
+    <h5 class='text-center'>переведенных в индикаторы по подразделению {{department}}</h5>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <tr>
+                    <th>Наименование<br>Тип СИ</th>
+                    <th>Заводской номер</th>
+                    <th>Инвентарный номер</th>
+                    <th>Дата последней поверки</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for query in queryset %}
+                <tr class='border-0'>
+                    <td class='border-0'>{{query.moc_group.name}} {{query.moc_type.type}}</td>
+                    <td class='border-0'>{{query.factory_number}}</td>
+                    <td class='border-0'>{{query.inv_number}}</td>
+                    <td class='border-0'>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endblock %}
