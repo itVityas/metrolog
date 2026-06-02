@@ -4,7 +4,9 @@ from ...passport import models as pmodels
 from django.shortcuts import render
 from ..forms import VerificationLogForm
 from django.db.models.functions import Extract
-from django.db.models import Sum,  OuterRef, Subquery
+from django.db.models import Sum, OuterRef, Subquery
+from django.db.models import Prefetch, F
+from decimal import Decimal
 
 
 class VerificationLogView(LoginRequiredMixin, TemplateView):
@@ -25,12 +27,19 @@ class VerificationLogView(LoginRequiredMixin, TemplateView):
             moc_list=OuterRef('pk')
         ).order_by('-verification_date')
 
+        latest_device_location_query = pmodels.DeviceLocation.objects.filter(
+            moc_list=OuterRef('pk')
+        ).order_by('-entry_date')
+
         queryset = pmodels.MocList.objects.select_related(
             'moc_type',
             'moc_group').annotate(
                 last_verification_date=Subquery(
                     latest_verification_info_query.values(
-                        'verification_date')[:1])
+                        'verification_date')[:1]),
+                last_device_location=Subquery(
+                    latest_device_location_query.values(
+                        'department__name')[:1])
                 ).filter(
                     change_type=change_type,
                     verification_period__lt=(
@@ -40,30 +49,35 @@ class VerificationLogView(LoginRequiredMixin, TemplateView):
                     (Extract(start_date, 'month') -
                         Extract('last_verification_date',
                                 'month'))).order_by(
-                                    'device_location__department')
-
-        verif_queryset = pmodels.VerificationInfo.objects.select_related(
-            'moc_list').prefetch_related(
-                'moc_list__device_location',).filter(
-                    moc_list__change_type=change_type,
-                    moc_list__verification_period__lt=(
-                        Extract(start_date, 'year') -
-                        Extract('verification_date',
-                                'year')) * 12 +
-                    (Extract(start_date, 'month') -
-                        Extract('verification_date',
-                                'month'))).order_by(
-                                    'moc_list__device_location__department')
+                                    'last_device_location')
 
         queryset_count = queryset.values(
-            'device_location__department').annotate(
+            'last_device_location').annotate(
                 sum_standart_verif=Sum(
                     'moc_type__standart_verification'))
 
-        print(verif_queryset)
+        result_list = []
+        prev_location = None
+        total_sum = 0
+        list_to_add = []
+        for q in queryset:
+            if prev_location is None:
+                prev_location = q.last_device_location
+            if prev_location != q.last_device_location:
+                result_list.append({'location': prev_location,
+                                    'total_count': total_sum,
+                                    'values': list_to_add})
+                total_sum = 0
+                list_to_add = []
+                prev_location = q.last_device_location
+            if q.moc_type.standart_verification is not None:
+                total_sum += q.moc_type.standart_verification
+            list_to_add.append(q)
+
+        print(result_list)
         context['start_date'] = start_date
         context['queryset'] = queryset
-        context['queryset_count'] = dict(queryset_count)
+        context['result_list'] = result_list
         return self.render_to_response(context)
 
     def get(self, request, *args, **kwargs):

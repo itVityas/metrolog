@@ -45,24 +45,22 @@
                 </tr>
             </thead>
             <tbody>
-                {% for query in queryset %}
-                {% ifchanged query.device_location.last.department.name %}
-
-                    <tr class='border-0'><td colspan=9 class='border-0 text-end'>Итого по подразделению :  <span class='fw-bold'></span> н/ч</td></tr>
-
-                    <tr class='border-0'><td colspan=9 class='border-0'><span>{{ query.device_location.last.department.name }}</span></td></tr>
-                {% endifchanged %}
-                <tr>
-                    <td>{{query.moc_type.type}}</td>
-                    <td>{{query.inv_number}}</td>
-                    <td>{{query.verification_type}}</td>
-                    <td>{{query.last_verification_date|date:"d.m.Y"}}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>{{query.moc_type.standart_verification}}</td>
-                </tr>
+                {% for location_data in result_list %}
+                    <tr class='border-0'><td colspan=9 class='border-0'><span>{{ location_data.location }}</span></td></tr>
+                    {% for data in location_data.values %}
+                        <tr>
+                            <td>{{data.moc_type.type}}</td>
+                            <td>{{data.inv_number}}</td>
+                            <td>{{data.verification_type}}</td>
+                            <td>{{data.last_verification_date|date:"d.m.Y"}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{data.moc_type.standart_verification}}</td>
+                        </tr>
+                    {% endfor %}
+                    <tr class='border-0'><td colspan=9 class='border-0 text-end'>Итого по подразделению :  <span class='fw-bold'>{{ location_data.total_count }}</span> н/ч</td></tr>
                 {% endfor %}
             </tbody>
         </table>
