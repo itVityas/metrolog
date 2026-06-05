@@ -51,4 +51,10 @@ urlpatterns = [
      path('completed_works/',
           views.CompletedWorksView.as_view(),
           name='completed_works'),
+     path('operating_time/',
+          views.OperatingTimeView.as_view(),
+          name='operating_time'),
+     path('verification_report/',
+          views.VerificationReportView.as_view(),
+          name='verification_report'),
 ]

@@ -1,0 +1,54 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div class='position-relative' id='print_container'>
+        <div class='d-flex'> 
+    <div class='d-inline-block ms-auto text-center'>
+        <h1>УТВЕРЖДАЮ</h1>
+        <h3>Главный метролог</h3>
+    </div>
+    </div>
+    <h1 class='text-center'>О Т Ч Е Т</h1>
+    <h3 class='text-center'>по накопительным нарядам бюро поверки СИ за {{start_date|date:"F"}} {{start_date|date:"Y"}}г.</h3>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <tr>
+                    <th rowspan='2'>Выполненные работы</th>
+                    <th colspan='2'>Первичная поверка</th>
+                    <th colspan='2'>Итоговая поверка</th>
+                    <th rowspan='2'>Примечание</th>
+                </tr>
+                <tr>
+                    <th>Кол-во</th>
+                    <th>Трудоемк.</th>
+                    <th>Кол-во</th>
+                    <th>Трудоемк.</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for work in work_list %}
+                    <tr class='border-0'>
+                            <td class='border-0 text-start'>{{work.work_name}}</td>
+                            <td class='border-0'></td>
+                            <td class='border-0'></td>
+                            <td class='border-0'></td>
+                            <td class='border-0'></td>
+                            <td class='border-0'></td>
+                        </tr>
+                    {% for data in work.data %}
+                        <tr class='border-0'>
+                            <td class='border-0 text-start'>{{data.change_type}}</td>
+                            <td class='border-0'>{{data.total_sum_first}}</td>
+                            <td class='border-0'>{{data.complexity_first}}</td>
+                            <td class='border-0'>{{data.total_sum_final}}</td>
+                            <td class='border-0'>{{data.complexity_final}}</td>
+                            <td class='border-0'></td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endblock %}

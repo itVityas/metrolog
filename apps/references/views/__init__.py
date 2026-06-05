@@ -14,3 +14,5 @@ from .receipt import ReceiptView
 from .moc_indicators import MocIndicatorsView
 from .moc_indicators_installed import MocIndicatorsInstalledView
 from .completed_works import CompletedWorksView
+from .operating_time import OperatingTimeView
+from .verification_report import VerificationReportView

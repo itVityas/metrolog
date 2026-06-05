@@ -85,3 +85,13 @@ class CompletedWorksForm(forms.Form):
                                       'type': 'date'}),
         initial=datetime.date.today,
     )
+
+
+class OperatingTimeForm(forms.Form):
+
+    start_date = forms.DateField(
+        label='Дата начала месяца',
+        widget=forms.TextInput(attrs={'class': 'form-control',
+                                      'type': 'date'}),
+        initial=datetime.date.today,
+    )

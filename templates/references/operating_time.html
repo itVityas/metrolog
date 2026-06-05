@@ -1,0 +1,67 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div class='position-relative' id='print_container'>
+    <h1 class='text-center'>НАКОПИТЕЛЬНЫЙ НАРЯД</h1>
+    <div class='d-flex'> 
+        <div class='d-inline-block text-left'>
+            <h5 class='text-center'>прибориста 0 р.</h5>
+        </div>
+        <div class='d-inline-block ms-auto text-right'>
+            <h5 class='text-center'>за {{start_date|date:"F"}} {{start_date|date:"Y"}}г.</h5>
+        </div>
+    </div>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <tr>
+                    <th rowspan='2'>Число</th>
+                    <th rowspan='2'>Тип СИ</th>
+                    <th rowspan='2'>Инвентарный номер</th>
+                    <th colspan='2'>Результат поверки</th>
+                    <th rowspan='2'>Разр.</th>
+                    <th rowspan='2'>Труд. н/час</th>
+                    <th rowspan='2'>Осн. з/п в руб.</th>
+                </tr>
+                <tr>
+                    <th>Код неис.</th>
+                    <th>Годен</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for query in queryset %}
+                <tr class='border-0'>
+                    <td class='border-0'>{{query.values.verification_date|date:"d"}}</td>
+                    <td class='border-0'>{{query.values.moc_list.moc_type.type}}</td>
+                    <td class='border-0'>{{query.values.moc_list.inv_number}}</td>
+                    <td class='border-0'></td>
+                    <td class='border-0'>{{query.result|yesno:'+,-'}}</td>
+                    <td class='border-0'>{{query.values.moc_list.moc_type.rank_verification}}</td>
+                    <td class='border-0'>{{query.values.moc_list.moc_type.standart_verification}}</td>
+                    <td class='border-0'>???</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class='d-flex'>
+            <div class='d-inline-block text-left'>
+                <h5>Отработано по табелю за месяц</h5>
+                <h5>Выработано за месяц</h5>
+                <h5>Вспомогательные ненормируемые<br>
+                    работы, связанные с НО пр-ва</h5>
+                <h5>Исполнитель</h5>
+                <br><h5>Начальник бюро</h5>
+            </div>
+            <div class='d-inline-block text-left'>
+                <h5>  _________  часов</h5>
+                <h5>  _________  н/час</h5>
+                <br><h5>  _________  н/час</h5>
+                <h5>  _________</h5>
+                <p class='text-start me-2'>(подпись)</p>
+                <h5>  _________</h5>
+                <p class='text-start me-2'>(подпись)</p>
+            </div>
+        </div>
+</div>
+{% endblock %}

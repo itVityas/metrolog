@@ -51,11 +51,6 @@ class VerificationLogView(LoginRequiredMixin, TemplateView):
                                 'month'))).order_by(
                                     'last_device_location')
 
-        queryset_count = queryset.values(
-            'last_device_location').annotate(
-                sum_standart_verif=Sum(
-                    'moc_type__standart_verification'))
-
         result_list = []
         prev_location = None
         total_sum = 0
@@ -74,9 +69,7 @@ class VerificationLogView(LoginRequiredMixin, TemplateView):
                 total_sum += q.moc_type.standart_verification
             list_to_add.append(q)
 
-        print(result_list)
         context['start_date'] = start_date
-        context['queryset'] = queryset
         context['result_list'] = result_list
         return self.render_to_response(context)
 
