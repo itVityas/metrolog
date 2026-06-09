@@ -156,6 +156,13 @@ class PassportMigrateView(LoginRequiredMixin, View):
     success_url = reverse_lazy('passport')
 
     def post(self, request, *args, **kwargs):
+        models.MocList.objects.all().delete()
+        models.MocMetals.objects.all().delete()
+        models.VerificationInfo.objects.all().delete()
+        models.RepairInfo.objects.all().delete()
+        models.DeviceLocation.objects.all().delete()
+        models.DeviceStatusDate.objects.all().delete()
+        models.DeviceStation.objects.all().delete()
         self.copy_moc_list()
         self.copy_moc_metals()
         self.copy_verification_info()
@@ -190,6 +197,10 @@ class PassportMigrateView(LoginRequiredMixin, View):
                     code=record.get('POV_POD')
                     )
                 data_list.append(new_dict)
+            except hmodels.VerificationDepartment.DoesNotExist:
+                new_dict['verification_department'] = None
+            except hmodels.MocType.DoesNotExist:
+                new_dict['moc_type'] = None
             except Exception as e:
                 error_type = type(e).__name__
                 print(f"{error_type}: {e}")
@@ -275,6 +286,8 @@ class PassportMigrateView(LoginRequiredMixin, View):
                 new_dict['moc_list'] = models.MocList.objects.filter(
                     inv_number=record.get('INV_N')
                     ).first()
+                if new_dict['repair_type'] is None:
+                    new_dict['repair_type'] = models.RepairInfo.RepairType.CURRENT
                 data_list.append(new_dict)
             except (models.MocList.DoesNotExist):
                 continue

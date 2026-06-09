@@ -10,6 +10,8 @@ class MocList(models.Model):
     moc_type = models.ForeignKey(
         hmodels.MocType,
         on_delete=models.CASCADE,
+        null=True,
+        blank=True,
         related_name='moc_list')
 
     factory_number = models.CharField(
@@ -31,11 +33,15 @@ class MocList(models.Model):
     change_type = models.ForeignKey(
         hmodels.ChangeType,
         on_delete=models.CASCADE,
+        null=True,
+        blank=True,
         related_name='moc_list')
 
     moc_group = models.ForeignKey(
         hmodels.MocGroup,
         on_delete=models.CASCADE,
+        null=True,
+        blank=True,
         related_name='moc_list')
 
     class SignOR(models.TextChoices):
@@ -71,6 +77,8 @@ class MocList(models.Model):
     verification_department = models.ForeignKey(
         hmodels.VerificationDepartment,
         on_delete=models.CASCADE,
+        null=True,
+        blank=True,
         related_name='moc_list')
 
     class VerificationType(models.TextChoices):
@@ -100,6 +108,8 @@ class MocMetals(models.Model):
     precious_metals = models.ForeignKey(
         hmodels.PreciousMetals,
         on_delete=models.CASCADE,
+        null=True,
+        blank=True,
         related_name='moc_metals')
 
     metal_amount = models.DecimalField(
@@ -113,6 +123,8 @@ class MocMetals(models.Model):
     moc_list = models.ForeignKey(
         MocList,
         on_delete=models.CASCADE,
+        null=True,
+        blank=True,
         related_name='moc_metals')
 
 
@@ -179,6 +191,8 @@ class VerificationInfo(models.Model):
     moc_list = models.ForeignKey(
         MocList,
         on_delete=models.CASCADE,
+        null=True,
+        blank=True,
         related_name='verification_info')
 
 
@@ -254,6 +268,8 @@ class RepairInfo(models.Model):
     moc_list = models.ForeignKey(
         MocList,
         on_delete=models.CASCADE,
+        null=True,
+        blank=True,
         related_name='repair_info')
 
 
@@ -285,6 +301,8 @@ class DeviceLocation(models.Model):
     moc_list = models.ForeignKey(
         MocList,
         on_delete=models.CASCADE,
+        null=True,
+        blank=True,
         related_name='device_location')
 
 
@@ -316,6 +334,8 @@ class DeviceStatusDate(models.Model):
     moc_list = models.ForeignKey(
         MocList,
         on_delete=models.CASCADE,
+        null=True,
+        blank=True,
         related_name='device_status_date')
 
 
@@ -351,4 +371,6 @@ class DeviceStation(models.Model):
     moc_list = models.OneToOneField(
         MocList,
         on_delete=models.CASCADE,
+        null=True,
+        blank=True,
         related_name='device_station')

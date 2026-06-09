@@ -4,9 +4,7 @@ from ...passport import models as pmodels
 from django.shortcuts import render
 from ..forms import VerificationLogForm
 from django.db.models.functions import Extract
-from django.db.models import Sum, OuterRef, Subquery
-from django.db.models import Prefetch, F
-from decimal import Decimal
+from django.db.models import OuterRef, Subquery
 
 
 class VerificationLogView(LoginRequiredMixin, TemplateView):

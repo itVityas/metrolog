@@ -40,10 +40,10 @@
                     {% for data in work.data %}
                         <tr class='border-0'>
                             <td class='border-0 text-start'>{{data.change_type}}</td>
-                            <td class='border-0'>{{data.total_sum_first}}</td>
-                            <td class='border-0'>{{data.complexity_first}}</td>
-                            <td class='border-0'>{{data.total_sum_final}}</td>
-                            <td class='border-0'>{{data.complexity_final}}</td>
+                            <td class='border-0'>{% if data.total_sum_first %}{{data.total_sum_first}}{% endif %}</td>
+                            <td class='border-0'>{% if data.complexity_first %}{{data.complexity_first}}{% endif %}</td>
+                            <td class='border-0'>{% if data.total_sum_final %}{{data.total_sum_final}}{% endif %}</td>
+                            <td class='border-0'>{% if data.complexity_final %}{{data.complexity_final}}{% endif %}</td>
                             <td class='border-0'></td>
                         </tr>
                     {% endfor %}

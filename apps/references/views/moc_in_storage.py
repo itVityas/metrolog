@@ -18,6 +18,5 @@ class MocInStorageView(LoginRequiredMixin, TemplateView):
                 'verification_info',
                 'device_location').all().order_by('change_type__name')
 
-        print(queryset)
         context['queryset'] = queryset
         return context

@@ -3,6 +3,12 @@ from django.views.generic import UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import UserSettings
 from .forms import UserSettingsForm
+from django.views.generic import View
+from docx import Document
+from html4docx import HtmlToDocx
+from django.http import FileResponse
+import io
+import json
 
 
 class SettingsUpdateView(LoginRequiredMixin, UpdateView):
@@ -15,3 +21,32 @@ class SettingsUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return self.request.path
+
+
+class PrintToDocxView(LoginRequiredMixin, View):
+    """
+        View for printing HTML to DOCX
+    """
+    def post(self, request, *args, **kwargs):
+        doc = Document()
+        parser = HtmlToDocx()
+
+        post_data = json.loads(request.body)
+
+        html_data = post_data.get('html_to_print')
+        file_name = post_data.get('name')
+        print('html_data = ' + html_data)
+        print('file_name = ' + file_name)
+
+        parser.add_html_to_document(html_data, doc)
+
+        buffer = io.BytesIO()
+        doc.save(buffer)
+        buffer.seek(0)
+
+        response = FileResponse(
+            buffer,
+            as_attachment=True,
+            filename=file_name,
+            content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+        return response

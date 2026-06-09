@@ -23,7 +23,7 @@ class PrescriptionBuiltinView(LoginRequiredMixin, TemplateView):
                     device_location__department__workshop=workshop,
                     device_location__department__brigade=brigade).exclude(
                         sign_o_m=pmodels.MocList.SignOM.BUILTIN
-                        ).order_by('verification_type')
+                        ).order_by('verification_type', 'change_type')
 
         context['queryset'] = queryset
         context['start_date'] = datetime.strptime(start_date, "%d.%m.%Y").date()
