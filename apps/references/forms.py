@@ -95,3 +95,34 @@ class OperatingTimeForm(forms.Form):
                                       'type': 'date'}),
         initial=datetime.date.today,
     )
+
+
+class MocInUseForm(forms.Form):
+
+    moc_name = forms.CharField(
+        widget=forms.TextInput(),
+        label='Введите тип СИ',
+        max_length=20,
+    )
+
+
+class MemorandumForm(forms.Form):
+
+    start_date = forms.DateField(
+        label='Дата начала месяца поверки',
+        widget=forms.TextInput(attrs={'class': 'form-control',
+                                      'type': 'date'}),
+        initial=datetime.date.today,
+    )
+
+    workshop = forms.CharField(
+        widget=forms.TextInput(),
+        label='Цех',
+        max_length=20,
+    )
+
+    brigade = forms.CharField(
+        widget=forms.TextInput(),
+        label='Бригада',
+        max_length=20,
+    )

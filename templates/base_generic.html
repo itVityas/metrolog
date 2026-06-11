@@ -26,11 +26,11 @@
                                     <ul class="dropdown-menu" aria-labelledby="dropdown11">
                                         <li><a class="dropdown-item" href="{% url 'moc_verification_types' %}">Кол-во СИ по видам поверки</a></li>
                                         <li><a class="dropdown-item" href="{% url 'moc_in_storage' %}">Сведения о СИ на хран.</a></li>
-                                        <li><a class="dropdown-item" onclick="show_modal_in_generic(this, 'moc_in_use')">Сведения о наличии типа СИ</a></li>
-                                        <li><a class="dropdown-item" onclick="show_modal_in_generic(this, 'memorandum')">Служ. зап. (кроме встр.)</a></li>
-                                        <li><a class="dropdown-item" onclick="show_modal_in_generic(this, 'memorandum_builtin')">Служ. зап. для встроен.</a></li>
-                                        <li><a class="dropdown-item" onclick="show_modal_in_generic(this, 'prescription')">Предп. кроме встроен.</a></li>
-                                        <li><a class="dropdown-item" onclick="show_modal_in_generic(this, 'prescription_builtin')">Предп. для встроен.</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'moc_in_use' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_in_use')">Сведения о наличии типа СИ</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'memorandum' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'memorandum')">Служ. зап. (кроме встр.)</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'memorandum_builtin' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'memorandum_builtin')">Служ. зап. для встроен.</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'prescription' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'prescription')">Предп. кроме встроен.</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'prescription_builtin' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'prescription_builtin')">Предп. для встроен.</a></li>
                                         <li><a class="dropdown-item" href="{% url 'statement' %}">Вед. (кроме встр.)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'statement_builtin' %}">Вед. для встр. СИ</a></li>
                                         <li><a class="dropdown-item" hx-get="{% url 'verification_log' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'verification_log')">Журнал поверки</a></li>
@@ -118,14 +118,7 @@
             {% endif %}
         {% endblock %}
         {% include 'general/print_modal.html' %}
-
         <div id='dynamic_modal'></div>
-        {% include 'references/modals/moc_in_use_modal.html' %}
-        {% include 'references/modals/memorandum_modal.html' %}
-        {% include 'references/modals/memorandum_builtin_modal.html' %}
-        {% include 'references/modals/prescription_modal.html' %}
-        {% include 'references/modals/prescription_builtin_modal.html' %}
-        
     </div>
 
     {%block footer %}

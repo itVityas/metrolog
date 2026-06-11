@@ -1,6 +1,8 @@
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from ...passport import models as pmodels
+from ..forms import MocInUseForm
+from django.shortcuts import render
 
 
 class MocInUseView(LoginRequiredMixin, TemplateView):
@@ -23,3 +25,9 @@ class MocInUseView(LoginRequiredMixin, TemplateView):
 
         context['queryset'] = queryset
         return self.render_to_response(context)
+
+    def get(self, request, *args, **kwargs):
+        form = MocInUseForm()
+        return render(request,
+                      'references/modals/moc_in_use_modal.html',
+                      {'form': form})

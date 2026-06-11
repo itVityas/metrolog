@@ -17,7 +17,6 @@
             </thead>
             <tbody>
                 {% for query in queryset %}
-                {% if query.verification_info.last.verification_date < start_date %}
                 {% ifchanged query.verification_type %}
                     <tr class='border-0'><td colspan=4 class='border-0'>Вид поверки: <span class='text-decoration-underline fw-bold'>{{ query.get_verification_type_display }}</span></td></tr>
                 {% endifchanged %}
@@ -28,9 +27,8 @@
                     <td class='border-0'>{{query.moc_group.name}} {{query.moc_type.type}}</td>
                     <td class='border-0'>{{query.factory_number}}</td>
                     <td class='border-0'>{{query.inv_number}}</td>
-                    <td class='border-0'>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
+                    <td class='border-0'>{{query.last_verification_date|date:"d.m.Y"}}</td>
                 </tr>
-                {% endif %}
                 {% endfor %}
             </tbody>
         </table>

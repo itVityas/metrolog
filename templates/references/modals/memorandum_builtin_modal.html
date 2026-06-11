@@ -10,9 +10,10 @@
             <div class="modal-body">
             <form id="modal_form" action="{% url 'memorandum_builtin' %}" method="post">
                 {% csrf_token %}
-                <input type="text" placeholder="Дата начала месяца поверки" name='start_date' required />
-                <input type="text" placeholder="Цех" name='workshop' required />
-                <input type="text" placeholder="Бригада" name='brigade' required />
+                <table>
+                    {{ form.as_table }}
+                </table>
+                <br>
                 <button class="btn btn-dark" type="submit">Подтвердить</button>
                 <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Отмена</button>
             </form>
