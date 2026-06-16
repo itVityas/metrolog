@@ -84,6 +84,7 @@
     </div>
     <div class="p-2"> 
         {% block content %}{% endblock %}
+        <div class="fixed-bottom text-white p-3">
         {% block paginator %}
             {% if is_paginated %}
             <nav>
@@ -113,10 +114,26 @@
                                 <a class="page-link" href="{% querystring page=page_obj.next_page_number %}">Следующая</a>
                             </li>
                         {% endif %}
+                    <li class='ms-auto'>
+                        <div id='pagination_settings'>
+                            <div id='form_container'>
+                                <form id="modal_form" action="{%url 'set_pagination' user.usersettings.id %}" method="post">
+                                    {% csrf_token %}
+                                    <select class="form-select" name='pagination_size' aria-label="Записей на странице" onchange="this.form.submit()" onfocus="this.selectedIndex = -1;">
+                                      <option value="5">5</option>
+                                      <option value="10">10</option>
+                                      <option value="15">15</option>
+                                    </select>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </nav>
             {% endif %}
         {% endblock %}
+        
+        </div>
         {% include 'general/print_modal.html' %}
         <div id='dynamic_modal'></div>
     </div>

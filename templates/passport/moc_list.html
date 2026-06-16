@@ -27,21 +27,23 @@
             
             <div class="table-container">
                 <table class="table table-striped table-bordered border border-dark w-100">
+                    <thead>
+                        <th><strong>Наименование прибора</strong></th>
+                        <th><strong>Тип</strong></th>
+                        <th><strong>Заводской номер</strong></th>
+                        <th><strong>Инвентарный номер</strong></th>
+                        <th><strong>Место закрепления</strong></th>
+                    </thead>
                     <tbody>
                         {% for object in object_list %}
-                        
-                            <tr>
-                                <td><strong>Наименование прибора</strong><p id='moc_group_name' value={{object.moc_group.id}}>{{object.moc_group.name}}</p></td>
-                                <td><strong>Тип</strong><p id='moc_type_type' value={{object.moc_type.id}}>{{object.moc_type.type}}</p></td>
-                                <td><strong>Заводской номер</strong><p id='factory_number'>{{object.factory_number}}</p></td>
-                                <td><strong>Инвентарный номер</strong><p id='inv_number'>{{object.inv_number}}</p></td>
-                                <td><strong>Место закрепления</strong>
-                                <p><strong>Цех:</strong> <span id='department_workshop'>{{object.device_location.last.department.workshop}}</span>
-                                    <strong>Бригада:</strong> <span id='department_brigade'>{{object.device_location.last.department.brigade}}</span></p></td>
-                                <td>
-                                    <strong><a href="{% url 'passport_detail' pk=object.id %}" class="page-link">
-                                        Подробнее
-                                    </a></strong>
+                            <tr class='position-relative'>
+                                <td><p id='moc_group_name' value={{object.moc_group.id}}>{{object.moc_group.name}}</p></td>
+                                <td><p id='moc_type_type' value={{object.moc_type.id}}>{{object.moc_type.type}}</p></td>
+                                <td><p id='factory_number'>{{object.factory_number}}</p></td>
+                                <td><p id='inv_number'>{{object.inv_number}}</p></td>
+                                <td><strong>Цех:</strong> <span id='department_workshop'>{{object.device_location.last.department.workshop}}</span><br>
+                                    <strong>Бригада:</strong> <span id='department_brigade'>{{object.device_location.last.department.brigade}}</span>
+                                    <a href="{% url 'passport_detail' pk=object.id %}" class="stretched-link"></a>
                                 </td>
                             </tr>
                         

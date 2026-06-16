@@ -9,6 +9,8 @@ from html4docx import HtmlToDocx
 from django.http import FileResponse
 import io
 import json
+from django.shortcuts import redirect
+from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
 
 
 class SettingsUpdateView(LoginRequiredMixin, UpdateView):
@@ -21,6 +23,31 @@ class SettingsUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_success_url(self):
         return self.request.path
+
+
+class SetPaginationView(LoginRequiredMixin, View):
+    """
+        Set pagination with page reload
+    """
+    def post(self, request, *args, **kwargs):
+        form = UserSettingsForm(request.POST)
+        pk = self.kwargs.get('pk')
+
+        if form.is_valid():
+            UserSettings.objects.filter(
+                id=pk
+                ).update(
+                    pagination_size=form.cleaned_data['pagination_size'])
+
+        raw_url = request.META.get('HTTP_REFERER', '/')
+
+        url_parts = list(urlparse(raw_url))
+        query_params = parse_qs(url_parts[4])
+        query_params['page'] = 1
+        url_parts[4] = urlencode(query_params, doseq=True)
+        final_url = urlunparse(url_parts)
+
+        return redirect(final_url)
 
 
 class PrintToDocxView(LoginRequiredMixin, View):

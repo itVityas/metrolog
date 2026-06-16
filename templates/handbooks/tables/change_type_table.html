@@ -15,9 +15,9 @@
                 {% endif %}
                 
                     <form action="" method="get" class="d-inline">
-                        <input type="text" name="q" placeholder="Поиск" value="{{ request.GET.q|default_if_none:"" }}">
-                        <button type="submit" class="btn btn-primary-outline">
-                            <img src="{% static 'img/search.svg' %}" alt="Искать" width="32" height="32" />
+                        <input class='search-input' type="text" name="q" placeholder="Поиск" value="{{ request.GET.q|default_if_none:"" }}">
+                        <button type="submit" class=" search-button btn btn-primary-outline ">
+                            <img src="{% static 'img/search.svg' %}" alt="Искать" width="24" height="24" />
                         </button>
                     </form>
                 <br>
@@ -26,12 +26,12 @@
                 <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal_window_migrate" type="button">Скопировать старую БД</button>
             {% endif %}
             <div class="table-container">
-                <table class="table table-striped table-bordered border border-dark w-100">
+                <table class="table-fixed table table-striped table-bordered border border-dark w-100">
                     <thead>
                         <th><a class='nav-link' href="{% querystring ordering='id' %}">{{verbose_names.id}}</a></th>
                         <th><a class='nav-link' href="{% querystring ordering='code' %}">{{verbose_names.code}}</a></th>
                         <th><a class='nav-link' href="{% querystring ordering='name' %}">{{verbose_names.name}}</a></th>
-                        <th colspan="2"></th>
+                        <th colspan="2" style="width: 10%;"></th>
                     </thead>
                     <tbody>
                         {% for change_type in object_list %}

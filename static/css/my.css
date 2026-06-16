@@ -63,3 +63,16 @@
 .dropdown-submenu:focus > .dropdown-menu {
     display: block;
 }
+
+.search-input{
+    padding-right: 50px;
+}
+
+.search-button{
+    margin-left: -50px;
+    margin-bottom: 5px;
+}
+
+.table-fixed{
+    table-layout: fixed;
+}
