@@ -8,6 +8,8 @@ from django.views import View
 from dbfread import DBF
 from django.conf import settings
 from django.db.models import Q
+from django.shortcuts import redirect
+from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
 
 
 class PreciousMetalsListView(LoginRequiredMixin, ListView):
@@ -70,6 +72,20 @@ class PreciousMetalsAddView(LoginRequiredMixin, CreateView):
     form_class = PreciousMetalsForm
     success_url = reverse_lazy('precious_metals')
 
+    def post(self, request, *args, **kwargs):
+        super().post(request, *args, **kwargs)
+
+        raw_url = request.META.get('HTTP_REFERER', '/')
+
+        url_parts = list(urlparse(raw_url))
+        query_params = parse_qs(url_parts[4])
+        query_params['page'] = 1
+        query_params['ordering'] = '-id'
+        url_parts[4] = urlencode(query_params, doseq=True)
+        final_url = urlunparse(url_parts)
+
+        return redirect(final_url)
+
 
 class PreciousMetalsUpdateView(LoginRequiredMixin, UpdateView):
     """
@@ -78,6 +94,11 @@ class PreciousMetalsUpdateView(LoginRequiredMixin, UpdateView):
     model = PreciousMetals
     form_class = PreciousMetalsForm
     success_url = reverse_lazy('precious_metals')
+
+    def post(self, request, *args, **kwargs):
+        super().post(request, *args, **kwargs)
+        back_url = request.META.get('HTTP_REFERER', '/')
+        return redirect(back_url)
 
 
 class PreciousMetalsDeleteView(LoginRequiredMixin, DeleteView):
@@ -91,7 +112,8 @@ class PreciousMetalsDeleteView(LoginRequiredMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         self.object.delete()
-        response = HttpResponseRedirect(self.get_success_url())
+        back_url = request.META.get('HTTP_REFERER', '/')
+        response = HttpResponseRedirect(back_url)
         response.status_code = 303
         return response
 

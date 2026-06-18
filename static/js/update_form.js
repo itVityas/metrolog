@@ -28,6 +28,9 @@ function fill_modal_window(e) {
     }
 
     const id = cells[0].textContent;
+    form_id_input = form.elements["id"];
+    form_id_input.value = id;
+
     form.action = "" + id + "/update/";
     modal.show();
 };
