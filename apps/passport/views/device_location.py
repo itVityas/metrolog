@@ -14,6 +14,12 @@ class DeviceLocationCreateView(LoginRequiredMixin, CreateView):
     form_class = forms.DeviceLocationForm
     success_url = reverse_lazy('passport')
 
+    def post(self, request, *args, **kwargs):
+        super().post(request, *args, **kwargs)
+        back_url = request.META.get('HTTP_REFERER', '/')
+        response = HttpResponseRedirect(back_url)
+        return response
+
 
 class DeviceLocationUpdateView(LoginRequiredMixin, UpdateView):
     """
@@ -22,6 +28,12 @@ class DeviceLocationUpdateView(LoginRequiredMixin, UpdateView):
     model = models.DeviceLocation
     form_class = forms.DeviceLocationForm
     success_url = reverse_lazy('passport')
+
+    def post(self, request, *args, **kwargs):
+        super().post(request, *args, **kwargs)
+        back_url = request.META.get('HTTP_REFERER', '/')
+        response = HttpResponseRedirect(back_url)
+        return response
 
 
 class DeviceLocationDeleteView(LoginRequiredMixin, DeleteView):
@@ -35,6 +47,7 @@ class DeviceLocationDeleteView(LoginRequiredMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         self.object.delete()
-        response = HttpResponseRedirect(self.get_success_url())
+        back_url = request.META.get('HTTP_REFERER', '/')
+        response = HttpResponseRedirect(back_url)
         response.status_code = 303
         return response

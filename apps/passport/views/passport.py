@@ -14,6 +14,7 @@ from django.db.models import Q
 from django.conf import settings
 from dbfread import DBF
 from itertools import zip_longest
+from django.forms import ModelChoiceField
 
 
 class PassportListView(LoginRequiredMixin, ListView):
@@ -38,7 +39,7 @@ class PassportListView(LoginRequiredMixin, ListView):
             'verification_info',
             'repair_info',
             'device_status_date',
-            'moc_metals').all().order_by('id')
+            'moc_metals').all().order_by('-id')
         query = self.request.GET.get('q')
 
         if query:
@@ -58,7 +59,9 @@ class PassportListView(LoginRequiredMixin, ListView):
             context['paginator_range'] = page.paginator.get_elided_page_range(
                 page.number, on_each_side=2, on_ends=1
             )
-        context['form'] = forms.MocListForm
+        form = forms.MocListForm()
+
+        context['form'] = form
         return context
 
 
@@ -134,6 +137,12 @@ class MocListUpdateView(LoginRequiredMixin, UpdateView):
     model = models.MocList
     form_class = forms.MocListForm
     success_url = reverse_lazy('passport')
+
+    def post(self, request, *args, **kwargs):
+        super().post(request, *args, **kwargs)
+        back_url = request.META.get('HTTP_REFERER', '/')
+        response = HttpResponseRedirect(back_url)
+        return response
 
 
 class MocListDeleteView(LoginRequiredMixin, DeleteView):

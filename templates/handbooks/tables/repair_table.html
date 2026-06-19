@@ -30,7 +30,7 @@
                     <thead>
                         <th><a class='nav-link' href="{% querystring ordering='id' %}">{{verbose_names.id}}</a></th>
                         <th><a class='nav-link' href="{% querystring ordering='name' %}">{{verbose_names.name}}</a></th>
-                        <th colspan="2"></th>
+                        <th colspan="2" style="width: 10%;"></th>
                     </thead>
                     <tbody>
                         {% for repair in object_list %}

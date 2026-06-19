@@ -14,6 +14,12 @@ class RepairInfoCreateView(LoginRequiredMixin, CreateView):
     form_class = forms.RepairInfoForm
     success_url = reverse_lazy('passport')
 
+    def post(self, request, *args, **kwargs):
+        super().post(request, *args, **kwargs)
+        back_url = request.META.get('HTTP_REFERER', '/')
+        response = HttpResponseRedirect(back_url)
+        return response
+
 
 class RepairInfoUpdateView(LoginRequiredMixin, UpdateView):
     """
@@ -22,6 +28,12 @@ class RepairInfoUpdateView(LoginRequiredMixin, UpdateView):
     model = models.RepairInfo
     form_class = forms.RepairInfoForm
     success_url = reverse_lazy('passport')
+
+    def post(self, request, *args, **kwargs):
+        super().post(request, *args, **kwargs)
+        back_url = request.META.get('HTTP_REFERER', '/')
+        response = HttpResponseRedirect(back_url)
+        return response
 
 
 class RepairInfoDeleteView(LoginRequiredMixin, DeleteView):
@@ -35,6 +47,7 @@ class RepairInfoDeleteView(LoginRequiredMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         self.object.delete()
-        response = HttpResponseRedirect(self.get_success_url())
+        back_url = request.META.get('HTTP_REFERER', '/')
+        response = HttpResponseRedirect(back_url)
         response.status_code = 303
         return response

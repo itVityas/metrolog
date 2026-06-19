@@ -14,6 +14,12 @@ class VerificationInfoCreateView(LoginRequiredMixin, CreateView):
     form_class = forms.VerificationInfoForm
     success_url = reverse_lazy('passport')
 
+    def post(self, request, *args, **kwargs):
+        super().post(request, *args, **kwargs)
+        back_url = request.META.get('HTTP_REFERER', '/')
+        response = HttpResponseRedirect(back_url)
+        return response
+
 
 class VerificationInfoUpdateView(LoginRequiredMixin, UpdateView):
     """
@@ -22,6 +28,12 @@ class VerificationInfoUpdateView(LoginRequiredMixin, UpdateView):
     model = models.VerificationInfo
     form_class = forms.VerificationInfoForm
     success_url = reverse_lazy('passport')
+
+    def post(self, request, *args, **kwargs):
+        super().post(request, *args, **kwargs)
+        back_url = request.META.get('HTTP_REFERER', '/')
+        response = HttpResponseRedirect(back_url)
+        return response
 
 
 class VerificationInfoDeleteView(LoginRequiredMixin, DeleteView):
@@ -35,6 +47,7 @@ class VerificationInfoDeleteView(LoginRequiredMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         self.object.delete()
-        response = HttpResponseRedirect(self.get_success_url())
+        back_url = request.META.get('HTTP_REFERER', '/')
+        response = HttpResponseRedirect(back_url)
         response.status_code = 303
         return response

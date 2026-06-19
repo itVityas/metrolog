@@ -1,5 +1,6 @@
 {% extends 'base_generic.html' %}
 {% load static %}
+{% load form_tags %}
 {% block  content %}
     <div class='container-fluid'>
     <div class='col'>
@@ -64,7 +65,34 @@
                         <div class="modal-body">
                         <form id="modal_form" action="" method="post">
                             {% csrf_token %}
-                            {{ form.as_p }}
+                            <table>
+                                {% for field in form %}
+                                    <tr>
+                                        <th>
+                                            {% if field|is_foreign_key %}
+                                                <label for="{{ field.id_for_label }}">{{ field.label }}
+                                                    <a href="{% url field.name %}">
+                                                        <img src="{% static 'img/plus-square-fill.svg' %}" fill="currentColor" alt="Добавить" width="24" height="24" />
+                                                    </a>
+                                                </label>
+                                            {% else %}
+                                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                            {% endif %}
+                                        </th>
+                                        <td>
+                                            {{ field }}
+                                        </td>
+                                        <td>
+                                            {% if field.errors %}
+                                                <div class="error-msg">{{ field.errors }}</div>
+                                            {% endif %}
+                                            {% if field.help_text %}
+                                                <p class="help-text">{{ field.help_text }}</p>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
                             <button class="btn btn-dark" type="submit">Сохранить</button>
                             <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Отмена</button>
                         </form>

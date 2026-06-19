@@ -34,7 +34,7 @@
                         <th><a class='nav-link' href="{% querystring ordering='max_limit' %}">{{verbose_names.max_limit}}</a></th>
                         <th><a class='nav-link' href="{% querystring ordering='min_measurement' %}">{{verbose_names.min_measurement}}</a></th>
                         <th><a class='nav-link' href="{% querystring ordering='max_measurement' %}">{{verbose_names.max_measurement}}</a></th>
-                        <th colspan="2"></th>
+                        <th colspan="2" style="width: 10%;"></th>
                     </thead>
                     <tbody>
                         {% for moc_limit in object_list %}

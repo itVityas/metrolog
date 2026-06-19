@@ -32,7 +32,7 @@
                         <th><a class='nav-link' href="{% querystring ordering='type' %}">{{verbose_names.type}}</a></th>
                         <th><a class='nav-link' href="{% querystring ordering='group' %}">{{verbose_names.group}}</a></th>
                         <th><a class='nav-link' href="{% querystring ordering='name' %}">{{verbose_names.name}}</a></th>
-                        <th colspan="2"></th>
+                        <th colspan="2" style="width: 10%;"></th>
                     </thead>
                     <tbody>
                         {% for moc_group in object_list %}

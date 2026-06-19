@@ -33,7 +33,7 @@
                         <th><a class='nav-link' href="{% querystring ordering='sign' %}">{{verbose_names.sign}}</a></th>
                         <th><a class='nav-link' href="{% querystring ordering='name' %}">{{verbose_names.name}}</a></th>
                         <th><a class='nav-link' href="{% querystring ordering='is_active' %}">{{verbose_names.is_active}}</a></th>
-                        <th colspan="2"></th>
+                        <th colspan="2" style="width: 10%;"></th>
                     </thead>
                     <tbody>
                         {% for verification_department in object_list %}
