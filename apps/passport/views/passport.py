@@ -14,7 +14,10 @@ from django.db.models import Q
 from django.conf import settings
 from dbfread import DBF
 from itertools import zip_longest
-from django.forms import ModelChoiceField
+from apps.handbooks import forms as h_forms
+from apps.handbooks import models as h_models
+from django.shortcuts import render
+from django.views.generic.edit import BaseFormView
 
 
 class PassportListView(LoginRequiredMixin, ListView):
@@ -159,6 +162,98 @@ class MocListDeleteView(LoginRequiredMixin, DeleteView):
         response = HttpResponseRedirect(self.get_success_url())
         response.status_code = 303
         return response
+
+
+class PassportMocTypeView(LoginRequiredMixin, BaseFormView):
+    """
+        Get modal for adding new MocType
+    """
+    model = h_models.MocType
+    form_class = h_forms.MocTypeForm
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            self.object = form.save()
+        new_form = forms.MocListForm()
+        return render(request,
+                      'passport/modals/moc_list_modal.html',
+                      {'form': new_form})
+
+    def get(self, request, *args, **kwargs):
+        form = h_forms.MocTypeForm()
+        return render(request,
+                      'handbooks/modals/passport_moc_type_modal.html',
+                      {'form': form})
+
+
+class PassportChangeTypeView(LoginRequiredMixin, BaseFormView):
+    """
+        Get modal for adding new ChangeType
+    """
+    model = h_models.ChangeType
+    form_class = h_forms.ChangeTypeForm
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            self.object = form.save()
+        new_form = forms.MocListForm()
+        return render(request,
+                      'passport/modals/moc_list_modal.html',
+                      {'form': new_form})
+
+    def get(self, request, *args, **kwargs):
+        form = h_forms.ChangeTypeForm()
+        return render(request,
+                      'handbooks/modals/passport_change_type_modal.html',
+                      {'form': form})
+
+
+class PassportMocGroupView(LoginRequiredMixin, BaseFormView):
+    """
+        Get modal for adding new MocGroup
+    """
+    model = h_models.MocGroup
+    form_class = h_forms.MocGroupForm
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            self.object = form.save()
+        new_form = forms.MocListForm()
+        return render(request,
+                      'passport/modals/moc_list_modal.html',
+                      {'form': new_form})
+
+    def get(self, request, *args, **kwargs):
+        form = h_forms.MocGroupForm()
+        return render(request,
+                      'handbooks/modals/passport_moc_group_modal.html',
+                      {'form': form})
+
+
+class PassportVerificationDepartmentView(LoginRequiredMixin, BaseFormView):
+    """
+        Get modal for adding new VerificationDepartment
+    """
+    model = h_models.VerificationDepartment
+    form_class = h_forms.VerificationDepartmentForm
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            self.object = form.save()
+        new_form = forms.MocListForm()
+        return render(request,
+                      'passport/modals/moc_list_modal.html',
+                      {'form': new_form})
+
+    def get(self, request, *args, **kwargs):
+        form = h_forms.VerificationDepartmentForm()
+        return render(request,
+                      'handbooks/modals/passport_verification_department_modal.html',
+                      {'form': form})
 
 
 class PassportMigrateView(LoginRequiredMixin, View):

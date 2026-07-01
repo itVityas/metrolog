@@ -4,6 +4,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .. import models
 from .. import forms
 from django.http import HttpResponseRedirect
+from apps.handbooks import forms as h_forms
+from apps.handbooks import models as h_models
+from django.shortcuts import render
+from django.views.generic.edit import BaseFormView
 
 
 class MocMetalsCreateView(LoginRequiredMixin, CreateView):
@@ -51,3 +55,28 @@ class MocMetalsDeleteView(LoginRequiredMixin, DeleteView):
         response = HttpResponseRedirect(back_url)
         response.status_code = 303
         return response
+
+
+class PassportPreciousMetalsView(LoginRequiredMixin, BaseFormView):
+    """
+        Get modal for adding new PreciousMetals
+    """
+    model = h_models.PreciousMetals
+    form_class = h_forms.PreciousMetalsForm
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            self.object = form.save()
+        new_form = forms.MocMetalsForm()
+        return render(request,
+                      'passport/modals/moc_list_table_modal.html',
+                      {'tform': new_form})
+
+    def get(self, request, *args, **kwargs):
+        form = h_forms.PreciousMetalsForm()
+        return render(request,
+                      'handbooks/modals/passport_table_modal.html',
+                      {'form': form,
+                       'modal_name': 'metall',
+                       'field_name': 'precious_metals'})

@@ -12,9 +12,9 @@
             <div>
                 <div class="">
                     <form action="" method="get" class="d-inline">
-                        <input type="text" name="q" placeholder="Поиск" value="{{ request.GET.q|default_if_none:"" }}">
-                        <button type="submit" class="btn btn-primary-outline">
-                            <img src="{% static 'img/search.svg' %}" alt="Искать" width="32" height="32" />
+                        <input class='search-input' type="text" name="q" placeholder="Поиск" value="{{ request.GET.q|default_if_none:"" }}">
+                        <button type="submit" class="search-button btn btn-primary-outline">
+                            <img src="{% static 'img/search.svg' %}" alt="Искать" width="24" height="24" />
                         </button>
                     </form>
                     <button type="button" class="btn btn-dark" onclick="flush_modal_window(this)">Добавить запись</button>
@@ -27,7 +27,7 @@
             </div>
             
             <div class="table-container">
-                <table class="table table-striped table-bordered border border-dark w-100">
+                <table class="table table-hover table-striped table-bordered border border-dark w-100">
                     <thead>
                         <th><strong>Наименование прибора</strong></th>
                         <th><strong>Тип</strong></th>
@@ -37,7 +37,7 @@
                     </thead>
                     <tbody>
                         {% for object in object_list %}
-                            <tr class='position-relative'>
+                            <tr class='position-relative table-tr-hover'>
                                 <td><p id='moc_group_name' value={{object.moc_group.id}}>{{object.moc_group.name}}</p></td>
                                 <td><p id='moc_type_type' value={{object.moc_type.id}}>{{object.moc_type.type}}</p></td>
                                 <td><p id='factory_number'>{{object.factory_number}}</p></td>
@@ -69,18 +69,15 @@
                                 {% for field in form %}
                                     <tr>
                                         <th>
-                                            {% if field|is_foreign_key %}
-                                                <label for="{{ field.id_for_label }}">{{ field.label }}
-                                                    <a href="{% url field.name %}">
-                                                        <img src="{% static 'img/plus-square-fill.svg' %}" fill="currentColor" alt="Добавить" width="24" height="24" />
-                                                    </a>
-                                                </label>
-                                            {% else %}
-                                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                                            {% endif %}
+                                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                                         </th>
                                         <td>
                                             {{ field }}
+                                            {% if field|is_foreign_key %}
+                                                <a hx-get="{% url 'passport_'|add:field.name %}" hx-target="#handbooks_add_modal" hx-on::after-request="show_modal_in_passport(this, '{{'passport_'|add:field.name}}')">
+                                                    <img src="{% static 'img/plus-square-fill.svg' %}" fill="currentColor" alt="Добавить" width="24" height="24" />
+                                                </a>
+                                            {% endif %}
                                         </td>
                                         <td>
                                             {% if field.errors %}
@@ -100,7 +97,7 @@
                     </div>
                 </div>
             </div>
-
+            <div id='handbooks_add_modal' />
             {% if user.is_staff %}
             <div id="modal_window_migrate" class="modal fade" aria-hidden='true' tabindex='-1'>
                 <div class="modal-dialog modal-lg">

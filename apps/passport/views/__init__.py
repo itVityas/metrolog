@@ -4,19 +4,32 @@ from .passport import (PassportListView,
                        MocListUpdateView,
                        MocListDeleteView,
                        PassportMigrateView,
-                       PassportPrintView)
+                       PassportPrintView,
+                       PassportMocTypeView,
+                       PassportChangeTypeView,
+                       PassportMocGroupView,
+                       PassportVerificationDepartmentView)
 from .verification_info import (VerificationInfoCreateView,
                                 VerificationInfoDeleteView,
-                                VerificationInfoUpdateView)
+                                VerificationInfoUpdateView,
+                                PassportVerificationPersonView,
+                                PassportVerificationSignView)
 from .repair_info import (RepairInfoCreateView,
                           RepairInfoDeleteView,
-                          RepairInfoUpdateView)
+                          RepairInfoUpdateView,
+                          PassportRepairView,
+                          PassportRepairCodeView,
+                          PassportRepairDepartmentView,
+                          PassportInstrumentFailureView)
 from .device_location import (DeviceLocationCreateView,
                               DeviceLocationDeleteView,
-                              DeviceLocationUpdateView)
+                              DeviceLocationUpdateView,
+                              PassportDepartmentView)
 from .device_status_date import (DeviceStatusDateCreateView,
                                  DeviceStatusDateDeleteView,
-                                 DeviceStatusDateUpdateView)
+                                 DeviceStatusDateUpdateView,
+                                 PassportDeviceStatusView)
 from .moc_metals import (MocMetalsCreateView,
                          MocMetalsDeleteView,
-                         MocMetalsUpdateView)
+                         MocMetalsUpdateView,
+                         PassportPreciousMetalsView)

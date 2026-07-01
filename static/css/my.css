@@ -76,3 +76,19 @@
 .table-fixed{
     table-layout: fixed;
 }
+
+.table-tr-hover:hover{
+    border-width: 2px;
+}
+
+select{
+    height: 28px;
+    padding: 1px 2px 1px 2px;
+}
+
+input.form-control{
+    height: 28px;
+    padding: 1px 2px 1px 2px;
+    border: 1px solid rgb(118, 118, 118);
+    border-radius: 2px;
+}

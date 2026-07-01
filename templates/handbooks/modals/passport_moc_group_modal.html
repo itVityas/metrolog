@@ -1,0 +1,28 @@
+<div id="passport_moc_group_modal" class="modal fade" aria-hidden='true' tabindex='-1'>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content form_content">
+            <div class="modal-header">
+                <h5 class="modal-title">Данные по типам СИ</h5>
+                <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <form id="modal_form" action="{%url 'passport_moc_group'%}" method="post">
+                {% csrf_token %}
+                <table>
+                {{ form.as_table }}
+                </table>
+                <button class="btn btn-dark" type="submit"
+                        hx-post="{% url 'passport_moc_group' %}" 
+                        hx-include="#modal_form" 
+                        hx-target="#modal_window_add"
+                        hx-on::after-request="close_modal_in_passport(this, 'passport_moc_group')">
+                            Сохранить
+                </button>
+                <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Отмена</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -228,18 +228,15 @@
                                 {% for field in form %}
                                     <tr>
                                         <th>
-                                            {% if field|is_foreign_key %}
-                                                <label for="{{ field.id_for_label }}">{{ field.label }}
-                                                    <a href="{% url field.name %}">
-                                                        <img src="{% static 'img/plus-square-fill.svg' %}" fill="currentColor" alt="Добавить" width="24" height="24" />
-                                                    </a>
-                                                </label>
-                                            {% else %}
-                                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                                            {% endif %}
+                                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                                         </th>
                                         <td>
                                             {{ field }}
+                                            {% if field|is_foreign_key %}
+                                                <a hx-get="{% url 'passport_'|add:field.name %}" hx-target="#handbooks_add_modal" hx-on::after-request="show_modal_in_passport(this, '{{'passport_'|add:field.name}}')">
+                                                    <img src="{% static 'img/plus-square-fill.svg' %}" fill="currentColor" alt="Добавить" width="24" height="24" />
+                                                </a>
+                                            {% endif %}
                                         </td>
                                         <td>
                                             {% if field.errors %}
@@ -276,20 +273,17 @@
                                 {% for field in tform %}
                                     <tr>
                                         <th>
-                                            {% if field|is_foreign_key and not field|is_moc_list %}
-                                                <label for="{{ field.id_for_label }}">{{ field.label }}
-                                                    <a href="{% url field.name %}">
-                                                        <img src="{% static 'img/plus-square-fill.svg' %}" fill="currentColor" alt="Добавить" width="24" height="24" />
-                                                    </a>
-                                                </label>
-                                            {% elif field|is_moc_list %}
-                                            
-                                            {% else %}
+                                            {% if not field|is_moc_list %}
                                                 <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                                             {% endif %}
                                         </th>
                                         <td>
                                             {{ field }}
+                                            {% if field|is_foreign_key and not field|is_moc_list%}
+                                                <a hx-get="{% url 'passport_'|add:field.name %}" hx-target="#handbooks_add_modal" hx-on::after-request="show_modal_in_passport(this, 'passport_table')">
+                                                    <img src="{% static 'img/plus-square-fill.svg' %}" fill="currentColor" alt="Добавить" width="24" height="24" />
+                                                </a>
+                                            {% endif %}
                                         </td>
                                         <td>
                                             {% if field.errors %}
@@ -310,10 +304,9 @@
                     </div>
                 </div>
             </div>
-            
+            <div id='handbooks_add_modal'> </div>
             {% include 'passport/passport_delete_confirmation_modal.html' %}
             {% include 'passport/table_delete_confirmation_modal.html' %}
-            </div>
         </div>
     </div>
 </div>

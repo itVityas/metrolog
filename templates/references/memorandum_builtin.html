@@ -23,11 +23,11 @@
                 {% ifchanged query.change_type.name %}
                     <tr class='border-0'><td colspan=4 class='border-0'><span class='text-decoration-underline fw-bold'>{{ query.change_type.name }}</span></td></tr>
                 {% endifchanged %}
-                <tr class='border-0'>
-                    <td class='border-0'>{{query.moc_group.name}} {{query.moc_type.type}}</td>
-                    <td class='border-0'>{{query.device_station.station_inv_number}} {{query.device_station.station_name}}</td>
-                    <td class='border-0'>{{query.factory_number}}</td>
-                    <td class='border-0'>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
+                <tr class=''>
+                    <td class=''>{{query.moc_group.name}} {{query.moc_type.type}}</td>
+                    <td class=''>{{query.device_station.station_inv_number}} {{query.device_station.station_name}}</td>
+                    <td class=''>{{query.factory_number}}</td>
+                    <td class=''>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
                 </tr>
                 {% endfor %}
             </tbody>

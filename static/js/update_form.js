@@ -124,7 +124,7 @@ function fill_modal_moc_list(e) {
 
     const id = document.getElementById("main_container").getAttribute('value');
     console.log(id)
-    form.action = "" + id + "/update/";
+    form.action = "update/";
     modal.show();
 };
 
@@ -140,7 +140,7 @@ function show_delete_moc_list(e){
 
 function delete_moc_list(e){
     const csrfToken = e.children[0].value;
-    fetch("" + e.data + "/delete/", {
+    fetch("delete/", {
         method: "DELETE",
         redirect: 'follow',
         headers: {
@@ -258,7 +258,18 @@ function delete_table(e){
 
 function show_modal_in_generic(e, name){
     const modal = new bootstrap.Modal(document.getElementById(name + '_modal'));
-    console.log(name)
-    console.log(modal)
+
     modal.show();
+};
+
+function show_modal_in_passport(e, name){
+    const modal = new bootstrap.Modal(document.getElementById(name + '_modal'));
+
+    modal.show();
+};
+
+function close_modal_in_passport(e, name){
+    const modal = bootstrap.Modal.getInstance(document.getElementById(name + '_modal'));
+
+    modal.hide();
 };

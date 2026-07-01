@@ -19,15 +19,15 @@
             </thead>
             <tbody>
                 {% for query in queryset %}
-                <tr class='border-0'>
-                    <td class='border-0'>{{query.moc_group.name}} {{query.moc_type.type}}</td>
-                    <td class='border-0'>{{query.device_station.last.station_inv_number}}</td>
-                    <td class='border-0'>{{query.factory_number}}</td>
-                    <td class='border-0'>{{query.verification_type}}</td>
-                    <td class='border-0'>{{query.sign_o_r}}</td>
-                    <td class='border-0'>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
-                    <td class='border-0'>{{query.device_status_date.last.device_status.name}}</td>
-                    <td class='border-0'>{{query.sign_o_m}}</td>
+                <tr class=''>
+                    <td class=''>{{query.moc_group.name}} {{query.moc_type.type}}</td>
+                    <td class=''>{{query.device_station.last.station_inv_number}}</td>
+                    <td class=''>{{query.factory_number}}</td>
+                    <td class=''>{{query.verification_type}}</td>
+                    <td class=''>{{query.sign_o_r}}</td>
+                    <td class=''>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
+                    <td class=''>{{query.device_status_date.last.device_status.name}}</td>
+                    <td class=''>{{query.sign_o_m}}</td>
                 </tr>
                 {% endfor %}
             </tbody>

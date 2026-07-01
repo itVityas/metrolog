@@ -21,6 +21,57 @@ urlpatterns = [
           views.MocListDeleteView.as_view(),
           name='passport_delete'),
 
+     # creating modals in passport
+     path('passport/passport_moc_type_add/',
+          views.PassportMocTypeView.as_view(),
+          name='passport_moc_type'),
+     path('passport/passport_change_type_add/',
+          views.PassportChangeTypeView.as_view(),
+          name='passport_change_type'),
+     path('passport/passport_moc_group_add/',
+          views.PassportMocGroupView.as_view(),
+          name='passport_moc_group'),
+     path('passport/passport_verification_department_add/',
+          views.PassportVerificationDepartmentView.as_view(),
+          name='passport_verification_department'),
+
+     # creating modals in passport for verification
+     path('passport/passport_verification_person/',
+          views.PassportVerificationPersonView.as_view(),
+          name='passport_verification_person'),
+     path('passport/passport_verification_sign/',
+          views.PassportVerificationSignView.as_view(),
+          name='passport_verification_sign'),
+
+     # creating modals in passport for repair
+     path('passport/passport_repair/',
+          views.PassportRepairView.as_view(),
+          name='passport_repair'),
+     path('passport/passport_repair_code/',
+          views.PassportRepairCodeView.as_view(),
+          name='passport_repair_code'),
+     path('passport/passport_repair_department/',
+          views.PassportRepairDepartmentView.as_view(),
+          name='passport_repair_department'),
+     path('passport/passport_instrument_failure/',
+          views.PassportInstrumentFailureView.as_view(),
+          name='passport_instrument_failure'),
+
+     # creating modals in passport for location
+     path('passport/passport_department/',
+          views.PassportDepartmentView.as_view(),
+          name='passport_department'),
+
+     # creating modals in passport for status
+     path('passport/passport_device_status/',
+          views.PassportDeviceStatusView.as_view(),
+          name='passport_device_status'),
+
+     # creating modals in passport for metall
+     path('passport/passport_precious_metals/',
+          views.PassportPreciousMetalsView.as_view(),
+          name='passport_precious_metals'),
+
      path('passport/migrate/',
           views.PassportMigrateView.as_view(),
           name='passport_migrate'),

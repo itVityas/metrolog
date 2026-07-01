@@ -4,6 +4,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .. import models
 from .. import forms
 from django.http import HttpResponseRedirect
+from apps.handbooks import forms as h_forms
+from apps.handbooks import models as h_models
+from django.shortcuts import render
+from django.views.generic.edit import BaseFormView
 
 
 class VerificationInfoCreateView(LoginRequiredMixin, CreateView):
@@ -51,3 +55,53 @@ class VerificationInfoDeleteView(LoginRequiredMixin, DeleteView):
         response = HttpResponseRedirect(back_url)
         response.status_code = 303
         return response
+
+
+class PassportVerificationPersonView(LoginRequiredMixin, BaseFormView):
+    """
+        Get modal for adding new VerificationPerson
+    """
+    model = h_models.VerificationPerson
+    form_class = h_forms.VerificationPersonForm
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            self.object = form.save()
+        new_form = forms.VerificationInfoForm()
+        return render(request,
+                      'passport/modals/moc_list_table_modal.html',
+                      {'tform': new_form})
+
+    def get(self, request, *args, **kwargs):
+        form = h_forms.VerificationPersonForm()
+        return render(request,
+                      'handbooks/modals/passport_table_modal.html',
+                      {'form': form,
+                       'modal_name': 'verification',
+                       'field_name': 'verification_person'})
+
+
+class PassportVerificationSignView(LoginRequiredMixin, BaseFormView):
+    """
+        Get modal for adding new VerificationSign
+    """
+    model = h_models.VerificationSign
+    form_class = h_forms.VerificationSignForm
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            self.object = form.save()
+        new_form = forms.VerificationInfoForm()
+        return render(request,
+                      'passport/modals/moc_list_table_modal.html',
+                      {'tform': new_form})
+
+    def get(self, request, *args, **kwargs):
+        form = h_forms.VerificationSignForm()
+        return render(request,
+                      'handbooks/modals/passport_table_modal.html',
+                      {'form': form,
+                       'modal_name': 'verification',
+                       'field_name': 'verification_sign'})

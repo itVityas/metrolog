@@ -31,15 +31,15 @@
             </thead>
             <tbody>
                 {% for query in queryset %}
-                <tr class='border-0'>
-                    <td class='border-0'>{{query.values.verification_date|date:"d"}}</td>
-                    <td class='border-0'>{{query.values.moc_list.moc_type.type}}</td>
-                    <td class='border-0'>{{query.values.moc_list.inv_number}}</td>
-                    <td class='border-0'></td>
-                    <td class='border-0'>{{query.result|yesno:'+,-'}}</td>
-                    <td class='border-0'>{{query.values.moc_list.moc_type.rank_verification}}</td>
-                    <td class='border-0'>{{query.values.moc_list.moc_type.standart_verification}}</td>
-                    <td class='border-0'>???</td>
+                <tr class=''>
+                    <td class=''>{{query.values.verification_date|date:"d"}}</td>
+                    <td class=''>{{query.values.moc_list.moc_type.type}}</td>
+                    <td class=''>{{query.values.moc_list.inv_number}}</td>
+                    <td class=''></td>
+                    <td class=''>{{query.result|yesno:'+,-'}}</td>
+                    <td class=''>{{query.values.moc_list.moc_type.rank_verification}}</td>
+                    <td class=''>{{query.values.moc_list.moc_type.standart_verification}}</td>
+                    <td class=''>???</td>
                 </tr>
                 {% endfor %}
             </tbody>
