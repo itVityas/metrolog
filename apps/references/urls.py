@@ -3,6 +3,7 @@ from . import views
 
 
 urlpatterns = [
+     # поверки
      path('moc_verification_types/',
           views.MocVerificationTypesView.as_view(),
           name='moc_verification_types'),
@@ -57,4 +58,24 @@ urlpatterns = [
      path('verification_report/',
           views.VerificationReportView.as_view(),
           name='verification_report'),
+
+     # ремонты
+     path('repair_log/',
+          views.RepairLogView.as_view(),
+          name='repair_log'),
+     path('repair_long_term/',
+          views.RepairLongTermView.as_view(),
+          name='repair_long_term'),
+     path('repair_operating_time/',
+          views.RepairOperatingTimeView.as_view(),
+          name='repair_operating_time'),
+     path('repair_report/',
+          views.RepairReportView.as_view(),
+          name='repair_report'),
+     path('repair_completed_works/',
+          views.RepairCompletedWorksView.as_view(),
+          name='repair_completed_works'),
+     path('repair_statement/',
+          views.RepairStatementView.as_view(),
+          name='repair_statement'),
 ]

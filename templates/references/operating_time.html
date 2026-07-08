@@ -1,18 +1,16 @@
 {% extends 'base_generic.html' %}
 {% load static %}
+{% load math_tags %}
 {% block content %}
 <button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
 <div class='position-relative' id='print_container'>
-    <h1 class='text-center'>НАКОПИТЕЛЬНЫЙ НАРЯД</h1>
-    <div class='d-flex'> 
-        <div class='d-inline-block text-left'>
-            <h5 class='text-center'>прибориста 0 р.</h5>
+    {% for query in queryset %}
+        <h1 class='text-center'>НАКОПИТЕЛЬНЫЙ НАРЯД</h1>
+        <div class='d-flex'> 
+            <div class='d-inline-block text-left'>
+                <h5 class='text-center'>прибориста {{query.person_rank}}р. {{query.repair_person}} за {{start_date|date:"F"}} {{start_date|date:"Y"}}г.</h5>
+            </div>
         </div>
-        <div class='d-inline-block ms-auto text-right'>
-            <h5 class='text-center'>за {{start_date|date:"F"}} {{start_date|date:"Y"}}г.</h5>
-        </div>
-    </div>
-        <br>
         <table class="table table-bordered border border-dark w-100 text-center">
             <thead>
                 <tr>
@@ -30,16 +28,16 @@
                 </tr>
             </thead>
             <tbody>
-                {% for query in queryset %}
+                {% for data in query.values_list %}
                 <tr class=''>
-                    <td class=''>{{query.values.verification_date|date:"d"}}</td>
-                    <td class=''>{{query.values.moc_list.moc_type.type}}</td>
-                    <td class=''>{{query.values.moc_list.inv_number}}</td>
+                    <td class=''>{{data.values.verification_date|date:"d"}}</td>
+                    <td class=''>{{data.values.moc_list.moc_type.type}}</td>
+                    <td class=''>{{data.values.moc_list.inv_number}}</td>
                     <td class=''></td>
-                    <td class=''>{{query.result|yesno:'+,-'}}</td>
-                    <td class=''>{{query.values.moc_list.moc_type.rank_verification}}</td>
-                    <td class=''>{{query.values.moc_list.moc_type.standart_verification}}</td>
-                    <td class=''>???</td>
+                    <td class=''>{{data.result|yesno:'+,-'}}</td>
+                    <td class=''>{{data.values.moc_list.moc_type.rank_verification|default_if_none:""}}</td>
+                    <td class=''>{{data.values.moc_list.moc_type.standart_verification|default_if_none:""}}</td>
+                    <td class=''>{{data.values.moc_list.moc_type.standart_verification|multiply:0.9}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -58,10 +56,11 @@
                 <h5>  _________  н/час</h5>
                 <br><h5>  _________  н/час</h5>
                 <h5>  _________</h5>
-                <p class='text-start me-2'>(подпись)</p>
+                <span class='text-start me-2'>(подпись)</span>
                 <h5>  _________</h5>
-                <p class='text-start me-2'>(подпись)</p>
+                <span class='text-start me-2'>(подпись)</span>
             </div>
-        </div>
+        </div><br>
+    {% endfor %}
 </div>
 {% endblock %}

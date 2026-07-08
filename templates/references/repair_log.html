@@ -1,0 +1,64 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div class='position-relative' id='print_container'>
+    <div class='d-flex'> 
+    <div class='d-inline-block ms-auto text-center'>
+        <h1>УТВЕРЖДАЮ</h1>
+        <h3>Главный метролог</h3>
+        <br>
+        <hr>
+        <p>подпись</p>
+    </div>
+    </div>
+        <h1 class='text-center'>ПЛАН РЕМОНТА</h1>
+        <h5 class='text-center'>средств измерений на {{start_date|date:"F"}} {{start_date|date:"Y"}}</h5>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <tr>
+                    <th>Тип СИ</th>
+                    <th>Инвентарный номер</th>
+                    <th>Дата поступления в ремонт</th>
+                    <th>Причина неисправности</th>
+                    <th>Дата выдачи в ремонт</th>
+                    <th>Ф.И.О. ремонтника</th>
+                    <th>Дата выхода из ремонта</th>
+                    <th>Характер неисправности</th>
+                    <th>Трудоемкость, н/ч</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for location_data in result_list %}
+                    <tr class='border-0'><td colspan=9 class='border-0'><span>{{ location_data.location }}</span></td></tr>
+                    {% for data in location_data.values %}
+                        <tr>
+                            <td>{{data.moc_type.type}}</td>
+                            <td>{{data.inv_number}}</td>
+                            <td>{{data.entry_date|date:"d.m.Y"}}</td>
+                            <td>{{data.instrument_failure}}</td>
+                            <td>{{data.entry_repair_date|date:"d.m.Y"}}</td>
+                            <td>{{data.repair_department|default_if_none:""}}</td>
+                            <td>{{data.repair_date|default_if_none:""}}</td>
+                            <td></td>
+                            <td>{{data.moc_type.standart_repair}}</td>
+                        </tr>
+                    {% endfor %}
+                    <tr class='border-0'><td colspan=9 class='border-0 text-end'>Итого по подразделению :  <span class='fw-bold'>{{ location_data.total_count }}</span> н/ч</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endblock %}

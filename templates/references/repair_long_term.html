@@ -1,0 +1,35 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div id='print_container'>
+    <h1 class='text-center'>С В Е Д Е Н И Я</h1>
+    <h5 class='text-center'>о СИ, находящихся в долгосрочном ремонте на {% now "d-m-Y" %}</h5>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <th>Наименование средств измерения</th>
+                <th>Заводской номер</th>
+                <th>Инвентарный номер</th>
+                <th>Место закрепления</th>
+                <th>Дата поступления в ремонт</th>
+                <th>Причина неисправности</th>
+            </thead>
+            <tbody>
+                {% for change_type_data in result_list %}
+                    <tr class='border-0'><td colspan=6 class='border-0'><span>{{ change_type_data.change_type }}</span></td></tr>
+                    {% for data in change_type_data.values %}
+                        <tr>
+                            <td>{{data.moc_group.name}}</td>
+                            <td>{{data.factory_number}}</td>
+                            <td>{{data.inv_number}}</td>
+                            <td>{{data.last_device_location|default_if_none:""}}</td>
+                            <td>{{data.entry_date|date:"d.m.Y"}}</td>
+                            <td>{{data.instrument_failure|default_if_none:""}}</td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endblock %}

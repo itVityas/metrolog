@@ -1,0 +1,38 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div class='position-relative' id='print_container'>
+<div class='d-flex'> 
+    <div class='d-inline-block ms-auto text-center'>
+        <h1>УТВЕРЖДАЮ</h1>
+        <h3>Главный метролог</h3>
+    </div>
+    </div>
+    <h1 class='text-center'>О Т Ч Е Т</h1>
+    <h5 class='text-center'>по накопительным нарядам лаборатории ремонта за {{ start_date|date:"F" }} {{ start_date|date:"Y" }}г.</h5>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <th>Выполненные работы</th>
+                <th>Кол-во ед.</th>
+                <th>Трудоемкость</th>
+                <th>Примечание</th>
+            </thead>
+            <tbody>
+                {% for query in queryset %}
+                <tr class=''>
+                    <td class=''>{{query.moc_list__change_type__name}}</td>
+                    <td class=''>{{query.moc_count}}</td>
+                    <td class=''>{{query.sum_standart_repair}}</td>
+                    <td class=''></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div>
+            <p>Ненормируемые вспомогательные работы</p>
+            <p>Работы, связанные с метрологическим<br>обеспечением производства</p>
+        </div>
+</div>
+{% endblock %}

@@ -44,6 +44,17 @@
                                         <li><a class="dropdown-item" hx-get="{% url 'moc_indicators_installed' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_indicators_installed')">Перечень СИ, устан. на об. и пер. в инд.</a></li>
                                     </ul>
                                 </li>
+                                <li class="dropdown-submenu dropend nav-item">
+                                    <a class="dropdown-toggle nav-link text-dark" id="dropdown11" href="#" data-bs-toggle="dropdown" aria-expanded="false">Ремонтные работы</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown11">
+                                        <li><a class="dropdown-item" hx-get="{% url 'repair_log' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_log')">Журнал ремонта</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'repair_long_term' %}">СИ в долгосрочном ремонте</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'repair_operating_time' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_operating_time')">Накопительный наряд</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'repair_report' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_report')">Отчет по нарядам</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'repair_completed_works' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_completed_works')">Ведомость выполненных работ для цеха за месяц</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'repair_statement' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_statement')">Ведомость ремонтов за месяц</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">

@@ -16,3 +16,9 @@ from .moc_indicators_installed import MocIndicatorsInstalledView
 from .completed_works import CompletedWorksView
 from .operating_time import OperatingTimeView
 from .verification_report import VerificationReportView
+from .repair_log import RepairLogView
+from .repair_long_term import RepairLongTermView
+from .repair_operating_time import RepairOperatingTimeView
+from .repair_report import RepairReportView
+from .repair_completed_works import RepairCompletedWorksView
+from .repair_statement import RepairStatementView

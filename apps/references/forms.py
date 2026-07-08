@@ -97,6 +97,54 @@ class OperatingTimeForm(forms.Form):
     )
 
 
+class RepairOperatingTimeForm(forms.Form):
+
+    start_date = forms.DateField(
+        label='Дата начала месяца',
+        widget=forms.TextInput(attrs={'class': 'form-control',
+                                      'type': 'date'}),
+        initial=datetime.date.today,
+    )
+
+    class RepairDepartmentChoiceField(ModelChoiceField):
+        def label_from_instance(self, obj):
+            return "%s" % obj.name
+
+    person = RepairDepartmentChoiceField(
+        hmodels.RepairDepartment.objects.all(),
+        label='Ремонтник'
+    )
+
+    for_all = forms.BooleanField(
+        required=False,
+        label="Вывести для всех"
+    )
+
+
+class VerificationOperatingTimeForm(forms.Form):
+
+    start_date = forms.DateField(
+        label='Дата начала месяца',
+        widget=forms.TextInput(attrs={'class': 'form-control',
+                                      'type': 'date'}),
+        initial=datetime.date.today,
+    )
+
+    class VerificationPersonChoiceField(ModelChoiceField):
+        def label_from_instance(self, obj):
+            return "%s" % obj.fio
+
+    person = VerificationPersonChoiceField(
+        hmodels.VerificationPerson.objects.all(),
+        label='Поверитель'
+    )
+
+    for_all = forms.BooleanField(
+        required=False,
+        label="Вывести для всех"
+    )
+
+
 class MocInUseForm(forms.Form):
 
     moc_name = forms.CharField(

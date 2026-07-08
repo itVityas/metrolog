@@ -209,7 +209,7 @@ class RepairInfo(models.Model):
     )
 
     entry_date = models.DateField(
-        verbose_name='Дата выдачи',
+        verbose_name='Дата поступления в ремонт',
         null=True,
         blank=True,
     )

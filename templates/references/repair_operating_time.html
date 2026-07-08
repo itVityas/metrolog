@@ -1,0 +1,72 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% load math_tags %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div class='position-relative' id='print_container'>
+    {% for query in queryset %}
+        <h1 class='text-center'>НАКОПИТЕЛЬНЫЙ НАРЯД</h1>
+        <div class='d-flex'> 
+            <div class='d-inline-block text-left'>
+                <h5 class='text-center'>сл.КИПиА {{query.person_rank}}р. {{query.repair_person}} за {{start_date|date:"F"}} {{start_date|date:"Y"}}г.</h5>
+            </div>
+        </div>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <tr>
+                    <th>Число</th>
+                    <th>Тип СИ</th>
+                    <th>Инвент. номер</th>
+                    <th>Подр.</th>
+                    <th>Категория</th>
+                    <th>Вид ремонта</th>
+                    <th>Разр.</th>
+                    <th>Труд. н/час</th>
+                    <th>Осн. з/п в руб.</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in query.values_list %}
+                <tr class=''>
+                    <td class=''>{{data.repair_date|date:"d"}}</td>
+                    <td class=''>{{data.moc_list.moc_type.type}}</td>
+                    <td class=''>{{data.moc_list.inv_number}}</td>
+                    <td class=''>{{data.moc_list.device_location.department.name}}</td>
+                    <td class=''>{{data.repair_code.name}}</td>
+                    <td class=''>{{data.repair_type}}</td>
+                    <td class=''>{{data.moc_list.moc_type.rank_repair}}</td>
+                    <td class=''>{{data.moc_list.moc_type.standart_repair}}</td>
+                    <td class=''>{{data.moc_list.moc_type.standart_repair|multiply:0.9}}</td>
+                </tr>
+                {% endfor %}
+                <tr class='border-0'>
+                    <td class='border-0' colspan='7'></td>
+                    <td class='border-0'>{{query.sum_standart}} н/ч</td>
+                    <td class='border-0'>{{query.sum_salary}} руб.</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <div class='d-flex'>
+            <div class='d-inline-block text-left'>
+                <h5>Отработано за месяц</h5>
+                <h5>Выработано за месяц</h5>
+                <h5>Вспомогательные <br>
+                    работы за месяц</h5>
+                <h5>Исполнитель</h5>
+                <br><h5>Начальник лаборатории ремонта</h5>
+            </div>
+            <div class='d-inline-block text-left'>
+                <h5>  _________  часов</h5>
+                <h5>  _________  н/час</h5>
+                <br><h5>  _________  н/час</h5>
+                <h5>  _________</h5>
+                <span class='text-start me-2'>(подпись)</span>
+                <h5>  _________</h5>
+                <span class='text-start me-2'>(подпись)</span>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

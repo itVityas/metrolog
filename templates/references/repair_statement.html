@@ -1,0 +1,50 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div class='position-relative' id='print_container'>
+    <h3 class='text-center'>Ведомость выполненых работ</h3>
+    <h3 class='text-center'>по ремонту СИ, отделом метрологии</h3>
+    <h3 class='text-center'>за {{ start_date|date:"F" }} и с начала года</h3>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <tr>
+                    <th rowspan='2'>Подразделения завода</th>
+                    <th colspan='3'>ЗА МЕСЯЦ</th>
+                    <th colspan='3'>С НАЧАЛА ГОДА</th>
+                </tr>
+                <tr>
+                    <th>Кол. ремонтов</th>
+                    <th>Трудоем. н/ч</th>
+                    <th>Ср. разряд</th>
+                    <th>Кол. ремонтов</th>
+                    <th>Трудоем. н/ч</th>
+                    <th>Ср. разряд</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for query in queryset %}
+                <tr class=''>
+                    <td class=''>{{query.location_name}}</td>
+                    <td class=''>{{query.month_repair_count}}</td>
+                    <td class=''>{{query.month_standart_sum}}</td>
+                    <td class=''>{{query.month_avg_rank|floatformat:0}}</td>
+                    <td class=''>{{query.year_repair_count}}</td>
+                    <td class=''>{{query.year_standart_sum}}</td>
+                    <td class=''>{{query.year_avg_rank|floatformat:0}}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td>Итого:</td>
+                    <td>{{sum_queryset.month_repair_count}}</td>
+                    <td>{{sum_queryset.month_standart_sum}}</td>
+                    <td></td>
+                    <td>{{sum_queryset.year_repair_count}}</td>
+                    <td>{{sum_queryset.year_standart_sum}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+{% endblock %}
