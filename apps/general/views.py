@@ -10,6 +10,11 @@ import io
 import json
 from django.shortcuts import redirect
 from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
+import datetime
+from django.http import HttpResponse
+from django.template.loader import render_to_string
+from weasyprint import HTML
+
 
 
 class SettingsUpdateView(LoginRequiredMixin, UpdateView):
@@ -75,4 +80,29 @@ class PrintToDocxView(LoginRequiredMixin, View):
             as_attachment=True,
             filename=file_name,
             content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+        return response
+
+
+class PrintToPDFView(LoginRequiredMixin, View):
+    """
+        View for printing HTML to PDF
+    """
+    def post(self, request, *args, **kwargs):
+
+        post_data = json.loads(request.body)
+
+        html_data = post_data.get('html_to_print')
+        file_name = post_data.get('name')
+
+        # 3. Convert the HTML string directly into a PDF byte string in memory
+        html = HTML(string=html_data, base_url=request.build_absolute_uri())
+        pdf_bytes = html.write_pdf()
+
+        # 4. Construct the HTTP response with the correct PDF MIME type
+        response = HttpResponse(pdf_bytes, content_type='application/pdf')
+
+        # Optional: Force download instead of opening in the browser
+        # response['Content-Disposition'] = 'attachment; filename="invoice.pdf"'
+        # response['Content-Disposition'] = 'inline; filename="invoice.pdf"'
+
         return response

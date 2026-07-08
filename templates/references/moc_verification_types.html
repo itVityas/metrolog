@@ -6,6 +6,7 @@
     <h1 class='text-center'>СПРАВКА</h1>
     <h5>о количестве СИ по видам поверки по состоянию на {% now "Y-m-d" %}</h5>
     {% for query in queryset %}
+    <div class="pdf-block">
         <br>
         <p>Вид измерения: {{query.change_type__name}}</p>
         <table class="table table-bordered border border-dark w-100 text-center">
@@ -21,13 +22,14 @@
                     <td>Рабочие</td>
                 </tr>
                 <tr>
-                    <td>{{query.count_g_o}}</td>
-                    <td>{{query.count_g_r}}</td>
-                    <td>{{query.count_v_r}}</td>
-                    <td>{{query.total}}</td>
+                    <td><span>{{query.count_g_o}}</span></td>
+                    <td><span>{{query.count_g_r}}</span></td>
+                    <td><span>{{query.count_v_r}}</span></td>
+                    <td><span>{{query.total}}</span></td>
                 </tr>
             </tbody>
         </table>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}

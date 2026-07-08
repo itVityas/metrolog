@@ -12,4 +12,7 @@ urlpatterns = [
      path('print_to_docx/',
           views.PrintToDocxView.as_view(),
           name='print_to_docx'),
+     path('print_to_pdf/',
+          views.PrintToPDFView.as_view(),
+          name='print_to_pdf'),
 ]
