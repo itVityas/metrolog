@@ -153,6 +153,12 @@
 
     {%block footer %}
     {% endblock %}
+    <script>
+        if (typeof global === 'undefined') {
+            window.global = window;
+        }
+    </script>
+    <script src="{% static 'js/html-to-docx.browser.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/update_form.js' %}"></script>
     <script src="{% static 'js/printing.js' %}"></script>

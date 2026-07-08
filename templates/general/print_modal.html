@@ -8,9 +8,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                    <button class="btn btn-dark" type="button" id="print_to_pdf_button" onclick="print_to_pdf()" data="">pdf</button>
-                    <button class="btn btn-dark" type="button" id="print_to_docx_button" onclick="print_to_word(this)" data="">{% csrf_token %}word</button>
-                    <button class="btn btn-dark" type="button" id="print_to_docx_button" onclick="print_to_pdf2(this)" data="">{% csrf_token %}pdf2</button>
+                    <button class="btn btn-dark" type="button" id="print_to_pdf_button" onclick="print_to_pdf2(this)" data="">{% csrf_token %}pdf</button>
+                    <button class="btn btn-dark" type="button" id="print_to_docx_button" onclick="print_to_word2(this)" data="">{% csrf_token %}word</button>
                     <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Отмена</button>
             </div>
         </div>
