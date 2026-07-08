@@ -4,6 +4,7 @@ function print_to_html() {
 }
 
 async function print_to_pdf2(e){
+  loading_start();
   const content = document.getElementById('print_container').innerHTML;
   
   // 1. Подключаем Bootstrap
@@ -89,6 +90,7 @@ async function print_to_pdf2(e){
 
       const blob = await response.blob();
       const fileURL = URL.createObjectURL(blob);
+      loding_end();
       window.open(fileURL, '_blank');
   } catch (error) {
       console.error('Error fetching data:', error);
@@ -96,6 +98,7 @@ async function print_to_pdf2(e){
 }
 
 async function print_to_word2(e) {
+  loading_start();
   const content = document.getElementById('print_container').innerHTML;
   
   // 1. Подключаем Bootstrap
@@ -179,25 +182,41 @@ async function print_to_word2(e) {
 
     if (!response.ok) throw new Error('Network response failed.');
 
+    loding_end();
     // 1. Convert response payload to a Blob object
     const blob = await response.blob();
 
     // 2. Create a temporary local URL pointing to the Blob
     const blobUrl = window.URL.createObjectURL(blob);
+    save_file(blob);
 
-    // 3. Create a hidden <a> element to simulate a click download
-    const link = document.createElement('a');
-    link.href = blobUrl;
-    link.download = name + '.docx'; // Sets the target file name
-
-    // 4. Append to DOM, click it, and clean up immediately
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
 
     // 5. Free up memory allocated to the Blob URL
     window.URL.revokeObjectURL(blobUrl);
   } catch (error) {
       console.error('Error fetching data:', error);
+  }
+}
+
+async function save_file(blob) {
+  try {
+    const options = {
+      suggestedName: 'Document.docx',
+      types: [{
+        description: 'Microsoft Word Document',
+        accept: {
+          'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx']
+        }
+      }],
+      excludeAcceptAllOption: true
+    };
+
+    const fileHandle = await window.showSaveFilePicker(options);
+
+    const writableStream = await fileHandle.createWritable();
+    await writableStream.write(blob);
+    await writableStream.close();
+  } catch (error) {
+    console.error("Save process failed or aborted:", error.name, error.message);
   }
 }

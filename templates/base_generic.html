@@ -149,16 +149,15 @@
         </div>
         {% include 'general/print_modal.html' %}
         <div id='dynamic_modal'></div>
+        <div id="loader-wrapper" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; opacity: 0.3; z-index: 9999; display: none; justify-content: center; align-items: center;">
+            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                <span class="visually-hidden">Загрузка...</span>
+            </div>
+        </div>
     </div>
 
     {%block footer %}
     {% endblock %}
-    <script>
-        if (typeof global === 'undefined') {
-            window.global = window;
-        }
-    </script>
-    <script src="{% static 'js/html-to-docx.browser.js' %}"></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/update_form.js' %}"></script>
     <script src="{% static 'js/printing.js' %}"></script>

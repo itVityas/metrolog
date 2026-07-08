@@ -273,3 +273,13 @@ function close_modal_in_passport(e, name){
 
     modal.hide();
 };
+
+function loading_start(){
+    var loader = document.getElementById('loader-wrapper');
+    loader.style.display = 'flex';
+}
+
+function loding_end(){
+    var loader = document.getElementById('loader-wrapper');
+    loader.style.display = 'none';
+}

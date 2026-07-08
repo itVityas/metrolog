@@ -12,7 +12,6 @@ from weasyprint import HTML
 from pdf2docx import Converter
 
 
-
 class SettingsUpdateView(LoginRequiredMixin, UpdateView):
     """
         UpdateView for UserSettings
