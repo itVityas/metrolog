@@ -74,7 +74,10 @@
                                         <td>
                                             {{ field }}
                                             {% if field|is_foreign_key %}
-                                                <a hx-get="{% url 'passport_'|add:field.name %}" hx-target="#handbooks_add_modal" hx-on::after-request="show_modal_in_passport(this, '{{'passport_'|add:field.name}}')">
+                                                <a hx-get="{% url 'passport_'|add:field.name %}"
+                                                hx-target="#handbooks_add_modal"
+                                                hx-on::before-request="save_form(this)"
+                                                hx-on::after-request="show_modal_in_passport(this, '{{'passport_'|add:field.name}}')">
                                                     <img src="{% static 'img/plus-square-fill.svg' %}" fill="currentColor" alt="Добавить" width="24" height="24" />
                                                 </a>
                                             {% endif %}
@@ -109,10 +112,11 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                        <form action="{% url 'passport_migrate' %}" method="post">
+                        <form action="{% url 'passport_migrate' %}" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
-                            <button class="btn btn-dark" type="submit">Подтвердить</button>
-                            <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Отмена</button>
+                            {{ migration_form.as_table }}
+                            <button class="btn btn-dark mt-2" type="submit">Подтвердить</button>
+                            <button type="button" class="close btn btn-dark mt-2" data-bs-dismiss="modal" aria-label="Close">Отмена</button>
                         </form>
                         </div>
                     </div>

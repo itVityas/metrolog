@@ -281,3 +281,15 @@ class DeviceStationForm(forms.ModelForm):
     class Meta:
         model = models.DeviceStation
         fields = ("__all__")
+
+
+class FileUploadForm(forms.Form):
+
+    file = forms.FileField(
+        label="Выберите dbf-файл"
+        )
+
+    select_model = forms.ChoiceField(
+        label='Выберите',
+        choices=[]
+        )

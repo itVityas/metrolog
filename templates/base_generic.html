@@ -132,7 +132,7 @@
                             <div id='form_container'>
                                 <form id="modal_form" action="{%url 'set_pagination' user.usersettings.id %}" method="post">
                                     {% csrf_token %}
-                                    <select class="form-select" name='pagination_size' aria-label="Записей на странице" onchange="this.form.submit()" onfocus="this.selectedIndex = -1;">
+                                    <select class="form-select" style='height: auto;' name='pagination_size' aria-label="Записей на странице" onchange="this.form.submit()" onfocus="this.selectedIndex = -1;">
                                       <option value="5">5</option>
                                       <option value="10">10</option>
                                       <option value="15">15</option>

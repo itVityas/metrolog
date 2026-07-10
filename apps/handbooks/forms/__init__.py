@@ -13,3 +13,4 @@ from .units_measurement import UnitsMeasurementForm
 from .moc_limit import MocLimitForm
 from .verification_sign import VerificationSignForm
 from .repair_department import RepairDepartmentForm
+from .file_upload_form import FileUploadForm

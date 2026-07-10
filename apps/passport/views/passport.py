@@ -18,6 +18,7 @@ from apps.handbooks import forms as h_forms
 from apps.handbooks import models as h_models
 from django.shortcuts import render
 from django.views.generic.edit import BaseFormView
+import tempfile
 
 
 class PassportListView(LoginRequiredMixin, ListView):
@@ -63,8 +64,18 @@ class PassportListView(LoginRequiredMixin, ListView):
                 page.number, on_each_side=2, on_ends=1
             )
         form = forms.MocListForm()
+        migration_form = forms.FileUploadForm()
+        migration_form.fields['select_model'].choices = [
+            ('moc_list', 'Паспорта'),
+            ('moc_metals', 'Металлы'),
+            ('verification_info', 'Поверки'),
+            ('repair_info', 'Ремонты'),
+            ('device_location', 'Места закрепления'),
+            ('device_status', 'Статусы'),
+            ('device_station', 'Оборудование')]
 
         context['form'] = form
+        context['migration_form'] = migration_form
         return context
 
 
@@ -260,24 +271,50 @@ class PassportMigrateView(LoginRequiredMixin, View):
     success_url = reverse_lazy('passport')
 
     def post(self, request, *args, **kwargs):
-        models.MocList.objects.all().delete()
-        models.MocMetals.objects.all().delete()
-        models.VerificationInfo.objects.all().delete()
-        models.RepairInfo.objects.all().delete()
-        models.DeviceLocation.objects.all().delete()
-        models.DeviceStatusDate.objects.all().delete()
-        models.DeviceStation.objects.all().delete()
-        self.copy_moc_list()
-        self.copy_moc_metals()
-        self.copy_verification_info()
-        self.copy_repair_info()
-        self.copy_device_location()
-        self.copy_device_status()
-        self.copy_device_station()
+        form = forms.FileUploadForm(request.POST, request.FILES)
+        form.fields['select_model'].choices = [
+            ('moc_list', 'Паспорта'),
+            ('moc_metals', 'Металлы'),
+            ('verification_info', 'Поверки'),
+            ('repair_info', 'Ремонты'),
+            ('device_location', 'Места закрепления'),
+            ('device_status', 'Статусы'),
+            ('device_station', 'Оборудование')]
+        if form.is_valid():
+            uploaded_file = request.FILES['file']
+            with tempfile.NamedTemporaryFile(suffix='.dbf', delete=True) as temp_file:
+                for chunk in uploaded_file.chunks():
+                    temp_file.write(chunk)
+                temp_file.flush()
+
+                match form.cleaned_data['select_model']:
+                    case 'moc_list':
+                        models.MocList.objects.all().delete()
+                        self.copy_moc_list(temp_file.name)
+                    case 'moc_metals':
+                        models.MocMetals.objects.all().delete()
+                        self.copy_moc_metals(temp_file.name)
+                    case 'verification_info':
+                        models.VerificationInfo.objects.all().delete()
+                        self.copy_verification_info(temp_file.name)
+                    case 'repair_info':
+                        models.RepairInfo.objects.all().delete()
+                        self.copy_repair_info(temp_file.name)
+                    case 'device_location':
+                        models.DeviceLocation.objects.all().delete()
+                        self.copy_device_location(temp_file.name)
+                    case 'device_status':
+                        models.DeviceStatusDate.objects.all().delete()
+                        self.copy_device_status(temp_file.name)
+                    case 'device_station':
+                        models.DeviceStation.objects.all().delete()
+                        self.copy_device_station(temp_file.name)
+
         return HttpResponseRedirect(self.success_url)
 
-    def copy_moc_list(self):
-        table = DBF('dbf/maa/maa01.DBF')
+    def copy_moc_list(self, uploaded_file):
+        # dbf/maa/maa01.DBF
+        table = DBF(uploaded_file)
 
         data_list = []
         for record in table:
@@ -313,8 +350,9 @@ class PassportMigrateView(LoginRequiredMixin, View):
         obj_list = [models.MocList(**data_dict) for data_dict in data_list]
         models.MocList.objects.bulk_create(obj_list)
 
-    def copy_moc_metals(self):
-        table = DBF('dbf/maa/maa02.DBF')
+    def copy_moc_metals(self, uploaded_file):
+        # dbf/maa/maa02.DBF
+        table = DBF(uploaded_file)
 
         data_list = []
         for record in table:
@@ -341,8 +379,9 @@ class PassportMigrateView(LoginRequiredMixin, View):
         obj_list = [models.MocMetals(**data_dict) for data_dict in data_list]
         models.MocMetals.objects.bulk_create(obj_list)
 
-    def copy_verification_info(self):
-        table = DBF('dbf/maa/maa05.DBF')
+    def copy_verification_info(self, uploaded_file):
+        # dbf/maa/maa05.DBF
+        table = DBF(uploaded_file)
 
         data_list = []
         for record in table:
@@ -371,8 +410,9 @@ class PassportMigrateView(LoginRequiredMixin, View):
         obj_list = [models.VerificationInfo(**data_dict) for data_dict in data_list]
         models.VerificationInfo.objects.bulk_create(obj_list)
 
-    def copy_repair_info(self):
-        table = DBF('dbf/maa/maa06.DBF')
+    def copy_repair_info(self, uploaded_file):
+        # dbf/maa/maa06.DBF
+        table = DBF(uploaded_file)
 
         data_list = []
         for record in table:
@@ -404,8 +444,9 @@ class PassportMigrateView(LoginRequiredMixin, View):
         obj_list = [models.RepairInfo(**data_dict) for data_dict in data_list]
         models.RepairInfo.objects.bulk_create(obj_list)
 
-    def copy_device_location(self):
-        table = DBF('dbf/maa/maa07.DBF')
+    def copy_device_location(self, uploaded_file):
+        # dbf/maa/maa07.DBF
+        table = DBF(uploaded_file)
 
         data_list = []
         for record in table:
@@ -429,8 +470,9 @@ class PassportMigrateView(LoginRequiredMixin, View):
         obj_list = [models.DeviceLocation(**data_dict) for data_dict in data_list]
         models.DeviceLocation.objects.bulk_create(obj_list)
 
-    def copy_device_status(self):
-        table = DBF('dbf/maa/maa08.DBF')
+    def copy_device_status(self, uploaded_file):
+        # dbf/maa/maa08.DBF
+        table = DBF(uploaded_file)
 
         data_list = []
         for record in table:
@@ -454,8 +496,9 @@ class PassportMigrateView(LoginRequiredMixin, View):
         obj_list = [models.DeviceStatusDate(**data_dict) for data_dict in data_list]
         models.DeviceStatusDate.objects.bulk_create(obj_list)
 
-    def copy_device_station(self):
-        table = DBF('dbf/maa/maa09.DBF')
+    def copy_device_station(self, uploaded_file):
+        # dbf/maa/maa09.DBF
+        table = DBF(uploaded_file)
 
         data_list = []
         for record in table:

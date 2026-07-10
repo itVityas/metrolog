@@ -1,4 +1,28 @@
 
+// Отслеживаем открытие ЛЮБОГО модального окна на странице
+document.addEventListener('show.bs.modal', function (event) {
+  const openingModal = event.target; // Окно, которое открывается прямо сейчас
+
+  // Ищем уже открытые модальные окна, кроме текущего
+  const openModals = Array.from(document.querySelectorAll('.modal.show'))
+    .filter(modal => modal !== openingModal);
+
+  // Если нашли открытое окно (оно стало "задним")
+  if (openModals.length > 0) {
+    // Берем самое последнее открытое окно
+    const activeBackModal = openModals[openModals.length - 1];
+    
+    // Добавляем ему класс размытия
+    activeBackModal.classList.add('blur-sibling');
+    
+    // Привязываем событие закрытия к НОВОМУ окну, чтобы убрать размытие со СТАРОГО
+    openingModal.addEventListener('hidden.bs.modal', function onClose() {
+      activeBackModal.classList.remove('blur-sibling');
+      // Удаляем этот временный обработчик, чтобы не копились утечки памяти
+      openingModal.removeEventListener('hidden.bs.modal', onClose);
+    });
+  }
+});
 
 function fill_modal_window(e) {
     const modal = new bootstrap.Modal(document.getElementById("modal_window_add"));
@@ -271,6 +295,7 @@ function show_modal_in_passport(e, name){
 function close_modal_in_passport(e, name){
     const modal = bootstrap.Modal.getInstance(document.getElementById(name + '_modal'));
 
+    insert_form(e);
     modal.hide();
 };
 
@@ -282,4 +307,41 @@ function loading_start(){
 function loding_end(){
     var loader = document.getElementById('loader-wrapper');
     loader.style.display = 'none';
+}
+
+var saved_form = {
+    'form_id': '',
+    'fields': []
+};
+
+function save_form(e){
+    form = e.parentElement.parentElement.parentElement.parentElement.parentElement;
+    const inputs = form.querySelectorAll("input, select, textarea");
+    let temp_array = [];
+    inputs.forEach(sourceField => {
+        // Only map if the field has a name attribute
+        if (sourceField.name && sourceField.name!="csrfmiddlewaretoken") {
+            temp_array.push({
+                'field_name': sourceField.name,
+                'field_value': sourceField.value
+            })
+        }
+    });
+    saved_form.form_id = form.getAttribute('id');
+    saved_form.fields = temp_array;
+    console.log(saved_form);
+}
+
+function insert_form(e){
+    form = document.getElementById(saved_form.form_id);
+    const inputs = form.querySelectorAll("input, select, textarea");
+
+    saved_form.fields.forEach(sourceField => {
+        const targetField = form.querySelector(`[name="${sourceField.field_name}"]`);
+        if (targetField) {
+            targetField.value = sourceField.field_value;
+        }
+    });
+    saved_form.form_id = '';
+    saved_form.fields = [];
 }

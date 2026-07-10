@@ -3,6 +3,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from ..models import InstrumentFailure
 from ..forms import InstrumentFailureForm
+from ..forms import FileUploadForm
 from django.http import HttpResponseRedirect
 from django.views import View
 from dbfread import DBF
@@ -10,6 +11,7 @@ from django.conf import settings
 from django.db.models import Q
 from django.shortcuts import redirect
 from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
+import tempfile
 
 
 class InstrumentFailureListView(LoginRequiredMixin, ListView):
@@ -46,6 +48,8 @@ class InstrumentFailureListView(LoginRequiredMixin, ListView):
         for field in self.model._meta.get_fields():
             if hasattr(field, 'verbose_name'):
                 verbose_names[field.name] = field.verbose_name
+        migration_form = FileUploadForm()
+        context['migration_form'] = migration_form
         context['verbose_names'] = verbose_names
         context['form'] = InstrumentFailureForm
         context['ordering'] = self.get_ordering()
@@ -124,15 +128,23 @@ class InstrumentFailureMigrateView(LoginRequiredMixin, View):
     success_url = reverse_lazy('instrument_failure')
 
     def post(self, request, *args, **kwargs):
-        table = DBF('dbf/mb015.DBF')
+        form = FileUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            uploaded_file = request.FILES['file']
+        with tempfile.NamedTemporaryFile(suffix='.dbf', delete=True) as temp_file:
+            for chunk in uploaded_file.chunks():
+                temp_file.write(chunk)
+            temp_file.flush()
+            # 'dbf/mb015.DBF'
+            table = DBF(temp_file.name)
 
-        data_list = []
-        for record in table:
-            new_dict = {}
-            new_dict['code'] = record.get('KOD_OTK')
-            new_dict['name'] = record.get('NAME_OTK')
-            data_list.append(new_dict)
+            data_list = []
+            for record in table:
+                new_dict = {}
+                new_dict['code'] = record.get('KOD_OTK')
+                new_dict['name'] = record.get('NAME_OTK')
+                data_list.append(new_dict)
 
-        obj_list = [InstrumentFailure(**data_dict) for data_dict in data_list]
-        InstrumentFailure.objects.bulk_create(obj_list)
+            obj_list = [InstrumentFailure(**data_dict) for data_dict in data_list]
+            InstrumentFailure.objects.bulk_create(obj_list)
         return HttpResponseRedirect(self.success_url)

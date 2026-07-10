@@ -84,10 +84,11 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                        <form action="{%url 'verification_sign_migrate'%}" method="post">
+                        <form action="{%url 'verification_sign_migrate'%}" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
-                            <button class="btn btn-dark" type="submit">Подтвердить</button>
-                            <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Отмена</button>
+                            {{ migration_form.as_table }}
+                            <button class="btn btn-dark mt-2" type="submit">Подтвердить</button>
+                            <button type="button" class="close btn btn-dark mt-2" data-bs-dismiss="modal" aria-label="Close">Отмена</button>
                         </form>
                         </div>
                     </div>

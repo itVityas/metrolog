@@ -92,3 +92,9 @@ input.form-control{
     border: 1px solid rgb(118, 118, 118);
     border-radius: 2px;
 }
+
+.modal.blur-sibling {
+  filter: blur(2px);
+  pointer-events: none;
+  transition: filter 0.3s ease;
+}

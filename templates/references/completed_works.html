@@ -1,6 +1,7 @@
 {% extends 'base_generic.html' %}
 {% load static %}
 {% block content %}
+{% load math_tags %}
 <button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
 <div class='position-relative' id='print_container'>
     <h1 class='text-start'>ОАО "ВИТЯЗЬ"</h1>
@@ -25,7 +26,7 @@
                     <td class=''>{{query.moc_count}}</td>
                     <td class=''>{{query.moc_list__moc_type__rank_verification}}</td>
                     <td class=''>{{query.moc_list__moc_type__standart_verification}}</td>
-                    <td class=''></td>
+                    <td class=''>{{query.moc_list__moc_type__standart_verification|multiply:0.9}}</td>
                     <td class=''></td>
                 </tr>
                 {% endfor %}
@@ -46,7 +47,7 @@
                 </tr>
                 <tr class='border-0'>
                     <td class='border-0'>Основная зарплата</td>
-                    <td class='border-0'></td>
+                    <td class='border-0'>{{sum_queryset.standart_sum|multiply:0.9}}</td>
                 </tr>
                 <tr class='border-0'>
                     <td class='border-0'>Основная зарплата с премиальными</td>
