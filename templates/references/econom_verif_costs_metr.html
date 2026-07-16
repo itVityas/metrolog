@@ -1,0 +1,36 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% load math_tags %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div class='position-relative' id='print_container'>
+        <h1 class='text-center'>ЗАТРАТЫ</h1>
+        <h5 class='text-center'>отдела главного метролога на государственную поверку на {{start_date|date:"F"}} {{start_date|date:"Y"}}г.</h5>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <tr>
+                    <th>Наименование<br>Тип</th>
+                    <th>Код СИ</th>
+                    <th>Заводской номер</th>
+                    <th>Инвентарный номер</th>
+                    <th>Дата последней поверки</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for location_data in result_list %}
+                    <tr class='border-0'><td colspan=9 class='border-0'><span>{{ location_data.location }}</span></td></tr>
+                    {% for data in location_data.values %}
+                        <tr>
+                            <td>{{data.moc_group.name}} {{data.moc_type.type}}</td>
+                            <td>{{data.moc_group.group}}</td>
+                            <td>{{data.factory_number}}</td>
+                            <td>{{data.inv_number}}</td>
+                            <td>{{data.last_verification_date|date:"d.m.Y"}}</td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endblock %}

@@ -78,4 +78,12 @@ urlpatterns = [
      path('repair_statement/',
           views.RepairStatementView.as_view(),
           name='repair_statement'),
+
+     # экономические
+     path('econom_verif_costs/',
+          views.EconomVerifCostsView.as_view(),
+          name='econom_verif_costs'),
+     path('econom_verif_costs_metr/',
+          views.EconomVerifCostsMetrView.as_view(),
+          name='econom_verif_costs_metr'),
 ]

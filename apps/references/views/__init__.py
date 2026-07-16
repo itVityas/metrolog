@@ -22,3 +22,5 @@ from .repair_operating_time import RepairOperatingTimeView
 from .repair_report import RepairReportView
 from .repair_completed_works import RepairCompletedWorksView
 from .repair_statement import RepairStatementView
+from .econom_verif_costs import EconomVerifCostsView
+from .econom_verif_costs_metr import EconomVerifCostsMetrView

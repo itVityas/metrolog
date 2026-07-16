@@ -8,7 +8,7 @@
         <h1>УТВЕРЖДАЮ</h1>
         <h3>Главный метролог</h3>
         <br>
-        <hr>
+        <span>________________</span>
         <p>подпись</p>
     </div>
     </div>
@@ -60,7 +60,7 @@
                             <td>{{data.moc_type.standart_verification}}</td>
                         </tr>
                     {% endfor %}
-                    <tr class='border-0'><td colspan=9 class='border-0 text-end'>Итого по подразделению :  <span class='fw-bold'>{{ location_data.total_count }}</span> н/ч</td></tr>
+                    <tr class=''><td colspan=9 class='text-end'>Итого по подразделению :  <span class='fw-bold'>{{ location_data.total_count }}</span> н/ч</td></tr>
                 {% endfor %}
             </tbody>
         </table>

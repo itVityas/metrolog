@@ -42,10 +42,15 @@ function print_to_html() {
         width: max-content !important;
         font-size: 11pt !important;
         padding: 8px 4px !important;
-        white-space: normal !important;
+        white-space: pre-wrap !important;
      /* overflow-wrap: break-word !important;
         word-wrap: break-word !important;
         word-break: break-word !important; */
+      }
+      table.table td, table.table th {
+        word-break: normal !important;
+        white-space: pre-wrap !important;
+        vertical-align: middle !important;
       }
       table.table tr {
         page-break-inside: avoid !important;

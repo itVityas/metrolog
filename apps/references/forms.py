@@ -90,7 +90,7 @@ class CompletedWorksForm(forms.Form):
 class OperatingTimeForm(forms.Form):
 
     start_date = forms.DateField(
-        label='Дата начала месяца',
+        label='Дата начала периода',
         widget=forms.TextInput(attrs={'class': 'form-control',
                                       'type': 'date'}),
         initial=datetime.date.today,

@@ -57,6 +57,13 @@
                                         <li><a class="dropdown-item" hx-get="{% url 'repair_statement' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_statement')">Ведомость ремонтов за месяц</a></li>
                                     </ul>
                                 </li>
+                                <li class="dropdown-submenu dropend nav-item">
+                                    <a class="dropdown-toggle nav-link text-dark" id="dropdown11" href="#" data-bs-toggle="dropdown" aria-expanded="false">Экономические вопросы</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdown11">
+                                        <li><a class="dropdown-item" hx-get="{% url 'econom_verif_costs' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_verif_costs')">Затраты подразделений на госповерку за месяц</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'econom_verif_costs_metr' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_verif_costs_metr')">Затраты отдела метрологии на госповерку за месяц</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
