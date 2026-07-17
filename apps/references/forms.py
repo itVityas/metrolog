@@ -174,3 +174,34 @@ class MemorandumForm(forms.Form):
         label='Бригада',
         max_length=20,
     )
+
+
+class EconomVerifCostsPeriodForm(forms.Form):
+    STATUS_CHOICES = [
+        ('month', 'За месяц'),
+        ('year', 'За год'),
+    ]
+
+    period = forms.ChoiceField(
+        choices=STATUS_CHOICES,
+        widget=forms.RadioSelect,
+        label="Период",
+        required=True
+    )
+
+    start_date = forms.DateField(
+        label='Дата начала периода',
+        widget=forms.TextInput(attrs={'class': 'form-control',
+                                      'type': 'date'}),
+        initial=datetime.date.today,
+    )
+
+
+class EconomRefForm(forms.Form):
+
+    start_date = forms.DateField(
+        label='Дата начала года',
+        widget=forms.TextInput(attrs={'class': 'form-control',
+                                      'type': 'date'}),
+        initial=datetime.date.today,
+    )

@@ -55,9 +55,8 @@ class EconomVerifCostsMetrView(LoginRequiredMixin, TemplateView):
                         Extract('last_verification_date', 'year')) * 12 +
                     (Extract(start_date, 'month') -
                         Extract('last_verification_date', 'month'))
-                    ).exclude(
-                        actual_device_status='На хранении').order_by(
-                            'last_device_location')
+                    ).exclude().order_by(
+                        'last_device_location')
 
         result_list = []
         prev_location = None

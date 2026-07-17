@@ -1,0 +1,45 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% load math_tags %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div class='position-relative' id='print_container'>
+    {% for info in queryset %}
+        <h1 class='text-center'>СПРАВКА</h1>
+        <h5 class='text-center'>о трудоемкости работ по видам измерений на {{start_date|date:"Y"}}г.</h5>
+        <p>Вид поверки:{{info.verification_type}}</p>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <tr>
+                    <th rowspan='2'>Вид измерения</th>
+                    <th colspan='2'>Количество</th>
+                    <th rowspan='2'>Средний разряд</th>
+                    <th rowspan='2'>Количество н/ч</th>
+                </tr>
+                <tr>
+                    <th>СИ</th>
+                    <th>Поверок</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for data in info.values %}
+                        <tr>
+                            <td>{{data.change_type}}</td>
+                            <td>{{data.verification_count}}</td>
+                            <td>{{data.verification_count}}</td>
+                            <td>{{data.avg_rank|floatformat:0}}</td>
+                            <td>{{data.standart_sum}}</td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td class='border-0'>ИТОГО:</td>
+                        <td class='border-0'>{{info.verification_count}}</td>
+                        <td class='border-0'>{{info.verification_count}}</td>
+                        <td class='border-0'></td>
+                        <td class='border-0'>{{info.standart_sum}}</td>
+                    </tr>
+            </tbody>
+        </table>
+    {% endfor %}
+</div>
+{% endblock %}

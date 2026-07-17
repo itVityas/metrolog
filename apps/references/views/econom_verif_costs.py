@@ -61,7 +61,7 @@ class EconomVerifCostsView(LoginRequiredMixin, TemplateView):
         for q in queryset:
             if prev_location is None:
                 prev_location = q.last_device_location
-            if prev_location == 'Бюро1521' or prev_location == 'Бюро 1523':
+            if q.last_device_location == 'Бюро1521' or q.last_device_location == 'Бюро 1523':
                 continue
             if prev_location != q.last_device_location:
                 result_list.append({'location': prev_location,

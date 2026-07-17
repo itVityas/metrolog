@@ -1,0 +1,49 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div class='position-relative' id='print_container'>
+    <h3 class='text-center'>Затраты структурных подразделений</h3>
+    <h3 class='text-center'>на поверку СИ на {% if period_is_month %}{{ start_date|date:"F" }} {{ start_date|date:"yy" }}г.{% else %}{{ start_date|date:"yy" }}г.{% endif %}</h3>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <tr>
+                    <th rowspan='2'>Подразделения завода</th>
+                    <th colspan='3'>Государственная поверка</th>
+                    <th colspan='3'>Ведомственная поверка</th>
+                </tr>
+                <tr>
+                    <th>Кол. поверок</th>
+                    <th>Трудоем. н/ч</th>
+                    <th>Ср. разряд</th>
+                    <th>Кол. поверок</th>
+                    <th>Трудоем. н/ч</th>
+                    <th>Ср. разряд</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for query in queryset %}
+                <tr class=''>
+                    <td class=''>{{query.location_name}}</td>
+                    <td class=''>{{query.gov_verification_count}}</td>
+                    <td class=''>{{query.gov_standart_sum}}</td>
+                    <td class=''>{{query.gov_avg_rank|floatformat:0}}</td>
+                    <td class=''>{{query.dep_verification_count}}</td>
+                    <td class=''>{{query.dep_standart_sum}}</td>
+                    <td class=''>{{query.dep_avg_rank|floatformat:0}}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td>Итого:</td>
+                    <td>{{sum_queryset.gov_verification_count}}</td>
+                    <td>{{sum_queryset.gov_standart_sum}}</td>
+                    <td></td>
+                    <td>{{sum_queryset.dep_verification_count}}</td>
+                    <td>{{sum_queryset.dep_standart_sum}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+{% endblock %}

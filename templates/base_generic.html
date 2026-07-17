@@ -62,6 +62,8 @@
                                     <ul class="dropdown-menu" aria-labelledby="dropdown11">
                                         <li><a class="dropdown-item" hx-get="{% url 'econom_verif_costs' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_verif_costs')">Затраты подразделений на госповерку за месяц</a></li>
                                         <li><a class="dropdown-item" hx-get="{% url 'econom_verif_costs_metr' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_verif_costs_metr')">Затраты отдела метрологии на госповерку за месяц</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'econom_verif_costs_period' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_verif_costs_period')">Затраты подразделений на госповерку на год, месяц</a></li>
+                                        <li><a class="dropdown-item" hx-get="{% url 'econom_ref' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_ref')">Справка о трудоемкости работ по видам измерений</a></li>
                                     </ul>
                                 </li>
                             </ul>

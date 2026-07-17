@@ -86,4 +86,10 @@ urlpatterns = [
      path('econom_verif_costs_metr/',
           views.EconomVerifCostsMetrView.as_view(),
           name='econom_verif_costs_metr'),
+     path('econom_verif_costs_period/',
+          views.EconomVerifCostsPeriodView.as_view(),
+          name='econom_verif_costs_period'),
+     path('econom_ref/',
+          views.EconomRefView.as_view(),
+          name='econom_ref'),
 ]
