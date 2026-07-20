@@ -1,0 +1,49 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% load math_tags %}
+{% block content %}
+<button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+<div class='position-relative' id='print_container'>
+        <h1 class='text-center'>НОРМЫ</h1>
+        <h5 class='text-center'>времени на поверку и ремонт средств измерения</h5>
+        <br>
+        <table class="table table-bordered border border-dark w-100 text-center">
+            <thead>
+                <tr>
+                    <th rowspan='3'>Наименование средств измерени<br>Тип</th>
+                    <th colspan='2'>Поверка</th>
+                    <th colspan='5'>Ремонт</th>
+                </tr>
+                <tr>
+                    <th rowspan='2'>Разр. раб.</th>
+                    <th rowspan='2'>Норма вр. (час)</th>
+                    <th rowspan='2'>Разр. раб.</th>
+                    <th colspan='4'>Норма вр. (час)</th>
+                </tr>
+                <tr>
+                    <th>I кат.</th>
+                    <th>II кат.</th>
+                    <th>III кат.</th>
+                    <th>Разб. приб.</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in result_list %}
+                {% ifchanged %}
+                    <tr class='border-0'><td colspan=8 class='border-0'><span>{{ data.change_type }}</span></td></tr>
+                {% endifchanged %}
+                    <tr>
+                        <td>{{data.moc_name}} {{data.moc_type}}</td>
+                        <td>{{data.rank_verification}}</td>
+                        <td>{{data.standart_verification}}</td>
+                        <td>{{data.rank_repair}}</td>
+                        <td>{% if data.repair_code_is == '1' %}{{data.standart_repair}}{% endif %}</td>
+                        <td>{% if data.repair_code_is == '2' %}{{data.standart_repair}}{% endif %}</td>
+                        <td>{% if data.repair_code_is == '3' %}{{data.standart_repair}}{% endif %}</td>
+                        <td>{% if data.repair_code_is == '4' %}{{data.standart_repair}}{% endif %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+{% endblock %}

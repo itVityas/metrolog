@@ -26,3 +26,5 @@ from .econom_verif_costs import EconomVerifCostsView
 from .econom_verif_costs_metr import EconomVerifCostsMetrView
 from .econom_verif_costs_period import EconomVerifCostsPeriodView
 from .econom_ref import EconomRefView
+from .econom_verif_standarts import EconomVerifStandartsView
+from .econom_standarts import EconomStandartsView

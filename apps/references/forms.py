@@ -205,3 +205,33 @@ class EconomRefForm(forms.Form):
                                       'type': 'date'}),
         initial=datetime.date.today,
     )
+
+
+class EconomVerifStandartsForm(forms.Form):
+    STATUS_CHOICES = [
+        ('month', 'За месяц'),
+        ('year', 'За год'),
+    ]
+
+    period = forms.ChoiceField(
+        choices=STATUS_CHOICES,
+        widget=forms.RadioSelect,
+        label="Период",
+        required=True
+    )
+
+    start_date = forms.DateField(
+        label='Дата начала периода',
+        widget=forms.TextInput(attrs={'class': 'form-control',
+                                      'type': 'date'}),
+        initial=datetime.date.today,
+    )
+
+    class DepartmentChoiceField(ModelChoiceField):
+        def label_from_instance(self, obj):
+            return "%s" % obj.name
+
+    department = DepartmentChoiceField(
+        hmodels.Department.objects.all(),
+        label='Подразделение'
+    )
