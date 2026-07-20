@@ -38,6 +38,7 @@
                             <td class=''></td>
                         </tr>
                     {% for data in work.data %}
+                    {% if not data.change_type == '' %}
                         <tr class=''>
                             <td class=' text-start'>{{data.change_type}}</td>
                             <td class=''>{% if data.total_sum_first %}{{data.total_sum_first}}{% endif %}</td>
@@ -46,6 +47,7 @@
                             <td class=''>{% if data.complexity_final %}{{data.complexity_final}}{% endif %}</td>
                             <td class=''></td>
                         </tr>
+                    {% endif %}
                     {% endfor %}
                 {% endfor %}
             </tbody>

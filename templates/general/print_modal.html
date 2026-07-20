@@ -9,7 +9,9 @@
             </div>
             <div class="modal-body">
                     <button class="btn btn-dark" type="button" id="print_to_pdf_button" onclick="print_to_pdf2(this)" data="">{% csrf_token %}pdf</button>
+                    {% if user.is_staff %}
                     <button class="btn btn-dark" type="button" id="print_to_docx_button" onclick="print_to_word2(this)" data="">{% csrf_token %}word</button>
+                    {% endif %}
                     <button type="button" class="close btn btn-dark" data-bs-dismiss="modal" aria-label="Close">Отмена</button>
             </div>
         </div>

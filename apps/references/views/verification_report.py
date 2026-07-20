@@ -58,7 +58,6 @@ class VerificationReportView(LoginRequiredMixin, TemplateView):
                 formatted_dict['total_sum_final'] += 1
                 formatted_dict['complexity_final'] = q.moc_list.moc_type.standart_verification
         result_list.append(formatted_dict)
-
         final_data_list = [
             {'work_name': '1. Ведомственная поверка СИ по видам измерений',
              'data': result_list},
