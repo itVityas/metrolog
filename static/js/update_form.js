@@ -6,6 +6,15 @@ document.querySelectorAll('.modal:has(form)').forEach(function(modalElement) {
     }
   });
 });
+document.body.addEventListener('htmx:afterSwap', function(event) {
+    document.querySelectorAll('.modal:has(form)').forEach(function(modalElement) {
+        modalElement.addEventListener('hide.bs.modal', function (e) {
+        if (!confirm('Вы уверены, что хотите закрыть окно? Несохраненные изменения будут потеряны.')) {
+        e.preventDefault();
+    }
+  });
+});
+});
 // Отслеживаем открытие ЛЮБОГО модального окна на странице
 document.addEventListener('show.bs.modal', function (event) {
   const openingModal = event.target; // Окно, которое открывается прямо сейчас

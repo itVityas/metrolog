@@ -39,15 +39,19 @@ function print_to_html() {
       }
       /* Сбрасываем внутренние свойства ячеек Bootstrap 5 */
       .table > :not(caption) > * > * {
-        width: max-content !important;
+        width: auto !important;
         font-size: 11pt !important;
         padding: 8px 4px !important;
         white-space: pre-wrap !important;
+        height: auto !important; /* Автоматическая высота */
+        min-height: auto !important;
      /* overflow-wrap: break-word !important;
         word-wrap: break-word !important;
         word-break: break-word !important; */
       }
       table.table td, table.table th {
+        max-width: none !important;
+        min-width: auto !important;
         word-break: normal !important;
         white-space: pre-wrap !important;
         vertical-align: middle !important;
@@ -55,6 +59,15 @@ function print_to_html() {
       table.table tr {
         page-break-inside: avoid !important;
         break-inside: avoid !important;
+        height: auto !important;
+      }
+      * {
+        word-break: keep-all !important; /* Запрещает разрыв слов */
+        hyphens: none !important; /* Отключает автоматическую расстановку переносов */
+      }
+      table.table td, table.table th {
+        word-break: keep-all !important; /* Особенно для таблиц */
+        hyphens: none !important;
       }
       .pdf-block {
         page-break-inside: avoid !important;
