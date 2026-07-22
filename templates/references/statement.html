@@ -19,17 +19,17 @@
             <tbody>
                 {% for query in queryset %}
                 {% ifchanged query.verification_type %}
-                    <tr class='border-0'><td colspan=7 class='border-0'>Вид поверки: <span class='text-decoration-underline fw-bold'>{{ query.get_verification_type_display }}</span></td></tr>
+                    <tr class='border-0'><td colspan=7 class='border-0'>Вид поверки: <span class='text-decoration-underline fw-bold'>{{ query.get_verification_type_display|default_if_none:"" }}</span></td></tr>
                 {% endifchanged %}
                 {% ifchanged query.change_type.name %}
-                    <tr class='border-0'><td colspan=7 class='border-0'><span class='text-decoration-underline fw-bold'>{{ query.change_type.name }}</span></td></tr>
+                    <tr class='border-0'><td colspan=7 class='border-0'><span class='text-decoration-underline fw-bold'>{{ query.change_type.name|default_if_none:"" }}</span></td></tr>
                 {% endifchanged %}
                 <tr class=''>
-                    <td class=''>{{query.moc_group.name}} {{query.moc_type.type}}</td>
-                    <td class=''>{{query.factory_number}}</td>
-                    <td class=''>{{query.inv_number}}</td>
-                    <td class=''>{{query.last_device_location}}</td>
-                    <td class=''>{{query.sign_o_r}}</td>
+                    <td class=''>{{query.moc_group.name|default_if_none:""}} {{query.moc_type.type|default_if_none:""}}</td>
+                    <td class=''>{{query.factory_number|default_if_none:""}}</td>
+                    <td class=''>{{query.inv_number|default_if_none:""}}</td>
+                    <td class=''>{{query.last_device_location|default_if_none:""}}</td>
+                    <td class=''>{{query.sign_o_r|default_if_none:""}}</td>
                     <td class=''>{{query.last_verification_date|date:"d.m.Y"}}</td>
                     <td class=''></td>
                 </tr>

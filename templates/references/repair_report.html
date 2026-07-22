@@ -22,9 +22,9 @@
             <tbody>
                 {% for query in queryset %}
                 <tr class=''>
-                    <td class=''>{{query.moc_list__change_type__name}}</td>
-                    <td class=''>{{query.moc_count}}</td>
-                    <td class=''>{{query.sum_standart_repair}}</td>
+                    <td class=''>{{query.moc_list__change_type__name|default_if_none:""}}</td>
+                    <td class=''>{{query.moc_count|default_if_none:""}}</td>
+                    <td class=''>{{query.sum_standart_repair|default_if_none:""}}</td>
                     <td class=''></td>
                 </tr>
                 {% endfor %}

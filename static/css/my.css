@@ -29,7 +29,8 @@
 .table-container thead th {
     position: sticky;
     top: 0;
-    background-color: #f2f2f2;
+    z-index: 2; /* Keeps header on top of scrolling body rows */
+    background-color: #ffffff;
 }
 .table td.fit, 
 .table th.fit {

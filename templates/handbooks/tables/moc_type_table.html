@@ -5,22 +5,17 @@
     <div class='col'>
         <div class=''>
             <h5>Данные по типам СИ</h5>
+            <div class='d-flex justify-content-end'>
             <div>
-                <button id='btn-show-modal' class='btn btn-dark' type='button' onclick="flush_modal_window(this)">Добавить</button>
-
-                {% if 'no_page' in request.GET %}
-                    <a href="{% querystring no_page=None %}" class="page-link d-inline"> Показать постранично </a>
-                {% else %}
-                    <a href="{% querystring page=1 %}&no_page" class="page-link d-inline"> Показать все </a>
-                {% endif %}
-                
                     <form action="" method="get" class="d-inline">
                         <input class='search-input' type="text" name="q" placeholder="Поиск" value="{{ request.GET.q|default_if_none:"" }}">
-                        <button type="submit" class=" search-button btn btn-primary-outline ">
+                        <button type="submit" class=" search-button btn btn-primary-outline border-0">
                             <img src="{% static 'img/search.svg' %}" alt="Искать" width="24" height="24" />
                         </button>
                     </form>
+                <button id='btn-show-modal' class='btn btn-dark' type='button' onclick="flush_modal_window(this)">Добавить</button>
                 <br>
+            </div>
             </div>
             {% if user.is_staff %}
                 <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal_window_migrate" type="button">Скопировать старую БД</button>
@@ -47,18 +42,18 @@
                         {% for moc_type in object_list %}
                             <tr>
                                 <td>{{moc_type.id}}</td>
-                                <td>{{moc_type.type}}</td>
-                                <td>{{moc_type.code}}</td>
-                                <td>{{moc_type.accurancy}}</td>
-                                <td>{{moc_type.cost}}</td>
-                                <td>{{moc_type.min_limit}}</td>
-                                <td>{{moc_type.max_limit}}</td>
-                                <td>{{moc_type.min_measurement}}</td>
-                                <td>{{moc_type.max_measurement}}</td>
-                                <td>{{moc_type.standart_verification}}</td>
-                                <td>{{moc_type.standart_repair}}</td>
-                                <td>{{moc_type.rank_verification}}</td>
-                                <td>{{moc_type.rank_repair}}</td>
+                                <td>{{moc_type.type|default_if_none:""}}</td>
+                                <td>{{moc_type.code|default_if_none:""}}</td>
+                                <td>{{moc_type.accurancy|default_if_none:""}}</td>
+                                <td>{{moc_type.cost|default_if_none:""}}</td>
+                                <td>{{moc_type.min_limit|default_if_none:""}}</td>
+                                <td>{{moc_type.max_limit|default_if_none:""}}</td>
+                                <td>{{moc_type.min_measurement|default_if_none:""}}</td>
+                                <td>{{moc_type.max_measurement|default_if_none:""}}</td>
+                                <td>{{moc_type.standart_verification|default_if_none:""}}</td>
+                                <td>{{moc_type.standart_repair|default_if_none:""}}</td>
+                                <td>{{moc_type.rank_verification|default_if_none:""}}</td>
+                                <td>{{moc_type.rank_repair|default_if_none:""}}</td>
                                 <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="fill_modal_window(this)" id="submitButton">
                                     <img src="{% static 'img/pencil-square.svg' %}" fill="currentColor" alt="Изменить" width="24" height="24" />
                                 </button></td>

@@ -31,8 +31,8 @@
                 {% for data in query.values_list %}
                 <tr class=''>
                     <td class=''>{{data.values.verification_date|date:"d"}}</td>
-                    <td class=''>{{data.values.moc_list.moc_type.type}}</td>
-                    <td class=''>{{data.values.moc_list.inv_number}}</td>
+                    <td class=''>{{data.values.moc_list.moc_type.type|default_if_none:""}}</td>
+                    <td class=''>{{data.values.moc_list.inv_number|default_if_none:""}}</td>
                     <td class=''></td>
                     <td class=''>{{data.result|yesno:'+,-'}}</td>
                     <td class=''>{{data.values.moc_list.moc_type.rank_verification|default_if_none:""}}</td>

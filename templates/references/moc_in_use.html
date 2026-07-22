@@ -18,12 +18,12 @@
             <tbody>
                 {% for query in queryset %}
                 <tr>
-                    <td>{{query.inv_number}}</td>
-                    <td>{{query.factory_number}}</td>
-                    <td>{{query.device_location.last.department.name}}</td>
+                    <td>{{query.inv_number|default_if_none:""}}</td>
+                    <td>{{query.factory_number|default_if_none:""}}</td>
+                    <td>{{query.device_location.last.department.name|default_if_none:""}}</td>
                     <td>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
-                    <td>{{query.verification_type}}</td>
-                    <td>{{query.device_status_date.device_status.name}}</td>
+                    <td>{{query.verification_type|default_if_none:""}}</td>
+                    <td>{{query.device_status_date.device_status.name|default_if_none:""}}</td>
                 </tr>
                 {% endfor %}
             </tbody>

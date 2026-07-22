@@ -30,20 +30,20 @@
                 {% for data in query.values_list %}
                 <tr class=''>
                     <td class=''>{{data.repair_date|date:"d"}}</td>
-                    <td class=''>{{data.moc_list.moc_type.type}}</td>
-                    <td class=''>{{data.moc_list.inv_number}}</td>
-                    <td class=''>{{data.moc_list.device_location.department.name}}</td>
-                    <td class=''>{{data.repair_code.name}}</td>
-                    <td class=''>{{data.repair_type}}</td>
-                    <td class=''>{{data.moc_list.moc_type.rank_repair}}</td>
-                    <td class=''>{{data.moc_list.moc_type.standart_repair}}</td>
+                    <td class=''>{{data.moc_list.moc_type.type|default_if_none:""}}</td>
+                    <td class=''>{{data.moc_list.inv_number|default_if_none:""}}</td>
+                    <td class=''>{{data.moc_list.device_location.department.name|default_if_none:""}}</td>
+                    <td class=''>{{data.repair_code.name|default_if_none:""}}</td>
+                    <td class=''>{{data.repair_type|default_if_none:""}}</td>
+                    <td class=''>{{data.moc_list.moc_type.rank_repair|default_if_none:""}}</td>
+                    <td class=''>{{data.moc_list.moc_type.standart_repair|default_if_none:""}}</td>
                     <td class=''>{{data.moc_list.moc_type.standart_repair|multiply:0.9}}</td>
                 </tr>
                 {% endfor %}
                 <tr class='border-0'>
                     <td class='border-0' colspan='7'></td>
-                    <td class='border-0'>{{query.sum_standart}} н/ч</td>
-                    <td class='border-0'>{{query.sum_salary}} руб.</td>
+                    <td class='border-0'>{{query.sum_standart|default_if_none:""}} н/ч</td>
+                    <td class='border-0'>{{query.sum_salary|default_if_none:""}} руб.</td>
                 </tr>
             </tbody>
         </table>

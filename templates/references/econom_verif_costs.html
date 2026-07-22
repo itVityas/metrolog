@@ -19,13 +19,13 @@
             </thead>
             <tbody>
                 {% for location_data in result_list %}
-                    <tr class='border-0'><td colspan=9 class='border-0'><span>{{ location_data.location }}</span></td></tr>
+                    <tr class='border-0'><td colspan=9 class='border-0'><span>{{ location_data.location|default_if_none:"" }}</span></td></tr>
                     {% for data in location_data.values %}
                         <tr>
-                            <td>{{data.moc_group.name}} {{data.moc_type.type}}</td>
-                            <td>{{data.moc_group.group}}</td>
-                            <td>{{data.factory_number}}</td>
-                            <td>{{data.inv_number}}</td>
+                            <td>{{data.moc_group.name|default_if_none:""}} {{data.moc_type.type|default_if_none:""}}</td>
+                            <td>{{data.moc_group.group|default_if_none:""}}</td>
+                            <td>{{data.factory_number|default_if_none:""}}</td>
+                            <td>{{data.inv_number|default_if_none:""}}</td>
                             <td>{{data.last_verification_date|date:"d.m.Y"}}</td>
                         </tr>
                     {% endfor %}

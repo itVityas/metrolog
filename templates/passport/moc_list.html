@@ -9,20 +9,15 @@
             {% if user.is_staff %}
             <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal_window_migrate" type="button">Скопировать старую БД</button>
             {% endif %}
-            <div>
+            <div class='d-flex justify-content-end'>
                 <div class="">
                     <form action="" method="get" class="d-inline">
                         <input class='search-input' type="text" name="q" placeholder="Поиск" value="{{ request.GET.q|default_if_none:"" }}">
-                        <button type="submit" class="search-button btn btn-primary-outline">
+                        <button type="submit" class="search-button btn btn-primary-outline border-0">
                             <img src="{% static 'img/search.svg' %}" alt="Искать" width="24" height="24" />
                         </button>
                     </form>
                     <button type="button" class="btn btn-dark" onclick="flush_modal_window(this)">Добавить запись</button>
-                    {% if 'no_page' in request.GET %}
-                    <a href="{% querystring no_page=None %}" class="page-link d-inline"> Показать постранично </a>
-                    {% else %}
-                    <a href="{% querystring page=1 %}&no_page" class="page-link d-inline"> Показать все </a>
-                    {% endif %}
                 </div>
             </div>
             
@@ -38,12 +33,12 @@
                     <tbody>
                         {% for object in object_list %}
                             <tr class='position-relative table-tr-hover'>
-                                <td><p id='moc_group_name' value={{object.moc_group.id}}>{{object.moc_group.name}}</p></td>
-                                <td><p id='moc_type_type' value={{object.moc_type.id}}>{{object.moc_type.type}}</p></td>
-                                <td><p id='factory_number'>{{object.factory_number}}</p></td>
-                                <td><p id='inv_number'>{{object.inv_number}}</p></td>
-                                <td><strong>Цех:</strong> <span id='department_workshop'>{{object.device_location.last.department.workshop}}</span><br>
-                                    <strong>Бригада:</strong> <span id='department_brigade'>{{object.device_location.last.department.brigade}}</span>
+                                <td><p id='moc_group_name' value={{object.moc_group.id}}>{{object.moc_group.name|default_if_none:""}}</p></td>
+                                <td><p id='moc_type_type' value={{object.moc_type.id}}>{{object.moc_type.type|default_if_none:""}}</p></td>
+                                <td><p id='factory_number'>{{object.factory_number|default_if_none:""}}</p></td>
+                                <td><p id='inv_number'>{{object.inv_number|default_if_none:""}}</p></td>
+                                <td><strong>Цех:</strong> <span id='department_workshop'>{{object.device_location.last.department.workshop|default_if_none:""}}</span><br>
+                                    <strong>Бригада:</strong> <span id='department_brigade'>{{object.device_location.last.department.brigade|default_if_none:""}}</span>
                                     <a href="{% url 'passport_detail' pk=object.id %}" class="stretched-link"></a>
                                 </td>
                             </tr>

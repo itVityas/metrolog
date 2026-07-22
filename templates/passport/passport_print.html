@@ -1,7 +1,9 @@
 {% extends 'base_generic.html' %}
 {% load static %}
 {% block content %}
+<div class='d-flex justify-content-end'>
 <button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+</div>
 <div id='print_container'>
     <table class="table table-bordered border border-dark w-100 text-center">
         <thead>
@@ -15,9 +17,9 @@
                 <td>Периодичность поверки</td>
             </tr>
             <tr>
-                <td colspan='2'><strong>{{object.device_location.last.department.workshop}} - {{object.device_location.last.department.brigade}}</strong></td>
-                <td colspan='2'><strong>{{object.moc_group.name}}</strong></td>
-                <td><strong>{{object.verification_period}}</strong></td>
+                <td colspan='2'><strong>{{object.device_location.last.department.workshop|default_if_none:""}} - {{object.device_location.last.department.brigade|default_if_none:""}}</strong></td>
+                <td colspan='2'><strong>{{object.moc_group.name|default_if_none:""}}</strong></td>
+                <td><strong>{{object.verification_period|default_if_none:""}}</strong></td>
             </tr>
             <tr>
                 <td colspan='2'>Тип</td>
@@ -26,10 +28,10 @@
                 <td>Вид поверки</td>
             </tr>
             <tr>
-                <td colspan='2'><strong>{{object.moc_type.type}}</strong></td>
-                <td><strong>{{object.factory_number}}</strong></td>
-                <td><strong>{{object.inv_number}}</strong></td>
-                <td><strong>{{object.verification_type}}</strong></td>
+                <td colspan='2'><strong>{{object.moc_type.type|default_if_none:""}}</strong></td>
+                <td><strong>{{object.factory_number|default_if_none:""}}</strong></td>
+                <td><strong>{{object.inv_number|default_if_none:""}}</strong></td>
+                <td><strong>{{object.verification_type|default_if_none:""}}</strong></td>
             </tr>
             <tr>
                 <td colspan='2'>Даты</td>
@@ -44,8 +46,8 @@
                 <tr>
                     <td><strong>{{verification.verification_date|date:"Y-m-d"}}</strong></td>
                     <td><strong>{{repair.repair_date|date:"Y-m-d"}}</strong></td>
-                    <td colspan='2'><strong>{{verification.verification_result}}</strong></td>
-                    <td><strong>{{repair.repair.name}}</strong></td>
+                    <td colspan='2'><strong>{{verification.verification_result|default_if_none:""}}</strong></td>
+                    <td><strong>{{repair.repair.name|default_if_none:""}}</strong></td>
                 </tr>
             {% endfor %}
         </tbody>

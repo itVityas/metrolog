@@ -24,19 +24,19 @@
             <tbody>
                     {% for data in info.values %}
                         <tr>
-                            <td>{{data.change_type}}</td>
-                            <td>{{data.verification_count}}</td>
-                            <td>{{data.verification_count}}</td>
+                            <td>{{data.change_type|default_if_none:""}}</td>
+                            <td>{{data.verification_count|default_if_none:""}}</td>
+                            <td>{{data.verification_count|default_if_none:""}}</td>
                             <td>{{data.avg_rank|floatformat:0}}</td>
-                            <td>{{data.standart_sum}}</td>
+                            <td>{{data.standart_sum|default_if_none:""}}</td>
                         </tr>
                     {% endfor %}
                     <tr>
                         <td class='border-0'>ИТОГО:</td>
-                        <td class='border-0'>{{info.verification_count}}</td>
-                        <td class='border-0'>{{info.verification_count}}</td>
+                        <td class='border-0'>{{info.verification_count|default_if_none:""}}</td>
+                        <td class='border-0'>{{info.verification_count|default_if_none:""}}</td>
                         <td class='border-0'></td>
-                        <td class='border-0'>{{info.standart_sum}}</td>
+                        <td class='border-0'>{{info.standart_sum|default_if_none:""}}</td>
                     </tr>
             </tbody>
         </table>

@@ -28,35 +28,24 @@
                     <th>Характер неиспр.</th>
                     <th>Трудоемк., н/ч</th>
                 </tr>
-                <tr>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th>7</th>
-                    <th>8</th>
-                    <th>9</th>
-                </tr>
             </thead>
             <tbody>
                 {% for location_data in result_list %}
-                    <tr class='border-0'><td colspan=9 class='border-0'><span>{{ location_data.location }}</span></td></tr>
+                    <tr class='border-0'><td colspan=9 class='border-0'><span>{{ location_data.location|default_if_none:"" }}</span></td></tr>
                     {% for data in location_data.values %}
                         <tr>
-                            <td>{{data.moc_type.type}}</td>
-                            <td>{{data.inv_number}}</td>
+                            <td>{{data.moc_type.type|default_if_none:""}}</td>
+                            <td>{{data.inv_number|default_if_none:""}}</td>
                             <td>{{data.entry_date|date:"d.m.Y"}}</td>
-                            <td>{{data.instrument_failure}}</td>
+                            <td>{{data.instrument_failure|default_if_none:""}}</td>
                             <td>{{data.entry_repair_date|date:"d.m.Y"}}</td>
                             <td>{{data.repair_department|default_if_none:""}}</td>
                             <td>{{data.repair_date|default_if_none:""}}</td>
                             <td></td>
-                            <td>{{data.moc_type.standart_repair}}</td>
+                            <td>{{data.moc_type.standart_repair|default_if_none:""}}</td>
                         </tr>
                     {% endfor %}
-                    <tr class=''><td colspan=9 class='text-end'>Итого по подразделению :  <span class='fw-bold'>{{ location_data.total_count }}</span> н/ч</td></tr>
+                    <tr class=''><td colspan=9 class='text-end'>Итого по подразделению :  <span class='fw-bold'>{{ location_data.total_count|default_if_none:"" }}</span> н/ч</td></tr>
                 {% endfor %}
             </tbody>
         </table>

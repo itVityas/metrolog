@@ -25,22 +25,22 @@
             <tbody>
                 {% for query in queryset %}
                 <tr class=''>
-                    <td class=''>{{query.location_name}}</td>
-                    <td class=''>{{query.gov_verification_count}}</td>
-                    <td class=''>{{query.gov_standart_sum}}</td>
+                    <td class=''>{{query.location_name|default_if_none:""}}</td>
+                    <td class=''>{{query.gov_verification_count|default_if_none:""}}</td>
+                    <td class=''>{{query.gov_standart_sum|default_if_none:""}}</td>
                     <td class=''>{{query.gov_avg_rank|floatformat:0}}</td>
-                    <td class=''>{{query.dep_verification_count}}</td>
-                    <td class=''>{{query.dep_standart_sum}}</td>
+                    <td class=''>{{query.dep_verification_count|default_if_none:""}}</td>
+                    <td class=''>{{query.dep_standart_sum|default_if_none:""}}</td>
                     <td class=''>{{query.dep_avg_rank|floatformat:0}}</td>
                 </tr>
                 {% endfor %}
                 <tr>
                     <td>Итого:</td>
-                    <td>{{sum_queryset.gov_verification_count}}</td>
-                    <td>{{sum_queryset.gov_standart_sum}}</td>
+                    <td>{{sum_queryset.gov_verification_count|default_if_none:""}}</td>
+                    <td>{{sum_queryset.gov_standart_sum|default_if_none:""}}</td>
                     <td></td>
-                    <td>{{sum_queryset.dep_verification_count}}</td>
-                    <td>{{sum_queryset.dep_standart_sum}}</td>
+                    <td>{{sum_queryset.dep_verification_count|default_if_none:""}}</td>
+                    <td>{{sum_queryset.dep_standart_sum|default_if_none:""}}</td>
                     <td></td>
                 </tr>
             </tbody>

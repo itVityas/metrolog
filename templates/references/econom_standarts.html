@@ -30,17 +30,17 @@
             <tbody>
                 {% for data in result_list %}
                 {% ifchanged %}
-                    <tr class='border-0'><td colspan=8 class='border-0'><span>{{ data.change_type }}</span></td></tr>
+                    <tr class='border-0'><td colspan=8 class='border-0'><span>{{ data.change_type|default_if_none:"" }}</span></td></tr>
                 {% endifchanged %}
                     <tr>
-                        <td>{{data.moc_name}} {{data.moc_type}}</td>
-                        <td>{{data.rank_verification}}</td>
-                        <td>{{data.standart_verification}}</td>
-                        <td>{{data.rank_repair}}</td>
-                        <td>{% if data.repair_code_is == '1' %}{{data.standart_repair}}{% endif %}</td>
-                        <td>{% if data.repair_code_is == '2' %}{{data.standart_repair}}{% endif %}</td>
-                        <td>{% if data.repair_code_is == '3' %}{{data.standart_repair}}{% endif %}</td>
-                        <td>{% if data.repair_code_is == '4' %}{{data.standart_repair}}{% endif %}</td>
+                        <td>{{data.moc_name|default_if_none:""}} {{data.moc_type|default_if_none:""}}</td>
+                        <td>{{data.rank_verification|default_if_none:""}}</td>
+                        <td>{{data.standart_verification|default_if_none:""}}</td>
+                        <td>{{data.rank_repair|default_if_none:""}}</td>
+                        <td>{% if data.repair_code_is == '1' %}{{data.standart_repair|default_if_none:""}}{% endif %}</td>
+                        <td>{% if data.repair_code_is == '2' %}{{data.standart_repair|default_if_none:""}}{% endif %}</td>
+                        <td>{% if data.repair_code_is == '3' %}{{data.standart_repair|default_if_none:""}}{% endif %}</td>
+                        <td>{% if data.repair_code_is == '4' %}{{data.standart_repair|default_if_none:""}}{% endif %}</td>
                     </tr>
                 {% endfor %}
             </tbody>

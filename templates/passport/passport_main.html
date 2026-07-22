@@ -21,25 +21,25 @@
                 <table class="table table-bordered border border-dark w-100">
                     <tbody>
                             <tr>
-                                <td><strong>Наименование прибора</strong><p id='moc_group_name' value={{object.moc_group.id}}>{{object.moc_group.name}}</p></td>
-                                <td><strong>Тип</strong><p id='moc_type_type' value={{object.moc_type.id}}>{{object.moc_type.type}}</p></td>
-                                <td><strong>Заводской номер</strong><p id='factory_number'>{{object.factory_number}}</p></td>
-                                <td><strong>Инвентарный номер</strong><p id='inv_number'>{{object.inv_number}}</p></td>
+                                <td><strong>Наименование прибора</strong><p id='moc_group_name' value={{object.moc_group.id}}>{{object.moc_group.name|default_if_none:""}}</p></td>
+                                <td><strong>Тип</strong><p id='moc_type_type' value={{object.moc_type.id}}>{{object.moc_type.type|default_if_none:""}}</p></td>
+                                <td><strong>Заводской номер</strong><p id='factory_number'>{{object.factory_number|default_if_none:""}}</p></td>
+                                <td><strong>Инвентарный номер</strong><p id='inv_number'>{{object.inv_number|default_if_none:""}}</p></td>
                                 <td><strong>Место закрепления</strong>
-                                <p><strong>Цех:</strong> <span id='department_workshop'>{{object.device_location.last.department.workshop}}</span>
-                                    <strong>Бригада:</strong> <span id='department_brigade'>{{object.device_location.last.department.brigade}}</span></p></td>
+                                <p><strong>Цех:</strong> <span id='department_workshop'>{{object.device_location.last.department.workshop|default_if_none:""}}</span>
+                                    <strong>Бригада:</strong> <span id='department_brigade'>{{object.device_location.last.department.brigade|default_if_none:""}}</span></p></td>
                             </tr>
                             <tr>
-                                <td><strong>Поверка</strong><p id='verification_type'>{{object.verification_type}}</p></td>
-                                <td><strong>Период поверки</strong><p id='verification_period'>{{object.verification_period}}</p></td>
-                                <td><strong>Поверочное подразделение</strong><p id='verification_department_name' value={{object.verification_department.id}}>{{object.verification_department.name}}</p></td>
-                                <td colspan="2"><strong>Вид измерения</strong><p id='change_type_name' value={{object.change_type.id}}>{{object.change_type.name}}</p></td>
+                                <td><strong>Поверка</strong><p id='verification_type'>{{object.verification_type|default_if_none:""}}</p></td>
+                                <td><strong>Период поверки</strong><p id='verification_period'>{{object.verification_period|default_if_none:""}}</p></td>
+                                <td><strong>Поверочное подразделение</strong><p id='verification_department_name' value={{object.verification_department.id}}>{{object.verification_department.name|default_if_none:""}}</p></td>
+                                <td colspan="2"><strong>Вид измерения</strong><p id='change_type_name' value={{object.change_type.id}}>{{object.change_type.name|default_if_none:""}}</p></td>
                             </tr>
                             <tr>
-                                <td><strong>Учёт СИ по бухгалтерии</strong><p id='sign_o_m'>{{object.sign_o_m}}</p></td>
-                                <td><strong>Категория СИ</strong><p id='sign_o_r'>{{object.sign_o_r}}</p></td>
-                                <td><strong>Инвентарный № оборудования</strong><p id='device_station_station_inv_number'>{{object.device_station.station_inv_number}}</p></td>
-                                <td colspan="2"><strong>Наименование</strong><p id='device_station_station_name'>{{object.device_station.station_name}}</p></td>
+                                <td><strong>Учёт СИ по бухгалтерии</strong><p id='sign_o_m'>{{object.sign_o_m|default_if_none:""}}</p></td>
+                                <td><strong>Категория СИ</strong><p id='sign_o_r'>{{object.sign_o_r|default_if_none:""}}</p></td>
+                                <td><strong>Инвентарный № оборудования</strong><p id='device_station_station_inv_number'>{{object.device_station.station_inv_number|default_if_none:""}}</p></td>
+                                <td colspan="2"><strong>Наименование</strong><p id='device_station_station_name'>{{object.device_station.station_name|default_if_none:""}}</p></td>
                             </tr>
                     </tbody>
                 </table>
@@ -75,10 +75,10 @@
                                             <td id='entry_date'>{{verification.entry_date|date:"Y-m-d"}}</td>
                                             <td id='verification_date'>{{verification.verification_date|date:"Y-m-d"}}</td>
                                             <td id='workshop_issue_date'>{{verification.workshop_issue_date|date:"Y-m-d"}}</td>
-                                            <td id='verification_result'>{{verification.verification_result}}</td>
-                                            <td id='verification_person'>{{verification.verification_person.fio}}</td>
-                                            <td id='verification_sign'>{{verification.verification_sign.name}}</td>
-                                            <td id='verification_document_num'>{{verification.verification_document_num}}</td>
+                                            <td id='verification_result'>{{verification.verification_result|default_if_none:""}}</td>
+                                            <td id='verification_person'>{{verification.verification_person.fio|default_if_none:""}}</td>
+                                            <td id='verification_sign'>{{verification.verification_sign.name|default_if_none:""}}</td>
+                                            <td id='verification_document_num'>{{verification.verification_document_num|default_if_none:""}}</td>
                                             <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="fill_modal_window_table(this, 'verification')" id="submitButton">
                                                 <img src="{% static 'img/pencil-square.svg' %}" fill="currentColor" alt="Изменить" width="24" height="24" />
                                             </button></td>
@@ -112,11 +112,11 @@
                                             <td id='entry_date'>{{repair.entry_date|date:"Y-m-d"}}</td>
                                             <td id='entry_repair_date'>{{repair.entry_repair_date|date:"Y-m-d"}}</td>
                                             <td id='repair_date'>{{repair.repair_date|date:"Y-m-d"}}</td>
-                                            <td id='repair_type'>{{repair.repair_type}}</td>
-                                            <td id='repair'>{{repair.repair.name}}</td>
-                                            <td id='repair_code'>{{repair.repair_code.name}}</td>
-                                            <td id='instrument_failure'>{{repair.instrument_failure.name}}</td>
-                                            <td id='repair_department'>{{repair.repair_department.name}}</td>
+                                            <td id='repair_type'>{{repair.repair_type|default_if_none:""}}</td>
+                                            <td id='repair'>{{repair.repair.name|default_if_none:""}}</td>
+                                            <td id='repair_code'>{{repair.repair_code.name|default_if_none:""}}</td>
+                                            <td id='instrument_failure'>{{repair.instrument_failure.name|default_if_none:""}}</td>
+                                            <td id='repair_department'>{{repair.repair_department.name|default_if_none:""}}</td>
                                             <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="fill_modal_window_table(this, 'repair')" id="submitButton">
                                                 <img src="{% static 'img/pencil-square.svg' %}" fill="currentColor" alt="Изменить" width="24" height="24" />
                                             </button></td>
@@ -142,8 +142,8 @@
                                 <tbody>
                                     {% for location in object.device_location.all %}
                                         <tr value={{location.id}}>
-                                            <td id='department'>{{location.department.workshop}}</td>
-                                            <td id=''>{{location.department.brigade}}</td>
+                                            <td id='department'>{{location.department.workshop|default_if_none:""}}</td>
+                                            <td id=''>{{location.department.brigade|default_if_none:""}}</td>
                                             <td id='entry_date'>{{location.entry_date|date:"Y-m-d"}}</td>
                                             <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="fill_modal_window_table(this, 'location')" id="submitButton">
                                                 <img src="{% static 'img/pencil-square.svg' %}" fill="currentColor" alt="Изменить" width="24" height="24" />
@@ -169,7 +169,7 @@
                                 <tbody>
                                     {% for status in object.device_status_date.all %}
                                         <tr value={{status.id}}>
-                                            <td id='device_status'>{{status.device_status.name}}</td>
+                                            <td id='device_status'>{{status.device_status.name|default_if_none:""}}</td>
                                             <td id='status_date'>{{status.status_date|date:"Y-m-d"}}</td>
                                             <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="fill_modal_window_table(this, 'status')" id="submitButton">
                                                 <img src="{% static 'img/pencil-square.svg' %}" fill="currentColor" alt="Изменить" width="24" height="24" />
@@ -195,8 +195,8 @@
                                 <tbody>
                                     {% for metall in object.moc_metals.all %}
                                         <tr value={{metall.id}}>
-                                            <td id='precious_metals'>{{metall.precious_metals.name}}</td>
-                                            <td id='metal_amount'>{{metall.metal_amount}}</td>
+                                            <td id='precious_metals'>{{metall.precious_metals.name|default_if_none:""}}</td>
+                                            <td id='metal_amount'>{{metall.metal_amount|default_if_none:""}}</td>
                                             <td class="border-0 fit"><button type="button" class="btn btn-primary-outline" onclick="fill_modal_window_table(this, 'metall')" id="submitButton">
                                                 <img src="{% static 'img/pencil-square.svg' %}" fill="currentColor" alt="Изменить" width="24" height="24" />
                                             </button></td>

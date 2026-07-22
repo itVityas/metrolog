@@ -20,11 +20,11 @@
             <tbody>
                 {% for query in queryset %}
                 <tr class=''>
-                    <td class=''>{{query.moc_list__moc_group__name}}<br>{{query.moc_list__moc_type__type}}</td>
-                    <td class=''>{{query.moc_count}}</td>
-                    <td class=''>{{query.repair_code__code}}</td>
-                    <td class=''>{{query.moc_list__moc_type__rank_repair}}</td>
-                    <td class=''>{{query.moc_list__moc_type__standart_repair}}</td>
+                    <td class=''>{{query.moc_list__moc_group__name|default_if_none:""}}<br>{{query.moc_list__moc_type__type|default_if_none:""}}</td>
+                    <td class=''>{{query.moc_count|default_if_none:""}}</td>
+                    <td class=''>{{query.repair_code__code|default_if_none:""}}</td>
+                    <td class=''>{{query.moc_list__moc_type__rank_repair|default_if_none:""}}</td>
+                    <td class=''>{{query.moc_list__moc_type__standart_repair|default_if_none:""}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -36,11 +36,11 @@
             <tbody>
                 <tr class='border-0'>
                     <td class='border-0'>Трудоёмкость</td>
-                    <td class='border-0'>{{sum_queryset.standart_sum}}</td>
+                    <td class='border-0'>{{sum_queryset.standart_sum|default_if_none:""}}</td>
                 </tr>
                 <tr class='border-0'>
                     <td class='border-0'>Количество СИ</td>
-                    <td class='border-0'>{{sum_queryset.moc_count_sum}}</td>
+                    <td class='border-0'>{{sum_queryset.moc_count_sum|default_if_none:""}}</td>
                 </tr>
             </tbody>
         </table>

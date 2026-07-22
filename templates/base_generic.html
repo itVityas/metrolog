@@ -28,44 +28,44 @@
                                     <ul class="dropdown-menu" aria-labelledby="dropdown11">
                                         <li><a class="dropdown-item" href="{% url 'moc_verification_types' %}">Кол-во СИ по видам поверки</a></li>
                                         <li><a class="dropdown-item" href="{% url 'moc_in_storage' %}">Сведения о СИ на хран.</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'moc_in_use' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_in_use')">Сведения о наличии типа СИ</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'memorandum' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'memorandum')">Служ. зап. (кроме встр.)</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'memorandum_builtin' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'memorandum_builtin')">Служ. зап. для встроен.</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'prescription' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'prescription')">Предп. кроме встроен.</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'prescription_builtin' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'prescription_builtin')">Предп. для встроен.</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'moc_in_use' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_in_use')">Сведения о наличии типа СИ</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'memorandum' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'memorandum')">Служ. зап. (кроме встр.)</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'memorandum_builtin' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'memorandum_builtin')">Служ. зап. для встроен.</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'prescription' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'prescription')">Предп. кроме встроен.</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'prescription_builtin' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'prescription_builtin')">Предп. для встроен.</a></li>
                                         <li><a class="dropdown-item" href="{% url 'statement' %}">Вед. (кроме встр.)</a></li>
                                         <li><a class="dropdown-item" href="{% url 'statement_builtin' %}">Вед. для встр. СИ</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'verification_log' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'verification_log')">Журнал поверки</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'receipt' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'receipt')">Квитанц. на получ. СИ</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'operating_time' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'operating_time')">Накопит. нар. прибор.</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'moc_presence' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_presence')">Наличие СИ в подразд.</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'moc_presence_builtin' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_presence_builtin')">Наличие СИ в подразд. встр.</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'completed_works' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'completed_works')">Ведом выполн. работ по пов. для цеха</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'verification_report' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'verification_report')">Отчёт по накопит. нарядам за месяц</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'moc_indicators' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_indicators')">Перечень СИ, пер. в индик., по под.</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'moc_indicators_installed' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_indicators_installed')">Перечень СИ, устан. на об. и пер. в инд.</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'verification_log' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'verification_log')">Журнал поверки</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'receipt' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'receipt')">Квитанц. на получ. СИ</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'operating_time' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'operating_time')">Накопит. нар. прибор.</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'moc_presence' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_presence')">Наличие СИ в подразд.</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'moc_presence_builtin' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_presence_builtin')">Наличие СИ в подразд. встр.</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'completed_works' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'completed_works')">Ведом выполн. работ по пов. для цеха</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'verification_report' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'verification_report')">Отчёт по накопит. нарядам за месяц</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'moc_indicators' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_indicators')">Перечень СИ, пер. в индик., по под.</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'moc_indicators_installed' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'moc_indicators_installed')">Перечень СИ, устан. на об. и пер. в инд.</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu dropend nav-item">
                                     <a class="dropdown-toggle nav-link text-dark" id="dropdown11" href="#" data-bs-toggle="dropdown" aria-expanded="false">Ремонтные работы</a>
                                     <ul class="dropdown-menu" aria-labelledby="dropdown11">
-                                        <li><a class="dropdown-item" hx-get="{% url 'repair_log' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_log')">Журнал ремонта</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'repair_log' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_log')">Журнал ремонта</a></li>
                                         <li><a class="dropdown-item" href="{% url 'repair_long_term' %}">СИ в долгосрочном ремонте</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'repair_operating_time' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_operating_time')">Накопительный наряд</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'repair_report' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_report')">Отчет по нарядам</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'repair_completed_works' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_completed_works')">Ведомость выполненных работ для цеха за месяц</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'repair_statement' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_statement')">Ведомость ремонтов за месяц</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'repair_operating_time' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_operating_time')">Накопительный наряд</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'repair_report' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_report')">Отчет по нарядам</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'repair_completed_works' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_completed_works')">Ведомость выполненных работ для цеха за месяц</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'repair_statement' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'repair_statement')">Ведомость ремонтов за месяц</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu dropend nav-item">
                                     <a class="dropdown-toggle nav-link text-dark" id="dropdown11" href="#" data-bs-toggle="dropdown" aria-expanded="false">Экономические вопросы</a>
                                     <ul class="dropdown-menu" aria-labelledby="dropdown11">
-                                        <li><a class="dropdown-item" hx-get="{% url 'econom_verif_costs' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_verif_costs')">Затраты подразделений на госповерку за месяц</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'econom_verif_costs_metr' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_verif_costs_metr')">Затраты отдела метрологии на госповерку за месяц</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'econom_verif_costs_period' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_verif_costs_period')">Затраты подразделений на госповерку на год, месяц</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'econom_ref' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_ref')">Справка о трудоемкости работ по видам измерений</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'econom_verif_costs' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_verif_costs')">Затраты подразделений на госповерку за месяц</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'econom_verif_costs_metr' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_verif_costs_metr')">Затраты отдела метрологии на госповерку за месяц</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'econom_verif_costs_period' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_verif_costs_period')">Затраты подразделений на госповерку на год, месяц</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'econom_ref' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_ref')">Справка о трудоемкости работ по видам измерений</a></li>
                                         <li><a class="dropdown-item" href="{% url 'econom_standarts' %}">Нормы времени на поверку и ремонт СИ</a></li>
-                                        <li><a class="dropdown-item" hx-get="{% url 'econom_verif_standarts' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_verif_standarts')">Справка о трудоемкости поверочных работ по цеху</a></li>
+                                        <li><a class="dropdown-item" role="button" hx-get="{% url 'econom_verif_standarts' %}" hx-target="#dynamic_modal" hx-on::after-request="show_modal_in_generic(this, 'econom_verif_standarts')">Справка о трудоемкости поверочных работ по цеху</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -143,10 +143,11 @@
                             <div id='form_container'>
                                 <form id="modal_form" action="{%url 'set_pagination' user.usersettings.id %}" method="post">
                                     {% csrf_token %}
-                                    <select class="form-select" style='height: auto;' name='pagination_size' aria-label="Записей на странице" onchange="this.form.submit()" onfocus="this.selectedIndex = -1;">
-                                      <option value="5">5</option>
-                                      <option value="10">10</option>
-                                      <option value="15">15</option>
+                                    <select class="form-select" style='height: auto;' name='pagination_size' aria-label="Записей на странице" onchange="this.form.submit()">
+                                        <option value="" selected disabled hidden></option>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
                                     </select>
                                 </form>
                             </div>

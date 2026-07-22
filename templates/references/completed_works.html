@@ -22,10 +22,10 @@
             <tbody>
                 {% for query in queryset %}
                 <tr class=''>
-                    <td class=''>{{query.moc_list__moc_group__name}}<br>{{query.moc_list__moc_type__type}}</td>
-                    <td class=''>{{query.moc_count}}</td>
-                    <td class=''>{{query.moc_list__moc_type__rank_verification}}</td>
-                    <td class=''>{{query.moc_list__moc_type__standart_verification}}</td>
+                    <td class=''>{{query.moc_list__moc_group__name|default_if_none:""}}<br>{{query.moc_list__moc_type__type|default_if_none:""}}</td>
+                    <td class=''>{{query.moc_count|default_if_none:""}}</td>
+                    <td class=''>{{query.moc_list__moc_type__rank_verification|default_if_none:""}}</td>
+                    <td class=''>{{query.moc_list__moc_type__standart_verification|default_if_none:""}}</td>
                     <td class=''>{{query.moc_list__moc_type__standart_verification|multiply:0.9}}</td>
                     <td class=''></td>
                 </tr>
@@ -39,11 +39,11 @@
             <tbody>
                 <tr class='border-0'>
                     <td class='border-0'>Трудоёмкость</td>
-                    <td class='border-0'>{{sum_queryset.standart_sum}}</td>
+                    <td class='border-0'>{{sum_queryset.standart_sum|default_if_none:""}}</td>
                 </tr>
                 <tr class='border-0'>
                     <td class='border-0'>Количество СИ</td>
-                    <td class='border-0'>{{sum_queryset.moc_count_sum}}</td>
+                    <td class='border-0'>{{sum_queryset.moc_count_sum|default_if_none:""}}</td>
                 </tr>
                 <tr class='border-0'>
                     <td class='border-0'>Основная зарплата</td>
@@ -55,7 +55,7 @@
                 </tr>
                 <tr class='border-0'>
                     <td class='border-0'>Стоимость госповерки</td>
-                    <td class='border-0'>{{sum_queryset.cost_sum}}</td>
+                    <td class='border-0'>{{sum_queryset.cost_sum|default_if_none:""}}</td>
                 </tr>
             </tbody>
         </table>
