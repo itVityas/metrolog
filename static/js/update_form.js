@@ -1,20 +1,24 @@
 
-document.querySelectorAll('.modal:has(form)').forEach(function(modalElement) {
-  modalElement.addEventListener('hide.bs.modal', function (e) {
+function alert_on_close(e){
     if (!confirm('Вы уверены, что хотите закрыть окно? Несохраненные изменения будут потеряны.')) {
       e.preventDefault();
     }
-  });
+}
+
+document.querySelectorAll('.modal:has(form)').forEach(function(modalElement) {
+    modalElement.querySelectorAll('.close').forEach(function(closeBtn) {
+        closeBtn.addEventListener('click', alert_on_close);
+    });
 });
+
 document.body.addEventListener('htmx:afterSwap', function(event) {
     document.querySelectorAll('.modal:has(form)').forEach(function(modalElement) {
-        modalElement.addEventListener('hide.bs.modal', function (e) {
-        if (!confirm('Вы уверены, что хотите закрыть окно? Несохраненные изменения будут потеряны.')) {
-        e.preventDefault();
-    }
-  });
+    modalElement.querySelectorAll('.close').forEach(function(closeBtn) {
+        closeBtn.addEventListener('click', alert_on_close);
+    });
 });
 });
+
 // Отслеживаем открытие ЛЮБОГО модального окна на странице
 document.addEventListener('show.bs.modal', function (event) {
   const openingModal = event.target; // Окно, которое открывается прямо сейчас
@@ -345,7 +349,6 @@ function save_form(e){
     });
     saved_form.form_id = form.getAttribute('id');
     saved_form.fields = temp_array;
-    console.log(saved_form);
 }
 
 function insert_form(e){

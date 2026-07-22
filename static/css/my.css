@@ -95,7 +95,7 @@ input.form-control{
 }
 
 .modal.blur-sibling {
-  filter: blur(2px);
+  filter: blur(2px) brightness(60%);
   pointer-events: none;
   transition: filter 0.3s ease;
 }
