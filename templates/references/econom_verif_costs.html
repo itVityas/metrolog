@@ -2,7 +2,9 @@
 {% load static %}
 {% load math_tags %}
 {% block content %}
+<div class="d-flex justify-content-end">
 <button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+</div>
 <div class='position-relative' id='print_container'>
         <h1 class='text-center'>ЗАТРАТЫ</h1>
         <h5 class='text-center'>структурных подразделений на государственную поверку на {{start_date|date:"F"}} {{start_date|date:"Y"}}г.</h5>

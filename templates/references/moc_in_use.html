@@ -1,7 +1,9 @@
 {% extends 'base_generic.html' %}
 {% load static %}
 {% block content %}
+<div class="d-flex justify-content-end">
 <button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+</div>
 <div id='print_container'>
     <h1 class='text-center'>С В Е Д Е Н И Я</h1>
     <h5 class='text-center'>о наличии типа СИ {{request.GET.moc_name}}</h5>

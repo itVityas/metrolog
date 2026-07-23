@@ -1,7 +1,9 @@
 {% extends 'base_generic.html' %}
 {% load static %}
 {% block content %}
+<div class="d-flex justify-content-end">
 <button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+</div>
 <div class='position-relative' id='print_container'>
     <h5>Предупреждаю, что эксплуатация СИ<br>с истёекшим сроком поверки<br>преследуется законом</h5>
     <h5 class='position-absolute top-0 end-0'>Начальнику подразделения "Исп.центр"</h5>

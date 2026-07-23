@@ -33,12 +33,12 @@
                     <tbody>
                         {% for object in object_list %}
                             <tr class='position-relative table-tr-hover'>
-                                <td><p id='moc_group_name' value={{object.moc_group.id}}>{{object.moc_group.name|default_if_none:""}}</p></td>
-                                <td><p id='moc_type_type' value={{object.moc_type.id}}>{{object.moc_type.type|default_if_none:""}}</p></td>
-                                <td><p id='factory_number'>{{object.factory_number|default_if_none:""}}</p></td>
-                                <td><p id='inv_number'>{{object.inv_number|default_if_none:""}}</p></td>
-                                <td><strong>Цех:</strong> <span id='department_workshop'>{{object.device_location.last.department.workshop|default_if_none:""}}</span><br>
-                                    <strong>Бригада:</strong> <span id='department_brigade'>{{object.device_location.last.department.brigade|default_if_none:""}}</span>
+                                <td><span id='moc_group_name' value={{object.moc_group.id}}>{{object.moc_group.name|default_if_none:""}}</span></td>
+                                <td><span id='moc_type_type' value={{object.moc_type.id}}>{{object.moc_type.type|default_if_none:""}}</span></td>
+                                <td><span id='factory_number'>{{object.factory_number|default_if_none:""}}</span></td>
+                                <td><span id='inv_number'>{{object.inv_number|default_if_none:""}}</span></td>
+                                <td><strong>Цех:</strong> <span id='department_workshop'>{{object.device_location.last.department.workshop|default_if_none:""}}</span>
+                                    <strong class='ms-2'>Бригада:</strong> <span id='department_brigade'>{{object.device_location.last.department.brigade|default_if_none:""}}</span>
                                     <a href="{% url 'passport_detail' pk=object.id %}" class="stretched-link"></a>
                                 </td>
                             </tr>

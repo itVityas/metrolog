@@ -1,7 +1,9 @@
 {% extends 'base_generic.html' %}
 {% load static %}
 {% block content %}
+<div class="d-flex justify-content-end">
 <button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+</div>
 <div class='position-relative' id='print_container'>
     <h1 class='text-center'>ПЕРЕЧЕНЬ СИ</h1>
     <h5 class='text-center'>установленных на оборудовании и переведенных<br>в индикаторы по подразделению {{department}}</h5>

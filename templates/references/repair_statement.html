@@ -1,7 +1,9 @@
 {% extends 'base_generic.html' %}
 {% load static %}
 {% block content %}
+<div class="d-flex justify-content-end">
 <button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
+</div>
 <div class='position-relative' id='print_container'>
     <h3 class='text-center'>Ведомость выполненых работ</h3>
     <h3 class='text-center'>по ремонту СИ, отделом метрологии</h3>

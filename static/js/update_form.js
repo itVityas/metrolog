@@ -1,23 +1,26 @@
+MUST_CONFIRM_MODAL_CLOSE = false
 
 function alert_on_close(e){
     if (!confirm('Вы уверены, что хотите закрыть окно? Несохраненные изменения будут потеряны.')) {
       e.preventDefault();
     }
 }
-
-document.querySelectorAll('.modal:has(form)').forEach(function(modalElement) {
-    modalElement.querySelectorAll('.close').forEach(function(closeBtn) {
-        closeBtn.addEventListener('click', alert_on_close);
-    });
-});
-
-document.body.addEventListener('htmx:afterSwap', function(event) {
+if(MUST_CONFIRM_MODAL_CLOSE){
     document.querySelectorAll('.modal:has(form)').forEach(function(modalElement) {
-    modalElement.querySelectorAll('.close').forEach(function(closeBtn) {
-        closeBtn.addEventListener('click', alert_on_close);
+        modalElement.querySelectorAll('.close').forEach(function(closeBtn) {
+            closeBtn.addEventListener('click', alert_on_close);
+        });
     });
-});
-});
+
+    document.body.addEventListener('htmx:afterSwap', function(event) {
+        document.querySelectorAll('.modal:has(form)').forEach(function(modalElement) {
+        modalElement.querySelectorAll('.close').forEach(function(closeBtn) {
+            closeBtn.addEventListener('click', alert_on_close);
+        });
+    });
+    });
+}
+
 
 // Отслеживаем открытие ЛЮБОГО модального окна на странице
 document.addEventListener('show.bs.modal', function (event) {
