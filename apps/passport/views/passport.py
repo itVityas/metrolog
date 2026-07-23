@@ -374,7 +374,6 @@ class PassportMigrateView(LoginRequiredMixin, View):
                 error_type = type(e).__name__
                 print(f"{error_type}: {e}")
                 print(record)
-                break
 
         obj_list = [models.MocMetals(**data_dict) for data_dict in data_list]
         models.MocMetals.objects.bulk_create(obj_list)
@@ -405,7 +404,6 @@ class PassportMigrateView(LoginRequiredMixin, View):
                 error_type = type(e).__name__
                 print(f"{error_type}: {e}")
                 print(record)
-                break
 
         obj_list = [models.VerificationInfo(**data_dict) for data_dict in data_list]
         models.VerificationInfo.objects.bulk_create(obj_list)
@@ -439,7 +437,6 @@ class PassportMigrateView(LoginRequiredMixin, View):
                 error_type = type(e).__name__
                 print(f"{error_type}: {e}")
                 print(record)
-                break
 
         obj_list = [models.RepairInfo(**data_dict) for data_dict in data_list]
         models.RepairInfo.objects.bulk_create(obj_list)
@@ -491,7 +488,6 @@ class PassportMigrateView(LoginRequiredMixin, View):
                 error_type = type(e).__name__
                 print(f"{error_type}: {e}")
                 print(record)
-                break
 
         obj_list = [models.DeviceStatusDate(**data_dict) for data_dict in data_list]
         models.DeviceStatusDate.objects.bulk_create(obj_list)
@@ -517,7 +513,6 @@ class PassportMigrateView(LoginRequiredMixin, View):
                 error_type = type(e).__name__
                 print(f"{error_type}: {e}")
                 print(record)
-                break
 
         obj_list = [models.DeviceStation(**data_dict) for data_dict in data_list]
         models.DeviceStation.objects.bulk_create(obj_list)
