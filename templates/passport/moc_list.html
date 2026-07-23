@@ -6,11 +6,11 @@
     <div class='col'>
         <div class=''>
             <h5>Паспорта</h5>
-            {% if user.is_staff %}
-            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal_window_migrate" type="button">Скопировать старую БД</button>
-            {% endif %}
             <div class='d-flex justify-content-end'>
                 <div class="">
+                    {% if user.is_staff %}
+                        <button class="btn btn-dark me-1" data-bs-toggle="modal" data-bs-target="#modal_window_migrate" type="button">Скопировать старую БД</button>
+                    {% endif %}
                     <form action="" method="get" class="d-inline">
                         <input class='search-input' type="text" name="q" placeholder="Поиск" value="{{ request.GET.q|default_if_none:"" }}">
                         <button type="submit" class="search-button btn btn-primary-outline border-0">
