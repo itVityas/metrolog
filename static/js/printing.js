@@ -163,24 +163,35 @@ async function print_to_word2(e) {
 }
 
 async function save_file(blob) {
-  try {
-    const options = {
-      suggestedName: 'Document.docx',
-      types: [{
-        description: 'Microsoft Word Document',
-        accept: {
-          'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx']
-        }
-      }],
-      excludeAcceptAllOption: true
-    };
+  if ('showSaveFilePicker' in window) {
+    try {
+      const options = {
+        suggestedName: 'Document.docx',
+        types: [{
+          description: 'Microsoft Word Document',
+          accept: {
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx']
+          }
+        }],
+        excludeAcceptAllOption: true
+      };
 
-    const fileHandle = await window.showSaveFilePicker(options);
+      const fileHandle = await window.showSaveFilePicker(options);
 
-    const writableStream = await fileHandle.createWritable();
-    await writableStream.write(blob);
-    await writableStream.close();
-  } catch (error) {
-    console.error("Save process failed or aborted:", error.name, error.message);
+      const writableStream = await fileHandle.createWritable();
+      await writableStream.write(blob);
+      await writableStream.close();
+    } catch (error) {
+      console.error("Save process failed or aborted:", error.name, error.message);
+    }
+  }else{
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   }
+
 }
