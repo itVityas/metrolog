@@ -23,10 +23,10 @@
             <div class="table-container">
                 <table class="table-fixed table table-striped table-bordered border border-dark w-100">
                     <thead>
-                        <th><a class='nav-link' href="{% querystring ordering='id' %}">{{verbose_names.id}}</a></th>
-                        <th><a class='nav-link' href="{% querystring ordering='type' %}">{{verbose_names.type}}</a></th>
-                        <th><a class='nav-link' href="{% querystring ordering='group' %}">{{verbose_names.group}}</a></th>
-                        <th><a class='nav-link' href="{% querystring ordering='name' %}">{{verbose_names.name}}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='id' %}">{{verbose_names.id}}{% if request.GET.ordering == 'id' %} <img src="{% static 'img/arrow-up.svg' %}"style="transform: rotate(180deg);" width="16" height="16">{% endif %}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='type' %}">{{verbose_names.type}}{% if request.GET.ordering == 'type' %} <img src="{% static 'img/arrow-up.svg' %}"style="transform: rotate(180deg);" width="16" height="16">{% endif %}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='group' %}">{{verbose_names.group}}{% if request.GET.ordering == 'group' %} <img src="{% static 'img/arrow-up.svg' %}"style="transform: rotate(180deg);" width="16" height="16">{% endif %}</a></th>
+                        <th><a class='nav-link' href="{% querystring ordering='name' %}">{{verbose_names.name}}{% if request.GET.ordering == 'name' %} <img src="{% static 'img/arrow-up.svg' %}"style="transform: rotate(180deg);" width="16" height="16">{% endif %}</a></th>
                         <th colspan="2" style="width: 10%;"></th>
                     </thead>
                     <tbody>
