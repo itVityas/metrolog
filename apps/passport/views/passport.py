@@ -19,6 +19,7 @@ from apps.handbooks import models as h_models
 from django.shortcuts import render
 from django.views.generic.edit import BaseFormView
 import tempfile
+from django.db.models import OuterRef, Subquery
 
 
 class PassportListView(LoginRequiredMixin, ListView):
@@ -38,12 +39,32 @@ class PassportListView(LoginRequiredMixin, ListView):
         return pagination_size if pagination_size else self.paginate_by
 
     def get_queryset(self):
+        latest_device_location_query = models.DeviceLocation.objects.filter(
+                    moc_list=OuterRef('pk')
+                ).order_by('-entry_date')
         queryset = models.MocList.objects.prefetch_related(
             'device_location',
             'verification_info',
             'repair_info',
             'device_status_date',
-            'moc_metals').all().order_by('-id')
+            'moc_metals').annotate(
+                last_device_location_workshop=Subquery(
+                    latest_device_location_query.values(
+                        'department__workshop')[:1]),
+                last_device_location_brigade=Subquery(
+                    latest_device_location_query.values(
+                        'department__brigade')[:1]),
+                ).values(
+                    'id',
+                    'moc_group__id',
+                    'moc_group__name',
+                    'moc_type__id',
+                    'moc_type__type',
+                    'factory_number',
+                    'inv_number',
+                    'last_device_location_workshop',
+                    'last_device_location_brigade',
+                    ).all().order_by('-id')
         query = self.request.GET.get('q')
 
         if query:
