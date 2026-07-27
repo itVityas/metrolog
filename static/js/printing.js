@@ -94,9 +94,9 @@ async function print_to_pdf2(e){
 
   // Поиск CSRF токена (исправлен селектор для надежности)
   const csrfToken = e.querySelector('[name=csrfmiddlewaretoken]') ? e.querySelector('[name=csrfmiddlewaretoken]').value : e.children[0].value;
-  
+  const rootUrl = window.location.origin;
   try {
-    const response = await fetch("http://127.0.0.1:8000/general/print_to_pdf/", {
+    const response = await fetch(rootUrl + "/general/print_to_pdf/", {
           method: "POST",
           headers: {
               'Content-Type': 'application/json',
@@ -133,9 +133,9 @@ async function print_to_word2(e) {
 
   // Поиск CSRF токена (исправлен селектор для надежности)
   const csrfToken = e.querySelector('[name=csrfmiddlewaretoken]') ? e.querySelector('[name=csrfmiddlewaretoken]').value : e.children[0].value;
-  
+  const rootUrl = window.location.origin;
   try {
-    const response = await fetch("http://127.0.0.1:8000/general/print_to_docx/", {
+    const response = await fetch(rootUrl + "/general/print_to_docx/", {
           method: "POST",
           headers: {
               'Content-Type': 'application/json',
