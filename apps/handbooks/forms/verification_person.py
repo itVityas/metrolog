@@ -7,7 +7,7 @@ class VerificationPersonForm(forms.ModelForm):
                          initial='', required=False)
     code = forms.CharField(
         label='Код',
-        widget=forms.NumberInput(attrs={
+        widget=forms.TextInput(attrs={
             'placeholder': 'Код',
             'class': 'form-control'
         }),
