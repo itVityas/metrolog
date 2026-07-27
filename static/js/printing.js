@@ -186,8 +186,9 @@ async function save_file(blob) {
     }
   }else{
     const a = document.createElement('a');
+    const url = window.URL.createObjectURL(blob);
     a.href = url;
-    a.download = filename;
+    a.download = 'Document.docx';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
