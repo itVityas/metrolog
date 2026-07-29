@@ -50,7 +50,8 @@ class RepairOperatingTimeView(LoginRequiredMixin, TemplateView):
             if prev_repair_department is None:
                 prev_repair_department = q.repair_department
             if prev_repair_department != q.repair_department:
-                formatted_dict['values_list'] = temp_list
+                formatted_dict['values_list'] = temp_list.copy()
+                temp_list.clear()
                 result_list.append(formatted_dict)
                 formatted_dict = {'repair_person': '',
                                   'person_rank': '',
@@ -65,7 +66,7 @@ class RepairOperatingTimeView(LoginRequiredMixin, TemplateView):
             temp_list.append(q)
         formatted_dict['values_list'] = temp_list
         result_list.append(formatted_dict)
-
+        print(result_list)
         context['start_date'] = start_date
         context['queryset'] = result_list
         return self.render_to_response(context)

@@ -447,12 +447,13 @@ class PassportMigrateView(LoginRequiredMixin, View):
                 new_dict['repair_department'] = hmodels.RepairDepartment.objects.filter(code=record.get('KOD_REM')).first()
                 new_dict['instrument_failure'] = hmodels.InstrumentFailure.objects.filter(code=record.get('PRICH_OTK')).first()
                 new_dict['moc_list'] = models.MocList.objects.filter(
-                    inv_number=record.get('INV_N')
+                    inv_number=new_dict['inv_number']
                     ).first()
                 if new_dict['repair_type'] is None:
                     new_dict['repair_type'] = models.RepairInfo.RepairType.CURRENT
                 data_list.append(new_dict)
             except (models.MocList.DoesNotExist):
+                print('not found moc_list:' + record)
                 continue
             except Exception as e:
                 error_type = type(e).__name__
