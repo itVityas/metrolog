@@ -25,8 +25,8 @@
                     <td class=''>{{query.moc_group.name|default_if_none:""}}<br>{{query.moc_type.type|default_if_none:""}}</td>
                     <td class=''>{{query.factory_number|default_if_none:""}}</td>
                     <td class=''>{{query.inv_number|default_if_none:""}}</td>
-                    <td class=''>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
-                    <td class=''>{{query.verification_info.last.workshop_issue_date|date:"d.m.Y"}}</td>
+                    <td class=''>{{query.last_verification_date|date:"d.m.Y"}}</td>
+                    <td class=''>{{query.last_workshop_issue_date|date:"d.m.Y"}}</td>
                     <td class=''></td>
                 </tr>
                 {% endfor %}

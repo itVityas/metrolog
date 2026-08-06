@@ -27,8 +27,8 @@
                     <td class=''>{{query.inv_number|default_if_none:""}}</td>
                     <td class=''>{{query.verification_type|default_if_none:""}}</td>
                     <td class=''>{{query.sign_o_r|default_if_none:""}}</td>
-                    <td class=''>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
-                    <td class=''>{{query.device_status_date.last.device_status.name|default_if_none:""}}</td>
+                    <td class=''>{{query.last_verification_date|date:"d.m.Y"}}</td>
+                    <td class=''>{{query.last_device_status|default_if_none:""}}</td>
                     <td class=''>{{query.sign_o_m|default_if_none:""}}</td>
                 </tr>
                 {% endfor %}

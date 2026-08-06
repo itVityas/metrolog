@@ -30,7 +30,7 @@ class VerificationReportView(LoginRequiredMixin, TemplateView):
                         start_date,
                         end_date]).exclude(
                             verification_sign__code='3').order_by(
-                                'moc_list__change_type')
+                                'moc_list__change_type__code')
 
         result_list = []
         prev_change_type = None
@@ -53,10 +53,10 @@ class VerificationReportView(LoginRequiredMixin, TemplateView):
             formatted_dict['change_type'] = prev_change_type.name
             if q.verification_sign.code == '1':
                 formatted_dict['total_sum_first'] += 1
-                formatted_dict['complexity_first'] = q.moc_list.moc_type.standart_verification
+                formatted_dict['complexity_first'] += q.moc_list.moc_type.standart_verification if q.moc_list.moc_type.standart_verification else 0
             if q.verification_sign.code == '2':
                 formatted_dict['total_sum_final'] += 1
-                formatted_dict['complexity_final'] = q.moc_list.moc_type.standart_verification
+                formatted_dict['complexity_final'] += q.moc_list.moc_type.standart_verification if q.moc_list.moc_type.standart_verification else 0
         result_list.append(formatted_dict)
         final_data_list = [
             {'work_name': '1. Ведомственная поверка СИ по видам измерений',

@@ -18,18 +18,23 @@
                 <th>Кол. СИ</th>
                 <th>Разр. работ</th>
                 <th>Трудоем. на ед.</th>
-                <th>Основная з/п (руб.)</th>
+                <!--<th>Основная з/п (руб.)</th>-->
                 <th>Примечание</th>
             </thead>
             <tbody>
                 {% for query in queryset %}
                 <tr class=''>
-                    <td class=''>{{query.moc_list__moc_group__name|default_if_none:""}}<br>{{query.moc_list__moc_type__type|default_if_none:""}}</td>
-                    <td class=''>{{query.moc_count|default_if_none:""}}</td>
-                    <td class=''>{{query.moc_list__moc_type__rank_verification|default_if_none:""}}</td>
-                    <td class=''>{{query.moc_list__moc_type__standart_verification|default_if_none:""}}</td>
-                    <td class=''>{{query.moc_list__moc_type__standart_verification|multiply:0.9}}</td>
+                    <td class=''>{{query.name|default_if_none:""}}<br>{{query.type|default_if_none:""}}</td>
+                    <td class=''>{{query.inv_num_list|length}}</td>
+                    <td class=''>{{query.rank_verification|default_if_none:""}}</td>
+                    <td class=''>{{query.standart_verification|default_if_none:""}}</td>
+                    <!--<td class=''></td>-->
                     <td class=''></td>
+                </tr>
+                <tr>
+                    <td colspan='6' class="text-start">
+                        {% for inv_num in query.inv_num_list %} {{inv_num}}, {% endfor %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -45,19 +50,7 @@
                 </tr>
                 <tr class='border-0'>
                     <td class='border-0'>Количество СИ</td>
-                    <td class='border-0'>{{sum_queryset.moc_count_sum|default_if_none:""}}</td>
-                </tr>
-                <tr class='border-0'>
-                    <td class='border-0'>Основная зарплата</td>
-                    <td class='border-0'>{{sum_queryset.standart_sum|multiply:0.9}}</td>
-                </tr>
-                <tr class='border-0'>
-                    <td class='border-0'>Основная зарплата с премиальными</td>
-                    <td class='border-0'></td>
-                </tr>
-                <tr class='border-0'>
-                    <td class='border-0'>Стоимость госповерки</td>
-                    <td class='border-0'>{{sum_queryset.cost_sum|default_if_none:""}}</td>
+                    <td class='border-0'>{{sum_queryset.total_amount|default_if_none:""}}</td>
                 </tr>
             </tbody>
         </table>

@@ -1,14 +1,15 @@
 {% extends 'base_generic.html' %}
 {% load static %}
+{% load date_tags %}
 {% block content %}
 <div class="d-flex justify-content-end">
 <button class="btn btn-dark" onclick='print_to_html()'>Печать</button>
 </div>
 <div class='position-relative' id='print_container'>
     <h5>Предупреждаю, что после указаного<br>срока эксплуатировать перечисленные<br>средства измерения<br><strong>ЗАПРЕЩЕНО</strong></h5>
-    <h5 class='position-absolute top-0 end-0'>Начальнику подразделения "Исп.центр"</h5>
+    <h5 class='position-absolute top-0 end-0'>Начальнику подразделения {{location_name}}</h5>
     <h1 class='text-center'>СЛУЖЕБНАЯ ЗАПИСКА<br>ДЛЯ ВСТРОЕННЫХ СИ</h1>
-    <h5 class='text-center'>прошу предоставить на поверку в апреле<br>следующие средства измерений, закреплённые за подразделением</h5>
+    <h5 class='text-center'>прошу предоставить на поверку в {{ start_date|in_month }}<br>следующие средства измерений, закреплённые за подразделением</h5>
         <br>
         <table class="table table-bordered border border-dark w-100 text-center">
             <thead>
@@ -29,7 +30,7 @@
                     <td class=''>{{query.moc_group.name|default_if_none:""}} {{query.moc_type.type|default_if_none:""}}</td>
                     <td class=''>{{query.device_station.station_inv_number|default_if_none:""}} {{query.device_station.station_name|default_if_none:""}}</td>
                     <td class=''>{{query.factory_number|default_if_none:""}}</td>
-                    <td class=''>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
+                    <td class=''>{{query.last_verification_date|date:"d.m.Y"}}</td>
                 </tr>
                 {% endfor %}
             </tbody>

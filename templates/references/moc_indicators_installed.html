@@ -34,7 +34,7 @@
                     <td class=''>{{query.moc_group.name|default_if_none:""}} {{query.moc_type.type|default_if_none:""}}</td>
                     <td class=''>{{query.factory_number|default_if_none:""}}</td>
                     <td class=''>{{query.device_station.station_name|default_if_none:""}}</td>
-                    <td class=''>{{query.inv_number|default_if_none:""}}</td>
+                    <td class=''>{{query.device_station.station_inv_number|default_if_none:""}}</td>
                     <td class=''>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
                 </tr>
                 {% endfor %}

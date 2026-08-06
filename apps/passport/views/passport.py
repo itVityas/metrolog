@@ -341,28 +341,25 @@ class PassportMigrateView(LoginRequiredMixin, View):
         for record in table:
             new_dict = {}
             try:
-                new_dict['moc_type'] = hmodels.MocType.objects.get(
+                new_dict['moc_type'] = hmodels.MocType.objects.filter(
                     type=record.get('TIP_SI')
-                    )
+                    ).first()
                 new_dict['factory_number'] = record.get('ZAV_N')
                 new_dict['inv_number'] = record.get('INV_N')
                 new_dict['change_type'] = hmodels.ChangeType.objects.get(
                     code=record.get('VID_IZ')
                     )
                 new_dict['moc_group'] = hmodels.MocGroup.objects.filter(
-                        group=record.get('GR_SI')).first()
+                        group=record.get('GR_SI'),
+                        type=record.get('VID_IZ')).first()
                 new_dict['verification_type'] = record.get('VID_POV')
                 new_dict['sign_o_r'] = record.get('PR_O_R')
                 new_dict['sign_o_m'] = record.get('PR_O_M')
                 new_dict['verification_period'] = record.get('PER_POV')
-                new_dict['verification_department'] = hmodels.VerificationDepartment.objects.get(
+                new_dict['verification_department'] = hmodels.VerificationDepartment.objects.filter(
                     code=record.get('POV_POD')
-                    )
+                    ).first()
                 data_list.append(new_dict)
-            except hmodels.VerificationDepartment.DoesNotExist:
-                new_dict['verification_department'] = None
-            except hmodels.MocType.DoesNotExist:
-                new_dict['moc_type'] = None
             except Exception as e:
                 error_type = type(e).__name__
                 print(f"{error_type}: {e}")
@@ -379,17 +376,16 @@ class PassportMigrateView(LoginRequiredMixin, View):
         for record in table:
             new_dict = {}
             try:
-                new_dict['precious_metals'] = hmodels.PreciousMetals.objects.get(
+                new_dict['precious_metals'] = hmodels.PreciousMetals.objects.filter(
                     id=record.get('KM')
-                    )
+                    ).first()
                 new_dict['inv_number'] = record.get('INV_N')
                 new_dict['metal_amount'] = record.get('MET')
                 new_dict['moc_list'] = models.MocList.objects.filter(
                     inv_number=record.get('INV_N')
                     ).first()
                 data_list.append(new_dict)
-            except (models.MocList.DoesNotExist,
-                    hmodels.PreciousMetals.DoesNotExist):
+            except (models.MocList.DoesNotExist):
                 continue
             except Exception as e:
                 error_type = type(e).__name__

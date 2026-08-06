@@ -6,18 +6,20 @@ import datetime
 
 class MocPresenceForm(forms.Form):
 
+    change_type = forms.MultipleChoiceField(
+        label='Вид измерения',
+        widget=forms.CheckboxSelectMultiple()
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['change_type'].choices = [
+            (str(obj.id), obj.name) for obj in hmodels.ChangeType.objects.all()
+        ]
+
     class DepartmentChoiceField(ModelChoiceField):
         def label_from_instance(self, obj):
             return "%s" % obj.name
-
-    class ChangeTypeChoiceField(ModelChoiceField):
-        def label_from_instance(self, obj):
-            return "%s" % obj.name
-
-    change_type = ChangeTypeChoiceField(
-        hmodels.ChangeType.objects.all(),
-        label='Вид измерения'
-    )
 
     department = DepartmentChoiceField(
         hmodels.Department.objects.all(),
@@ -27,14 +29,16 @@ class MocPresenceForm(forms.Form):
 
 class VerificationLogForm(forms.Form):
 
-    class ChangeTypeChoiceField(ModelChoiceField):
-        def label_from_instance(self, obj):
-            return "%s" % obj.name
-
-    change_type = ChangeTypeChoiceField(
-        hmodels.ChangeType.objects.all(),
-        label='Вид измерения'
+    change_type = forms.MultipleChoiceField(
+        label='Вид измерения',
+        widget=forms.CheckboxSelectMultiple()
     )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['change_type'].choices = [
+            (str(obj.id), obj.name) for obj in hmodels.ChangeType.objects.all()
+        ]
 
     start_date = forms.DateField(
         label='Дата начала месяца',

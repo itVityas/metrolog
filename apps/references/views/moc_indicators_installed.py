@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from ...passport import models as pmodels
 from django.shortcuts import render
 from ..forms import MocIndicatorsForm
+from django.db.models import OuterRef, Subquery
 
 
 class MocIndicatorsInstalledView(LoginRequiredMixin, TemplateView):
@@ -26,7 +27,17 @@ class MocIndicatorsInstalledView(LoginRequiredMixin, TemplateView):
                 'device_location',
                 'device_station').filter(
                     device_location__department=department,
-                    change_type__code='99/3')
+                    change_type__code='88',
+                    ).exclude(
+                        device_station=None
+                        ).order_by(
+                            'moc_type__type',
+                            'moc_group__name'
+                            )
+        if department.name == '"Исп.центр центр"':
+            department.name = 'Исп.центр'
+        elif department.name == 'Тех.центр центр центр':
+            department.name = 'Тех.центр'
 
         context['department'] = department.name
         context['queryset'] = queryset

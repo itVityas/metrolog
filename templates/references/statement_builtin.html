@@ -18,7 +18,6 @@
             </thead>
             <tbody>
                 {% for query in queryset %}
-                {% if query.verification_info.last.verification_date < start_date %}
                 {% ifchanged query.verification_type %}
                     <tr class='border-0'><td colspan=5 class='border-0'>Вид поверки: <span class='text-decoration-underline fw-bold'>{{ query.get_verification_type_display|default_if_none:"" }}</span></td></tr>
                 {% endifchanged %}
@@ -29,10 +28,9 @@
                     <td class=''>{{query.moc_group.name|default_if_none:""}} {{query.moc_type.type|default_if_none:""}}</td>
                     <td class=''>{{query.device_station.station_name|default_if_none:""}}</td>
                     <td class=''>{{query.factory_number|default_if_none:""}}</td>
-                    <td class=''>{{query.verification_info.last.verification_date|date:"d.m.Y"}}</td>
-                    <td class=''>{{query.device_location.last.department.name|default_if_none:""}}</td>
+                    <td class=''>{{query.last_verification_date|date:"d.m.Y"}}</td>
+                    <td class=''>{{query.last_location_name|default_if_none:""}}</td>
                 </tr>
-                {% endif %}
                 {% endfor %}
             </tbody>
         </table>

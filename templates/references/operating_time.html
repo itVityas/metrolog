@@ -35,11 +35,11 @@
                     <td class=''>{{data.values.verification_date|date:"d"}}</td>
                     <td class=''>{{data.values.moc_list.moc_type.type|default_if_none:""}}</td>
                     <td class=''>{{data.values.moc_list.inv_number|default_if_none:""}}</td>
-                    <td class=''></td>
-                    <td class=''>{{data.result|yesno:'+,-'}}</td>
+                    <td class=''>{{data.failure_code|default_if_none:""}}</td>
+                    <td class=''>{{data.result|yesno:'+,'}}</td>
                     <td class=''>{{data.values.moc_list.moc_type.rank_verification|default_if_none:""}}</td>
-                    <td class=''>{{data.values.moc_list.moc_type.standart_verification|default_if_none:""}}</td>
-                    <td class=''>{{data.values.moc_list.moc_type.standart_verification|multiply:0.9}}</td>
+                    <td class=''>{% if not data.failure_code %}{{data.values.moc_list.moc_type.standart_verification|default_if_none:""}}{% endif %}</td>
+                    <td class=''></td>
                 </tr>
                 {% endfor %}
             </tbody>

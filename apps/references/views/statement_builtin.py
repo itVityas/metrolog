@@ -15,13 +15,19 @@ class StatementBuiltinView(LoginRequiredMixin, TemplateView):
     def get(self, request, *args, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        latest_verification_info_query = pmodels.VerificationInfo.objects.filter(
-            moc_list=OuterRef('pk')
-        ).order_by('-verification_date')
-
         latest_device_location_query = pmodels.DeviceLocation.objects.filter(
             moc_list=OuterRef('pk')
-        ).order_by('-entry_date')
+            ).order_by('-id')
+
+        latest_verification_info_query = pmodels.VerificationInfo.objects.filter(
+            moc_list=OuterRef('pk')
+            ).exclude(
+                verification_date=None,
+                ).order_by('-verification_date')
+
+        latest_device_status_query = pmodels.DeviceStatusDate.objects.filter(
+            moc_list=OuterRef('pk')
+            ).order_by('-id')
 
         start_date = date.today()
         start_date = start_date.replace(year=start_date.year - 2)
@@ -31,22 +37,35 @@ class StatementBuiltinView(LoginRequiredMixin, TemplateView):
                 'verification_info',
                 'device_location',
                 'device_station').annotate(
+                    last_location_name=Subquery(
+                        latest_device_location_query.values(
+                            'department__name')[:1]),
+                    last_location_workshop=Subquery(
+                        latest_device_location_query.values(
+                            'department__workshop')[:1]),
+                    last_location_brigade=Subquery(
+                        latest_device_location_query.values(
+                            'department__brigade')[:1]),
                     last_verification_date=Subquery(
                         latest_verification_info_query.values(
                             'verification_date')[:1]),
-                    last_device_location=Subquery(
-                        latest_device_location_query.values(
-                            'department__name')[:1])).filter(
+                    last_device_status=Subquery(
+                        latest_device_status_query.values(
+                            'device_status__name')[:1]),).filter(
+                                last_device_status='В эксплуатации',
                                 verification_period__lte=(
                                     Extract(start_date, 'year') -
                                     Extract('last_verification_date',
                                             'year')) * 12 +
                                 (Extract(start_date, 'month') -
                                     Extract('last_verification_date',
-                                            'month'))).filter(
-                                                sign_o_m=pmodels.MocList.SignOM.BUILTIN
-                                                ).order_by('verification_type',
-                                                           'change_type__name')
+                                            'month')),
+                                sign_o_m=pmodels.MocList.SignOM.BUILTIN
+                                ).exclude(
+                                    verification_type=''
+                                    ).order_by('verification_type',
+                                               'change_type__code',
+                                               'last_location_name')
 
         context['queryset'] = queryset
         context['start_date'] = start_date

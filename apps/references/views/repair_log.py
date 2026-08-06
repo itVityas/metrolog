@@ -18,16 +18,22 @@ class RepairLogView(LoginRequiredMixin, TemplateView):
 
         form = VerificationLogForm(request.POST)
         if form.is_valid():
-            change_type = form.cleaned_data['change_type']
+            change_type_list = form.cleaned_data['change_type']
             start_date = form.cleaned_data['start_date']
 
         latest_repair_info_query = pmodels.RepairInfo.objects.filter(
             moc_list=OuterRef('pk')
-        ).order_by('-entry_date')
+        ).exclude(
+            entry_date=None
+            ).order_by('-entry_date')
 
         latest_device_location_query = pmodels.DeviceLocation.objects.filter(
             moc_list=OuterRef('pk')
         ).order_by('-entry_date')
+
+        latest_device_status_query = pmodels.DeviceStatusDate.objects.filter(
+            moc_list=OuterRef('pk')
+            ).order_by('-id')
 
         queryset = pmodels.MocList.objects.select_related(
             'moc_type').annotate(
@@ -48,13 +54,16 @@ class RepairLogView(LoginRequiredMixin, TemplateView):
                         'repair_date')[:1]),
                 last_device_location=Subquery(
                     latest_device_location_query.values(
-                        'department__name')[:1])
+                        'department__name')[:1]),
+                last_device_status=Subquery(
+                    latest_device_status_query.values(
+                        'device_status__name')[:1]),
                 ).filter(
-                    entry_date__lte=start_date,
-                    change_type=change_type,
-                    repair_date=None).exclude(
-                        entry_date=None).order_by(
-                            'last_device_location')
+                    last_device_status='В ремонте',
+                    change_type__in=change_type_list,
+                    ).exclude().order_by(
+                            'last_device_location',
+                            'moc_type__type')
 
         result_list = []
         prev_location = None
@@ -73,6 +82,12 @@ class RepairLogView(LoginRequiredMixin, TemplateView):
             if q.moc_type.standart_repair is not None:
                 total_sum += q.moc_type.standart_repair
             list_to_add.append(q)
+
+        for elem in result_list:
+            if elem['location'] == '"Исп.центр центр"':
+                elem['location'] = 'Исп.центр'
+            if elem['location'] == 'Тех.центр центр центр':
+                elem['location'] = 'Тех.центр'
 
         context['start_date'] = start_date
         context['result_list'] = result_list

@@ -25,8 +25,14 @@ class MocIndicatorsView(LoginRequiredMixin, TemplateView):
                 'verification_info',
                 'device_location').filter(
                     device_location__department=department,
-                    change_type__code='88')
-
+                    change_type__code='88').order_by(
+                        'moc_type__type',
+                        'moc_group__name'
+                    )
+        if department.name == '"Исп.центр центр"':
+            department.name = 'Исп.центр'
+        elif department.name == 'Тех.центр центр центр':
+            department.name = 'Тех.центр'
         context['department'] = department.name
         context['queryset'] = queryset
         return self.render_to_response(context)

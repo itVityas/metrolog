@@ -24,6 +24,10 @@ class RepairLongTermView(LoginRequiredMixin, TemplateView):
             moc_list=OuterRef('pk')
         ).order_by('-entry_date')
 
+        latest_device_status_query = pmodels.DeviceStatusDate.objects.filter(
+            moc_list=OuterRef('pk')
+            ).order_by('-id')
+
         queryset = pmodels.MocList.objects.select_related(
             'moc_type',
             'moc_group',
@@ -42,11 +46,14 @@ class RepairLongTermView(LoginRequiredMixin, TemplateView):
                         'instrument_failure__name')[:1]),
                 last_device_location=Subquery(
                     latest_device_location_query.values(
-                        'department__name')[:1])
+                        'department__name')[:1]),
+                last_device_status=Subquery(
+                    latest_device_status_query.values(
+                        'device_status__name')[:1]),
                 ).filter(
-                    repair_type=pmodels.RepairInfo.RepairType.LONGTERM,
-                    repair_date=None).order_by(
-                        'change_type')
+                    last_device_status='Долгоср-й рем.',
+                    ).order_by(
+                        'change_type__name')
 
         result_list = []
         prev_change_type = None
@@ -60,6 +67,12 @@ class RepairLongTermView(LoginRequiredMixin, TemplateView):
                 list_to_add = []
                 prev_change_type = q.change_type
             list_to_add.append(q)
+
+        for elem in result_list:
+            if elem['location'] == '"Исп.центр центр"':
+                elem['location'] = 'Исп.центр'
+            if elem['location'] == 'Тех.центр центр центр':
+                elem['location'] = 'Тех.центр'
 
         context['result_list'] = result_list
         return self.render_to_response(context)

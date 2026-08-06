@@ -16,25 +16,25 @@ class MocVerificationTypesView(LoginRequiredMixin, TemplateView):
 
         queryset = pmodels.MocList.objects.select_related(
             'change_type').values(
-                'change_type__name').annotate(total=Count('id'))
+                'change_type__name', 'change_type__code').annotate(total=Count('id')).order_by('change_type__code')
 
         queryset_g_o = pmodels.MocList.objects.select_related(
             'change_type').filter(
                 verification_type='Г',
                 sign_o_r='О').values(
-                    'change_type__name').annotate(count_g_o=Count('sign_o_r'))
+                    'change_type__name', 'change_type__code').annotate(count_g_o=Count('id'))
 
         queryset_g_r = pmodels.MocList.objects.select_related(
             'change_type').filter(
                 verification_type='Г',
                 sign_o_r='Р').values(
-                    'change_type__name').annotate(count_g_r=Count('sign_o_r'))
+                    'change_type__name', 'change_type__code').annotate(count_g_r=Count('id'))
 
         queryset_v_r = pmodels.MocList.objects.select_related(
             'change_type').filter(
                 verification_type='В',
                 sign_o_r='Р').values(
-                    'change_type__name').annotate(count_v_r=Count('sign_o_r'))
+                    'change_type__name', 'change_type__code').annotate(count_v_r=Count('id'))
 
         all_dicts = chain(queryset, queryset_v_r, queryset_g_o, queryset_g_r)
         merged_data = {}
@@ -45,5 +45,10 @@ class MocVerificationTypesView(LoginRequiredMixin, TemplateView):
             else:
                 merged_data[key] = item
 
+        total_count = 0
+        for item in list(merged_data.values()):
+            total_count += item['total']
+
         context['queryset'] = list(merged_data.values())
+        context['total_count'] = total_count
         return context

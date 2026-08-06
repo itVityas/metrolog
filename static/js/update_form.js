@@ -21,6 +21,16 @@ if(MUST_CONFIRM_MODAL_CLOSE){
     });
 }
 
+document.addEventListener('htmx:afterSwap', function (event) {
+    // Ищем меню дропдауна внутри прилетевшего фрагмента
+    const dropdownMenu = event.detail.target.querySelector('.dropdown-menu');
+    
+    if (dropdownMenu) {
+        dropdownMenu.addEventListener('click', function (e) {
+            e.stopPropagation(); // Сработает только для этого конкретного окна
+        });
+    }
+});
 
 // Отслеживаем открытие ЛЮБОГО модального окна на странице
 document.addEventListener('show.bs.modal', function (event) {
