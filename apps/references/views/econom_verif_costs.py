@@ -53,7 +53,8 @@ class EconomVerifCostsView(LoginRequiredMixin, TemplateView):
                         Extract('last_verification_date', 'month'))
                     ).exclude(
                         actual_device_status='На хранении').order_by(
-                            'last_device_location')
+                            'last_device_location',
+                            'moc_type__type')
 
         result_list = []
         prev_location = None

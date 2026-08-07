@@ -8,6 +8,7 @@ from django.db.models import Count, Sum, Avg
 from django.db.models import F
 from datetime import date
 import calendar
+from django.db.models import OuterRef, Subquery
 
 
 class RepairStatementView(LoginRequiredMixin, TemplateView):
@@ -27,28 +28,61 @@ class RepairStatementView(LoginRequiredMixin, TemplateView):
         start_month = start_date.month
         _, last_day = calendar.monthrange(start_year, start_month)
 
+        latest_device_location_query = pmodels.DeviceLocation.objects.filter(
+            moc_list=OuterRef('pk')
+        ).order_by('-entry_date')
+
+        latest_device_location_query = pmodels.DeviceLocation.objects.filter(
+            moc_list=OuterRef('pk')
+        ).order_by('-entry_date')
+
+        latest_device_status_query = pmodels.DeviceStatusDate.objects.filter(
+            moc_list=OuterRef('pk')
+            ).order_by('-id')
+
         start_of_year = date(start_year, 1, 1)
         end_date = date(start_year, start_month, last_day)
 
-        queryset_month = pmodels.RepairInfo.objects.select_related(
-            'moc_list').prefetch_related('moc_list__device_location').filter(
-                    repair_date__year=Extract(start_date, 'year'),
-                    repair_date__month=Extract(start_date, 'month')).values(
-                        location_name=F('moc_list__device_location__department__name'),
-                        ).annotate(
-                            repair_count=Count('moc_list__moc_type'),
-                            standart_sum=Sum('moc_list__moc_type__standart_repair'),
-                            avg_rank=Avg('moc_list__moc_type__rank_repair')
-                            ).order_by('location_name')
+        queryset_month = pmodels.MocList.objects.prefetch_related(
+            'repair_info',
+            'device_location'
+            ).annotate(
+                last_device_location=Subquery(
+                    latest_device_location_query.values(
+                        'department__name')[:1]),
+                last_device_status=Subquery(
+                    latest_device_status_query.values(
+                        'device_status__name')[:1]),
+                ).exclude(
+                    repair_info__repair_date=None
+                    ).filter(
+                        repair_info__repair_date__year=Extract(start_date, 'year'),
+                        repair_info__repair_date__month=Extract(start_date, 'month')
+                        ).values(
+                            location_name=F('last_device_location'),
+                            ).annotate(
+                                repair_count=Count('moc_type'),
+                                standart_sum=Sum('moc_type__standart_repair'),
+                                avg_rank=Avg('moc_type__rank_repair')
+                                ).order_by('location_name')
 
-        queryset_year = pmodels.RepairInfo.objects.select_related(
-            'moc_list').prefetch_related('moc_list__device_location').filter(
-                    repair_date__range=(start_of_year, end_date)).values(
-                        location_name=F('moc_list__device_location__department__name'),
+        queryset_year = pmodels.MocList.objects.prefetch_related(
+            'repair_info',
+            'device_location').annotate(
+                last_device_location=Subquery(
+                    latest_device_location_query.values(
+                        'department__name')[:1]),
+                last_device_status=Subquery(
+                    latest_device_status_query.values(
+                        'device_status__name')[:1]),
+                ).filter(
+                    repair_info__repair_date__range=(start_of_year, end_date)
+                    ).values(
+                        location_name=F('last_device_location'),
                         ).annotate(
-                            repair_count=Count('moc_list__moc_type'),
-                            standart_sum=Sum('moc_list__moc_type__standart_repair'),
-                            avg_rank=Avg('moc_list__moc_type__rank_repair')
+                            repair_count=Count('moc_type'),
+                            standart_sum=Sum('moc_type__standart_repair'),
+                            avg_rank=Avg('moc_type__rank_repair')
                             ).order_by('location_name')
 
         sum_queryset = {
@@ -90,6 +124,12 @@ class RepairStatementView(LoginRequiredMixin, TemplateView):
                          'year_repair_count': '',
                          'year_standart_sum': '',
                          'year_avg_rank': ''}
+
+        for elem in result_queryset:
+            if elem['location_name'] == '"Исп.центр центр"':
+                elem['location_name'] = 'Исп.центр'
+            if elem['location_name'] == 'Тех.центр центр центр':
+                elem['location_name'] = 'Тех.центр'
 
         context['start_date'] = start_date
         context['queryset'] = result_queryset
