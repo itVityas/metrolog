@@ -30,8 +30,7 @@ class EconomVerifCostsMetrView(LoginRequiredMixin, TemplateView):
 
         actual_device_status_query = pmodels.DeviceStatusDate.objects.filter(
             moc_list=OuterRef('pk'),
-            status_date__lte=start_date
-        ).order_by('-status_date')
+        ).order_by('-id')
 
         queryset = pmodels.MocList.objects.select_related(
             'moc_type').annotate(
@@ -48,6 +47,7 @@ class EconomVerifCostsMetrView(LoginRequiredMixin, TemplateView):
                     actual_device_status_query.values(
                         'device_status__name')[:1]),
                 ).filter(
+                    actual_device_status='В эксплуатации',
                     device_location_workshop__in=['1521', '1523'],
                     verification_type=pmodels.MocList.VerificationType.GOVERNMENTAL,
                     verification_period__lte=(
@@ -56,7 +56,8 @@ class EconomVerifCostsMetrView(LoginRequiredMixin, TemplateView):
                     (Extract(start_date, 'month') -
                         Extract('last_verification_date', 'month'))
                     ).exclude().order_by(
-                        'last_device_location')
+                        '-last_device_location',
+                        'moc_type__type')
 
         result_list = []
         prev_location = None
@@ -70,6 +71,8 @@ class EconomVerifCostsMetrView(LoginRequiredMixin, TemplateView):
                 list_to_add = []
                 prev_location = q.last_device_location
             list_to_add.append(q)
+        result_list.append({'location': prev_location,
+                            'values': list_to_add})
 
         context['start_date'] = start_date
         context['result_list'] = result_list

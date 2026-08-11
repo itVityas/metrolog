@@ -30,7 +30,7 @@ class EconomRefView(LoginRequiredMixin, TemplateView):
                         verification_count=Count('moc_list__moc_type'),
                         standart_sum=Sum('moc_list__moc_type__standart_verification'),
                         avg_rank=Avg('moc_list__moc_type__rank_verification')
-                        ).order_by('change_type')
+                        ).order_by('moc_list__change_type__code')
         queryset_dep = pmodels.VerificationInfo.objects.select_related(
             'moc_list').prefetch_related('moc_list__device_location').filter(
                 verification_date__year=Extract(start_date, 'year'),
@@ -40,7 +40,7 @@ class EconomRefView(LoginRequiredMixin, TemplateView):
                         verification_count=Count('moc_list__moc_type'),
                         standart_sum=Sum('moc_list__moc_type__standart_verification'),
                         avg_rank=Avg('moc_list__moc_type__rank_verification')
-                        ).order_by('change_type')
+                        ).order_by('moc_list__change_type__code')
 
         result_list = []
         verification_count = 0

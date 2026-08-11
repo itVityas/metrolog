@@ -6,7 +6,7 @@
 </div>
 <div class='position-relative' id='print_container'>
     <h3 class='text-center'>Затраты структурных подразделений</h3>
-    <h3 class='text-center'>на поверку СИ на {% if period_is_month %}{{ start_date|date:"F" }} {{ start_date|date:"yy" }}г.{% else %}{{ start_date|date:"yy" }}г.{% endif %}</h3>
+    <h3 class='text-center'>на поверку СИ на {% if period_is_month %}{{ start_date|date:"F" }} {{ start_date|date:"Y" }}г.{% else %}{{ start_date|date:"Y" }}г.{% endif %}</h3>
         <br>
         <table class="table table-bordered border border-dark w-100 text-center">
             <thead>

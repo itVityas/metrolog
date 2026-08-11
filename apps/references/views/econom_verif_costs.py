@@ -30,8 +30,7 @@ class EconomVerifCostsView(LoginRequiredMixin, TemplateView):
 
         actual_device_status_query = pmodels.DeviceStatusDate.objects.filter(
             moc_list=OuterRef('pk'),
-            status_date__lte=start_date
-        ).order_by('-status_date')
+        ).order_by('-id')
 
         queryset = pmodels.MocList.objects.select_related(
             'moc_type').annotate(
@@ -45,16 +44,16 @@ class EconomVerifCostsView(LoginRequiredMixin, TemplateView):
                     actual_device_status_query.values(
                         'device_status__name')[:1]),
                 ).filter(
+                    actual_device_status='В эксплуатации',
                     verification_type=pmodels.MocList.VerificationType.GOVERNMENTAL,
                     verification_period__lte=(
                         Extract(start_date, 'year') -
                         Extract('last_verification_date', 'year')) * 12 +
                     (Extract(start_date, 'month') -
                         Extract('last_verification_date', 'month'))
-                    ).exclude(
-                        actual_device_status='На хранении').order_by(
-                            'last_device_location',
-                            'moc_type__type')
+                    ).order_by(
+                        'last_device_location',
+                        'moc_type__type')
 
         result_list = []
         prev_location = None
@@ -70,6 +69,12 @@ class EconomVerifCostsView(LoginRequiredMixin, TemplateView):
                 list_to_add = []
                 prev_location = q.last_device_location
             list_to_add.append(q)
+
+        for elem in result_list:
+            if elem['location'] == '"Исп.центр центр"':
+                elem['location'] = 'Исп.центр'
+            if elem['location'] == 'Тех.центр центр центр':
+                elem['location'] = 'Тех.центр'
 
         context['start_date'] = start_date
         context['result_list'] = result_list

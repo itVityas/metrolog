@@ -25,7 +25,7 @@
                     {% for data in location_data.values %}
                         <tr>
                             <td>{{data.moc_group.name|default_if_none:""}} {{data.moc_type.type|default_if_none:""}}</td>
-                            <td>{{data.moc_group.group|default_if_none:""}}</td>
+                            <td>{{data.moc_type.code|default_if_none:""}}</td>
                             <td>{{data.factory_number|default_if_none:""}}</td>
                             <td>{{data.inv_number|default_if_none:""}}</td>
                             <td>{{data.last_verification_date|date:"d.m.Y"}}</td>

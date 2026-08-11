@@ -7,7 +7,7 @@
 </div>
 <div class='position-relative' id='print_container'>
         <h1 class='text-center'>СПРАВКА</h1>
-        <h5 class='text-center'>о трудоемкости поверочных работ по цеху {{department.name}} на {% if period_is_month %}{{ start_date|date:"F" }} {{ start_date|date:"yy" }}г.{% else %}{{ start_date|date:"yy" }}г.{% endif %}</h5>
+        <h5 class='text-center'>о трудоемкости поверочных работ по цеху {{department.name}} на {% if period_is_month %}{{ start_date|date:"F" }} {{ start_date|date:"Y" }}г.{% else %}{{ start_date|date:"Y" }}г.{% endif %}</h5>
         <br>
         <table class="table table-bordered border border-dark w-100 text-center">
             <thead>

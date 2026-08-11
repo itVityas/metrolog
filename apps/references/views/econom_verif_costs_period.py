@@ -8,6 +8,7 @@ from django.db.models import Count, Sum, Avg
 from django.db.models import F
 from datetime import date
 import calendar
+from django.db.models import OuterRef, Subquery
 
 
 class EconomVerifCostsPeriodView(LoginRequiredMixin, TemplateView):
@@ -31,30 +32,43 @@ class EconomVerifCostsPeriodView(LoginRequiredMixin, TemplateView):
         start_of_year = date(start_year, 1, 1)
         end_date = date(start_year, start_month, last_day)
 
+        latest_device_location_query = pmodels.DeviceLocation.objects.filter(
+            moc_list=OuterRef('moc_list')
+        ).order_by('-entry_date')
+
         match period:
             case 'month':
                 queryset_gov = pmodels.VerificationInfo.objects.select_related(
-                    'moc_list').prefetch_related('moc_list__device_location').filter(
+                    'moc_list').filter(
                         verification_date__year=Extract(start_date, 'year'),
                         verification_date__month=Extract(start_date, 'month'),
-                        moc_list__verification_type=pmodels.MocList.VerificationType.GOVERNMENTAL).values(
-                            location_name=F('moc_list__device_location__department__name'),
-                            ).annotate(
-                                verification_count=Count('moc_list__moc_type'),
-                                standart_sum=Sum('moc_list__moc_type__standart_verification'),
-                                avg_rank=Avg('moc_list__moc_type__rank_verification')
-                                ).order_by('location_name')
+                        moc_list__verification_type=pmodels.MocList.VerificationType.GOVERNMENTAL
+                        ).annotate(
+                            location_name=Subquery(
+                                latest_device_location_query.values(
+                                    'department__name')[:1]),
+                            ).values(
+                                'location_name',
+                                ).annotate(
+                                    verification_count=Count('id'),
+                                    standart_sum=Sum('moc_list__moc_type__standart_verification'),
+                                    avg_rank=Avg('moc_list__moc_type__rank_verification')
+                                    ).order_by('location_name')
                 queryset_dep = pmodels.VerificationInfo.objects.select_related(
-                    'moc_list').prefetch_related('moc_list__device_location').filter(
+                    'moc_list').filter(
                         verification_date__year=Extract(start_date, 'year'),
                         verification_date__month=Extract(start_date, 'month'),
-                        moc_list__verification_type=pmodels.MocList.VerificationType.DEPARTMENTAL).values(
-                            location_name=F('moc_list__device_location__department__name'),
-                            ).annotate(
-                                verification_count=Count('moc_list__moc_type'),
-                                standart_sum=Sum('moc_list__moc_type__standart_verification'),
-                                avg_rank=Avg('moc_list__moc_type__rank_verification')
-                                ).order_by('location_name')
+                        moc_list__verification_type=pmodels.MocList.VerificationType.DEPARTMENTAL).annotate(
+                            location_name=Subquery(
+                                latest_device_location_query.values(
+                                    'department__name')[:1]),
+                            ).values(
+                                'location_name',
+                                ).annotate(
+                                    verification_count=Count('id'),
+                                    standart_sum=Sum('moc_list__moc_type__standart_verification'),
+                                    avg_rank=Avg('moc_list__moc_type__rank_verification')
+                                    ).order_by('location_name')
             case 'year':
                 queryset_gov = pmodels.VerificationInfo.objects.select_related(
                     'moc_list').prefetch_related('moc_list__device_location').filter(
@@ -62,7 +76,7 @@ class EconomVerifCostsPeriodView(LoginRequiredMixin, TemplateView):
                         moc_list__verification_type=pmodels.MocList.VerificationType.GOVERNMENTAL).values(
                             location_name=F('moc_list__device_location__department__name'),
                             ).annotate(
-                                verification_count=Count('moc_list__moc_type'),
+                                verification_count=Count('id'),
                                 standart_sum=Sum('moc_list__moc_type__standart_verification'),
                                 avg_rank=Avg('moc_list__moc_type__rank_verification')
                                 ).order_by('location_name')
@@ -72,7 +86,7 @@ class EconomVerifCostsPeriodView(LoginRequiredMixin, TemplateView):
                         moc_list__verification_type=pmodels.MocList.VerificationType.DEPARTMENTAL).values(
                             location_name=F('moc_list__device_location__department__name'),
                             ).annotate(
-                                verification_count=Count('moc_list__moc_type'),
+                                verification_count=Count('id'),
                                 standart_sum=Sum('moc_list__moc_type__standart_verification'),
                                 avg_rank=Avg('moc_list__moc_type__rank_verification')
                                 ).order_by('location_name')
@@ -130,6 +144,12 @@ class EconomVerifCostsPeriodView(LoginRequiredMixin, TemplateView):
                              'gov_verification_count': '',
                              'gov_standart_sum': '',
                              'gov_avg_rank': ''}
+
+        for elem in result_queryset:
+            if elem['location_name'] == '"Исп.центр центр"':
+                elem['location_name'] = 'Исп.центр'
+            if elem['location_name'] == 'Тех.центр центр центр':
+                elem['location_name'] = 'Тех.центр'
 
         context['start_date'] = start_date
         context['queryset'] = result_queryset
