@@ -20,6 +20,7 @@ from django.shortcuts import render
 from django.views.generic.edit import BaseFormView
 import tempfile
 from django.db.models import OuterRef, Subquery
+from django.db.models import Prefetch
 
 
 class PassportListView(LoginRequiredMixin, ListView):
@@ -110,13 +111,29 @@ class MocListDetailView(LoginRequiredMixin, DetailView):
     success_url = reverse_lazy('passport')
 
     def get_queryset(self):
-        queryset = models.MocList.objects.prefetch_related(
-            'device_location',
-            'verification_info',
-            'repair_info',
-            'device_status_date',
-            'moc_metals').all()
-        return queryset
+        return models.MocList.objects.prefetch_related(
+            # Сортировка по убыванию (сначала новые)
+            Prefetch(
+                'device_location',
+                queryset=models.DeviceLocation.objects.order_by(
+                    '-entry_date')),
+            Prefetch(
+                'verification_info',
+                queryset=models.VerificationInfo.objects.order_by(
+                    '-entry_date')),
+            Prefetch(
+                'repair_info',
+                queryset=models.RepairInfo.objects.order_by(
+                    '-entry_date')),
+            Prefetch(
+                'device_status_date',
+                queryset=models.DeviceStatusDate.objects.order_by(
+                    '-status_date')),
+            Prefetch(
+                'moc_metals',
+                queryset=models.MocMetals.objects.order_by(
+                    '-id'))
+        )
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -50,6 +50,8 @@ class MocList(models.Model):
 
     sign_o_r = models.CharField(
         verbose_name='Признак',
+        null=True,
+        blank=True,
         max_length=1,
         choices=SignOR.choices,
         default=SignOR.WORKING,
@@ -62,6 +64,8 @@ class MocList(models.Model):
 
     sign_o_m = models.CharField(
         verbose_name='Признак',
+        null=True,
+        blank=True,
         max_length=1,
         choices=SignOM.choices,
         default=SignOM.LOWVALUABLE,
@@ -87,6 +91,8 @@ class MocList(models.Model):
 
     verification_type = models.CharField(
         verbose_name='Вид поверки',
+        null=True,
+        blank=True,
         max_length=1,
         choices=VerificationType.choices,
         default=VerificationType.GOVERNMENTAL,
@@ -232,6 +238,8 @@ class RepairInfo(models.Model):
 
     repair_type = models.CharField(
         verbose_name='Вид ремонта',
+        null=True,
+        blank=True,
         max_length=1,
         choices=RepairType.choices,
         default=RepairType.CURRENT,

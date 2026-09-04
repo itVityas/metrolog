@@ -25,22 +25,26 @@ class MocListForm(forms.ModelForm):
 
     moc_group = MocGroupChoiceField(
         hmodels.MocGroup.objects.all(),
-        label='Наименование прибора'
+        label='Наименование прибора',
+        required=False,
     )
 
     moc_type = MocTypeChoiceField(
         hmodels.MocType.objects.all(),
-        label='Тип'
+        label='Тип',
+        required=False,
     )
 
     change_type = ChangeTypeChoiceField(
         hmodels.ChangeType.objects.all(),
-        label='Вид измерения'
+        label='Вид измерения',
+        required=False,
     )
 
     verification_department = ChangeTypeChoiceField(
         hmodels.VerificationDepartment.objects.all(),
-        label='Поверочное подразделение'
+        label='Поверочное подразделение',
+        required=False,
     )
 
     class Meta:
@@ -90,12 +94,14 @@ class VerificationInfoForm(forms.ModelForm):
 
     verification_person = VerificationPersonChoiceField(
         hmodels.VerificationPerson.objects.all(),
-        label='Поверитель'
+        label='Поверитель',
+        required=False,
     )
 
     verification_sign = VerificationSignChoiceField(
         hmodels.VerificationSign.objects.all(),
-        label='Признак поверки'
+        label='Признак поверки',
+        required=False,
     )
 
     moc_list = MocListChoiceField(
@@ -115,6 +121,7 @@ class VerificationInfoForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'class': 'form-control',
                                       'type': 'date'}),
         initial=datetime.date.today,
+        required=False,
     )
 
     verification_date = forms.DateField(
@@ -122,6 +129,7 @@ class VerificationInfoForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'class': 'form-control',
                                       'type': 'date'}),
         initial=datetime.date.today,
+        required=False,
     )
 
     workshop_issue_date = forms.DateField(
@@ -129,6 +137,7 @@ class VerificationInfoForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'class': 'form-control',
                                       'type': 'date'}),
         initial=datetime.date.today,
+        required=False,
     )
 
     class Meta:
@@ -163,6 +172,7 @@ class RepairInfoForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'class': 'form-control',
                                       'type': 'date'}),
         initial=datetime.date.today,
+        required=False,
     )
 
     entry_repair_date = forms.DateField(
@@ -170,6 +180,7 @@ class RepairInfoForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'class': 'form-control',
                                       'type': 'date'}),
         initial=datetime.date.today,
+        required=False,
     )
 
     repair_date = forms.DateField(
@@ -177,6 +188,7 @@ class RepairInfoForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'class': 'form-control',
                                       'type': 'date'}),
         initial=datetime.date.today,
+        required=False,
     )
 
     moc_list = MocListChoiceField(
@@ -188,21 +200,25 @@ class RepairInfoForm(forms.ModelForm):
     repair = RepairChoiceField(
         hmodels.Repair.objects.all(),
         label='Хар-р ремонта',
+        required=False,
     )
 
     repair_code = RepairCodeChoiceField(
         hmodels.RepairCode.objects.all(),
         label='Кат. ремонта',
+        required=False,
     )
 
     repair_department = RepairDepartmentChoiceField(
         hmodels.RepairDepartment.objects.all(),
         label='Ремонтник',
+        required=False,
     )
 
     instrument_failure = InstrumentFailureChoiceField(
         hmodels.InstrumentFailure.objects.all(),
         label='Причина отказа',
+        required=False,
     )
 
     class Meta:
@@ -225,6 +241,7 @@ class DeviceLocationForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'class': 'form-control',
                                       'type': 'date'}),
         initial=datetime.date.today,
+        required=False,
     )
 
     moc_list = MocListChoiceField(
@@ -236,6 +253,7 @@ class DeviceLocationForm(forms.ModelForm):
     department = DepartmentChoiceField(
         hmodels.Department.objects.all().order_by('workshop'),
         label='Цех - Бригада',
+        required=False,
     )
 
     class Meta:
@@ -258,6 +276,7 @@ class DeviceStatusDateForm(forms.ModelForm):
         widget=forms.TextInput(attrs={'class': 'form-control',
                                       'type': 'date'}),
         initial=datetime.date.today,
+        required=False,
     )
 
     moc_list = MocListChoiceField(
@@ -269,6 +288,7 @@ class DeviceStatusDateForm(forms.ModelForm):
     device_status = DeviceStatusChoiceField(
         hmodels.DeviceStatus.objects.all(),
         label='Статус',
+        required=False,
     )
 
     class Meta:
