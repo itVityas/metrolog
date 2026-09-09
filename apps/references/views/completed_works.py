@@ -8,6 +8,7 @@ from django.db.models import Count, Sum
 from django.db.models import F
 from django.db.models import OuterRef, Subquery
 from collections import Counter
+from decimal import Decimal
 
 
 class CompletedWorksView(LoginRequiredMixin, TemplateView):
@@ -27,7 +28,7 @@ class CompletedWorksView(LoginRequiredMixin, TemplateView):
             moc_list=OuterRef('pk')
             ).exclude(
                 verification_date=None,
-                ).order_by('-id', '-verification_date')
+                ).order_by('-entry_date')
 
         latest_device_status_query = pmodels.DeviceStatusDate.objects.filter(
             moc_list=OuterRef('pk')
@@ -44,7 +45,7 @@ class CompletedWorksView(LoginRequiredMixin, TemplateView):
                         latest_verification_info_query.filter(
                             verification_date__year=Extract(start_date, 'year'),
                             verification_date__month=Extract(start_date, 'month')).values(
-                                'verification_date')),
+                                'verification_date')[:1]),
                     last_location=Subquery(
                         latest_device_location_query.values(
                             'department')[:1]),
@@ -94,18 +95,19 @@ class CompletedWorksView(LoginRequiredMixin, TemplateView):
                 temp_list.clear()
                 temp_list.append(q['inv_number'])
                 prev_type = q
-        result_queryset.append({
-                'name': prev_type['moc_group__name'],
-                'verification_date': prev_type['verification_date'],
-                'type': prev_type['moc_type__type'],
-                'rank_verification': prev_type['moc_type__rank_verification'],
-                'standart_verification': prev_type['moc_type__standart_verification'],
-                'inv_num_list': temp_list.copy()
-            })
+        if prev_type:
+            result_queryset.append({
+                    'name': prev_type['moc_group__name'],
+                    'verification_date': prev_type['verification_date'],
+                    'type': prev_type['moc_type__type'],
+                    'rank_verification': prev_type['moc_type__rank_verification'],
+                    'standart_verification': prev_type['moc_type__standart_verification'],
+                    'inv_num_list': temp_list.copy()
+                })
         temp_list.clear()
 
         sum_queryset = {'total_amount': len(queryset),
-                        'standart_sum': sum(item['moc_type__standart_verification'] for item in queryset)}
+                        'standart_sum': sum(item['moc_type__standart_verification'] if item['moc_type__standart_verification'] is not None else Decimal('0') for item in queryset)}
 
         context['department'] = department.name
         context['start_date'] = start_date

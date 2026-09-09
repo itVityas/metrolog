@@ -14,7 +14,7 @@ class MocPresenceForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['change_type'].choices = [
-            (str(obj.id), obj.name) for obj in hmodels.ChangeType.objects.all()
+            (str(obj.id), obj.name) for obj in hmodels.ChangeType.objects.all().order_by('code')
         ]
 
     class DepartmentChoiceField(ModelChoiceField):
@@ -22,7 +22,7 @@ class MocPresenceForm(forms.Form):
             return "%s" % obj.name
 
     department = DepartmentChoiceField(
-        hmodels.Department.objects.all(),
+        hmodels.Department.objects.all().order_by('workshop'),
         label='Подразделение'
     )
 
@@ -37,7 +37,7 @@ class VerificationLogForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['change_type'].choices = [
-            (str(obj.id), obj.name) for obj in hmodels.ChangeType.objects.all()
+            (str(obj.id), obj.name) for obj in hmodels.ChangeType.objects.all().order_by('code')
         ]
 
     start_date = forms.DateField(
@@ -55,7 +55,7 @@ class ReceiptForm(forms.Form):
             return "%s" % obj.name
 
     department = DepartmentChoiceField(
-        hmodels.Department.objects.all(),
+        hmodels.Department.objects.all().order_by('workshop'),
         label='Подразделение'
     )
 
@@ -67,7 +67,7 @@ class MocIndicatorsForm(forms.Form):
             return "%s" % obj.name
 
     department = DepartmentChoiceField(
-        hmodels.Department.objects.all(),
+        hmodels.Department.objects.all().order_by('workshop'),
         label='Подразделение'
     )
 
@@ -79,7 +79,7 @@ class CompletedWorksForm(forms.Form):
             return "%s" % obj.name
 
     department = DepartmentChoiceField(
-        hmodels.Department.objects.all(),
+        hmodels.Department.objects.all().order_by('workshop'),
         label='Подразделение'
     )
 
@@ -115,7 +115,7 @@ class RepairOperatingTimeForm(forms.Form):
             return "%s" % obj.name
 
     person = RepairDepartmentChoiceField(
-        hmodels.RepairDepartment.objects.all(),
+        hmodels.RepairDepartment.objects.all().order_by('code'),
         label='Ремонтник'
     )
 
@@ -139,7 +139,7 @@ class VerificationOperatingTimeForm(forms.Form):
             return "%s" % obj.fio
 
     person = VerificationPersonChoiceField(
-        hmodels.VerificationPerson.objects.all(),
+        hmodels.VerificationPerson.objects.all().order_by('code'),
         label='Поверитель'
     )
 
@@ -236,6 +236,6 @@ class EconomVerifStandartsForm(forms.Form):
             return "%s" % obj.name
 
     department = DepartmentChoiceField(
-        hmodels.Department.objects.all(),
+        hmodels.Department.objects.all().order_by('workshop'),
         label='Подразделение'
     )
